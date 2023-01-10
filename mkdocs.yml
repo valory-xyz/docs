@@ -29,10 +29,15 @@ extra_css:
  
 
 nav:
-  - Home: 'home.md' 
+  - Home: 'index.md' 
   - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
-  
+  - Products:
+      - Smart Managed Pools: '!include ./autonomous-fund/mkdocs.yml'
+      - ML APY Prediction Oracle: '!include ./apy-oracle/mkdocs.yml'
+      - Price oracle: '!include ./price-oracle/mkdocs.yml'  
+      - Autonolas Contribute: '!include ./price-oracle/mkdocs.yml'
+      - El Collectooorr: '!include ./agent-academy-1/mkdocs.yml'
   
 plugins:
   - monorepo
