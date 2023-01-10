@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "docs"
+version = "0.1.0"
+description = "Autonolas ecosystem developer documentation"
+authors = ["developer-valory <develope@valory.xyz>"]
+license = "Apache-2.0 license"
+
+[tool.poetry.dependencies]
+python = "3.10"
+
+[tool.poetry.dev-dependencies]
+mkdocs-material = "^9.0.3"
+mkdocs-monorepo-plugin = "^1.0.4"
+mkdocs-macros-plugin = "^0.7.0"
+markdown-include = "^0.8.0"
+mkdocs-mermaid-plugin = "^0.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
