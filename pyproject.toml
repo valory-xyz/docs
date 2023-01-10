@@ -6,7 +6,7 @@ authors = ["developer-valory <develope@valory.xyz>"]
 license = "Apache-2.0 license"
 
 [tool.poetry.dependencies]
-python = "3.10"
+python = "^3.10"
 
 [tool.poetry.dev-dependencies]
 mkdocs-material = "^9.0.3"
