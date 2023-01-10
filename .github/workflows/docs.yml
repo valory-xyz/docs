@@ -1,0 +1,51 @@
+name: docs
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  run:
+    continue-on-error: True
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@master
+        with:
+          python-version: '3.10.6'
+          
+      - name: Install dependencies
+        run: |
+          sudo apt-get update --fix-missing
+          sudo apt-get autoremove
+          sudo apt-get autoclean
+          pip install poetry
+          sudo npm install -g markdown-spellcheck
+
+
+      - name: Generate Documentation
+        run: |
+          poetry shell
+          mkdocs build --clean --strict
+          
+      #- name: Check spelling
+      #  run: tox -e spell-check
+
+      - name: markdownlint-cli2-action
+        # You may pin to the exact commit or the version.
+        # uses: DavidAnson/markdownlint-cli2-action@5b7c9f74fec47e6b15667b2cc23c63dff11e449e
+        uses: DavidAnson/markdownlint-cli2-action@v9.0.0
+        with:
+          # Command to run (unset, "fix", or "config")
+          #command: # optional, default is 
+          # Glob expression(s) of files to lint (newline-delimited)
+          globs: /docs/*.md # optional, default is *.{md,markdown}
+          # String to use as a separator for the "globs" input (defaults to newline)
+          #separator: # optional, default is 
+
