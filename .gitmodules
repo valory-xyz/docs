@@ -4,3 +4,18 @@
 [submodule "open-autonomy"]
 	path = open-autonomy
 	url = https://github.com/valory-xyz/open-autonomy
+[submodule "autonomous-fund"]
+	path = autonomous-fund
+	url = https://github.com/valory-xyz/autonomous-fund
+[submodule "apy-oracle"]
+	path = apy-oracle
+	url = https://github.com/valory-xyz/apy-oracle
+[submodule "price-oracle"]
+	path = price-oracle
+	url = https://github.com/valory-xyz/price-oracle
+[submodule "contribution-service"]
+	path = contribution-service
+	url = https://github.com/valory-xyz/contribution-service
+[submodule "agent-academy-1"]
+	path = agent-academy-1
+	url = https://github.com/valory-xyz/agent-academy-1
