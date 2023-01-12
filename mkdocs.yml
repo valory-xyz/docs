@@ -1,7 +1,7 @@
 site_name: Autonolas Developer Documentation
-site_url: https://www.autonolas.network/
+site_url: https://docs.autonolas.network/
 site_description: Developer documentation of Autonolas ecosystem products.
-repo_url: https://github.com/valory-xyz/docs
+#repo_url: https://github.com/valory-xyz/docs
 site_author: developer@valory.xyz
 edit_uri: ""
 copyright:  Copyright &copy; 2021 - 2023 Valory AG 
@@ -30,15 +30,16 @@ extra_css:
 
 nav:
   - Home: 'index.md' 
-  - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
+   #- Open AEA Framework: '!include ./open-aea/mkdocs.yml'
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Products:
-      - Smart Managed Pools: '!include ./autonomous-fund/mkdocs.yml'
+      - Price Oracle: '!include ./price-oracle/mkdocs.yml'
       - ML APY Prediction Oracle: '!include ./apy-oracle/mkdocs.yml'
-      - Price oracle: '!include ./price-oracle/mkdocs.yml'  
-      - Autonolas Contribute: '!include ./price-oracle/mkdocs.yml'
+      - Smart Managed Pools: '!include ./autonomous-fund/mkdocs.yml'
       - El Collectooorr: '!include ./agent-academy-1/mkdocs.yml'
-  
+      - Autonolas Contribute: '!include ./contribution-service/mkdocs.yml'
+
+
 plugins:
   - monorepo
   - macros
@@ -57,8 +58,8 @@ markdown_extensions:
   - pymdownx.arithmatex
   - def_list  
   - md_in_html
-  - markdown_include.include:
-      base_path: ./colearn/docs  
+  - toc:
+      title: On this page        
 
 
 extra:
