@@ -15,3 +15,9 @@ poetry shell
 poetry install --no-root
 mkdocs serve
 ```
+
+or
+
+```bash
+mkdocs build --clean --strict
+```
