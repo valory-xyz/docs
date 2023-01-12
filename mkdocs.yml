@@ -14,6 +14,7 @@ theme:
   name: 'material'
   language: en
   favicon: images/favicon.ico
+  logo: images/logo.png  
   features:
     - navigation.indexes
     - navigation.instant
