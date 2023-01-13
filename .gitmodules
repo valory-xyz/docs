@@ -1,6 +1,3 @@
-[submodule "open-aea"]
-	path = open-aea
-	url = https://github.com/valory-xyz/open-aea
 [submodule "open-autonomy"]
 	path = open-autonomy
 	url = https://github.com/valory-xyz/open-autonomy
