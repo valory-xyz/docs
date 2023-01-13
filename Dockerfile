@@ -20,7 +20,6 @@ WORKDIR /site
 CMD ["python3", "-m", "http.server"]
 
 
-# in production we use nginx; this is just for local testing
 FROM nginx:1.21.3-alpine
 COPY --from=base /build/site /usr/share/nginx/html
 EXPOSE 80

@@ -1,0 +1,35 @@
+name: Build Images
+# Controls when the action will run.
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up tag
+      run: echo export TAG=$(git tag | tail -n 1) > env.sh
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+    - name: Build version tagged images
+      run: |
+        source env.sh
+        docker build -t valory/docs:$TAG . 
+
+    - name: Tag to latest
+      run:  |
+        source env.sh
+        docker tag valory/docs:$TAG valory/docs:latest
+
+    - name: Docker Push
+      run: |
+        source env.sh
+        docker push valory/docs:$TAG 
+        docker push valory/docs:latest
+      

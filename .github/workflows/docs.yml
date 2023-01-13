@@ -11,7 +11,7 @@ on:
 
 jobs:
   run:
-    continue-on-error: True
+    continue-on-error: False
     runs-on: ubuntu-latest
 
     steps:
@@ -55,3 +55,6 @@ jobs:
           # String to use as a separator for the "globs" input (defaults to newline)
           #separator: # optional, default is 
 
+      - name: Check Sub modules
+        run: |
+          make check-diff
