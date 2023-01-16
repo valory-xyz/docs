@@ -7,7 +7,7 @@ license = "Apache-2.0 license"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-tomte = {extras = ["docs"], version = "^0.1.5"}
+tomte = {extras = ["docs"], version = "^0.2.2"}
 mkdocs-monorepo-plugin = "^1.0.4"
 
 [tool.poetry.dev-dependencies]
