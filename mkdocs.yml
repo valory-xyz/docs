@@ -33,12 +33,15 @@ nav:
   - Home: 'index.md' 
    #- Open AEA Framework: '!include ./open-aea/mkdocs.yml'
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
-  - Products:
-      - Price Oracle: '!include ./price-oracle/mkdocs.yml'
-      - ML APY Prediction Oracle: '!include ./apy-oracle/mkdocs.yml'
-      - Smart Managed Pools: '!include ./autonomous-fund/mkdocs.yml'
-      - El Collectooorr: '!include ./agent-academy-1/mkdocs.yml'
-      - Autonolas Contribute: '!include ./contribution-service/mkdocs.yml'
+  - Autonolas Protocol:
+      - 'protocol/index.md'
+  - Toolkits:
+      - 'products/index.md'
+      - SMPKit: '!include ./autonomous-fund/mkdocs.yml'
+      - MintKit: '!include ./agent-academy-1/mkdocs.yml'
+      - CoordinationKit: '!include ./contribution-service/mkdocs.yml'
+      - MLKit: '!include ./apy-oracle/mkdocs.yml'
+      - OracleKit: '!include ./price-oracle/mkdocs.yml'
 
 
 plugins:
@@ -50,13 +53,15 @@ markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.details
+  - pymdownx.keys
   - pymdownx.superfences
   - pymdownx.tabbed:
   - pymdownx.highlight
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - def_list  
   - md_in_html
   - toc:
@@ -71,6 +76,8 @@ extra:
   open_autonomy: '[Open Autonomy](https://github.com/valory-xyz/open-autonomy)'
   open_autonomy_api: '[Open Autonomy API](https://docs.autonolas.network/)'
   on_chain_frontend: '[on-chain protocol frontend](https://protocol.autonolas.network/)'
+  agent_service_link: '[agent service](https://docs.autonolas.network/open-autonomy/get_started/what_is_an_agent_service/)'
+  set_up_system: '[set up your system](https://docs.autonolas.network/open-autonomy/guides/set_up/)'
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/autonolas
@@ -85,4 +92,6 @@ extra:
 
 extra_javascript:
     - https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML  
+    - javascripts/mathjax.js
+    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
