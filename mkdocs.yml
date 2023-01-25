@@ -17,7 +17,6 @@ theme:
   logo: images/logo.png  
   features:
     - navigation.indexes
-    - navigation.instant
     - navigation.top
     - navigation.tracking
     - search.highlight
@@ -62,6 +61,11 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - def_list  
   - md_in_html
   - toc:
