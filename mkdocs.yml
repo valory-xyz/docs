@@ -14,7 +14,10 @@ theme:
   name: 'material'
   language: en
   favicon: images/favicon.ico
-  logo: images/logo.png  
+  logo: images/logo.png
+  icon:
+    admonition:
+      abstract: material/book-open-variant  
   features:
     - navigation.indexes
     - navigation.top

@@ -4,16 +4,20 @@
 ![Protocol](images/protocol.png){ align=left width="150" }
 </figure>
 
-The on-chain protocol anchors the Autonolas autonomous services - and in particular the current incarnation as agent services - on the target settlement layer and provides the primitives needed to create, operate and secure such services. Autonolas benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature.
+The on-chain **Autonolas Protocol** anchors the Autonolas autonomous services - and in particular the current incarnation as agent services - on the target settlement layer and provides the primitives needed to create, operate and secure such services. Autonolas benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature.
 
-From an architectural point of view, the contracts satisfy the following properties:
+From an architectural point of view, the contracts that make up the Autonolas Protocol satisfy the following properties:
 
 * Follow a core-periphery architecture (such as in Uniswap), which allows for changing out periphery functionality without changing the data models at the core.
 * Allow for extension via modules (such as in MakerDAO).
 
 Examples of modules include governance and staking. Governance is particularly important in a modular system, as it is used to vote on the adoption or abandoning of modules. By ensuring an immutable core, the Autonolas protocol provides guarantees that once created, the ecosystem’s agent components, canonical agents, and services are not mutable by governance – an important guarantee of censorship resistance.
 
-The Autonolas on-chain protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services. However, it does not prescribe the usage of the {{open_autonomy}} framework and allows for services to be implemented on alternative frameworks.
+The Autonolas Protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services. However, it does not prescribe the usage of the {{open_autonomy}} framework and allows for services to be implemented on alternative frameworks.
+
+!!! abstract "Learn more"
+
+    Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the [Autonolas Whitepaper](https://autonolas.network/whitepaper/autonolas-whitepaper.pdf) for the full details of the **Autonolas Protocol**.
 
 ## Core Smart Contracts
 
