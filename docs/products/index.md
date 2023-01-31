@@ -8,7 +8,7 @@
 ![OracleKit](../images/oraclekit.svg){ align=left width=50}
 </figure>
 
-Autonolas toolkits are code repositories that you can fork to bootstrap common autonomous services.
+**Autonolas Toolkits** are code repositories that you can fork to bootstrap common autonomous services.
 
 !!! abstract "Learn more"
 
