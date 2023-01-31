@@ -1,7 +1,5 @@
 # Autonolas Developer Documentation
 
-Welcome to the Autonolas Developer Documentation pages. These pages aim at providing in-depth, technical background about the [Autonolas Ecosystem](#the-autonolas-ecosystem).
-
 Autonolas' mission is to provide a foundation on which new types of autonomous applications can be built, which can:
 
 * Run continuously.
@@ -23,7 +21,7 @@ The Autonolas Ecosystem is composed of three main components:
 
 * The [Open Autonomy framework](https://docs.autonolas.network/open-autonomy/).
 * The on-chain [Autonolas Protocol](https://docs.autonolas.network/protocol/).
-* A number of autonomous services which can be built conveniently with the provided [toolkits](https://docs.autonolas.network/products/).
+* A number of autonomous services which can be conveniently built with the provided [toolkits](https://docs.autonolas.network/products/).
 
 ## Get involved
 
