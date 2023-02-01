@@ -6,7 +6,7 @@ Release of Autonolas Developer Documentation
 
 Frameworks
 
-* Open Autonomy Framework: open-autonomy https://github.com/valory-xyz/open-autonomy (v0.8.0-1-gcd1f7ff77)
+* Open Autonomy Framework: open-autonomy https://github.com/valory-xyz/open-autonomy (v0.8.0-2-g6c24fe291)
 
 Toolkits
 
