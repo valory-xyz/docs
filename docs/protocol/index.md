@@ -17,7 +17,7 @@ The Autonolas Protocol is built with the {{open_autonomy}} framework in mind as 
 
 !!! abstract "Learn more"
 
-    Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the [Autonolas Whitepaper](https://autonolas.network/whitepaper/autonolas-whitepaper.pdf) for the full details of the **Autonolas Protocol**.
+    Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the [Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf) for the full details of the **Autonolas Protocol**.
 
 ## Core Smart Contracts
 
