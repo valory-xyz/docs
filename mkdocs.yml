@@ -15,6 +15,9 @@ theme:
   language: en
   favicon: images/favicon.ico
   logo: images/logo.svg  
+  icon:
+    admonition:
+      abstract: material/book-open-variant  
   features:
     - navigation.indexes
     - navigation.top
