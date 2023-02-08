@@ -46,7 +46,7 @@
   font-family: var(--md-heading-font);
 }
 
-.md-nav__title {
+.md-nav--primary .md-nav__title {
   display: none;
 }
 
