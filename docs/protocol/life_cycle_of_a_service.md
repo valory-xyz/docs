@@ -41,7 +41,7 @@ This state is reached once all the available slots for agent instances are fille
 
 #### Available actions
 
-* The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in this screen are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values and press the _Submit_ button. This will move the service to the _deployed_ state.
+* The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in this screen are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. Press the _Submit_ button to transit to the _deployed_ state.
 * The service owner can terminate the service by pressing the _Terminate_ button.
 
 The connected wallet will ask to approve any transaction.
@@ -60,7 +60,7 @@ The connected wallet will ask to approve any transaction.
 
 ## Terminated bonded
 
-This state is reached whenever the service owner terminates the service at any given state above. The service is waiting for the owner to unbond the registered agents.
+This state is reached whenever the service owner terminates the service at any given state above. The service is waiting for the owner to unbond all registered agents.
 
 #### Available actions
 
