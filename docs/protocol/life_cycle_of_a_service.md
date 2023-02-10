@@ -12,30 +12,58 @@ You can see the current state of a service by browsing the [services section](ht
 ![Life cycle of a service](images/life_cycle_of_a_service.svg){ align=left width=600 }
 </figure>
 
-Only the service owner can change the state of a given service. Connect your wallet to the frontend in order to make changes.
+Most of the service state changes are triggered by the service owner. However, some state transitions are also triggered when certain conditions are met (e.g., when an operator registers the last available agent instance in the _active registration_ state). Connect your wallet to the frontend in order to make changes.
 
 ## Pre-registration
 
 A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in pre-registration state.
-In this state the service owner can make amendments by pressing the button _Update_.
-Press the button _Activate Registration_ to advance to the next state. The connected wallet will ask to approve the transaction.
+
+#### Available actions
+
+* The service owner can make amendments by pressing the _Update_ button.
+* The service owner can advance to the _active registration_ state by pressing the _Activate Registration_ button.
+
+The connected wallet will ask to approve any transaction.
 
 ## Active registration
 
-Agent operators must specify the addresses (starting by `0x...`) of their agent instances that are part of the service, and press _Register Agents_ to associate them with the service.
+In this state the service is waiting for agent operators to register their agent instances on the service.
+#### Available actions
 
-Once all agent instances have been registered, the service owner can press the button _Terminate_ to proceed to the next state. Wallets will ask to approve the transactions.
+* Agent operators can register their agent instances in the service by specifying their addresses (starting with `0x...`) and pressing the _Register Agents_ button. When the last agent instance slot is filled, the service state will transit to the _finished registration_ state automatically.
+* The service owner can terminate the service by pressing the _Terminate_ button.
+
+The connected wallet will ask to approve any transaction.
 
 ## Finished Registration
 
-The goal of this state is to deploy the [Gnosis Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in this screen are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values and press the button _Submit_. The connected wallet will ask to approve the transaction.
+This state is reached once all the available slots for agent instances are filled and is waiting for the service owner to continue transiting to the next state.
+
+#### Available actions
+
+* The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in this screen are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values and press the _Submit_ button. This will move the service to the _deployed_ state.
+* The service owner can terminate the service by pressing the _Terminate_ button.
+
+The connected wallet will ask to approve any transaction.
 
 ## Deployed
 
 Congratulations! Your service is now in the **Deployed** state!
 
-This is the default operational state of an active service. Agent operators can turn on their agent instances at this point. The service owner can terminate the operation of the service by pressing the button _Terminate_. The connected wallet will ask to approve the transaction.
+This is the default operational state of an active service. Agent operators can turn on their agent instances at this point.
+
+#### Available actions
+
+* The service owner can terminate the service by pressing the _Terminate_ button.
+
+The connected wallet will ask to approve any transaction.
 
 ## Terminated bonded
 
-A terminated service can be reactivated again by unbonding its registered agents. The service owner can do so by pressing the button _Unbond_. Once again, the connected wallet will ask to approve the transaction. The service will transit to the **pre-registration** state, enabling the registration of new agent instances.
+This state is reached whenever the service owner terminates the service at any given state above. The service is waiting for the owner to unbond the registered agents.
+
+#### Available actions
+
+* The service owner can unbond the registered agent instances by pressing the _Unbond_ button. The service will transit to the **pre-registration** state, enabling the registration of new agent instances.
+
+The connected wallet will ask to approve any transaction.

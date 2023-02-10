@@ -76,7 +76,8 @@ markdown_extensions:
   - def_list  
   - md_in_html
   - toc:
-      title: On this page        
+      title: On this page
+      toc_depth: 3          
 
 
 extra:
