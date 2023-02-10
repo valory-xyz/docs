@@ -1,6 +1,6 @@
 # Release History - Autonolas Documentation
 
-# v0.8.0.post5 (2023-02-01)
+# v0.8.0.post5 (2023-02-10)
 
 * Updates Autonolas Protocol section.
 
