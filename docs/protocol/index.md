@@ -4,7 +4,7 @@
 ![Autonolas Protocol logo](images/protocol.png){ align=left width="150" }
 </figure>
 
-The on-chain **Autonolas Protocol** anchors the Autonolas autonomous services - and in particular the current incarnation as agent services - on the target settlement layer and provides the primitives needed to create, operate and secure such services. Autonolas benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature.
+The on-chain **Autonolas Protocol** anchors the Autonolas autonomous services -and in particular the current incarnation as agent services- on the target settlement layer and provides the primitives needed to create, operate and secure such services. Autonolas benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature.
 
 From an architectural point of view, the contracts that make up the Autonolas Protocol satisfy the following properties:
 
