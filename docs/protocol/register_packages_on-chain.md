@@ -2,7 +2,7 @@ This guide describes how to register software packages in the Autonolas Protocol
 
 ## How packages are registered
 
-To register a package in the protocol, it must have been already published into a remote (IPFS) registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
+To register a package (also referred to as _unit_) in the protocol, it must have been already published into a remote (IPFS) registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
 
 The process of registering a package comprises the creation of a **metadata file** which contains a pointer to the IPFS hash of the published software package itself, plus some other additional information required by the protocol. This metadata file is also stored in the IPFS registry. The [protocol frontend](https://protocol.autonolas.network/) will automatically create and publish the metadata file based on the package/unit information and the information provided in the registration form. Then, it will interact with the protocol smart contracts to complete the registration of your package on-chain.
 
