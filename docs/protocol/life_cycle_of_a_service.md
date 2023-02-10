@@ -1,55 +1,55 @@
 The life cycle of a service registered in the Autonolas Protocol passes through the following states:
 
-* pre-registration,
-* active registration,
-* finished registration,
-* deployed, and
-* terminated bonded.
+1. Pre-Registration
+2. Active Registration
+3. Finished Registration
+4. Deployed
+5. Terminated Bonded
 
-You can see the current state of a service by browsing the [services section](https://protocol.autonolas.network/services) in the frontend, and clicking on the corresponding service.
+!!! example
+
+    Look at [this service](https://protocol.autonolas.network/services/1) on the Protocol app to see the current state of a live service.
+
+The figure below summarizes the life cycle and the actions that provoke a transition between states. Most of the service state transitions are initiated by the service owner. However, some state transitions are also triggered automatically. For example, when an operator registers the last available agent instance in the _Active Registration_ state, the service will automatically transit to the _Finished Registration_ state.
 
 <figure markdown>
 ![Life cycle of a service](images/life_cycle_of_a_service.svg){ align=left width=600 }
 </figure>
 
-Most of the service state changes are triggered by the service owner. However, some state transitions are also triggered when certain conditions are met (e.g., when an operator registers the last available agent instance in the _active registration_ state). Connect your wallet to the frontend in order to make changes.
+## Service states
 
-## Pre-registration
+This section details the states of a service registered in the Autonolas Protocol, as well as how to transit from each other. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
 
-A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in pre-registration state.
+### Pre-Registration
+
+A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in _Pre-Registration_ state.
 
 **Available actions:**
 
 * The service owner can make amendments by pressing the _Update_ button.
-* The service owner can advance to the _active registration_ state by pressing the _Activate Registration_ button.
+* The service owner can advance to the _Active Registration_ state by pressing the _Activate Registration_ button.
 
-The connected wallet will ask to approve any transaction.
-
-## Active registration
+### Active Registration
 
 In this state the service is waiting for agent operators to register their agent instances on the service.
 
 **Available actions:**
 
-* Agent operators can register their agent instances in the service by specifying their addresses (starting with `0x...`) and pressing the _Register Agents_ button. When the last agent instance slot is filled, the service state will transit to the _finished registration_ state automatically.
+* Agent operators can register their agent instances in the service by specifying their addresses (starting with `0x...`) and pressing the _Register Agents_ button. When the last agent instance slot is filled, the service state will transit to the _Finished Registration_ state automatically.
 * The service owner can terminate the service by pressing the _Terminate_ button.
 
-The connected wallet will ask to approve any transaction.
-
-## Finished Registration
+### Finished Registration
 
 This state is reached once all the available slots for agent instances are filled and is waiting for the service owner to continue transiting to the next state.
 
 **Available actions:**
 
-* The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in this screen are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. Press the _Submit_ button to transit to the _deployed_ state.
+* The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in this screen are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. Press the _Submit_ button to transit to the _Deployed_ state.
 * The service owner can terminate the service by pressing the _Terminate_ button.
 
-The connected wallet will ask to approve any transaction.
+### Deployed
 
-## Deployed
-
-Congratulations! Your service is now in the **Deployed** state!
+Congratulations! Your service is now in the _Deployed_ state!
 
 This is the default operational state of an active service. Agent operators can turn on their agent instances at this point.
 
@@ -57,14 +57,10 @@ This is the default operational state of an active service. Agent operators can 
 
 * The service owner can terminate the service by pressing the _Terminate_ button.
 
-The connected wallet will ask to approve any transaction.
-
-## Terminated bonded
+### Terminated Bonded
 
 This state is reached whenever the service owner terminates the service at any given state above. The service is waiting for the owner to unbond all registered agents.
 
 **Available actions:**
 
-* The service owner can unbond the registered agent instances by pressing the _Unbond_ button. The service will transit to the **pre-registration** state, enabling the registration of new agent instances.
-
-The connected wallet will ask to approve any transaction.
+* The service owner can unbond the registered agent instances by pressing the _Unbond_ button. The service will transit to the _Pre-Registration_ state, enabling the registration of new agent instances.

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    id="Layer_1"
-   viewBox="-20 -25 849.99999 1650.0001"
+   viewBox="-20 -25 849.99999 1450.0001"
    version="1.1"
    sodipodi:docname="life_cycle_of_a_service.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
    width="850"
-   height="1650"
+   height="1450"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,9 +22,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.92091041"
-     inkscape:cx="802.46677"
-     inkscape:cy="1482.2289"
+     inkscape:zoom="0.65118199"
+     inkscape:cx="959.79313"
+     inkscape:cy="732.51411"
      inkscape:window-width="2232"
      inkscape:window-height="1331"
      inkscape:window-x="26"
@@ -33,27 +33,27 @@
      inkscape:current-layer="Layer_1"
      showguides="true">
     <sodipodi:guide
-       position="268.59745,1189.1751"
+       position="287.25956,487.64333"
        orientation="1,0"
        id="guide7134"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="305.24596,1410.0164"
+       position="319.05448,183.89503"
        orientation="1,0"
        id="guide7507"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="378.92374,1635.3151"
+       position="378.92374,1435.3151"
        orientation="1,0"
        id="guide7509"
        inkscape:locked="false" />
     <inkscape:grid
        type="xygrid"
        id="grid8463"
-       originx="-79.156244"
-       originy="-47.775015" />
+       originx="-79.156239"
+       originy="-47.77503" />
     <sodipodi:guide
-       position="611.74378,235.17492"
+       position="611.74378,35.174916"
        orientation="1,0"
        id="guide8996"
        inkscape:locked="false" />
@@ -312,77 +312,69 @@
   </defs>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
-     x="303.81042"
-     y="1304.985"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     x="335.81042"
+     y="1108.985"
      id="text5145"><tspan
        sodipodi:role="line"
        id="tspan5143"
-       x="303.81042"
-       y="1304.985">Service is deployed</tspan></text>
+       x="335.81042"
+       y="1108.985">Deployed</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
      x="304.9823"
-     y="1583.4449"
+     y="1387.4449"
      id="text5145-9"><tspan
        sodipodi:role="line"
        x="304.9823"
-       y="1583.4449"
-       id="tspan5648">Service is in</tspan><tspan
-       sodipodi:role="line"
-       x="304.9823"
-       y="1608.4449"
-       id="tspan14155">terminated bonded</tspan></text>
+       y="1387.4449"
+       id="tspan14155">Terminated Bonded</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
      x="303.81042"
-     y="703.005"
+     y="541.005"
      id="text5031"><tspan
        sodipodi:role="line"
-       id="tspan5029"
        x="303.81042"
-       y="703.005">Service is in</tspan><tspan
-       sodipodi:role="line"
-       x="303.81042"
-       y="728.005"
-       id="tspan5033">active registration</tspan></text>
+       y="541.005"
+       id="tspan5033">Active Registration</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
      x="611.58752"
-     y="1385.6649"
+     y="1189.6649"
      id="text6115"><tspan
        sodipodi:role="line"
        id="tspan6113"
        x="611.58752"
-       y="1385.6649">Agent operators</tspan><tspan
+       y="1189.6649">Agent operators</tspan><tspan
        sodipodi:role="line"
        x="611.58752"
-       y="1410.6649"
+       y="1214.6649"
        id="tspan6123">turn on their agents.</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
      x="611.58752"
-     y="866.39496"
+     y="670.39496"
      id="text6107"><tspan
        sodipodi:role="line"
        id="tspan6105"
        x="611.58752"
-       y="866.39496">Agent operators</tspan><tspan
+       y="670.39496">Agent operators</tspan><tspan
        sodipodi:role="line"
        x="611.58752"
-       y="891.39496"
+       y="695.39496"
        id="tspan6109">register to operate</tspan><tspan
        sodipodi:role="line"
        x="611.58752"
-       y="916.39496"
+       y="720.39496"
        id="tspan6111">agent instances.</tspan></text>
   <g
      id="g516"
-     transform="translate(532.0275,-47.775)">
+     transform="translate(532.0275,-243.775)">
     <circle
        class="cls-24"
        cx="155.87"
@@ -398,10 +390,10 @@
   </g>
   <g
      id="g530"
-     transform="translate(532.0275,-47.775)">
+     transform="translate(532.0275,-243.775)">
     <polygon
        class="cls-5"
-       points="149.15,786.22 147.75,786.22 147.75,787.72 146.53,787.72 146.53,813.05 147.75,813.05 147.75,814.47 149.15,814.47 149.15,815.97 162.59,815.97 162.59,814.47 163.99,814.47 163.99,813.05 165.2,813.05 165.2,787.72 163.99,787.72 163.99,786.22 162.59,786.22 162.59,784.72 149.15,784.72 "
+       points="149.15,814.47 149.15,815.97 162.59,815.97 162.59,814.47 163.99,814.47 163.99,813.05 165.2,813.05 165.2,787.72 163.99,787.72 163.99,786.22 162.59,786.22 162.59,784.72 149.15,784.72 149.15,786.22 147.75,786.22 147.75,787.72 146.53,787.72 146.53,813.05 147.75,813.05 147.75,814.47 "
        id="polygon518" />
     <rect
        x="150.3"
@@ -439,7 +431,7 @@
   </g>
   <g
      id="g536"
-     transform="translate(532.0275,-47.775)">
+     transform="translate(532.0275,-243.775)">
     <circle
        class="cls-54"
        cx="110.75"
@@ -453,7 +445,7 @@
   </g>
   <g
      id="g542"
-     transform="translate(532.0275,-47.775)">
+     transform="translate(532.0275,-243.775)">
     <circle
        class="cls-62"
        cx="155.87"
@@ -467,7 +459,7 @@
   </g>
   <g
      id="g548"
-     transform="translate(532.0275,-47.775)">
+     transform="translate(532.0275,-243.775)">
     <circle
        cx="197.00999"
        cy="830.84998"
@@ -477,85 +469,29 @@
        d="m 196.94,843.54 v 0 c 8.6,0 15.59,6.98 15.59,15.59 v 18.12 H 181.5 v -18.26 c 0,-8.52 6.92,-15.44 15.44,-15.44 z"
        id="path546" />
   </g>
-  <g
-     id="g608"
-     transform="translate(-95.15625,-47.775)">
-    <path
-       class="cls-29"
-       d="m 470,71.48 v 4.38 h -4.38 l -3.46,-3.46 c -0.15,-0.15 -0.41,-0.09 -0.48,0.11 -0.34,0.99 -0.5,2.07 -0.43,3.19 0.26,3.94 3.42,7.15 7.36,7.48 1.02,0.08 2,-0.02 2.91,-0.29 0.43,-0.12 0.88,0 1.2,0.32 l 19.62,19.62 c 1.26,1.26 3.31,1.26 4.58,0 l 0.16,-0.16 c 1.21,-1.21 1.21,-3.17 0,-4.37 L 477.36,78.58 c -0.32,-0.32 -0.45,-0.78 -0.33,-1.21 0.26,-0.91 0.37,-1.89 0.28,-2.91 -0.33,-3.94 -3.54,-7.09 -7.48,-7.35 -1.17,-0.08 -2.28,0.09 -3.3,0.47 -0.15,0.05 -0.19,0.25 -0.08,0.36 l 3.54,3.54 z"
-       id="path604" />
-    <circle
-       class="cls-24"
-       cx="494.63"
-       cy="100.29"
-       r="1.7"
-       id="circle606" />
-  </g>
-  <path
-     class="cls-3"
-     d="m 388.08375,74.975 h -7.65 l -3.26,-6.65 c -0.63,-0.15 -1.26,-0.32 -1.88,-0.51 l -6.36,3.97 -6.62,-3.82 0.51,-7.39 c -0.47,-0.44 -0.92,-0.9 -1.36,-1.37 l -7.5,0.26 -3.82,-6.62 4.13,-6.14 c -0.18,-0.62 -0.35,-1.25 -0.5,-1.88 l -6.62,-3.52 v -7.65 l 6.65,-3.26 c 0.15,-0.63 0.32,-1.26 0.51,-1.88 l -3.97,-6.36 3.82,-6.62 7.39,0.51 c 0.44,-0.47 0.9,-0.92 1.37,-1.36 l -0.26,-7.5 6.62,-3.82 6.14,4.13 c 0.62,-0.18 1.25,-0.35 1.88,-0.5 l 3.52,-6.62 h 7.65 l 3.26,6.65 c 0.63,0.15 1.26,0.32 1.88,0.51 l 6.36,-3.97 6.62,3.82 -0.51,7.39 c 0.47,0.44 0.92,0.9 1.36,1.37 l 7.5,-0.26 3.82,6.62 -4.13,6.14 c 0.18,0.62 0.35,1.25 0.5,1.88 l 6.62,3.52 v 7.65 l -6.65,3.26 c -0.15,0.63 -0.32,1.26 -0.51,1.88 l 3.97,6.36 -3.82,6.62 -7.39,-0.51 c -0.44,0.47 -0.9,0.92 -1.37,1.36 l 0.26,7.5 -6.62,3.82 -6.14,-4.13 c -0.62,0.18 -1.25,0.35 -1.88,0.5 z"
-     id="path610" />
-  <text
-     class="cls-28"
-     id="text614"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="278.34158"
-     y="118.775"><tspan
-       x="278.34158"
-       y="118.775"
-       id="tspan612"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">1.</tspan></text>
-  <text
-     class="cls-26"
-     id="text636"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="315.81042"
-     y="117.895"><tspan
-       sodipodi:role="line"
-       id="tspan2892"
-       x="315.81042"
-       y="117.895"><tspan
-         class="cls-67"
-         x="315.81042"
-         y="117.895"
-         id="tspan616"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service is</tspan></tspan><tspan
-       sodipodi:role="line"
-       id="tspan2894"
-       x="315.81042"
-       y="142.89499">non-existent</tspan></text>
   <text
      class="cls-28"
      id="text642"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="267.01541"
-     y="414.82501"><tspan
+     y="282.82501"><tspan
        x="267.01541"
-       y="414.82501"
+       y="282.82501"
        id="tspan640"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">2.</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">1.</tspan></text>
   <text
      class="cls-26"
      id="text664"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="303.81042"
-     y="414.82501"><tspan
+     y="282.82501"><tspan
        sodipodi:role="line"
        x="303.81042"
-       y="414.82501"
-       id="tspan2889"><tspan
-   class="cls-67"
-   x="303.81042"
-   y="414.82501"
-   id="tspan644"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service is in</tspan></tspan><tspan
-       sodipodi:role="line"
-       x="303.81042"
-       y="439.82501"
-       id="tspan14143">pre-registration</tspan></text>
+       y="282.82501"
+       id="tspan14143">Pre-Registration</tspan></text>
   <g
      id="g698"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-179.775)">
     <g
        id="g674">
       <path
@@ -653,14 +589,14 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ff0000;stroke-width:11.2222" /></text>
   <g
      id="g730"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-209.775)">
     <polygon
        class="cls-54"
-       points="498.34,667.79 498.34,656.94 509.12,663.82 508.92,664.13 498.71,657.61 498.71,667.58 509.12,674.15 508.92,674.46 "
+       points="509.12,663.82 508.92,664.13 498.71,657.61 498.71,667.58 509.12,674.15 508.92,674.46 498.34,667.79 498.34,656.94 "
        id="polygon702" />
     <polygon
        class="cls-54"
-       points="508.73,674.16 519.14,667.59 519.14,657.62 508.93,664.14 508.73,663.83 519.5,656.95 519.5,667.79 508.93,674.47 "
+       points="519.14,657.62 508.93,664.14 508.73,663.83 519.5,656.95 519.5,667.79 508.93,674.47 508.73,674.16 519.14,667.59 "
        id="polygon704" />
     <line
        class="cls-4"
@@ -671,15 +607,15 @@
        id="line706" />
     <polygon
        class="cls-54"
-       points="508.9,663.83 519.51,656.95 509.09,650.12 498.35,656.94 "
+       points="509.09,650.12 498.35,656.94 508.9,663.83 519.51,656.95 "
        id="polygon708" />
     <polygon
        class="cls-54"
-       points="522.99,680.34 522.99,669.49 533.77,676.37 533.57,676.68 523.36,670.16 523.36,680.13 533.77,686.7 533.57,687.01 "
+       points="533.77,676.37 533.57,676.68 523.36,670.16 523.36,680.13 533.77,686.7 533.57,687.01 522.99,680.34 522.99,669.49 "
        id="polygon710" />
     <polygon
        class="cls-54"
-       points="533.38,686.71 543.79,680.14 543.79,670.17 533.58,676.69 533.38,676.38 544.16,669.5 544.16,680.35 533.58,687.02 "
+       points="543.79,670.17 533.58,676.69 533.38,676.38 544.16,669.5 544.16,680.35 533.58,687.02 533.38,686.71 543.79,680.14 "
        id="polygon712" />
     <line
        class="cls-4"
@@ -690,15 +626,15 @@
        id="line714" />
     <polygon
        class="cls-54"
-       points="533.55,676.38 544.16,669.5 533.74,662.67 523,669.5 "
+       points="533.74,662.67 523,669.5 533.55,676.38 544.16,669.5 "
        id="polygon716" />
     <polygon
        class="cls-54"
-       points="546.9,692.56 546.9,681.71 557.68,688.6 557.48,688.91 547.27,682.38 547.27,692.36 557.67,698.92 557.48,699.23 "
+       points="557.68,688.6 557.48,688.91 547.27,682.38 547.27,692.36 557.67,698.92 557.48,699.23 546.9,692.56 546.9,681.71 "
        id="polygon718" />
     <polygon
        class="cls-54"
-       points="557.29,698.93 567.7,692.36 567.7,682.39 557.49,688.91 557.29,688.6 568.06,681.72 568.06,692.57 557.49,699.24 "
+       points="567.7,682.39 557.49,688.91 557.29,688.6 568.06,681.72 568.06,692.57 557.49,699.24 557.29,698.93 567.7,692.36 "
        id="polygon720" />
     <line
        class="cls-4"
@@ -709,7 +645,7 @@
        id="line722" />
     <polygon
        class="cls-54"
-       points="557.46,688.6 568.06,681.72 557.65,674.89 546.91,681.72 "
+       points="557.65,674.89 546.91,681.72 557.46,688.6 568.06,681.72 "
        id="polygon724" />
     <line
        class="cls-4"
@@ -729,16 +665,16 @@
   <text
      class="cls-28"
      id="text734"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="267.25955"
-     y="707.59497"><tspan
+     y="540.58313"><tspan
        x="267.25955"
-       y="707.59497"
+       y="540.58313"
        id="tspan732"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">3.</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">2.</tspan></text>
   <g
      id="g768"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-209.775)">
     <g
        id="g764">
       <path
@@ -769,7 +705,7 @@
   </g>
   <g
      id="g774"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-209.775)">
     <circle
        cx="364.73999"
        cy="652.52002"
@@ -781,29 +717,59 @@
   </g>
   <path
      class="cls-15"
-     d="m 403.92375,604.075 3.64,3.64 c 0.28,0.28 0.28,0.74 0,1.02 l -3.57,3.57"
+     d="m 403.92375,442.075 3.64,3.64 c 0.28,0.28 0.28,0.74 0,1.02 l -3.57,3.57"
      id="path776" />
   <path
      class="cls-9"
-     d="m 342.59375,626.345 h 26.22 c 3.69,0 6.67,-2.99 6.67,-6.67 v -4.81 c 0,-3.69 2.99,-6.67 6.67,-6.67 h 25.62"
+     d="m 342.59375,464.345 h 26.22 c 3.69,0 6.67,-2.99 6.67,-6.67 v -4.81 c 0,-3.69 2.99,-6.67 6.67,-6.67 h 25.62"
      id="path778" />
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
      x="303.81042"
-     y="1002.095"
+     y="806.09497"
      id="text5089"><tspan
        sodipodi:role="line"
-       id="tspan5087"
        x="303.81042"
-       y="1002.095">Service is in</tspan><tspan
+       y="806.09497"
+       id="tspan5091">Finished</tspan><tspan
        sodipodi:role="line"
        x="303.81042"
-       y="1027.095"
-       id="tspan5091">finished registration</tspan></text>
+       y="836.09497"
+       id="tspan17651">Registration</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     x="267.25955"
+     y="805.35669"
+     id="text5089-7"><tspan
+       sodipodi:role="line"
+       x="267.25955"
+       y="805.35669"
+       id="tspan17651-1">3.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     x="298.27655"
+     y="1108.2467"
+     id="text5089-7-5"><tspan
+       sodipodi:role="line"
+       x="298.27655"
+       y="1108.2467"
+       id="tspan17651-1-9">4.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+     x="266.18143"
+     y="1386.7067"
+     id="text5089-7-5-7"><tspan
+       sodipodi:role="line"
+       x="266.18143"
+       y="1386.7067"
+       id="tspan17651-1-9-7">5.</tspan></text>
   <g
      id="g806"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <path
        class="cls-54"
        d="m 440.13,938.46 v 5.05 h -5.05 l -3.99,-3.99 c -0.17,-0.17 -0.47,-0.11 -0.55,0.13 -0.4,1.14 -0.58,2.38 -0.49,3.68 0.3,4.54 3.94,8.24 8.48,8.62 1.17,0.1 2.3,-0.03 3.36,-0.33 0.49,-0.14 1.02,0.01 1.38,0.37 l 22.62,22.62 c 1.46,1.46 3.82,1.46 5.28,0 l 0.18,-0.18 c 1.39,-1.39 1.39,-3.65 0,-5.04 l -22.73,-22.73 c -0.36,-0.36 -0.52,-0.9 -0.37,-1.39 0.3,-1.05 0.43,-2.18 0.33,-3.35 -0.38,-4.54 -4.08,-8.17 -8.62,-8.48 -1.34,-0.09 -2.63,0.11 -3.81,0.54 -0.17,0.06 -0.22,0.29 -0.09,0.42 l 4.08,4.08 z"
@@ -827,51 +793,21 @@
   </g>
   <path
      class="cls-16"
-     d="m 376.23375,949.785 h -8.82 l -3.75,-7.67 c -0.73,-0.17 -1.45,-0.37 -2.16,-0.58 l -7.33,4.58 -7.64,-4.41 0.58,-8.52 c -0.54,-0.51 -1.06,-1.04 -1.57,-1.58 l -8.65,0.3 -4.41,-7.64 4.76,-7.08 c -0.21,-0.71 -0.41,-1.44 -0.57,-2.16 l -7.63,-4.06 v -8.82 l 7.67,-3.75 c 0.17,-0.73 0.37,-1.45 0.58,-2.16 l -4.58,-7.33 4.41,-7.64 8.52,0.58 c 0.51,-0.54 1.04,-1.06 1.58,-1.57 l -0.3,-8.65 7.64,-4.41 7.08,4.76 c 0.71,-0.21 1.44,-0.41 2.16,-0.57 l 4.06,-7.63 h 8.82 l 3.75,7.67 c 0.73,0.17 1.45,0.37 2.16,0.58 l 7.33,-4.58 7.64,4.41 -0.58,8.52 c 0.54,0.51 1.06,1.04 1.57,1.58 l 8.65,-0.3 4.41,7.64 -4.76,7.08 c 0.21,0.71 0.41,1.44 0.57,2.16 l 7.63,4.06 v 8.82 l -7.67,3.75 c -0.17,0.73 -0.37,1.45 -0.58,2.16 l 4.58,7.33 -4.41,7.64 -8.52,-0.58 c -0.51,0.54 -1.04,1.06 -1.58,1.57 l 0.3,8.65 -7.64,4.41 -7.08,-4.76 c -0.71,0.21 -1.44,0.4 -2.16,0.57 z"
+     d="m 376.23375,753.785 h -8.82 l -3.75,-7.67 c -0.73,-0.17 -1.45,-0.37 -2.16,-0.58 l -7.33,4.58 -7.64,-4.41 0.58,-8.52 c -0.54,-0.51 -1.06,-1.04 -1.57,-1.58 l -8.65,0.3 -4.41,-7.64 4.76,-7.08 c -0.21,-0.71 -0.41,-1.44 -0.57,-2.16 l -7.63,-4.06 v -8.82 l 7.67,-3.75 c 0.17,-0.73 0.37,-1.45 0.58,-2.16 l -4.58,-7.33 4.41,-7.64 8.52,0.58 c 0.51,-0.54 1.04,-1.06 1.58,-1.57 l -0.3,-8.65 7.64,-4.41 7.08,4.76 c 0.71,-0.21 1.44,-0.41 2.16,-0.57 l 4.06,-7.63 h 8.82 l 3.75,7.67 c 0.73,0.17 1.45,0.37 2.16,0.58 l 7.33,-4.58 7.64,4.41 -0.58,8.52 c 0.54,0.51 1.06,1.04 1.57,1.58 l 8.65,-0.3 4.41,7.64 -4.76,7.08 c 0.21,0.71 0.41,1.44 0.57,2.16 l 7.63,4.06 v 8.82 l -7.67,3.75 c -0.17,0.73 -0.37,1.45 -0.58,2.16 l 4.58,7.33 -4.41,7.64 -8.52,-0.58 c -0.51,0.54 -1.04,1.06 -1.58,1.57 l 0.3,8.65 -7.64,4.41 -7.08,-4.76 c -0.71,0.21 -1.44,0.4 -2.16,0.57 z"
      id="path808" />
   <circle
      class="cls-54"
      cx="329.87375"
-     cy="936.755"
+     cy="740.755"
      r="28.459999"
      id="circle810" />
   <path
      class="cls-17"
-     d="m 317.67375,937.355 6.73,6.73 c 1.07,1.07 2.82,1.07 3.89,0 l 14.92,-14.92"
+     d="m 317.67375,741.355 6.73,6.73 c 1.07,1.07 2.82,1.07 3.89,0 l 14.92,-14.92"
      id="path812" />
-  <text
-     class="cls-28"
-     id="text818"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="267.69901"
-     y="1000.525"><tspan
-       class="cls-20"
-       x="267.69901"
-       y="1000.525"
-       id="tspan814"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">4</tspan><tspan
-       x="280.23901"
-       y="1000.525"
-       id="tspan816"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">.</tspan></text>
-  <text
-     class="cls-28"
-     id="text846"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="267.35721"
-     y="1583.585"><tspan
-       class="cls-67"
-       x="267.35721"
-       y="1583.585"
-       id="tspan842"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">6</tspan><tspan
-       x="280.77722"
-       y="1583.585"
-       id="tspan844"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">.</tspan></text>
   <g
      id="g856"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <path
        class="cls-54"
        d="m 463.36,1513.06 v 5.05 h -5.05 l -3.99,-3.99 c -0.17,-0.17 -0.47,-0.11 -0.55,0.13 -0.4,1.14 -0.58,2.38 -0.49,3.68 0.3,4.54 3.94,8.24 8.48,8.62 1.17,0.1 2.3,-0.03 3.36,-0.33 0.49,-0.14 1.02,0.01 1.38,0.37 l 22.62,22.62 c 1.46,1.46 3.82,1.46 5.28,0 l 0.18,-0.18 c 1.39,-1.39 1.39,-3.65 0,-5.04 l -22.73,-22.73 c -0.36,-0.36 -0.52,-0.9 -0.37,-1.39 0.3,-1.05 0.43,-2.18 0.33,-3.35 -0.38,-4.54 -4.08,-8.17 -8.62,-8.48 -1.34,-0.09 -2.63,0.11 -3.81,0.54 -0.17,0.06 -0.22,0.29 -0.09,0.42 l 4.08,4.08 z"
@@ -895,18 +831,18 @@
   </g>
   <path
      class="cls-1"
-     d="m 399.47375,1524.385 h -8.82 l -3.75,-7.67 c -0.73,-0.17 -1.45,-0.37 -2.16,-0.58 l -7.33,4.58 -7.64,-4.41 0.58,-8.52 c -0.54,-0.51 -1.06,-1.04 -1.57,-1.58 l -8.65,0.3 -4.41,-7.64 4.76,-7.08 c -0.21,-0.71 -0.41,-1.44 -0.57,-2.16 l -7.63,-4.06 v -8.82 l 7.67,-3.75 c 0.17,-0.73 0.37,-1.45 0.58,-2.16 l -4.58,-7.33 4.41,-7.64 8.52,0.58 c 0.51,-0.54 1.04,-1.06 1.58,-1.57 l -0.3,-8.65 7.64,-4.41 7.08,4.76 c 0.71,-0.21 1.44,-0.41 2.16,-0.57 l 4.06,-7.63 h 8.82 l 3.75,7.67 c 0.73,0.17 1.45,0.37 2.16,0.58 l 7.33,-4.58 7.64,4.41 -0.58,8.52 c 0.54,0.51 1.06,1.04 1.57,1.58 l 8.65,-0.3 4.41,7.64 -4.76,7.08 c 0.21,0.71 0.41,1.44 0.57,2.16 l 7.63,4.06 v 8.82 l -7.67,3.75 c -0.17,0.73 -0.37,1.45 -0.58,2.16 l 4.58,7.33 -4.41,7.64 -8.52,-0.58 c -0.51,0.54 -1.04,1.06 -1.58,1.57 l 0.3,8.65 -7.64,4.41 -7.08,-4.76 c -0.71,0.21 -1.44,0.4 -2.16,0.57 z"
+     d="m 399.47375,1328.385 h -8.82 l -3.75,-7.67 c -0.73,-0.17 -1.45,-0.37 -2.16,-0.58 l -7.33,4.58 -7.64,-4.41 0.58,-8.52 c -0.54,-0.51 -1.06,-1.04 -1.57,-1.58 l -8.65,0.3 -4.41,-7.64 4.76,-7.08 c -0.21,-0.71 -0.41,-1.44 -0.57,-2.16 l -7.63,-4.06 v -8.82 l 7.67,-3.75 c 0.17,-0.73 0.37,-1.45 0.58,-2.16 l -4.58,-7.33 4.41,-7.64 8.52,0.58 c 0.51,-0.54 1.04,-1.06 1.58,-1.57 l -0.3,-8.65 7.64,-4.41 7.08,4.76 c 0.71,-0.21 1.44,-0.41 2.16,-0.57 l 4.06,-7.63 h 8.82 l 3.75,7.67 c 0.73,0.17 1.45,0.37 2.16,0.58 l 7.33,-4.58 7.64,4.41 -0.58,8.52 c 0.54,0.51 1.06,1.04 1.57,1.58 l 8.65,-0.3 4.41,7.64 -4.76,7.08 c 0.21,0.71 0.41,1.44 0.57,2.16 l 7.63,4.06 v 8.82 l -7.67,3.75 c -0.17,0.73 -0.37,1.45 -0.58,2.16 l 4.58,7.33 -4.41,7.64 -8.52,-0.58 c -0.51,0.54 -1.04,1.06 -1.58,1.57 l 0.3,8.65 -7.64,4.41 -7.08,-4.76 c -0.71,0.21 -1.44,0.4 -2.16,0.57 z"
      id="path858" />
   <circle
      class="cls-62"
      cx="336.42374"
-     cy="1507.535"
+     cy="1311.535"
      r="28.459999"
      id="circle860" />
   <rect
      class="cls-24"
-     x="1302.105"
-     y="815.62097"
+     x="1163.5149"
+     y="677.02954"
      width="3.55"
      height="24.950001"
      rx="1.77"
@@ -915,40 +851,24 @@
      id="rect862" />
   <rect
      class="cls-24"
-     x="826.3299"
-     y="-1316.3556"
+     x="687.73846"
+     y="-1177.7655"
      width="3.55"
      height="24.950001"
      rx="1.77"
      ry="1.77"
      transform="rotate(135)"
      id="rect864" />
-  <text
-     class="cls-28"
-     id="text872"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="267.05447"
-     y="1305.105"><tspan
-       class="cls-20"
-       x="267.05447"
-       y="1305.105"
-       id="tspan868"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">5</tspan><tspan
-       class="cls-58"
-       x="280.45447"
-       y="1305.105"
-       id="tspan870"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">.</tspan></text>
   <g
      id="g918"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <polygon
        class="cls-54"
-       points="504.13,1267.83 504.13,1256.98 514.91,1263.87 514.71,1264.18 504.5,1257.65 504.5,1267.63 514.91,1274.19 514.71,1274.5 "
+       points="504.5,1267.63 514.91,1274.19 514.71,1274.5 504.13,1267.83 504.13,1256.98 514.91,1263.87 514.71,1264.18 504.5,1257.65 "
        id="polygon890" />
     <polygon
        class="cls-54"
-       points="514.52,1274.2 524.93,1267.63 524.93,1257.66 514.72,1264.18 514.52,1263.87 525.29,1256.99 525.29,1267.84 514.72,1274.51 "
+       points="525.29,1256.99 525.29,1267.84 514.72,1274.51 514.52,1274.2 524.93,1267.63 524.93,1257.66 514.72,1264.18 514.52,1263.87 "
        id="polygon892" />
     <line
        class="cls-4"
@@ -959,15 +879,15 @@
        id="line894" />
     <polygon
        class="cls-54"
-       points="514.69,1263.87 525.3,1256.99 514.88,1250.16 504.14,1256.99 "
+       points="525.3,1256.99 514.88,1250.16 504.14,1256.99 514.69,1263.87 "
        id="polygon896" />
     <polygon
        class="cls-54"
-       points="528.78,1280.38 528.78,1269.53 539.56,1276.42 539.36,1276.73 529.15,1270.2 529.15,1280.18 539.56,1286.74 539.36,1287.06 "
+       points="529.15,1280.18 539.56,1286.74 539.36,1287.06 528.78,1280.38 528.78,1269.53 539.56,1276.42 539.36,1276.73 529.15,1270.2 "
        id="polygon898" />
     <polygon
        class="cls-54"
-       points="539.17,1286.75 549.58,1280.19 549.58,1270.21 539.37,1276.74 539.17,1276.43 549.95,1269.54 549.95,1280.39 539.37,1287.06 "
+       points="549.95,1269.54 549.95,1280.39 539.37,1287.06 539.17,1286.75 549.58,1280.19 549.58,1270.21 539.37,1276.74 539.17,1276.43 "
        id="polygon900" />
     <line
        class="cls-4"
@@ -978,15 +898,15 @@
        id="line902" />
     <polygon
        class="cls-54"
-       points="539.34,1276.42 549.95,1269.54 539.53,1262.72 528.79,1269.54 "
+       points="549.95,1269.54 539.53,1262.72 528.79,1269.54 539.34,1276.42 "
        id="polygon904" />
     <polygon
        class="cls-54"
-       points="552.69,1292.6 552.69,1281.75 563.47,1288.64 563.27,1288.95 553.06,1282.43 553.06,1292.4 563.46,1298.97 563.27,1299.28 "
+       points="553.06,1292.4 563.46,1298.97 563.27,1299.28 552.69,1292.6 552.69,1281.75 563.47,1288.64 563.27,1288.95 553.06,1282.43 "
        id="polygon906" />
     <polygon
        class="cls-54"
-       points="563.08,1298.97 573.48,1292.41 573.48,1282.43 563.28,1288.96 563.08,1288.65 573.85,1281.76 573.85,1292.61 563.28,1299.28 "
+       points="573.85,1281.76 573.85,1292.61 563.28,1299.28 563.08,1298.97 573.48,1292.41 573.48,1282.43 563.28,1288.96 563.08,1288.65 "
        id="polygon908" />
     <line
        class="cls-4"
@@ -997,7 +917,7 @@
        id="line910" />
     <polygon
        class="cls-54"
-       points="563.25,1288.64 573.85,1281.76 563.44,1274.94 552.7,1281.76 "
+       points="573.85,1281.76 563.44,1274.94 552.7,1281.76 563.25,1288.64 "
        id="polygon912" />
     <line
        class="cls-4"
@@ -1016,11 +936,11 @@
   </g>
   <path
      class="cls-15"
-     d="m 411.83375,1189.735 3.64,3.64 c 0.28,0.28 0.28,0.74 0,1.02 l -3.57,3.57"
+     d="m 411.83375,993.735 3.64,3.64 c 0.28,0.28 0.28,0.74 0,1.02 l -3.57,3.57"
      id="path920" />
   <g
      id="g934"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <g
        id="g930">
       <path
@@ -1051,7 +971,7 @@
   </g>
   <g
      id="g940"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <circle
        cx="369.73999"
        cy="1246.02"
@@ -1063,7 +983,7 @@
   </g>
   <g
      id="g946"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <circle
        class="cls-24"
        cx="533.77002"
@@ -1079,22 +999,22 @@
   </g>
   <path
      class="cls-54"
-     d="m 465.22375,1204.825 h -21.22 c -1,0 -1.82,-0.82 -1.82,-1.83 h 0.27 c 0,0.86 0.7,1.57 1.55,1.57 h 21.22 c 0.86,0 1.55,-0.7 1.55,-1.57 v -15.18 c 0,-0.86 -0.7,-1.57 -1.55,-1.57 v -0.27 c 1,0 1.82,0.82 1.82,1.83 v 15.18 c 0,1.01 -0.82,1.83 -1.82,1.83 z"
+     d="m 465.22375,1008.825 h -21.22 c -1,0 -1.82,-0.82 -1.82,-1.83 h 0.27 c 0,0.86 0.7,1.57 1.55,1.57 h 21.22 c 0.86,0 1.55,-0.7 1.55,-1.57 v -15.18 c 0,-0.86 -0.7,-1.57 -1.55,-1.57 v -0.27 c 1,0 1.82,0.82 1.82,1.83 v 15.18 c 0,1.01 -0.82,1.83 -1.82,1.83 z"
      id="path948" />
   <path
      class="cls-54"
-     d="m 465.44375,1186.235 h -21.39 c -1.03,0 -1.87,-0.84 -1.87,-1.87 v -0.22 c 0,-1.22 0.99,-2.21 2.21,-2.21 h 19.01 v 4.04 h 2.04 v 0.27 z m -21.05,-4.04 c -1.07,0 -1.94,0.87 -1.94,1.94 v 0.22 c 0,0.88 0.72,1.6 1.6,1.6 h 19.09 v -3.77 h -18.74 z"
+     d="m 465.44375,990.235 h -21.39 c -1.03,0 -1.87,-0.84 -1.87,-1.87 v -0.22 c 0,-1.22 0.99,-2.21 2.21,-2.21 h 19.01 v 4.04 h 2.04 v 0.27 z m -21.05,-4.04 c -1.07,0 -1.94,0.87 -1.94,1.94 v 0.22 c 0,0.88 0.72,1.6 1.6,1.6 h 19.09 v -3.77 h -18.74 z"
      id="path950" />
   <rect
      class="cls-54"
      x="442.18378"
-     y="1184.145"
+     y="988.14502"
      width="0.27000001"
      height="19.040001"
      id="rect952" />
   <g
      id="g958"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <path
        class="cls-24"
        d="m 537.02,1240.56 h 9.04 v 6.1 h -9.04 c -1.47,0 -2.66,-1.19 -2.66,-2.66 v -0.77 c 0,-1.47 1.19,-2.66 2.66,-2.66 z"
@@ -1108,7 +1028,7 @@
      class="cls-66"
      clip-path="url(#clippath-10)"
      id="g964"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <g
        class="cls-22"
        clip-path="url(#clippath-11)"
@@ -1123,11 +1043,11 @@
   </g>
   <path
      class="cls-9"
-     d="m 350.49375,1212.005 h 26.22 c 3.69,0 6.67,-2.99 6.67,-6.67 v -4.81 c 0,-3.69 2.99,-6.67 6.67,-6.67 h 25.62"
+     d="m 350.49375,1016.005 h 26.22 c 3.69,0 6.67,-2.99 6.67,-6.67 v -4.81 c 0,-3.69 2.99,-6.67 6.67,-6.67 h 25.62"
      id="path966" />
   <g
      id="g982"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-209.775)">
     <g
        id="g978">
       <path
@@ -1161,27 +1081,27 @@
      id="text1048"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="2.4837494"
-     y="267.01501"><tspan
+     y="105.01501"><tspan
        sodipodi:role="line"
        id="tspan3427"
        x="2.4837494"
-       y="267.01501"><tspan
+       y="105.01501"><tspan
          class="cls-67"
          x="2.4837494"
-         y="267.01501"
+         y="105.01501"
          id="tspan984"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Anyone can create a service</tspan></tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Anyone can register a service</tspan></tspan><tspan
        sodipodi:role="line"
        id="tspan3429"
        x="2.4837494"
-       y="292.01501">and assign ownership</tspan><tspan
+       y="130.01501">and assign ownership</tspan><tspan
        sodipodi:role="line"
        x="2.4837494"
-       y="317.01501"
+       y="155.01501"
        id="tspan3433">to service owner.</tspan></text>
   <g
      id="g1210"
-     transform="translate(543.72942,-67.862953)">
+     transform="translate(543.72942,-263.86295)">
     <circle
        class="cls-10"
        cx="171.77"
@@ -1194,7 +1114,7 @@
          id="g1058">
         <polygon
            class="cls-24"
-           points="165.07,1381.82 174.87,1381.82 174.87,1380.73 175.89,1380.73 175.89,1379.7 176.77,1379.7 176.77,1361.23 175.89,1361.23 175.89,1360.13 174.87,1360.13 174.87,1359.04 165.07,1359.04 165.07,1360.13 164.05,1360.13 164.05,1361.23 163.16,1361.23 163.16,1379.7 164.05,1379.7 164.05,1380.73 165.07,1380.73 "
+           points="174.87,1381.82 174.87,1380.73 175.89,1380.73 175.89,1379.7 176.77,1379.7 176.77,1361.23 175.89,1361.23 175.89,1360.13 174.87,1360.13 174.87,1359.04 165.07,1359.04 165.07,1360.13 164.05,1360.13 164.05,1361.23 163.16,1361.23 163.16,1379.7 164.05,1379.7 164.05,1380.73 165.07,1380.73 165.07,1381.82 "
            id="polygon1054" />
         <path
            class="cls-62"
@@ -1246,7 +1166,7 @@
          id="g1076">
         <polygon
            class="cls-24"
-           points="191.45,1408.72 201.25,1408.72 201.25,1407.64 202.27,1407.64 202.27,1406.6 203.16,1406.6 203.16,1388.13 202.27,1388.13 202.27,1387.04 201.25,1387.04 201.25,1385.95 191.45,1385.95 191.45,1387.04 190.43,1387.04 190.43,1388.13 189.55,1388.13 189.55,1406.6 190.43,1406.6 190.43,1407.64 191.45,1407.64 "
+           points="201.25,1408.72 201.25,1407.64 202.27,1407.64 202.27,1406.6 203.16,1406.6 203.16,1388.13 202.27,1388.13 202.27,1387.04 201.25,1387.04 201.25,1385.95 191.45,1385.95 191.45,1387.04 190.43,1387.04 190.43,1388.13 189.55,1388.13 189.55,1406.6 190.43,1406.6 190.43,1407.64 191.45,1407.64 191.45,1408.72 "
            id="polygon1072" />
         <path
            class="cls-54"
@@ -1298,7 +1218,7 @@
          id="g1094">
         <polygon
            class="cls-24"
-           points="144.72,1421.97 154.52,1421.97 154.52,1420.88 155.54,1420.88 155.54,1419.84 156.43,1419.84 156.43,1401.38 155.54,1401.38 155.54,1400.28 154.52,1400.28 154.52,1399.19 144.72,1399.19 144.72,1400.28 143.7,1400.28 143.7,1401.38 142.82,1401.38 142.82,1419.84 143.7,1419.84 143.7,1420.88 144.72,1420.88 "
+           points="154.52,1421.97 154.52,1420.88 155.54,1420.88 155.54,1419.84 156.43,1419.84 156.43,1401.38 155.54,1401.38 155.54,1400.28 154.52,1400.28 154.52,1399.19 144.72,1399.19 144.72,1400.28 143.7,1400.28 143.7,1401.38 142.82,1401.38 142.82,1419.84 143.7,1419.84 143.7,1420.88 144.72,1420.88 144.72,1421.97 "
            id="polygon1090" />
         <path
            d="m 154.6,1422.05 h -9.96 v -1.09 h -1.02 v -1.04 h -0.88 v -18.63 h 0.88 v -1.09 h 1.02 v -1.09 h 9.96 v 1.09 h 1.02 v 1.09 h 0.88 v 18.63 h -0.88 v 1.04 h -1.02 z m -9.8,-0.16 h 9.64 v -1.09 h 1.02 v -1.04 h 0.88 v -18.31 h -0.88 v -1.09 h -1.02 v -1.09 h -9.64 v 1.09 h -1.02 v 1.09 h -0.88 v 18.31 h 0.88 v 1.04 h 1.02 z"
@@ -1408,19 +1328,19 @@
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
      x="611.74377"
-     y="1582.8297"
+     y="1386.8297"
      id="text6538"><tspan
        sodipodi:role="line"
        id="tspan6536"
        x="611.74377"
-       y="1582.8297">Agent operators</tspan><tspan
+       y="1386.8297">Agent operators</tspan><tspan
        sodipodi:role="line"
        x="611.74377"
-       y="1607.8297"
+       y="1411.8297"
        id="tspan6540">unbond.</tspan></text>
   <g
      id="g8868"
-     transform="translate(-739.58624,15.15182)">
+     transform="translate(-739.58624,-180.84818)">
     <g
        id="g1306">
       <path
@@ -1452,7 +1372,7 @@
        id="g1314">
       <polygon
          class="cls-54"
-         points="794.69,1084.43 793.94,1084.43 793.94,1074.69 783.2,1074.69 783.2,1073.94 794.69,1073.94 "
+         points="783.2,1074.69 783.2,1073.94 794.69,1073.94 794.69,1084.43 793.94,1084.43 793.94,1074.69 "
          id="polygon1310" />
       <rect
          class="cls-54"
@@ -1467,7 +1387,7 @@
        id="g1320">
       <polygon
          class="cls-54"
-         points="742.75,1084.36 743.5,1084.36 743.5,1074.62 754.23,1074.62 754.23,1073.87 742.75,1073.87 "
+         points="754.23,1074.62 754.23,1073.87 742.75,1073.87 742.75,1084.36 743.5,1084.36 743.5,1074.62 "
          id="polygon1316" />
       <rect
          class="cls-54"
@@ -1482,7 +1402,7 @@
        id="g1326">
       <polygon
          class="cls-54"
-         points="742.71,1115.01 743.46,1115.01 743.46,1124.75 754.19,1124.75 754.19,1125.5 742.71,1125.5 "
+         points="754.19,1124.75 754.19,1125.5 742.71,1125.5 742.71,1115.01 743.46,1115.01 743.46,1124.75 "
          id="polygon1322" />
       <rect
          class="cls-54"
@@ -1497,7 +1417,7 @@
        id="g1332">
       <polygon
          class="cls-54"
-         points="794.73,1115.01 793.98,1115.01 793.98,1124.75 783.25,1124.75 783.25,1125.5 794.73,1125.5 "
+         points="783.25,1124.75 783.25,1125.5 794.73,1125.5 794.73,1115.01 793.98,1115.01 793.98,1124.75 "
          id="polygon1328" />
       <rect
          class="cls-54"
@@ -1511,27 +1431,28 @@
   </g>
   <path
      class="cls-12"
-     d="m 370.15375,217.625 h -116.41 c -4.77,0 -8.63,-4.05 -8.63,-9.04 v -13.93 c 0,-4.99 -3.87,-9.04 -8.63,-9.04 h -90.45"
-     id="path1336" />
+     d="M 370.08499,73.605708 H 253.74664 c -4.76707,0 -8.6247,-5.939168 -8.6247,-13.256809 V 39.921098 c 0,-7.31764 -3.86762,-13.256806 -8.62468,-13.256806 h -90.39433"
+     id="path1336"
+     style="stroke-width:1.2106" />
   <path
      class="cls-12"
-     d="m 391.26375,805.76613 h 116.41 c 4.77,0 8.63,-4.05 8.63,-9.04 v -13.93 c 0,-4.99 3.87,-9.04 8.63,-9.04 h 90.45"
+     d="m 391.26375,609.76613 h 116.41 c 4.77,0 8.63,-4.05 8.63,-9.04 v -13.93 c 0,-4.99 3.87,-9.04 8.63,-9.04 h 90.45"
      id="path1338" />
   <path
      class="cls-12"
-     d="m 79.50939,537.02917 h 148.84434 c 6.09902,0 11.03451,-4.05358 11.03451,-9.048 v -13.94234 c 0,-4.99442 4.94826,-9.048 11.0345,-9.048 h 115.65132"
+     d="m 79.50939,375.02917 h 148.84434 c 6.09902,0 11.03451,-4.05358 11.03451,-9.048 v -13.94234 c 0,-4.99442 4.94826,-9.048 11.0345,-9.048 h 115.65132"
      id="path1338-0"
      style="fill:none;stroke:#000000;stroke-width:1.13126;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:0, 0, 0, 0, 0, 0, 3.39378, 6.78757, 3.39378, 6.78757, 3.39378, 6.78757" />
   <rect
      class="cls-24"
      x="536.84375"
-     y="759.79498"
+     y="563.79498"
      width="22.77"
      height="28.41"
      id="rect1346" />
   <g
      id="g1356"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-179.775)">
     <line
        class="cls-11"
        x1="459.32999"
@@ -1546,7 +1467,7 @@
   </g>
   <g
      id="g1362"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-209.775)">
     <line
        class="cls-2"
        x1="459.32999"
@@ -1561,7 +1482,7 @@
   </g>
   <g
      id="g1368"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <line
        class="cls-2"
        x1="459.32999"
@@ -1576,7 +1497,7 @@
   </g>
   <g
      id="g1374"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-243.775)">
     <line
        class="cls-2"
        x1="459.32999"
@@ -1591,7 +1512,7 @@
   </g>
   <g
      id="g1380"
-     transform="translate(-79.15625,-51.775)">
+     transform="translate(-79.15625,-247.775)">
     <line
        class="cls-2"
        x1="459.84"
@@ -1606,11 +1527,11 @@
   </g>
   <path
      class="cls-2"
-     d="m 462.60375,324.495 -5.5,-5.5 c -0.4,-0.4 -0.4,-1.05 0,-1.44 l 5.56,-5.56"
+     d="m 462.60375,192.495 -5.5,-5.5 c -0.4,-0.4 -0.4,-1.05 0,-1.44 l 5.56,-5.56"
      id="path1382" />
   <g
      id="g1448"
-     transform="translate(-79.14625,128.73978)">
+     transform="translate(-79.14625,-67.26022)">
     <g
        id="g1388">
       <circle
@@ -1630,7 +1551,7 @@
        id="g1402">
       <polygon
          class="cls-5"
-         points="756.93,1362.79 756.93,1363.68 756.21,1363.68 756.21,1378.82 756.93,1378.82 756.93,1379.67 757.77,1379.67 757.77,1380.56 765.8,1380.56 765.8,1379.67 766.63,1379.67 766.63,1378.82 767.36,1378.82 767.36,1363.68 766.63,1363.68 766.63,1362.79 765.8,1362.79 765.8,1361.89 757.77,1361.89 757.77,1362.79 "
+         points="756.93,1363.68 756.21,1363.68 756.21,1378.82 756.93,1378.82 756.93,1379.67 757.77,1379.67 757.77,1380.56 765.8,1380.56 765.8,1379.67 766.63,1379.67 766.63,1378.82 767.36,1378.82 767.36,1363.68 766.63,1363.68 766.63,1362.79 765.8,1362.79 765.8,1361.89 757.77,1361.89 757.77,1362.79 756.93,1362.79 "
          id="polygon1390" />
       <rect
          x="758.46002"
@@ -1707,12 +1628,12 @@
   <circle
      class="cls-54"
      cx="681.01373"
-     cy="1478.9897"
+     cy="1282.9897"
      r="6.8699999"
      id="circle1450" />
   <path
      class="cls-8"
-     d="m 675.59635,1478.4749 h -61.10749 c -2.58313,0 -4.67756,-3.7515 -4.67756,-8.3784 v -8.7357 c 0,-4.6269 -2.09443,-8.3784 -4.67756,-8.3784 h -55.43259"
+     d="m 675.59635,1282.4749 h -61.10749 c -2.58313,0 -4.67756,-3.7515 -4.67756,-8.3784 v -8.7357 c 0,-4.6269 -2.09443,-8.3784 -4.67756,-8.3784 h -55.43259"
      id="path1452"
      style="stroke-width:1.3348" />
   <text
@@ -1720,23 +1641,23 @@
      id="text1480"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="-0.15625"
-     y="404.035"><tspan
+     y="272.035"><tspan
        sodipodi:role="line"
        id="tspan4000"
        x="-0.15625"
-       y="404.035"><tspan
+       y="272.035"><tspan
          class="cls-67"
          x="-0.15625"
-         y="404.035"
+         y="272.035"
          id="tspan1454"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service owner</tspan></tspan><tspan
        sodipodi:role="line"
        x="-0.15625"
-       y="429.035"
+       y="297.035"
        id="tspan4006">updates service.</tspan></text>
   <g
      id="g1486"
-     transform="matrix(0.58160282,0,0,1.013908,34.79386,-54.076718)">
+     transform="matrix(0.58160282,0,0,1.013908,34.79386,-186.07672)">
     <line
        class="cls-6"
        x1="220.81"
@@ -1751,7 +1672,7 @@
   </g>
   <g
      id="g1500"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-179.775)">
     <g
        id="g1496">
       <path
@@ -1782,7 +1703,7 @@
   </g>
   <g
      id="g1506"
-     transform="translate(-79.15625,-47.775)">
+     transform="translate(-79.15625,-179.775)">
     <circle
        cx="89.68"
        cy="407.85001"
@@ -1797,23 +1718,23 @@
      id="text1480-2"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="-0.15625"
-     y="576.14996"><tspan
+     y="414.14996"><tspan
        sodipodi:role="line"
        id="tspan4000-9"
        x="-0.15625"
-       y="576.14996"><tspan
+       y="414.14996"><tspan
          class="cls-67"
          x="-0.15625"
-         y="576.14996"
+         y="414.14996"
          id="tspan1454-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service owner</tspan></tspan><tspan
        sodipodi:role="line"
        x="-0.15625"
-       y="601.14996"
+       y="439.14996"
        id="tspan4006-1">activates service.</tspan></text>
   <g
      id="g1500-9"
-     transform="translate(-79.156245,124.34)">
+     transform="translate(-79.156245,-37.66)">
     <g
        id="g1496-4">
       <path
@@ -1846,7 +1767,7 @@
   </g>
   <g
      id="g1506-3"
-     transform="translate(-79.156245,124.34)">
+     transform="translate(-79.156245,-37.66)">
     <circle
        cx="89.68"
        cy="407.85001"
@@ -1858,7 +1779,7 @@
   </g>
   <path
      class="cls-12"
-     d="m 79.50939,1405.8237 h 148.84434 c 6.09902,0 11.03451,-4.0536 11.03451,-9.048 v -13.9423 c 0,-4.9944 4.94826,-9.048 11.0345,-9.048 h 115.65132"
+     d="m 79.50939,1209.8237 h 148.84434 c 6.09902,0 11.03451,-4.0536 11.03451,-9.048 v -13.9423 c 0,-4.9944 4.94826,-9.048 11.0345,-9.048 h 115.65132"
      id="path1338-0-2"
      style="fill:none;stroke:#000000;stroke-width:1.13126;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:0, 0, 0, 0, 0, 0, 3.39378, 6.78757, 3.39378, 6.78757, 3.39378, 6.78757" />
   <text
@@ -1866,22 +1787,22 @@
      id="text1480-2-2"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="-0.15625"
-     y="1444.9445"><tspan
+     y="1248.9445"><tspan
        sodipodi:role="line"
        x="-0.15625"
-       y="1444.9445"
+       y="1248.9445"
        id="tspan4006-1-0">After some time,</tspan><tspan
        sodipodi:role="line"
        x="-0.15625"
-       y="1469.9445"
+       y="1273.9445"
        id="tspan10429">the service owner can</tspan><tspan
        sodipodi:role="line"
        x="-0.15625"
-       y="1494.9445"
+       y="1298.9445"
        id="tspan10431">terminate the service.</tspan></text>
   <g
      id="g1500-9-6"
-     transform="translate(-79.156242,993.1345)">
+     transform="translate(-79.156242,797.1345)">
     <g
        id="g1496-4-1">
       <path
@@ -1914,7 +1835,7 @@
   </g>
   <g
      id="g1506-3-9"
-     transform="translate(-79.156242,993.1345)">
+     transform="translate(-79.156242,797.1345)">
     <circle
        cx="89.68"
        cy="407.85001"
@@ -1926,7 +1847,7 @@
   </g>
   <path
      class="cls-12"
-     d="m 79.50939,1123.351 h 148.84434 c 6.09902,0 11.03451,-4.0536 11.03451,-9.048 v -13.9423 c 0,-4.9945 4.94826,-9.048 11.0345,-9.048 h 115.65132"
+     d="m 79.50939,927.351 h 148.84434 c 6.09902,0 11.03451,-4.0536 11.03451,-9.048 v -13.9423 c 0,-4.9945 4.94826,-9.048 11.0345,-9.048 h 115.65132"
      id="path1338-0-4"
      style="fill:none;stroke:#000000;stroke-width:1.13126;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:0, 0, 0, 0, 0, 0, 3.39378, 6.78757, 3.39378, 6.78757, 3.39378, 6.78757" />
   <text
@@ -1934,23 +1855,23 @@
      id="text1480-2-3"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      x="-0.15625"
-     y="1162.4718"><tspan
+     y="966.4718"><tspan
        sodipodi:role="line"
        id="tspan4000-9-0"
        x="-0.15625"
-       y="1162.4718"><tspan
+       y="966.4718"><tspan
          class="cls-67"
          x="-0.15625"
-         y="1162.4718"
+         y="966.4718"
          id="tspan1454-3-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service owner</tspan></tspan><tspan
        sodipodi:role="line"
        x="-0.15625"
-       y="1187.4718"
+       y="991.4718"
        id="tspan4006-1-8">deploys service.</tspan></text>
   <g
      id="g8994"
-     transform="translate(-75.81625,-51.216997)">
+     transform="translate(-75.81625,-247.217)">
     <path
        class="cls-12"
        d="m 467.08,1402.9432 h 116.41 c 4.77,0 8.63,-4.05 8.63,-9.04 v -13.93 c 0,-4.99 3.87,-9.04 8.63,-9.04 h 90.45"
@@ -1967,6 +1888,6 @@
   </g>
   <path
      class="cls-2"
-     d="m 496.13375,1479.075 h 29.3 c 13.31,0 24.1,-11.76 24.1,-26.26 V 344.505 c 0,-14.51 -10.79,-26.26 -24.1,-26.26 h -66.7"
+     d="m 496.12898,1284.4071 h 29.31747 c 13.31793,0 24.11436,-11.1255 24.11436,-24.843 V 211.06089 c 0,-13.72701 -10.79643,-24.84295 -24.11436,-24.84295 h -66.73976"
      id="path1350" />
 </svg>

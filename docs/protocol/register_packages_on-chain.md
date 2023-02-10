@@ -1,12 +1,13 @@
-This guide describes how to register software packages in the Autonolas Protocol using the [protocol frontend](https://protocol.autonolas.network/). You can register three types of packages: **services**, **agents** and **components**.
+This guide describes how to use the [Autonolas Protocol web app](https://protocol.autonolas.network/) to register software packages. You can register three types of packages in the Autonolas Protocol: **services**, **agents** and **components**.
 
 ## How packages are registered
 
-To register a package (also referred to as _unit_) in the protocol, it must have been already published into a remote (IPFS) registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
+To register a package (also referred to as _unit_) in the protocol, it must have been published into a remote IPFS registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
 
-The process of registering a package comprises the creation of a **metadata file** which contains a pointer to the IPFS hash of the published software package itself, plus some other additional information required by the protocol. This metadata file is also stored in the IPFS registry. The [protocol frontend](https://protocol.autonolas.network/) will automatically create and publish the metadata file based on the package/unit information and the information provided in the registration form. Then, it will interact with the protocol smart contracts to complete the registration of your package on-chain.
+Registering a package involves creating a **metadata file** and filling in some data. The metadata file contains a pointer to the IPFS hash of the published software package.
+This metadata file is also stored in the IPFS registry. The [Autonolas Protocol web app](https://protocol.autonolas.network/) will automatically create and publish the metadata file based on the package/unit information and the information provided in the registration form. Then, it will interact with the protocol smart contracts to complete the registration of your package on-chain.
 
-Upon completing the registration process, you will have minted on-chain an NFT representing your package. See the figure below.
+Upon completing the registration process, you will have minted an NFT representing your package. See the figure below.
 
 <figure markdown>
 ![Package registration](./images/register_package.svg)
@@ -23,13 +24,13 @@ In order to register a software package, you must ensure that you have:
   
     In either case, the address must have funds for the chain that you wish to register the package.
 
-* The **hash of the package** that you want to register on-chain, and which should be already published into a remote registry.
+* The **hash of the package** that you want to register on-chain, and which must have been published into a remote registry.
 
 * An **NFT image URL**. This image will be used to represent the minted NFT for the package on marketplaces such as [OpenSea](https://opensea.io/). You can use [this sample image URL](https://gateway.autonolas.tech/ipfs/Qmbh9SQLbNRawh9Km3PMEDSxo77k1wib8fYZUdZkhPBiev) for testing purposes.
 
 ## Register a component
 
-Connect your wallet to the frontend, open the [components section](https://protocol.autonolas.network/components) and press the _Register_ button. Fill in the data of your component:
+Connect your wallet to the Protocol app, open the [components section](https://protocol.autonolas.network/components) and press the _Register_ button. Fill in the data of your component:
 
   1. **Owner Address.** The wallet address of the component owner (starting with `0x...`). It does not need to be the address of the connected wallet.
 
@@ -49,7 +50,7 @@ Press the _Submit_ button. Your wallet will ask you to approve the transaction. 
 
 ## Register an agent
 
-Connect your wallet to the frontend, open the [agents section](https://protocol.autonolas.network/agents) and press the _Register_ button. Fill in the data of your agent:
+Connect your wallet to the Protocol app, open the [agents section](https://protocol.autonolas.network/agents) and press the _Register_ button. Fill in the data of your agent:
 
   1. **Owner Address.** The wallet address of the agent owner (starting with `0x...`). It does not need to be the address of the connected wallet.
 
@@ -69,7 +70,7 @@ Press the _Submit_ button. Your wallet will ask you to approve the transaction. 
 
 ## Register a service
 
-Connect your wallet to the frontend, open the [services section](https://protocol.autonolas.network/services) and press the _Register_ button. Fill in the data of your service:
+Connect your wallet to the Protocol app, open the [services section](https://protocol.autonolas.network/services) and press the _Register_ button. Fill in the data of your service:
 
   1. **Owner Address.** The wallet address of the service owner (starting with `0x...`). It does not need to be the address of the connected wallet.
 
@@ -90,6 +91,6 @@ Connect your wallet to the frontend, open the [services section](https://protoco
 
   6. **Threshold.** Specify the threshold of agents required to sign.
 
-Press the _Submit_ button. Your  wallet will ask you to approve the transaction. Once the transaction is settled, you should see a message indicating that the service has been registered successfully. You should see that the service is in **Pre-Registration** state.
+Press the _Submit_ button. Your  wallet will ask you to approve the transaction. Once the transaction is settled, you should see a message indicating that the service has been registered successfully. You should see that the service is in _Pre-Registration_ state.
 
 Once it has been registered, you can [manage the life cycle of a service](./life_cycle_of_a_service.md).
