@@ -38,6 +38,8 @@ nav:
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Autonolas Protocol:
       - 'protocol/index.md'
+      - Register packages: 'protocol/register_packages_on-chain.md'
+      - Life cycle of a service: 'protocol/life_cycle_of_a_service.md'
   - Toolkits:
       - 'products/index.md'
       - SMPKit: '!include ./autonomous-fund/mkdocs.yml'
@@ -59,6 +61,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.superfences
   - pymdownx.tabbed:
+      alternate_style: true 
   - pymdownx.highlight
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -73,7 +76,8 @@ markdown_extensions:
   - def_list  
   - md_in_html
   - toc:
-      title: On this page        
+      title: On this page
+      toc_depth: 3          
 
 
 extra:
