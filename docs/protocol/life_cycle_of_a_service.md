@@ -18,7 +18,7 @@ The figure below summarizes the life cycle and the actions that provoke a transi
 
 ## Service states
 
-This section details the states of a service registered in the Autonolas Protocol, as well as how to transit from each other. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
+This section details the states of a service registered in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
 
 ### Pre-Registration
 
