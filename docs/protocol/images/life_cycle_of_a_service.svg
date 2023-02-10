@@ -24,12 +24,12 @@
      showgrid="false"
      inkscape:zoom="0.92091041"
      inkscape:cx="802.46677"
-     inkscape:cy="1134.2037"
-     inkscape:window-width="2496"
-     inkscape:window-height="1376"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:cy="1482.2289"
+     inkscape:window-width="2232"
+     inkscape:window-height="1331"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
      inkscape:current-layer="Layer_1"
      showguides="true">
     <sodipodi:guide
@@ -327,13 +327,13 @@
      y="1583.4449"
      id="text5145-9"><tspan
        sodipodi:role="line"
-       id="tspan5143-2"
        x="304.9823"
-       y="1583.4449">Service is in</tspan><tspan
+       y="1583.4449"
+       id="tspan5648">Service is in</tspan><tspan
        sodipodi:role="line"
        x="304.9823"
        y="1608.4449"
-       id="tspan5648">terminated bonded</tspan></text>
+       id="tspan14155">terminated bonded</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
@@ -343,11 +343,11 @@
        sodipodi:role="line"
        id="tspan5029"
        x="303.81042"
-       y="703.005">Service is in active</tspan><tspan
+       y="703.005">Service is in</tspan><tspan
        sodipodi:role="line"
        x="303.81042"
        y="728.005"
-       id="tspan5033">registration</tspan></text>
+       id="tspan5033">active registration</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
@@ -543,16 +543,16 @@
        sodipodi:role="line"
        x="303.81042"
        y="414.82501"
-       id="tspan2878"><tspan
-         class="cls-67"
-         x="303.81042"
-         y="414.82501"
-         id="tspan644"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service is in</tspan></tspan><tspan
+       id="tspan2889"><tspan
+   class="cls-67"
+   x="303.81042"
+   y="414.82501"
+   id="tspan644"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Service is in</tspan></tspan><tspan
        sodipodi:role="line"
        x="303.81042"
        y="439.82501"
-       id="tspan2889">pre-registration</tspan></text>
+       id="tspan14143">pre-registration</tspan></text>
   <g
      id="g698"
      transform="translate(-79.15625,-47.775)">
@@ -796,11 +796,11 @@
        sodipodi:role="line"
        id="tspan5087"
        x="303.81042"
-       y="1002.095">Service is in finished</tspan><tspan
+       y="1002.095">Service is in</tspan><tspan
        sodipodi:role="line"
        x="303.81042"
        y="1027.095"
-       id="tspan5091">registration</tspan></text>
+       id="tspan5091">finished registration</tspan></text>
   <g
      id="g806"
      transform="translate(-79.15625,-47.775)">
