@@ -13,7 +13,7 @@ The life cycle of a service registered in the Autonolas Protocol passes through 
 The figure below summarizes the life cycle and the actions that provoke a transition between states. Most of the service state transitions are initiated by the service owner. However, some state transitions are also triggered automatically. For example, when an operator registers the last available agent instance in the _Active Registration_ state, the service will automatically transit to the _Finished Registration_ state.
 
 <figure markdown>
-![Life cycle of a service](images/life_cycle_of_a_service.svg){ align=left width=600 }
+![Life cycle of a service](images/life_cycle_of_a_service.svg){ align=left width=650 }
 </figure>
 
 ## Service states

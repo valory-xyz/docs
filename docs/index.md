@@ -1,5 +1,9 @@
 # Autonolas Developer Documentation
 
+<figure markdown>
+![Autonolas logo](./images/logo_purple.svg){ align=left width="300" }
+</figure>
+
 Autonolas' mission is to provide a foundation on which new types of autonomous applications can be built, which can:
 
 * Run continuously.
