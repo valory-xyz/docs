@@ -1,3 +1,11 @@
 Find below the addresses of the Autonolas Protocol contracts deployed in different chains.
 
-
+<figure markdown>
+| Contract           | Ethereum                                                                                                              | Görli                                                                                                                        |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Component Registry | [View on Etherscan :material-open-in-new:](https://etherscan.io/address/0x15bd56669F57192a97dF41A2aa8f4403e9491776)   | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0x7Fd1F4b764fA41d19fe3f63C85d12bf64d2bbf68) |
+| Agent Registry     | [View on Etherscan  :material-open-in-new: ](https://etherscan.io/address/0x2F1f7D38e4772884b88f3eCd8B6b9faCdC319112) | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0xEB5638eefE289691EcE01943f768EDBF96258a80) |
+| Service Registry   | [View on Etherscan  :material-open-in-new: ](https://etherscan.io/address/0x48b6af7B12C71f09e2fC8aF4855De4Ff54e775cA) | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0x1cEe30D08943EB58EFF84DD1AB44a6ee6FEff63a) |
+| Registries Manager | [View on Etherscan  :material-open-in-new: ](https://etherscan.io/address/0x9eC9156dEF5C613B2a7D4c46C383F9B58DfcD6fE) | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0x10c5525F77F13b28f42c5626240c001c2D57CAd4) |
+| Service Manager    | [View on Etherscan  :material-open-in-new: ](https://etherscan.io/address/0x38b062d11CD7596Ab5aDFe4d0e9F0dC3218E5389) | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0xcDdD9D9ABaB36fFa882530D69c73FeE5D4001C2d) |
+</figure>
