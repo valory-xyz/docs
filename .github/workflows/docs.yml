@@ -35,13 +35,20 @@ jobs:
       - name: Sub-modules
         run: git submodule update --init --recursive
 
-
-      - name: Generate Documentation
-        run: |
-          poetry run mkdocs build --clean --strict
+      - name: Check copyright
+        run: tox -e check-copyright
+        
+      - name: Check spelling
+        run: tox -e spell-check
+        
+      - name: Check doc links
+        run: tox -e check-doc-links      
 
       - name: markdownlint-cli2-action
         uses: DavidAnson/markdownlint-cli2-action@v9.0.0
         with:
           globs: /docs/*.md # optional, default is *.{md,markdown}
 
+      - name: Generate Documentation
+        run: |
+          poetry run mkdocs build --clean --strict
