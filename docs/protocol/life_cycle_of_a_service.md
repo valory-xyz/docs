@@ -22,7 +22,7 @@ This section details the states of a service registered in the Autonolas Protoco
 
 ### Pre-Registration
 
-A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in _Pre-Registration_ state.
+A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in _Pre-Registration_ (of agent instances) state.
 
 **Available actions:**
 
