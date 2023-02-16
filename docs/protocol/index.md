@@ -31,16 +31,16 @@ Core smart contracts are permissionless. Autonolas governance controls the proce
 :	An abstract smart contract for the generic registry template which inherits the Solmate ERC721 implementation. 
 
 **Unit Registry**
-:	An abstract smart contract for generic agents/components template which inherits the GenericRegistry
+:	An abstract smart contract for generic agents/components template which inherits the Generic Registry
 
 **Component Registry**
-:	An ERC721 contract that inherits the UnitRegistry and represents agent components.
+:	An ERC721 contract that inherits the Unit Registry and represents agent components.
 
 **Agent Registry**
-:	An ERC721 contract that inherits the UnitRegistry and represents canonical agents.
+:	An ERC721 contract that inherits the Unit Registry and represents canonical agents.
 
 **Service Registry**
-:	An ERC721 contract that inherits the GenericRegistry, is used to represent services and provides service management utility methods.
+:	An ERC721 contract that inherits the Generic Registry, is used to represent services and provides service management utility methods.
 
 Autonolas extends the ERC721 standard to support appending additional hashes to the NFT over time. This allows developers and service owners to record version changes in their code or configuration, and to signal it on-chain without breaking backward compatibility.
 
@@ -49,10 +49,10 @@ Autonolas extends the ERC721 standard to support appending additional hashes to 
 Periphery contracts are fully controlled by the governance and can be replaced to enable new functionality. They also act as guards to restrict existing functionality.
 
 **Generic Manager**
-:	An abstract smart contract for the generic registry manager template.
+:	An abstract smart contract for the Generic Registry manager template.
 
 **Registries Manager**
-:	A contract inheriting from GenericManager via which developers can mint component and agent NFTs.
+:	A contract inheriting from Generic Manager via which developers can mint component and agent NFTs.
 
 **Service Manager**
-:	A contract inheriting from GenericManager via which service owners can create and manage their services.
+:	A contract inheriting from Generic Manager via which service owners can create and manage their services.

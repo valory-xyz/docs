@@ -42,7 +42,7 @@ Connect your wallet to the Protocol app, open the [components section](https://p
       * **Package hash.** The remote registry package hash starting with `bafybei...` obtained when the component was published in the remote registry.
       * **NFT Image URL.** An URL pointing to an image. You can use [this sample image URL](https://gateway.autonolas.tech/ipfs/Qmbh9SQLbNRawh9Km3PMEDSxo77k1wib8fYZUdZkhPBiev) for testing purposes.
 
-      By pressing the _Save File & Generate Hash_ button, a metadada file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the component registration form.
+      By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the component registration form.
 
   3. **Dependencies.** Comma-separated list of component IDs which the component requires. You can find the IDs by browsing the [components section](https://protocol.autonolas.network/components).
 
@@ -62,7 +62,7 @@ Connect your wallet to the Protocol app, open the [agents section](https://proto
       * **Package hash.** The remote registry package hash starting with `bafybei...` obtained when the agent was published in the remote registry.
       * **NFT Image URL.** An URL pointing to an image. You can use [this sample image URL](https://gateway.autonolas.tech/ipfs/Qmbh9SQLbNRawh9Km3PMEDSxo77k1wib8fYZUdZkhPBiev) for testing purposes.
 
-      By pressing the _Save File & Generate Hash_ button, a metadada file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the agent registration form.
+      By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the agent registration form.
 
   3. **Dependencies.** Comma-separated list of component IDs which the agent requires. You can find the IDs by browsing the [components section](https://protocol.autonolas.network/components).
 
@@ -81,13 +81,13 @@ Connect your wallet to the Protocol app, open the [services section](https://pro
       * **Version.** The service version, in the format, `<major>.<minor>.<patch>`.
       * **Package hash.** The remote registry package hash starting with `bafybei...` obtained when the service was published in the remote registry.      * **NFT Image URL.** An URL pointing to an image. You can use [this sample image URL](https://gateway.autonolas.tech/ipfs/Qmbh9SQLbNRawh9Km3PMEDSxo77k1wib8fYZUdZkhPBiev) for testing purposes.
 
-      By pressing the _Save File & Generate Hash_ button, a metadada file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the service registration form.
+      By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the service registration form.
 
   3. **Canonical agent Ids.** Comma-separated list of agent IDs which the service requires. You can find the IDs by browsing the [agents section](https://protocol.autonolas.network/agents).
 
   4. **No. of slots to canonical agent Ids.** Specify the number of agent instances for each agent ID listed above.
 
-  5. **Cost of agent instance bond.** Specify (in wei units) what is the bond per each agent instance  joining the service. If you are using it for testing purposes, we suggest that you use a small value (e.g., 1000000000000000 GörliWei = 0.001 GörliETH).
+  5. **Cost of agent instance bond.** Specify (in Wei units) what is the bond per each agent instance  joining the service. If you are using it for testing purposes, we suggest that you use a small value (e.g., 1000000000000000 GörliWei = 0.001 GörliETH).
 
   6. **Threshold.** Specify the threshold of agents required to sign.
 

@@ -1,0 +1,36 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Autonolas
+blockchain
+blockchains
+Collectooorr
+crypto
+Ethereum
+Etherscan
+Görli
+GörliETH
+GörliWei
+MakerDAO
+md-button
+md-button--primary
+Metamask
+MintKit
+multisig
+MLKit
+NFT
+NFTs
+OpenSea
+OracleKit
+pausable
+permissionless
+SMPKit
+Solmate
+toolkit
+toolkits
+unbond
+Uniswap
+Wei
+whitepaper
