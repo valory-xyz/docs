@@ -29,4 +29,4 @@ The Autonolas Ecosystem is composed of three main components:
 
 ## Get involved
 
-We are looking forward that you get involved with the Autonolas ecosystem and deploy your own autonomous services. If you have any question, or if you have found any missing information in these pages, or you are simply interested in knowing more about the project, we invite you to reach out to us on [Discord](https://discord.gg/RHY6eJ35ar) and follow us on [Twitter](http://twitter.com/autonolas).
+We are looking forward that you get involved with the Autonolas ecosystem and deploy your own autonomous services. If you have any question, or if you have found any missing information in these pages, or you are simply interested in knowing more about the project, we invite you to reach out to us on [Discord](https://discord.gg/RHY6eJ35ar) and follow us on [Twitter](https://twitter.com/autonolas).
