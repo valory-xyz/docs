@@ -7,10 +7,11 @@ license = "Apache-2.0 license"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-tomte = {extras = ["tox","docs"], version = "^0.2.2"}
+tomte = {extras = ["docs"], version = "^0.2.2"}
 mkdocs-monorepo-plugin = "^1.0.4"
 
 [tool.poetry.dev-dependencies]
+tomte = {extras = ["tox"], version = "^0.2.2"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
