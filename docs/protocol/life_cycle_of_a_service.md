@@ -1,4 +1,4 @@
-The life cycle of a service registered in the Autonolas Protocol passes through the following states:
+The life cycle of a service minted in the Autonolas Protocol passes through the following states:
 
 1. Pre-Registration
 2. Active Registration
@@ -18,11 +18,11 @@ The figure below summarizes the life cycle and the actions that provoke a transi
 
 ## Service states
 
-This section details the states of a service registered in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
+This section details the states of a service minted in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
 
 ### Pre-Registration
 
-A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in _Pre-Registration_ (of agent instances) state.
+A service that [has just been minted](./register_packages_on-chain.md#mint-a-service) will be in _Pre-Registration_ (of agent instances) state.
 
 **Available actions:**
 
