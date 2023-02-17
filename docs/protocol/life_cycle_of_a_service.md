@@ -22,7 +22,7 @@ This section details the states of a service minted in the Autonolas Protocol, a
 
 ### Pre-Registration
 
-A service that [has just been minted](./register_packages_on-chain.md#mint-a-service) will be in _Pre-Registration_ (of agent instances) state.
+A service that [has just been minted](./mint_packages_nfts.md#mint-a-service) will be in _Pre-Registration_ (of agent instances) state.
 
 **Available actions:**
 

@@ -53,7 +53,11 @@ nav:
 plugins:
   - monorepo
   - macros
-  - search  
+  - search
+  - redirects:
+      redirect_maps:
+        'protocol/register_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
+
 
 markdown_extensions:
   - admonition
