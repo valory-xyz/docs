@@ -38,7 +38,7 @@ nav:
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Autonolas Protocol:
       - 'protocol/index.md'
-      - Mint software packages NFTs: 'protocol/register_packages_on-chain.md'
+      - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
       - Life cycle of a service: 'protocol/life_cycle_of_a_service.md'
       - Contract addresses: 'protocol/contract_addresses.md'
   - Toolkits:
