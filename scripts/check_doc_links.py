@@ -24,6 +24,7 @@
 import re
 import sys
 from concurrent.futures import ThreadPoolExecutor
+from itertools import chain
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -56,10 +57,6 @@ URL_SKIPS = [
     "https://gateway.autonolas.tech/ipfs/<hash>,",  # non link (400)
     "https://github.com/valory-xyz/open-autonomy/trunk/infrastructure",  # svn link (404)
     "http://host.docker.internal:8545",  # internal (ERR_NAME_NOT_RESOLVED)
-    "https://goerli.infura.io/v3/d27c4537b4c34e82b70bf970574a5f2d",
-    "https://sheets.googleapis.com/v4/spreadsheets",
-    "https://gateway.staging.autonolas.tech/ipfs/",
-    "https://www.sharperlight.com/uncategorized/2022/04/06/accessing-the-google-sheets-api-via-sharperlight-query-builder/",
 ]
 
 # Define here custom timeouts for some edge cases
@@ -133,7 +130,14 @@ def check_file(
 
 def main() -> None:  # pylint: disable=too-many-locals
     """Check for broken or HTTP links"""
-    all_md_files = [str(p.relative_to(".")) for p in Path("docs").rglob("*.md")]
+    all_md_files = [
+        str(p.relative_to("."))
+        for p in chain(
+            Path("docs").rglob("*.md"),
+            Path("packages").rglob("*.md"),
+            Path(".").glob("*.md"),
+        )
+    ]
 
     broken_links: Dict[str, Dict] = {}
     http_links: Dict[str, List[str]] = {}
