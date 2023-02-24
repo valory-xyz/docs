@@ -96,7 +96,7 @@ extra:
   agent_service_link: '[agent service](https://docs.autonolas.network/open-autonomy/get_started/what_is_an_agent_service/)'
   set_up_system: '[set up your system](https://docs.autonolas.network/open-autonomy/guides/set_up/)'
   open_aea_repository: '[Open AEA repository](https://github.com/valory-xyz/open-aea)'
-  open_autonomy_repository: '[Open Autonomy repository](https://github.com/valory-xyz/open-aea)'
+  open_autonomy_repository: '[Open Autonomy repository](https://github.com/valory-xyz/open-autonomy)'
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/autonolas
