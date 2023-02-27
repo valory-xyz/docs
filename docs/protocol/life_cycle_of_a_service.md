@@ -31,7 +31,7 @@ A service that [has just been minted](./mint_packages_nfts.md#mint-a-service) wi
 
 ### Active Registration
 
-In this state the service is waiting for agent operators to register their agent instances on the service.
+The service is waiting for agent operators to register their agent instances.
 
 **Available actions:**
 
@@ -40,7 +40,7 @@ In this state the service is waiting for agent operators to register their agent
 
 ### Finished Registration
 
-This state is reached once all the available slots for agent instances are filled and is waiting for the service owner to continue transiting to the next state.
+All agent instance slots have been filled. Waiting for the service owner to continue deploying the service.
 
 **Available actions:**
 
@@ -51,7 +51,7 @@ This state is reached once all the available slots for agent instances are fille
 
 Congratulations! Your service is now in the _Deployed_ state!
 
-This is the default operational state of an active service. Agent operators can turn on their agent instances at this point.
+The service is in its default operational state. Agent operators can turn on their agent instances at this point.
 
 **Available actions:**
 
@@ -59,7 +59,7 @@ This is the default operational state of an active service. Agent operators can 
 
 ### Terminated Bonded
 
-This state is reached whenever the service owner terminates the service at any given state above. The service is waiting for the owner to unbond all registered agents.
+The service has been terminated by the service owner. Waiting for the service owner to unbond all registered agents.
 
 **Available actions:**
 
