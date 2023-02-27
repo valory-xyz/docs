@@ -1,4 +1,4 @@
-The life cycle of a service registered in the Autonolas Protocol passes through the following states:
+The life cycle of a service minted in the Autonolas Protocol passes through the following states:
 
 1. Pre-Registration
 2. Active Registration
@@ -18,11 +18,11 @@ The figure below summarizes the life cycle and the actions that provoke a transi
 
 ## Service states
 
-This section details the states of a service registered in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
+This section details the states of a service minted in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
 
 ### Pre-Registration
 
-A service that [has just been registered](./register_packages_on-chain.md#register-a-service) will be in _Pre-Registration_ (of agent instances) state.
+A service that [has just been minted](./mint_packages_nfts.md#mint-a-service) will be in _Pre-Registration_ (of agent instances) state.
 
 **Available actions:**
 
@@ -31,7 +31,7 @@ A service that [has just been registered](./register_packages_on-chain.md#regist
 
 ### Active Registration
 
-In this state the service is waiting for agent operators to register their agent instances on the service.
+The service is waiting for agent operators to register their agent instances.
 
 **Available actions:**
 
@@ -40,7 +40,7 @@ In this state the service is waiting for agent operators to register their agent
 
 ### Finished Registration
 
-This state is reached once all the available slots for agent instances are filled and is waiting for the service owner to continue transiting to the next state.
+All agent instance slots have been filled. Waiting for the service owner to continue deploying the service.
 
 **Available actions:**
 
@@ -51,7 +51,7 @@ This state is reached once all the available slots for agent instances are fille
 
 Congratulations! Your service is now in the _Deployed_ state!
 
-This is the default operational state of an active service. Agent operators can turn on their agent instances at this point.
+The service is in its default operational state. Agent operators can turn on their agent instances at this point.
 
 **Available actions:**
 
@@ -59,7 +59,7 @@ This is the default operational state of an active service. Agent operators can 
 
 ### Terminated Bonded
 
-This state is reached whenever the service owner terminates the service at any given state above. The service is waiting for the owner to unbond all registered agents.
+The service has been terminated by the service owner. Waiting for the service owner to unbond all registered agents.
 
 **Available actions:**
 

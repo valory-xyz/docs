@@ -567,6 +567,25 @@ mkdocs = ">=1.0.4"
 python-slugify = ">=4.0.1"
 
 [[package]]
+name = "mkdocs-redirects"
+version = "1.2.0"
+description = "A MkDocs plugin for dynamic page redirects to prevent broken links."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "mkdocs-redirects-1.2.0.tar.gz", hash = "sha256:ddd38267d49fdfa19fb2f25b4aed2fb53f0496c818bf3018009c8eaf6676a327"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.1.1"
+
+[package.extras]
+dev = ["autoflake", "black", "isort", "pytest", "twine (>=1.13.0)"]
+release = ["twine (>=1.13.0)"]
+test = ["autoflake", "black", "isort", "pytest"]
+
+[[package]]
 name = "nr-util"
 version = "0.8.12"
 description = "General purpose Python utility library."
@@ -1253,4 +1272,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "cef90010804f4a2f079e85394cec744a7ece4d93bfe11f2011d6ace6361846b7"
+content-hash = "5701eb2647ba5c4fb0d14361bb904557ac41c20caf207581ba8ed6ffa9137be0"

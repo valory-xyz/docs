@@ -38,7 +38,7 @@ nav:
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Autonolas Protocol:
       - 'protocol/index.md'
-      - Register packages: 'protocol/register_packages_on-chain.md'
+      - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
       - Life cycle of a service: 'protocol/life_cycle_of_a_service.md'
       - Contract addresses: 'protocol/contract_addresses.md'
   - Toolkits:
@@ -53,7 +53,11 @@ nav:
 plugins:
   - monorepo
   - macros
-  - search  
+  - search
+  - redirects:
+      redirect_maps:
+        'protocol/register_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
+
 
 markdown_extensions:
   - admonition
@@ -91,6 +95,8 @@ extra:
   on_chain_frontend: '[on-chain protocol frontend](https://protocol.autonolas.network/)'
   agent_service_link: '[agent service](https://docs.autonolas.network/open-autonomy/get_started/what_is_an_agent_service/)'
   set_up_system: '[set up your system](https://docs.autonolas.network/open-autonomy/guides/set_up/)'
+  open_aea_repository: '[Open AEA repository](https://github.com/valory-xyz/open-aea)'
+  open_autonomy_repository: '[Open Autonomy repository](https://github.com/valory-xyz/open-autonomy)'
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/autonolas
