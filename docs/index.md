@@ -19,7 +19,7 @@ Autonolas' mission is to provide a foundation on which new types of autonomous s
 [:material-book-open-variant: &nbsp; Read the Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf){ .md-button .md-button--primary}
 </figure>
 
-## The Autonolas Ecosystem
+## The Autonolas Stack
 
 The Autonolas Stack is made of three main components:
 
