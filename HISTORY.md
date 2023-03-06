@@ -1,6 +1,14 @@
 # Release History - Autonolas Documentation
 
-# v0.9.1 (2023-02-24)
+## v0.9.1.post2 (2023-03-06)
+
+Updates landing page.
+
+## v0.9.1.post1 (2023-02-25)
+
+Fixes minor rendering issues.
+
+## v0.9.1 (2023-02-24)
 
 Frameworks
 
@@ -14,11 +22,11 @@ Toolkits
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.9.1)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.9.1)
 
-# v0.8.0.post5 (2023-02-10)
+## v0.8.0.post5 (2023-02-10)
 
 * Updates Autonolas Protocol section.
 
-# v0.8.0.post4 (2023-02-01)
+## v0.8.0.post4 (2023-02-01)
 
 Release of Autonolas Developer Documentation
 
@@ -34,7 +42,7 @@ Toolkits
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.8.0.post2)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.8.0.post2)
 
-# v0.8.0.post3 (2023-01-27)
+## v0.8.0.post3 (2023-01-27)
 
 Release of Autonolas Developer Documentation
 
@@ -50,7 +58,7 @@ Toolkits
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.8.0.post1)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.8.0.post1)
 
-# v0.8.0.post2 (2023-01-26)
+## v0.8.0.post2 (2023-01-26)
 
 Release of Autonolas Developer Documentation
 
@@ -66,7 +74,7 @@ Toolkits
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.8.0)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.8.0)
 
-# v0.8.0.post1 (2023-01-25)
+## v0.8.0.post1 (2023-01-25)
 
 Release of Autonolas Developer Documentation
 
@@ -82,7 +90,7 @@ Toolkits
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.7.0)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.8.0)
 
-# v0.8.0 (2023-01-20)
+## v0.8.0 (2023-01-20)
 
 Release of Autonolas Developer Documentation
 
@@ -98,7 +106,7 @@ Toolkits
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.7.0-4-g778d5a16d)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.7.0-5-g875c9e7c7)
 
-# v0.7.0.post1 (2023-01-13)
+## v0.7.0.post1 (2023-01-13)
 
 Release of Autonolas Developer Documentation
 
