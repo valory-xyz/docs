@@ -6,5 +6,6 @@ prepare-release:
 	cd apy-oracle/; git fetch origin --tags --force; git checkout $$(git tag | tail -n 1)
 	cd autonomous-fund/; git fetch origin --tags --force; git checkout $$(git tag | tail -n 1)
 	cd contribution-service/; git fetch origin --tags --force; git checkout $$(git tag | tail -n 1)
+	cd IEKit/; git fetch origin --tags --force; git checkout $$(git tag | tail -n 1)
 	cd price-oracle/; git fetch origin --tags --force; git checkout $$(git tag | tail -n 1)
 	
