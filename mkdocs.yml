@@ -48,6 +48,7 @@ nav:
       - CoordinationKit: '!include ./contribution-service/mkdocs.yml'
       - MLKit: '!include ./apy-oracle/mkdocs.yml'
       - OracleKit: '!include ./price-oracle/mkdocs.yml'
+      - IEKit: '!include ./IEKit/mkdocs.yml'      
 
 
 plugins:

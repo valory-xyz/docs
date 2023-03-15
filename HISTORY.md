@@ -1,5 +1,9 @@
 # Release History - Autonolas Documentation
 
+## v0.9.1.post3 (2023-03-15)
+
+Adds toolkit IEKit: IEKit - https://github.com/valory-xyz/iekit (v0.1.0)
+
 ## v0.9.1.post2 (2023-03-06)
 
 Updates landing page.

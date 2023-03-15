@@ -16,3 +16,6 @@
 [submodule "agent-academy-1"]
 	path = agent-academy-1
 	url = https://github.com/valory-xyz/agent-academy-1
+[submodule "IEKit"]
+	path = IEKit
+	url = https://github.com/valory-xyz/IEKit
