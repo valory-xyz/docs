@@ -26,6 +26,8 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
+    - content.code.copy
+    - content.code.annotate
         
     
 extra_css:
@@ -58,6 +60,7 @@ plugins:
   - redirects:
       redirect_maps:
         'protocol/register_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
+        'protocol/mint_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
 
 
 markdown_extensions:
