@@ -11,7 +11,7 @@ The protocol also provides a mechanism that incentivizes their creation and **re
 ![Package minting](./images/ecosystem_flywheel.svg)
 </figure>
 
-Autonolas strives to incentivize software composability and reusability. Thus, the Autonolas Protocol reflects such composability by representing software components as NFTs, and incorporates a mechanism that enables combining them to take into account their actual software composition relationship. This is a crucial feature to measure their contribution and reward accordingly to the tokenomics model.
+Autonolas strives to incentivize software composability and reusability. Thus, the Autonolas Protocol reflects such composability by representing software components as NFTs, and incorporates a mechanism that enables combining them to take into account their actual software composition relationship. This is a crucial feature to measure their contribution and reward according to the protocol tokenomics model.
 
 The Autonolas Protocol is [currently deployed](./technical_overview.md#contract-addresses) in Ethereum and Görli chains, and it will be progressively deployed in all major blockchains.
 
