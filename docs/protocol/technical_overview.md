@@ -23,7 +23,7 @@ Core smart contracts are permissionless. Autonolas governance controls the proce
 :	An abstract smart contract for the generic registry template which inherits the Solmate ERC721 implementation. 
 
 **Unit Registry**
-:	An abstract smart contract for generic agents/components template which inherits the Generic Registry
+:	An abstract smart contract for generic agents/components template which inherits the Generic Registry.
 
 **Component Registry**
 :	An ERC721 contract that inherits the Unit Registry and represents agent components.
