@@ -6,7 +6,7 @@
 
 The **Autonolas Protocol** is a collection of smart contracts that implements the mechanism to secure open-source code on-chain, and provides incentives to developers proportionally for their efforts in supporting the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services,  alternative frameworks can also be used.
 
-The Autonolas Protocol is [currently deployed](./registry_technical_overview.md#contract-addresses) in Ethereum and Görli chains, and it will be progressively deployed in all major blockchains.
+The Autonolas Protocol is [currently deployed](./registry_technical_overview.md#contract-addresses) in Ethereum mainnet and Görli testnet, and it will be eventually deployed in all major smart-contract blockchains.
 
 ## Components
 
@@ -36,3 +36,4 @@ Autonolas strives to propose a model where open-source developers benefit from t
 <figure markdown>
 ![](./images/protocol_developer_perspective.svg)
 </figure>
+
