@@ -8,8 +8,8 @@ Frameworks
 
 Toolkits
 
-* SMPKit: autonomous-fund - https://github.com/valory-xyz/autonomous-fund ()
-* MintKit: agent-academy-1 - https://github.com/valory-xyz/agent-academy-1 ()
+* SMPKit: autonomous-fund - https://github.com/valory-xyz/autonomous-fund (v0.5.0)
+* MintKit: agent-academy-1 - https://github.com/valory-xyz/agent-academy-1 (v0.8.0-1-gc251edd)
 * CoordinationKit: contribution-service - https://github.com/valory-xyz/contribution-service (v0.4.0)
 * MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.10.0)
 * OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.10.0)
