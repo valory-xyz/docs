@@ -36,4 +36,3 @@ Autonolas strives to propose a model where open-source developers benefit from t
 <figure markdown>
 ![](./images/protocol_developer_perspective.svg)
 </figure>
-
