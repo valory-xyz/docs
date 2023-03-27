@@ -4,7 +4,7 @@
 ![Autonolas Protocol logo](images/protocol.png){ align=left width="150" }
 </figure>
 
-The **Autonolas Protocol** is a collection of smart contracts that implements the mechanism to secure open-source code on-chain, and provides incentives to developers proportionally for their efforts in supporting the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services, but services can be implemented on alternative frameworks.
+The **Autonolas Protocol** is a collection of smart contracts that implements the mechanism to secure open-source code on-chain, and provides incentives to developers proportionally for their efforts in supporting the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services,  alternative frameworks can also be used.
 
 There are three main elements that make up the protocol:
 
