@@ -4,7 +4,7 @@
 ![Autonolas Protocol logo](images/protocol.png){ align=left width="150" }
 </figure>
 
-The **Autonolas Protocol** is a collection of smart contracts that implements a mechanism to secure open-source code on-chain, and provides incentives to developers proportionally for their efforts in supporting the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services,  alternative frameworks can also be used.
+The **Autonolas Protocol** is a collection of smart contracts that implements a mechanism to coordinate, secure, and manage software code on a public blockchain, and provides incentives to developers proportionally to their relative contribution to the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services,  alternative frameworks can also be used.
 
 The Autonolas Protocol is [currently deployed](./registry_technical_overview.md#contract-addresses) on Ethereum mainnet and Görli testnet, and it will be eventually deployed on all major smart-contract blockchains.
 
@@ -12,12 +12,16 @@ The Autonolas Protocol is [currently deployed](./registry_technical_overview.md#
 
 There are three main elements that make up the protocol:
 
-* The **On-Chain Registry** anchors Autonolas autonomous services on-chain, and provides the primitives needed to create, operate and secure such services.
+* **On-Chain Registries** that allow for registering software agents, agent component components, and autonomous services (existing as a code off-chain) in form of NFTs on-chain, and providing the primitives needed to combine components into agents, agents into autonomous services, and to operate and secure such autonomous services. 
 
-* The **Tokenomics** defines an economic model facilitated by the [OLAS token](https://etherscan.io/token/0x0001A500A6B18995B03f44bb040A5fFc28E45CB0). This is a mechanism to grow the capital deployed in services and reward developers.
+* The **Tokenomics** defines an economic model that uses the [OLAS token](https://etherscan.io/token/0x0001A500A6B18995B03f44bb040A5fFc28E45CB0) as a coordination mechanism to accomplish three main objectives:
+- enable the pairing of capital and code in a permissionless manner
+-  create a flywheel that attracts increasingly more value
+and provides truly-decentralized autonomous services, owned by a DAO, operated by ecosystem actors, and coded by the ecosystem developers
+- incentivize software composability.
 
-* **Governance** defines the rules of Autonolas as a decentralized, autonomous
-organization (DAO), which is governed by the community.
+* **Governance**  allows the Autonolas DAO as a decentralized, autonomous
+organization (DAO), to steer and fine-tune aspects of the Autonola protocol overtime.
 
 <figure markdown>
 ![Autonolas Protocol elements](./images/autonolas_protocol_elements.svg)
