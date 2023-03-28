@@ -12,20 +12,21 @@ The Autonolas Protocol is [currently deployed](./registry_technical_overview.md#
 
 There are three main elements that make up the protocol:
 
-* **On-Chain Registries** that allow for registering software agents, agent component components, and autonomous services (existing as a code off-chain) in form of NFTs on-chain, and providing the primitives needed to combine components into agents, agents into autonomous services, and to operate and secure such autonomous services. 
+<figure markdown>
+![Autonolas Protocol elements](./images/autonolas_protocol_elements.svg){ align=left }
+</figure>
 
-* The **Tokenomics** defines an economic model that uses the [OLAS token](https://etherscan.io/token/0x0001A500A6B18995B03f44bb040A5fFc28E45CB0) as a coordination mechanism to accomplish three main objectives:
-- enable the pairing of capital and code in a permissionless manner
--  create a flywheel that attracts increasingly more value
-and provides truly-decentralized autonomous services, owned by a DAO, operated by ecosystem actors, and coded by the ecosystem developers
-- incentivize software composability.
+* **On-Chain Registries** that allow for registering autonomous services, software agents and agent components (existing as a code off-chain) in the form of NFTs on-chain, and providing the primitives needed to combine components into agents, agents into autonomous services, and to operate and secure such autonomous services.
+
+* The protocol **Tokenomics** defines an economic model that uses the [OLAS token](https://etherscan.io/token/0x0001A500A6B18995B03f44bb040A5fFc28E45CB0) as a coordination mechanism to accomplish three main objectives:
+
+    * Enable the pairing of capital and code in a permissionless manner.
+    * Create a flywheel that attracts increasingly more value and provides truly-decentralized autonomous services, owned by a DAO, operated by ecosystem actors, and coded by the ecosystem developers.
+    * Incentivize software composability.
 
 * **Governance**  allows the Autonolas DAO as a decentralized, autonomous
 organization (DAO), to steer and fine-tune aspects of the Autonola protocol overtime.
 
-<figure markdown>
-![Autonolas Protocol elements](./images/autonolas_protocol_elements.svg)
-</figure>
 
 !!! abstract "Learn more"
 
