@@ -25,7 +25,7 @@ There are three main elements that make up the protocol:
     * Incentivize software composability.
 
 * **Governance**  allows the Autonolas DAO as a decentralized, autonomous
-organization (DAO), to steer and fine-tune aspects of the Autonola protocol overtime.
+organization (DAO), to steer and fine-tune aspects of the Autonolas protocol overtime.
 
 
 !!! abstract "Learn more"
