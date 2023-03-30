@@ -61,7 +61,7 @@ plugins:
       redirect_maps:
         'protocol/register_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
         'protocol/mint_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
-        'open-autonomy/guides/service_configuration_file.md': 'open-autonomy/configure_service/configure_access_external_chains.md'
+        'open-autonomy/guides/configure_access_external_chains.md': 'open-autonomy/configure_service/configure_access_external_chains.md'
         'open-autonomy/guides/service_configuration_file.md': 'open-autonomy/configure_service/service_configuration_file.md'
         'open-autonomy/deployment/on-chain_deployment_checklist.md': 'open-autonomy/configure_service/on-chain_deployment_checklist.md' 
 
