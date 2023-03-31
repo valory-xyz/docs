@@ -5,7 +5,7 @@ This guide describes how to use the [Autonolas Protocol web app](https://protoco
 To mint a package (also referred to as _unit_) in the protocol, it must have been published into a remote IPFS registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
 
 Minting a package involves filling in some data and creating a **metadata file**, which contains a pointer to the IPFS hash of the published software package.
-The [Autonolas Protocol web app](https://protocol.autonolas.network/) will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information and the information provided by the user in the online form. Then, it will interact with the protocol smart contracts to complete minting your package on-chain.
+The [Autonolas Protocol web app](https://protocol.autonolas.network/) will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information and the information provided by the user in the online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.
 
 Upon completing the minting process, you will have an NFT representing your package in the Autonolas Protocol. See the figure below.
 
