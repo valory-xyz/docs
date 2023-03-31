@@ -25,10 +25,10 @@ tox -e docs
 ## Release process
 
 1. Submodule update PR (see an example [here](https://github.com/valory-xyz/docs/pull/27)):
-	* **Branch:** `chore/update_submodules-vX.Y.Z`
-	* **Title:** "Update submodules"
-	* **Contents:** Submodules point to the required commit (typically, it will be the latest release for each submodule). The command `make prepare-release` updates submodules to their latest tag.
-	* **Approval:** The PR should be verified and approved by each submodule author.
+    * **Branch:** `chore/update_submodules-vX.Y.Z`
+    * **Title:** "Update submodules"
+    * **Contents:** Submodules point to the required commit (typically, it will be the latest release for each submodule). The command `make prepare-release` updates submodules to their latest tag.
+    * **Approval:** The PR should be verified and approved by each submodule author.
 
 2. Release PR (see an example [here](https://github.com/valory-xyz/docs/pull/28)):
    * **Branch:** `feat/release-X.Y.Z`
@@ -45,4 +45,4 @@ tox -e docs
 Notes:
 
 * Occasionally, Step 1 can be merged into Step 2 above. That is, a single PR "Update submodules & Prepare for release vX.Y.Z".
-* Versioning of this repository follows the major version of Open Autonomy repository + independent "post" tags.
+* Since this repository aggregates several submodules that might be updated independently, the versioning of this repository follows this convention: major version of Open Autonomy repository (excluding the `post` tag) + own (independent) `post` tags for this repository. As long as the major version of Open Autonomy does not change, any updates in this repository requires an increase if its own `post` tag.
