@@ -41,3 +41,8 @@ tox -e docs
    * **Contents:** Latest entry in `HISTORY.md`
 
 4. Publish the release. The hash of the created Docker image can be found on the release workflow. See an example [here](https://github.com/valory-xyz/docs/actions/runs/4536574834/jobs/7993431764#step:8:24).
+
+Notes:
+
+* Occasionally, Step 1 can be merged into Step 2 above. That is, a single PR "Update submodules & Prepare for release vX.Y.Z".
+* Versioning of this repository follows the major version of Open Autonomy repository + independent "post" tags.
