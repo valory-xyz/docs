@@ -4,55 +4,40 @@
 ![Autonolas Protocol logo](images/protocol.png){ align=left width="150" }
 </figure>
 
-The on-chain **Autonolas Protocol** anchors the Autonolas autonomous services -and in particular the current incarnation as agent services- on the target settlement layer and provides the primitives needed to create, operate and secure such services. The protocol benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature.
+The **Autonolas Protocol** is a collection of smart contracts that implements a mechanism to coordinate, secure, and manage software code on a public blockchain, and provides incentives to developers proportionally to their relative contribution to the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing autonomous services,  alternative frameworks can also be used.
 
-!!! info
+The Autonolas Protocol is [currently deployed](./registry_technical_overview.md#contract-addresses) on Ethereum mainnet and Görli testnet, and it will be eventually deployed on other major smart-contract blockchains.
 
-    The Autonolas Protocol is currently deployed in Ethereum and Goerly chains, and it will be progressively deployed in all major blockchains.
+## Components
 
-From an architectural point of view, the smart contracts that make up the Autonolas Protocol satisfy the following properties:
+There are three main elements that make up the protocol:
 
-* Follow a core-periphery architecture (such as in Uniswap), which allows for changing out periphery functionality without changing the data models at the core.
-* Allow for extension via modules (such as in MakerDAO).
+<figure markdown>
+![Autonolas Protocol elements](./images/autonolas_protocol_elements.svg){ align=left }
+</figure>
 
-Examples of modules include governance and staking. Governance is particularly important in a modular system, as it is used to vote on the adoption or abandoning of modules. By ensuring an immutable core, the Autonolas protocol provides guarantees that once created, the ecosystem’s agent components, canonical agents, and services are not mutable by governance – an important guarantee of censorship resistance.
+* **On-Chain Registries** that allow for registering autonomous services, software agents and agent components (existing as code off-chain) in the form of NFTs on-chain, and providing the primitives needed to combine components into agents, agents into autonomous services, and to operate and secure such autonomous services.
 
-The Autonolas Protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing agent services. However, it does not prescribe the usage of the {{open_autonomy}} framework and allows for services to be implemented on alternative frameworks.
+* The protocol **Tokenomics** defines an economic model that uses the [OLAS token](https://etherscan.io/token/0x0001A500A6B18995B03f44bb040A5fFc28E45CB0) as a coordination mechanism to accomplish three main objectives:
+
+    * Enable the pairing of capital and code in a permissionless manner.
+    * Create a flywheel that attracts increasingly more value and provides truly-decentralized autonomous services, owned by a DAO, operated by ecosystem actors, and coded by the ecosystem developers.
+    * Incentivize software composability.
+
+* **Governance**  allows the Autonolas DAO as a decentralized, autonomous
+organization, to steer and fine-tune aspects of the Autonolas protocol over time.
+
 
 !!! abstract "Learn more"
 
     Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the [Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf) for the full details of the **Autonolas Protocol**.
 
-## Core smart contracts
+## Rationale
 
-Core smart contracts are permissionless. Autonolas governance controls the process of service management functionalities and of minting new NFTs representing components and agents (i.e. it can change the minting rules and pause minting). The remaining functionalities, in particular transfer functionalities, are not pausable by governance.
+In most settings, the reward model for service owners and agent operators is usually straightforward: users remunerate service owners, and service owners remunerate operators supporting their service. However it is not always well-defined how this plays out in the case of open-source software developers. This is where the Autonolas Protocol comes in.
 
-**Generic Registry**
-:	An abstract smart contract for the generic registry template which inherits the Solmate ERC721 implementation. 
+Autonolas proposes a model where open-source developers which contribute to the community benefit from those contributions. This model consists on incentivizing software **composability**, **reusability** and **utility**. Roughly speaking, software packages (components and agents) brought to the Autonolas ecosystem are secured and minted as NFTs in the Autonolas protocol. These packages can be used to code agents and services by composition, and the protocol has mechanisms to unambiguously represent the actual software/system composition on-chain. This is a crucial feature to [measure the utility](https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/Autonolas_tokenomics_audit.pdf) of the code brought by developers and provide a fair reward for their contributions.
 
-**Unit Registry**
-:	An abstract smart contract for generic agents/components template which inherits the Generic Registry
-
-**Component Registry**
-:	An ERC721 contract that inherits the Unit Registry and represents agent components.
-
-**Agent Registry**
-:	An ERC721 contract that inherits the Unit Registry and represents canonical agents.
-
-**Service Registry**
-:	An ERC721 contract that inherits the Generic Registry, is used to represent services and provides service management utility methods.
-
-Autonolas extends the ERC721 standard to support appending additional hashes to the NFT over time. This allows developers and service owners to record version changes in their code or configuration, and to signal it on-chain without breaking backward compatibility.
-
-## Periphery smart contracts
-
-Periphery contracts are fully controlled by the governance and can be replaced to enable new functionality. They also act as guards to restrict existing functionality.
-
-**Generic Manager**
-:	An abstract smart contract for the Generic Registry manager template.
-
-**Registries Manager**
-:	A contract inheriting from Generic Manager via which developers can mint component and agent NFTs.
-
-**Service Manager**
-:	A contract inheriting from Generic Manager via which service owners can create and manage their services.
+<figure markdown>
+![](./images/protocol_developer_perspective.svg)
+</figure>
