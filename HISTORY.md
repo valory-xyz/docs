@@ -1,5 +1,9 @@
 # Release History - Autonolas Documentation
 
+## v0.10.0.post2 (2023-04-04)
+
+Fixes hashes in Open Autonomy get started guide.
+
 ## v0.10.0.post1 (2023-04-03)
 
 Frameworks
