@@ -9,4 +9,21 @@ prepare-release:
 	cd IEKit/; git fetch origin --tags --force; git checkout $$(git tag --sort=committerdate | tail -n 1)
 	cd price-oracle/; git fetch origin --tags --force; git checkout $$(git tag --sort=committerdate | tail -n 1)
 	git submodule status
+
+
+.SILENT: release-message
+release-message:
+	echo "## v0.0.0" "($(shell date +%Y-%m-%d))"
+	echo ""
+	echo "Frameworks\n"
+	echo "* Open Autonomy Framework:" "$(shell git config --get submodule.open-autonomy.url)" "-" "$(shell git submodule status open-autonomy | cut -c 43-)"
+	echo ""
+	echo "Toolkits"
+	echo ""
+	echo "* SMPKit:"          "$(shell git config --get submodule.autonomous-fund.url)"      "-" "$(shell git submodule status autonomous-fund | cut -c 43-)"
+	echo "* MintKit:"         "$(shell git config --get submodule.agent-academy-1.url)"      "-" "$(shell git submodule status agent-academy-1 | cut -c 43-)"
+	echo "* CoordinationKit:" "$(shell git config --get submodule.contribution-service.url)" "-" "$(shell git submodule status contribution-service | cut -c 43-)"
+	echo "* MLKit:"           "$(shell git config --get submodule.apy-oracle.url)"           "-" "$(shell git submodule status apy-oracle | cut -c 43-)"
+	echo "* OracleKit:"       "$(shell git config --get submodule.price-oracle.url)"         "-" "$(shell git submodule status price-oracle | cut -c 43-)"
+	echo "* IEKit:"           "$(shell git config --get submodule.IEKit.url)"                "-" "$(shell git submodule status IEKit | cut -c 43-)"
 	

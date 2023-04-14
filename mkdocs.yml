@@ -28,8 +28,8 @@ theme:
     - search.suggest
     - content.code.copy
     - content.code.annotate
-        
-    
+    - content.tabs.link
+
 extra_css:
   - stylesheets/extra.css
  
@@ -55,7 +55,8 @@ nav:
 
 plugins:
   - monorepo
-  - macros
+  - macros:
+      on_error_fail: true
   - search
   - redirects:
       redirect_maps:
