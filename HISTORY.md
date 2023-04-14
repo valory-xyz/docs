@@ -1,5 +1,24 @@
 # Release History - Autonolas Documentation
 
+## v0.10.0.post2 (2023-04-04)
+
+Fixes hashes in Open Autonomy get started guide.
+
+## v0.10.0.post1 (2023-04-03)
+
+Frameworks
+
+* Open Autonomy Framework: open-autonomy https://github.com/valory-xyz/open-autonomy (v0.10.0.post2)
+
+Toolkits
+
+* SMPKit: autonomous-fund - https://github.com/valory-xyz/autonomous-fund (v0.5.0.post1)
+* MintKit: agent-academy-1 - https://github.com/valory-xyz/agent-academy-1 (v0.8.0.post1-3-g116a585)
+* CoordinationKit: contribution-service - https://github.com/valory-xyz/contribution-service (v0.4.0.post1)
+* MLKit: - apy-oracle https://github.com/valory-xyz/apy-oracle (v0.10.0.post1)
+* OracleKit: price-oracle - https://github.com/valory-xyz/price-oracle (v0.10.0.post1)
+* IEKit: IEKit - https://github.com/valory-xyz/iekit (v0.2.1.post1)
+
 ## v0.10.0 (2023-03-27)
 
 Frameworks

@@ -1,4 +1,4 @@
-The life cycle of a service minted in the Autonolas Protocol passes through the following states:
+The life cycle of a service minted in the Autonolas Protocol consists of the following stages:
 
 1. Pre-Registration
 2. Active Registration
