@@ -43,7 +43,7 @@ Available actions:
 
         * The operator address (that is, the address of the wallet used to submit the registration transaction) must be different from the agent instance address(es) being registered.
         * The operator address must not be used as agent instance address in any other service.
-        * The agent instance address(es) being registered must not be registered in any other service.
+        * The agent instance address(es) being registered must not be registered in any other service. In order to reuse an agent instance address, the service owner must terminate and unbond them from the service where they are registered.
 
 * **Terminate.** The service owner can terminate the service, which will transit to the _Terminated Bonded_ state (or to the _Pre-Registration_ state if no agent instance has been registered yet).
 
