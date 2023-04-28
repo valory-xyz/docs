@@ -1,6 +1,6 @@
 # Release History - Autonolas Documentation
 
-## v0.10.2 (2023-04-27)
+## v0.10.2 (2023-04-28)
 
 Frameworks
 
