@@ -5,7 +5,7 @@ RUN mkdir /build
 WORKDIR /build
 
 RUN apt-get update -y && apt-get install gcc -y && rm -rf /var/lib/apt/lists/*
-RUN python3 -m venv $VIRTUAL_ENV && pip install poetry==1.2.0 --no-cache-dir
+RUN python3 -m venv $VIRTUAL_ENV && pip install poetry==1.3.2 --no-cache-dir
 
 COPY pyproject.toml .
 
