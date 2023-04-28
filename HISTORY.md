@@ -1,5 +1,20 @@
 # Release History - Autonolas Documentation
 
+## v0.10.2 (2023-04-28)
+
+Frameworks
+
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.10.2)
+
+Toolkits
+
+* SMPKit: https://github.com/valory-xyz/autonomous-fund - autonomous-fund (v0.6.1)
+* MintKit: https://github.com/valory-xyz/agent-academy-1 - agent-academy-1 (v0.9.1)
+* CoordinationKit: https://github.com/valory-xyz/contribution-service - contribution-service (v0.4.0.post1)
+* MLKit: https://github.com/valory-xyz/apy-oracle - apy-oracle (v0.10.2)
+* OracleKit: https://github.com/valory-xyz/price-oracle - price-oracle (v0.10.3)
+* IEKit: https://github.com/valory-xyz/IEKit - IEKit (v0.2.3)
+
 ## v0.10.1 (2023-04-19)
 
 Frameworks
