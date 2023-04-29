@@ -56,7 +56,7 @@ Connect your wallet and indicate the service ID you wish to donate. Allowed acti
 * **Donate.** Donate the specified amount of ETH to the specified service. You can specify more than one service in a single call. The connected wallet will ask you to approve the transaction.
 
     !!! warning "Important"
-        To avoid fragmented donations, the protocol currently only accepts donations of a minimum of 0.065 ETH.
+        To avoid fragmented donations, the protocol currently only accepts donations of at least 0.065 ETH. (If the donation is for several services, the total sum must be at least 0.065 ETH.)
 
 ### Dev incentives page
 
