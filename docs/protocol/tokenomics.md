@@ -1,6 +1,6 @@
 The Autonolas Protocol tokenomics is the economic model designed to foster the development and composability of autonomous services. The primary goal is to create a sustainable ecosystem to incentivize developers to contribute to the network and reward them for their participation proportionally to their efforts, while the platform itself grows and becomes more valuable.
 
-Autonolas uses a **bonding mechanism** to grow the protocol’s capital, a **staking model** for code to enable developers to track their code contributions on-chain, and **a system to receive rewards** for code usefulness. Additionally, Autonolas aims to create a flywheel to **attract donations** and provide decentralized protocol-owned services to ensure ecosystem longevity.
+Autonolas uses a **bonding mechanism** to grow the protocol-owned liquidity, a **staking model** for code to enable developers to track their code contributions on-chain, and **a system to distribute rewards** for useful code. Additionally, Autonolas aims to create a flywheel to **attract donations** and provide decentralized protocol-owned services to ensure ecosystem longevity.
 
 !!! abstract "Learn more"
 
@@ -14,20 +14,21 @@ token follows the ERC20 standard and is deployed on the Ethereum mainnet.
 
 * OLAS can be locked for voting-escrow OLAS (veOLAS) to participate in the Autonolas DAO governance, thus shaping the protocol and its tokenomics.
 * OLAS can be locked for veOLAS tokens for permissionless access to a service whitelist that
-unlocks code owners’ top-ups.
+unlocks code owners’ top-ups (incentives in OLAS that boost the developers' ETH rewards).
+```https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/Autonolas_tokenomics_audit.pdf
 * OLAS can be used to acquire (on a third-party DEX) LP-tokens that are required for
 bonding. This will enable protocol-owned liquidity and therefore support the protocol’s long-term growth.
 
 ## Incentivizing software developers
 
-Let us briefly present how the staking model for agents and componentS code incentivizes software developers:
+Let us briefly present how the staking model for agents and component code incentivizes software developers:
 
 1. Developers stake agents and/or components on-chain by [minting they software packages as NFTs](./mint_packages_nfts.md#mint-a-component).
 2. Service owners use staked agents and components to create autonomous
 services. Then they [mint their service](./mint_packages_nfts.md#mint-a-service) in the Autonolas Protocol.
 3. Services can receive ETH donations through the Autonolas Protocol as a sign of recognition for their effort and utility.
 4. With a share of accrued donations, the protocol will reward the staked agents
-and/or components that facilitated such donations. Rewards are distributed proportionally with a mechanism agreed by the protocol governance.
+and/or components that facilitated such donations. Rewards are distributed proportionally to the code contribution to the ecosystem. Subject to governance approval, a portion of those donations can be eventually used by the DAO for ecosystem growth.
 5. Moreover, when the service owners own a certain threshold of veOLAS (e.g. they
 have locked a certain amount of OLAS for a certain period of time), they are
 considered whitelisted. The protocol will also distribute a share of the OLAS
@@ -36,7 +37,7 @@ services.
 
 ## Incentivizing bonders
 
-The Autonolas Tokenomics bonding mechanism allows investors with enabled Uniswap V2 LP-pair assets to deposit them via the Autonolas depository smart contract and receive OLAS tokens at a discount relative to the price quoted on the relevant DEX after a vesting time. The interest rate on purchased bonds and the discount factor can be adjusted to incentivize or discourage bond demand. The protocol currently incentivizes bonding when there is a large potential output of code production in the ecosystem, and a production function is used to measure potential code production during one epoch to establish the interest rate and discount factor.
+The Autonolas Tokenomics bonding mechanism allows users with enabled Uniswap V2 LP-pair assets to deposit them via the Autonolas depository smart contract and receive OLAS tokens at a discount relative to the price quoted on the relevant DEX after a vesting time. The interest rate on purchased bonds and the discount factor can be adjusted to incentivize or discourage bond demand. The protocol currently incentivizes bonding when there is a large potential output of code production in the ecosystem and a production function is used to measure potential code production during one epoch to establish the interest rate and discount factor.
 
 ## Interacting with the protocol tokenomics
 
@@ -72,6 +73,8 @@ Developers can use this screen to review and claim the incentives of the agents 
 * **Claim incentives.** Transfer the incentives available for the specified agents or components. You can specify more than one agent or component in a single call. The connected wallet will ask to approve the transaction.
 
 * **Projected incentives.** Review the projected, estimated incentives in the next epoch for the specified agent or component.
+
+* **Checkpoint call.** When the time of the current epoch is passed, a checkpoint button is shown.  Anyone can call the checkpoint. The checkpoint allows a new epoch to start and projected incentives to be claimed. The connected wallet will ask to approve the transaction.
 
 ### Bonding programs page
 
