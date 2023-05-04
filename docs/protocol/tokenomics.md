@@ -14,8 +14,7 @@ token follows the ERC20 standard and is deployed on the Ethereum mainnet.
 
 * OLAS can be locked for voting-escrow OLAS (veOLAS) to participate in the Autonolas DAO governance, thus shaping the protocol and its tokenomics.
 * OLAS can be locked for veOLAS tokens for permissionless access to a service whitelist that
-unlocks code owners’ top-ups (incentives in OLAS that boost the developers' ETH rewards).
-```https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/Autonolas_tokenomics_audit.pdf
+unlocks code owners’ top-ups (incentives in OLAS that boost the developers' ETH rewards). See the details [here](https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/Autonolas_tokenomics_audit.pdf).
 * OLAS can be used to acquire (on a third-party DEX) LP-tokens that are required for
 bonding. This will enable protocol-owned liquidity and therefore support the protocol’s long-term growth.
 
@@ -23,7 +22,7 @@ bonding. This will enable protocol-owned liquidity and therefore support the pro
 
 Let us briefly present how the staking model for agents and component code incentivizes software developers:
 
-1. Developers stake agents and/or components on-chain by [minting they software packages as NFTs](./mint_packages_nfts.md#mint-a-component).
+1. Developers stake agents and/or components on-chain by [minting their software packages as NFTs](./mint_packages_nfts.md#mint-a-component).
 2. Service owners use staked agents and components to create autonomous
 services. Then they [mint their service](./mint_packages_nfts.md#mint-a-service) in the Autonolas Protocol.
 3. Services can receive ETH donations through the Autonolas Protocol as a sign of recognition for their effort and utility.
@@ -45,7 +44,7 @@ The [Autonolas Tokenomics web app](https://tokenomics.autonolas.network/) provid
 
 ### Donate page
 
-Anyone can make a voluntary donation to a given service. Donations to the protocol are distributed to agent or component owners according to the direct contribution measure of them. Developers can later claim their incentive proportionally to the usefulness of their code.
+Anyone can make a voluntary donation to a given service. Donations to the protocol are distributed to agent or component owners according to their direct contribution measure. Developers can later claim their incentive proportionally to the usefulness of their code.
 
 <figure markdown>
 ![Tokenomics donate](./images/tokenomics_donate.png){ align=left width=500 }
@@ -60,13 +59,13 @@ Connect your wallet and indicate the service ID you wish to donate. Allowed acti
 
 ### Dev incentives page
 
-Developers can use this screen to review and claim the incentives of the agents and components you own. Note that you must be the owner of that component to use the functionalities in this page.
+Developers can use this screen to review and claim the incentives of the agents and components they own. Note that you must be the owner of that component to use the functionalities in this page.
 
 <figure markdown>
 ![Tokenomics dev incentives](./images/tokenomics_dev_incentives.png){ align=left width=500 }
 </figure>
 
- Connect your wallet and indicate the ID and unit type (agent or component) that you wish to refer. Allowed actions:
+ Connect your wallet and indicate the ID and unit type (agent or component) that you wish to refer to. Allowed actions:
 
 * **Check incentives.** Review the incentives you can currently claim for the specified agents or components. You can specify more than one agent or component in a single call.
 
