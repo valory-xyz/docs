@@ -14,7 +14,7 @@ Examples of modules include governance and staking. Governance is particularly i
 Core smart contracts are permissionless. Autonolas governance controls the process of service management functionalities and of minting new NFTs representing components and agents (i.e. it can change the minting rules and pause minting). The remaining functionalities, in particular transfer functionalities, are not pausable by governance.
 
 <figure markdown>
-![Package minting](./images/core_smart_contracts.svg)
+![Core smart contracts](./images/core_smart_contracts.svg)
 </figure>
 
 **Generic Registry**
@@ -39,7 +39,7 @@ Autonolas extends the ERC721 standard to support appending additional hashes to 
 Periphery contracts are fully controlled by the governance and can be replaced to enable new functionality. They also act as guards to restrict existing functionality.
 
 <figure markdown>
-![Package minting](./images/periphery_smart_contracts.svg)
+![Periphery smart contracts](./images/periphery_smart_contracts.svg)
 </figure>
 
 **Generic Manager**
