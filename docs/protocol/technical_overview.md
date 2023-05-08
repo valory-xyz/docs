@@ -1,4 +1,4 @@
-The **Autonolas Protocol Registry** benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature. From an architectural point of view, the smart contracts that make up the protocol satisfy the following properties:
+The **Autonolas Protocol** benefits from a modular design with a clear separation of concerns and opportunity for extensibility without compromising its security and permissionless nature. From an architectural point of view, the smart contracts that make up the protocol satisfy the following properties:
 
 * Follow a core-periphery architecture (such as in [Uniswap](https://docs.uniswap.org/contracts/v2/concepts/protocol-overview/smart-contracts)), which allows for changing out periphery functionality without changing the data models at the core.
 * Allow for extension via modules (such as in [MakerDAO](https://docs.makerdao.com/)).
@@ -9,7 +9,11 @@ Examples of modules include governance and staking. Governance is particularly i
 
     Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the [Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf) for the full details of the **Autonolas Protocol**.
 
-## Core smart contracts
+## Registry
+
+This section gives an overview on the technical details of the Autonolas Protocol Registry, where NFTs representing software packages can be minted.
+
+### Core smart contracts
 
 Core smart contracts are permissionless. Autonolas governance controls the process of service management functionalities and of minting new NFTs representing components and agents (i.e. it can change the minting rules and pause minting). The remaining functionalities, in particular transfer functionalities, are not pausable by governance.
 
@@ -34,7 +38,7 @@ Core smart contracts are permissionless. Autonolas governance controls the proce
 
 Autonolas extends the ERC721 standard to support appending additional hashes to the NFT over time. This allows developers and service owners to record version changes in their code or configuration, and to signal it on-chain without breaking backward compatibility.
 
-## Periphery smart contracts
+### Periphery smart contracts
 
 Periphery contracts are fully controlled by the governance and can be replaced to enable new functionality. They also act as guards to restrict existing functionality.
 
@@ -51,7 +55,7 @@ Periphery contracts are fully controlled by the governance and can be replaced t
 **Service Manager**
 :	A contract inheriting from Generic Manager via which service owners can create and manage their services.
 
-## Contract addresses
+### Contract addresses
 
 Find below the addresses of the Autonolas Protocol contracts currently deployed in different chains.
 
@@ -64,3 +68,15 @@ Find below the addresses of the Autonolas Protocol contracts currently deployed 
 | Registries Manager | [View on Etherscan  :material-open-in-new: ](https://etherscan.io/address/0x9eC9156dEF5C613B2a7D4c46C383F9B58DfcD6fE) | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0x10c5525F77F13b28f42c5626240c001c2D57CAd4) |
 | Service Manager    | [View on Etherscan  :material-open-in-new: ](https://etherscan.io/address/0x38b062d11CD7596Ab5aDFe4d0e9F0dC3218E5389) | [View on Etherscan  :material-open-in-new: ](https://goerli.etherscan.io/address/0xcDdD9D9ABaB36fFa882530D69c73FeE5D4001C2d) |
 </figure>
+
+## Tokenomics
+
+!!! info
+
+	This section will be added soon.
+
+## Governance
+
+!!! info
+
+	This section will be added soon.
