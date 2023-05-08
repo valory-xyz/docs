@@ -75,7 +75,7 @@ Find below the addresses of the Registry contracts currently deployed on differe
 
 !!! info
 
-	This section will be added soon.
+	This section will be completed soon.
 
 ### Contract addresses
 
@@ -98,7 +98,7 @@ Find below the addresses of the Tokenomics contracts currently deployed on diffe
 
 !!! info
 
-	This section will be added soon.
+	This section will be completed soon.
 	
 ### Contract addresses
 
