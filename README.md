@@ -42,7 +42,7 @@ tox -e docs
     docker run --rm -p 8001:80 docs
     ```
 
-    Test the website with your browser on `http://localhost:8001`
+    Test the website with your browser on `http://localhost:8001`.
 
 4. Create release (see an example [here](https://github.com/valory-xyz/docs/releases/tag/v0.10.0)):
    * **Tag:** vX.Y.Z
