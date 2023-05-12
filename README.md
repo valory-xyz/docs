@@ -35,12 +35,21 @@ tox -e docs
    * **Title:** "Prepare for release vX.Y.Z"
    * **Contents:** Update file `HISTORY.md` with the correct versions of the submodules or any other relevant change.
 
+3. (Optional) Test the Docker image locally:
+
+    ```bash
+    docker build -t 'docs' .
+    docker run -p 8001:80 docs --rm 
+    ```
+
+    Test the Website with your browser on `http://localhost:8001`
+
 3. Create release (see an example [here](https://github.com/valory-xyz/docs/releases/tag/v0.10.0)):
    * **Tag:** vX.Y.Z
    * **Title:** vX.Y.Z
    * **Contents:** Latest entry in `HISTORY.md`
 
-4. Publish the release. The hash of the created Docker image can be found on the release workflow. See an example [here](https://github.com/valory-xyz/docs/actions/runs/4536574834/jobs/7993431764#step:8:24).
+4. Publish the release. The hash of the created Docker image containing the documentation site can be found on the release workflow. See an example [here](https://github.com/valory-xyz/docs/actions/runs/4536574834/jobs/7993431764#step:8:24).
 
 Notes:
 
