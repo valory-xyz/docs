@@ -44,12 +44,12 @@ tox -e docs
 
     Test the Website with your browser on `http://localhost:8001`
 
-3. Create release (see an example [here](https://github.com/valory-xyz/docs/releases/tag/v0.10.0)):
+4. Create release (see an example [here](https://github.com/valory-xyz/docs/releases/tag/v0.10.0)):
    * **Tag:** vX.Y.Z
    * **Title:** vX.Y.Z
    * **Contents:** Latest entry in `HISTORY.md`
 
-4. Publish the release. The hash of the created Docker image containing the documentation site can be found on the release workflow. See an example [here](https://github.com/valory-xyz/docs/actions/runs/4536574834/jobs/7993431764#step:8:24).
+5. Publish the release. The hash of the created Docker image containing the documentation site can be found on the release workflow. See an example [here](https://github.com/valory-xyz/docs/actions/runs/4536574834/jobs/7993431764#step:8:24).
 
 Notes:
 
