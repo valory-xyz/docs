@@ -39,7 +39,7 @@ tox -e docs
 
     ```bash
     docker build -t 'docs' .
-    docker run -p 8001:80 docs --rm 
+    docker run --rm -p 8001:80 docs
     ```
 
     Test the Website with your browser on `http://localhost:8001`
