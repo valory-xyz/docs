@@ -32,5 +32,5 @@ The Autonolas Stack is made of three main components:
 We look forward to you get involved in the Autonolas ecosystem and deploy your own autonomous services. If you have any question, or if you have found any missing information in these pages, or you are simply interested in knowing more about the project, we invite you to reach out to us on [Discord](https://discord.gg/RHY6eJ35ar) and follow us on [Twitter](https://twitter.com/autonolas).
 
 
-<div style="text-align: right"><small>Documentation version {{git.tag}} ({{ git.short_commit}}) {{ git.date.strftime("%b %d, %Y %H:%M:%S") }}.</small></div>
+<div style="text-align: right"><small>Documentation version {{git.tag}} ({{ git.short_commit}}) {{ git.date.strftime("%b %d, %Y %H:%M:%S UTC%z") }}.</small></div>
 
