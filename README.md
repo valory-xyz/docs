@@ -1,6 +1,6 @@
-# docs
+# Autonolas Developer Documentation
 
-This repository aggregates the documentation of all the Autonolas ecosystem products. This repository aggregates the documentation of all the Autonolas ecosystem products.
+This repository aggregates the documentation of all the Autonolas ecosystem products.
 
 ## Requirements
 

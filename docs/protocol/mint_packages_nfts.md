@@ -4,13 +4,19 @@ This guide describes how to use the [Autonolas Protocol web app](https://protoco
 
 To mint a package (also referred to as _unit_) in the protocol, it must have been published into a remote IPFS registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
 
-Minting a package involves filling in some data and creating a **metadata file**, which contains a pointer to the IPFS hash of the published software package.
-The [Autonolas Protocol web app](https://protocol.autonolas.network/) will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information and the information provided by the user in the online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.
+Minting a software package involves creating a **metadata file** that contains the package data and a pointer to the IPFS where the package is published.
+The [Autonolas Protocol web app](https://protocol.autonolas.network/) will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information provided by the user in an online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.
 
 Upon completing the minting process, you will have an NFT representing your package in the Autonolas Protocol. See the figure below.
 
 <figure markdown>
 ![Package minting](./images/package_minting.svg)
+</figure>
+
+Minted NFTs offers an on-chain representation of the relationship between different software packages by mirroring their dependency relations. This helps the protocol [Tokenomics](./tokenomics.md) to compute appropriate incentives, for example, based on how often a component is referenced.
+
+<figure markdown>
+![Package dependencies represented on-chain](./images/nft_dependencies.svg)
 </figure>
 
 ## Requirements
@@ -19,8 +25,8 @@ In order to mint a software package as an NFT, you must ensure that you have:
 
 * An **address** associated to either
 
-    * a crypto wallet (e.g., [Metamask](https://metamask.io/) or a cold wallet), or
-    * a multisig contract (like [Safe](https://safe.global/)) which allows to connect via [Wallet Connect](https://walletconnect.com/).
+  * a crypto wallet (e.g., [Metamask](https://metamask.io/) or a cold wallet), or
+  * a multisig contract (like [Safe](https://safe.global/)) which allows to connect via [Wallet Connect](https://walletconnect.com/).
   
     In either case, the address must have funds for the chain that you wish to mint the package NFT.
 
@@ -35,7 +41,6 @@ Connect your wallet to the Protocol app, open the [components section](https://p
 <figure markdown>
 ![Mint component screenshot](./images/mint_component_screenshot.png){ align=left width=450 }
 </figure>
-
 
   1. **Owner Address.** The wallet address of the component owner (starting with `0x...`). It does not need to be the address of the connected wallet.
 
@@ -61,7 +66,6 @@ Connect your wallet to the Protocol app, open the [agents section](https://proto
 ![Mint agent screenshot](./images/mint_agent_screenshot.png){ align=left width=450 }
 </figure>
 
-
   1. **Owner Address.** The wallet address of the agent owner (starting with `0x...`). It does not need to be the address of the connected wallet.
 
   2. **Generate IPFS hash of the metadata file.** Press the _Generate Hash & File_ button and fill in the following data:
@@ -85,7 +89,6 @@ Connect your wallet to the Protocol app, open the [services section](https://pro
 <figure markdown>
 ![Mint service screenshot](./images/mint_service_screenshot.png){ align=left width=450 }
 </figure>
-
 
   1. **Owner Address.** The wallet address of the service owner (starting with `0x...`). It does not need to be the address of the connected wallet.
 
