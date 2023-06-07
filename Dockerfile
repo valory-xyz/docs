@@ -4,7 +4,7 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN mkdir /build
 WORKDIR /build
 
-RUN apt-get update -y && apt-get install gcc -y && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && apt-get install git gcc -y && rm -rf /var/lib/apt/lists/*
 RUN python3 -m venv $VIRTUAL_ENV && pip install poetry==1.3.2 --no-cache-dir
 
 COPY pyproject.toml .
