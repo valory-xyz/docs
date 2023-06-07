@@ -25,7 +25,7 @@ In order to mint a software package as an NFT, you must ensure that you have:
 
 * An **address** associated to either
 
-  * a crypto wallet (e.g., [Metamask](https://metamask.io/) or a cold wallet), or
+  * a crypto wallet (e.g., [Metamask](https://metamask.io/) or
   * a multisig contract (like [Safe](https://safe.global/)) which allows to connect via [Wallet Connect](https://walletconnect.com/).
   
     In either case, the address must have funds for the chain that you wish to mint the package NFT.
