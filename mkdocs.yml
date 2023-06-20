@@ -5,11 +5,11 @@ site_description: Developer documentation of Autonolas ecosystem products.
 site_author: developer@valory.xyz
 edit_uri: ""
 copyright:  Copyright &copy; 2021 - 2023 Valory AG 
-  
+
 
 strict: true
 
- 
+
 theme:
   name: 'material'
   language: en
@@ -32,7 +32,7 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
- 
+
 
 nav:
   - Home: 'index.md' 
@@ -55,10 +55,11 @@ nav:
 
 
 plugins:
-  - monorepo
   - macros:
       on_error_fail: true
+      on_undefined: strict
   - search
+  - monorepo
   - redirects:
       redirect_maps:
         'protocol/register_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
@@ -75,7 +76,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.highlight
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -91,7 +92,7 @@ markdown_extensions:
   - md_in_html
   - toc:
       title: On this page
-      toc_depth: 3          
+      toc_depth: 3
 
 
 extra:
@@ -101,11 +102,15 @@ extra:
   fsm_app: 'FSM App'
   open_autonomy: '[Open Autonomy](https://github.com/valory-xyz/open-autonomy)'
   open_autonomy_api: '[Open Autonomy API](https://docs.autonolas.network/)'
-  on_chain_frontend: '[on-chain protocol frontend](https://protocol.autonolas.network/)'
+  on_chain_frontend: '[on-chain protocol frontend](https://protocol.olas.network/)'
   agent_service_link: '[agent service](https://docs.autonolas.network/open-autonomy/get_started/what_is_an_agent_service/)'
   set_up_system: '[set up your system](https://docs.autonolas.network/open-autonomy/guides/set_up/)'
   open_aea_repository: '[Open AEA repository](https://github.com/valory-xyz/open-aea)'
   open_autonomy_repository: '[Open Autonomy repository](https://github.com/valory-xyz/open-autonomy)'
+  autonolas_whitepaper: '[Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf)'
+  autonolas_protocol: '[Autonolas Protocol](https://docs.autonolas.network/protocol/)'
+  autonolas_protocol_registry_dapp: '[Autonolas Protocol web app](https://protocol.olas.network/)'
+  autonolas_protocol_tokenomics_dapp: '[Autonolas Tokenomics web app](https://tokenomics.olas.network/)'
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/autonolas

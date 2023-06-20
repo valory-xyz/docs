@@ -8,7 +8,7 @@ The life cycle of a service minted in the Autonolas Protocol consists of the fol
 
 !!! example
 
-    Look at [this service](https://protocol.autonolas.network/services/1) on the Autonolas Protocol web app to see the current state of a live service.
+    Look at [this service](https://protocol.olas.network/services/1) on the Autonolas Protocol web app to see the current state of a live service.
 
 The figure below summarizes the life cycle and the actions that provoke a transition between states. Most of the service state transitions are initiated by the service owner. However, some state transitions are also triggered automatically. For example, when an operator registers the last available agent instance in the _Active Registration_ state, the service will automatically transit to the _Finished Registration_ state.
 
@@ -18,7 +18,7 @@ The figure below summarizes the life cycle and the actions that provoke a transi
 
 ## Service states
 
-This section details the states of a service minted in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the [Autonolas Protocol web app](https://protocol.autonolas.network/) in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
+This section details the states of a service minted in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the {{ autonolas_protocol_registry_dapp }} in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
 
 ### Pre-Registration
 

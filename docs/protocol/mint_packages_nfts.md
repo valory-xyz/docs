@@ -1,11 +1,11 @@
-This guide describes how to use the [Autonolas Protocol web app](https://protocol.autonolas.network/) to mint software packages NFTs in the Autonolas Protocol. You can mint three types of packages: **services**, **agents** and **components**.
+This guide describes how to use the {{ autonolas_protocol_registry_dapp }} to mint software packages NFTs in the Autonolas Protocol. You can mint three types of packages: **services**, **agents** and **components**.
 
 ## How packages are minted
 
 To mint a package (also referred to as _unit_) in the protocol, it must have been published into a remote IPFS registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
 
 Minting a software package involves creating a **metadata file** that contains the package data and a pointer to the IPFS where the package is published.
-The [Autonolas Protocol web app](https://protocol.autonolas.network/) will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information provided by the user in an online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.
+The {{ autonolas_protocol_registry_dapp }} will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information provided by the user in an online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.
 
 Upon completing the minting process, you will have an NFT representing your package in the Autonolas Protocol. See the figure below.
 
@@ -36,7 +36,7 @@ In order to mint a software package as an NFT, you must ensure that you have:
 
 ## Mint a component
 
-Connect your wallet to the Protocol app, open the [components section](https://protocol.autonolas.network/components) and press the _Mint_ button. Fill in the data of your component:
+Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [components section](https://protocol.olas.network/components) and press the _Mint_ button. Fill in the data of your component:
 
 <figure markdown>
 ![Mint component screenshot](./images/mint_component_screenshot.png){ align=left width=450 }
@@ -54,13 +54,13 @@ Connect your wallet to the Protocol app, open the [components section](https://p
 
       By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the component online form.
 
-  3. **Dependencies.** Comma-separated list of component IDs which the component requires. You can find the IDs by browsing the [components section](https://protocol.autonolas.network/components).
+  3. **Dependencies.** Comma-separated list of component IDs which the component requires. You can find the IDs by browsing the [components section](https://protocol.olas.network/components).
 
 Press the _Submit_ button. Your wallet will ask you to approve the transaction. Once the transaction is settled, you should see a message indicating that the component NFT has been minted successfully.
 
 ## Mint an agent
 
-Connect your wallet to the Protocol app, open the [agents section](https://protocol.autonolas.network/agents) and press the _Mint_ button. Fill in the data of your agent:
+Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [agents section](https://protocol.olas.network/agents) and press the _Mint_ button. Fill in the data of your agent:
 
 <figure markdown>
 ![Mint agent screenshot](./images/mint_agent_screenshot.png){ align=left width=450 }
@@ -78,13 +78,13 @@ Connect your wallet to the Protocol app, open the [agents section](https://proto
 
       By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the agent online form.
 
-  3. **Dependencies.** Comma-separated list of component IDs which the agent requires. You can find the IDs by browsing the [components section](https://protocol.autonolas.network/components).
+  3. **Dependencies.** Comma-separated list of component IDs which the agent requires. You can find the IDs by browsing the [components section](https://protocol.olas.network/components).
 
 Press the _Submit_ button. Your wallet will ask you to approve the transaction. Once the transaction is settled, you should see a message indicating that the agent NFT has been minted successfully.
 
 ## Mint a service
 
-Connect your wallet to the Protocol app, open the [services section](https://protocol.autonolas.network/services) and press the _Mint_ button. Fill in the data of your service:
+Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [services section](https://protocol.olas.network/services) and press the _Mint_ button. Fill in the data of your service:
 
 <figure markdown>
 ![Mint service screenshot](./images/mint_service_screenshot.png){ align=left width=450 }
@@ -101,7 +101,7 @@ Connect your wallet to the Protocol app, open the [services section](https://pro
 
       By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the service online form.
 
-  3. **Canonical agent Ids.** Comma-separated list of agent IDs which the service requires. You can find the IDs by browsing the [agents section](https://protocol.autonolas.network/agents).
+  3. **Canonical agent Ids.** Comma-separated list of agent IDs which the service requires. You can find the IDs by browsing the [agents section](https://protocol.olas.network/agents).
 
   4. **No. of slots to canonical agent Ids.** Specify the number of agent instances for each agent ID listed above.
 
