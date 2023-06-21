@@ -36,7 +36,7 @@ In order to mint a software package as an NFT, you must ensure that you have:
 
 ## Mint a component
 
-Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [components section](https://registry.olas.network/components) and press the _Mint_ button. Fill in the data of your component:
+Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [components section]({{ autonolas_protocol_registry_dapp_link }}/components) and press the _Mint_ button. Fill in the data of your component:
 
 <figure markdown>
 ![Mint component screenshot](./images/mint_component_screenshot.png){ align=left width=450 }
@@ -54,13 +54,13 @@ Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [com
 
       By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the component online form.
 
-  3. **Dependencies.** Comma-separated list of component IDs which the component requires. You can find the IDs by browsing the [components section](https://registry.olas.network/components).
+  3. **Dependencies.** Comma-separated list of component IDs which the component requires. You can find the IDs by browsing the [components section]({{ autonolas_protocol_registry_dapp_link }}/components).
 
 Press the _Submit_ button. Your wallet will ask you to approve the transaction. Once the transaction is settled, you should see a message indicating that the component NFT has been minted successfully.
 
 ## Mint an agent
 
-Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [agents section](https://registry.olas.network/agents) and press the _Mint_ button. Fill in the data of your agent:
+Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [agents section]({{ autonolas_protocol_registry_dapp_link }}/agents) and press the _Mint_ button. Fill in the data of your agent:
 
 <figure markdown>
 ![Mint agent screenshot](./images/mint_agent_screenshot.png){ align=left width=450 }
@@ -78,13 +78,13 @@ Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [age
 
       By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the agent online form.
 
-  3. **Dependencies.** Comma-separated list of component IDs which the agent requires. You can find the IDs by browsing the [components section](https://registry.olas.network/components).
+  3. **Dependencies.** Comma-separated list of component IDs which the agent requires. You can find the IDs by browsing the [components section]({{ autonolas_protocol_registry_dapp_link }}/components).
 
 Press the _Submit_ button. Your wallet will ask you to approve the transaction. Once the transaction is settled, you should see a message indicating that the agent NFT has been minted successfully.
 
 ## Mint a service
 
-Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [services section](https://registry.olas.network/services) and press the _Mint_ button. Fill in the data of your service:
+Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [services section]({{ autonolas_protocol_registry_dapp_link }}/services) and press the _Mint_ button. Fill in the data of your service:
 
 <figure markdown>
 ![Mint service screenshot](./images/mint_service_screenshot.png){ align=left width=450 }
@@ -101,7 +101,7 @@ Connect your wallet to the {{ autonolas_protocol_registry_dapp }}, open the [ser
 
       By pressing the _Save File & Generate Hash_ button, a metadata file with this information will be automatically generated and uploaded to the remote registry. You will notice that the hash will be populated in the service online form.
 
-  3. **Canonical agent Ids.** Comma-separated list of agent IDs which the service requires. You can find the IDs by browsing the [agents section](https://registry.olas.network/agents).
+  3. **Canonical agent Ids.** Comma-separated list of agent IDs which the service requires. You can find the IDs by browsing the [agents section]({{ autonolas_protocol_registry_dapp_link }}/agents).
 
   4. **No. of slots to canonical agent Ids.** Specify the number of agent instances for each agent ID listed above.
 
