@@ -4,7 +4,7 @@ Autonolas uses a **bonding mechanism** to grow the protocol-owned liquidity, a *
 
 !!! abstract "Learn more"
 
-    Read the **Tokenomics** section in the [Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf) for the full details.
+    Read the **Tokenomics** section in the {{ autonolas_whitepaper }} for the full details.
 
 ## The OLAS token
 
@@ -40,7 +40,7 @@ The Autonolas Tokenomics bonding mechanism allows users with enabled Uniswap V2 
 
 ## Interacting with the protocol tokenomics
 
-The [Autonolas Tokenomics web app](https://tokenomics.autonolas.network/) provides a front-end for **donors**, **bonders** and **developers** to interact with the tokenomics model of the protocol.
+The {{ autonolas_protocol_tokenomics_dapp }} provides a front-end for **donors**, **bonders** and **developers** to interact with the tokenomics model of the protocol.
 
 ### Donate page
 

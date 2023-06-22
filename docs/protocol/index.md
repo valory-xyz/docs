@@ -30,7 +30,7 @@ organization, to steer and fine-tune aspects of the Autonolas protocol over time
 
 !!! abstract "Learn more"
 
-    Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the [Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf) for the full details of the **Autonolas Protocol**.
+    Read the **Technical Architecture**, **Tokenomics** and **Governance** sections in the {{ autonolas_whitepaper }} for the full details of the **Autonolas Protocol**.
 
 ## Rationale
 
