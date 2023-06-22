@@ -13,4 +13,4 @@
 
 !!! abstract "Learn more"
 
-    Read the section **Use Cases for Autonomous Services** in the [Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf), where you can find a discussion of the kind of autonomous services that the Autonolas Stack enables.
+    Read the section **Use Cases for Autonomous Services** in the {{ autonolas_whitepaper }}, where you can find a discussion of the kind of autonomous services that the Autonolas Stack enables.
