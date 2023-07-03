@@ -13,7 +13,7 @@ Upon completing the minting process, you will have an NFT representing your pack
 ![Package minting](./images/package_minting.svg)
 </figure>
 
-Minted NFTs offers an on-chain representation of the relationship between different software packages by mirroring their dependency relations. This helps the protocol [Tokenomics](./tokenomics.md) to compute appropriate incentives, for example, based on how often a component is referenced.
+Minted NFTs offer an on-chain representation of the relationship between different software packages by mirroring their dependency relations. This helps the protocol [Tokenomics](./tokenomics.md) to compute appropriate incentives, for example, based on how often a component is referenced.
 
 <figure markdown>
 ![Package dependencies represented on-chain](./images/nft_dependencies.svg)
