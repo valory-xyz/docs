@@ -19,3 +19,15 @@
 [submodule "IEKit"]
 	path = IEKit
 	url = https://github.com/valory-xyz/IEKit
+[submodule "mech"]
+	path = mech
+	url = https://github.com/valory-xyz/mech
+[submodule "agent-academy-2"]
+	path = agent-academy-2
+	url = https://github.com/valory-xyz/agent-academy-2
+[submodule "governatooorr"]
+	path = governatooorr
+	url = https://github.com/valory-xyz/governatooorr
+[submodule "open-acn"]
+	path = open-acn
+	url = https://github.com/valory-xyz/open-acn

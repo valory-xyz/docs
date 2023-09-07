@@ -1,12 +1,17 @@
 # Toolkits
 
 <figure markdown>
-![SMPKit](../images/smpkit.svg){ align=left width=50}
-![MintKit](../images/mintkit.svg){ align=left width=50}
-![CoordinationKit](../images/coordinationkit.svg){ align=left width=50}
-![MLKit](../images/mlkit.svg){ align=left width=50}
-![OracleKit](../images/oraclekit.svg){ align=left width=50}
-![IEKit](../images/iekit.svg){ align=left width=50}
+[![SMPKit](../images/smpkit.svg){ align=left width=50}](https://docs.autonolas.network/product/smpkit/)
+[![MintKit](../images/mintkit.svg){ align=left width=50}](https://docs.autonolas.network/product/mintkit/)
+[![CoordinationKit](../images/coordinationkit.svg){ align=left width=50}](https://docs.autonolas.network/product/coordinationkit/)
+[![MLKit](../images/mlkit.svg){ align=left width=50}](https://docs.autonolas.network/product/mlkit/)
+[![OracleKit](../images/oraclekit.svg){ align=left width=50}](https://docs.autonolas.network/product/oraclekit/)
+<br />
+[![IEKit](../images/iekit.svg){ align=left width=50}](https://docs.autonolas.network/product/iekit/)
+[![GovKit](../images/govkit.svg){ align=left width=50}](https://docs.autonolas.network/product/govkit/)
+[![MechKit](../images/mechkit.svg){ align=left width=50}](https://docs.autonolas.network/product/mechkit/)
+[![KeeperKit](../images/keeperkit.svg){ align=left width=50}](https://docs.autonolas.network/product/keeperkit/)
+[![MessagingKit](../images/messagingkit.svg){ align=left width=50}](https://docs.autonolas.network/product/messagingkit/)
 </figure>
 
 **Autonolas Toolkits** are code repositories that you can fork to bootstrap common autonomous services.

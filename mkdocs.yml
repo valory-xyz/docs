@@ -51,8 +51,11 @@ nav:
       - CoordinationKit: '!include ./contribution-service/mkdocs.yml'
       - MLKit: '!include ./apy-oracle/mkdocs.yml'
       - OracleKit: '!include ./price-oracle/mkdocs.yml'
-      - IEKit: '!include ./IEKit/mkdocs.yml'      
-
+      - IEKit: '!include ./IEKit/mkdocs.yml'
+      - GovKit: '!include ./governatooorr/mkdocs.yml'
+      - MechKit: '!include ./mech/mkdocs.yml'
+      - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
+      - MessagingKit: '!include ./open-acn/mkdocs.yml'
 
 plugins:
   - macros:
