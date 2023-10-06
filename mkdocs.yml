@@ -37,6 +37,10 @@ extra_css:
 nav:
   - Home: 'index.md' 
    #- Open AEA Framework: '!include ./open-aea/mkdocs.yml'
+  - Demo autonomous services: 
+      - 'demos/index.md'
+      - Hello World: '!include ./hello-world/mkdocs.yml'
+      - Price oracle: 'demos/price-oracle/index.md'
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Autonolas Protocol:
       - 'protocol/index.md'

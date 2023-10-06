@@ -31,3 +31,6 @@
 [submodule "open-acn"]
 	path = open-acn
 	url = https://github.com/valory-xyz/open-acn
+[submodule "hello-world"]
+	path = hello-world
+	url = https://github.com/valory-xyz/hello-world.git
