@@ -31,7 +31,7 @@ services. Then they [mint their service](./mint_packages_nfts.md#mint-a-service)
 
 ## Incentivizing bonders
 
-The Autonolas Tokenomics bonding mechanism allows users with enabled LP-pair assets (e.g.[Uniswap V2: OLAS-ETH](https://etherscan.io/address/0x09d1d767edf8fa23a64c51fa559e0688e526812f)) to deposit them via the Autonolas depository smart contract and receive OLAS tokens at a discount relative to the price quoted on the relevant DEX after a vesting time. The interest rate on purchased bonds and the discount factor can be adjusted to incentivize or discourage bond demand. The protocol currently incentivizes bonding when there is a large potential output of code production in the ecosystem and a production function is used to measure potential code production during one epoch to establish the interest rate and discount factor.
+The Autonolas Tokenomics bonding mechanism allows users with enabled LP-pair assets (e.g. [Uniswap V2: OLAS-ETH](https://etherscan.io/address/0x09d1d767edf8fa23a64c51fa559e0688e526812f)) to deposit them via the Autonolas depository smart contract and receive OLAS tokens at a discount relative to the price quoted on the relevant DEX after a vesting time. The interest rate on purchased bonds and the discount factor can be adjusted to incentivize or discourage bond demand. The protocol currently incentivizes bonding when there is a large potential output of code production in the ecosystem and a production function is used to measure potential code production during one epoch to establish the interest rate and discount factor.
 
 ## Interacting with the protocol tokenomics
 
@@ -45,7 +45,7 @@ Anyone can make a voluntary donation to a given service. Donations to the protoc
 ![Tokenomics donate](./images/tokenomics_donate.png){ align=left width=500 }
 </figure>
 
-In this page it is also displied the current epoch, the minimum epoch lenght, the estimated time for the current epoch to end and the end time of the previoud one. 
+In this page, it is also displied the current epoch, the minimum epoch length, the estimated time for the current epoch to end and the end time of the previous one. 
 
 Connect your wallet and indicate the service ID you wish to donate. Allowed actions:
 
@@ -66,7 +66,7 @@ Developers can use this screen to review and claim the incentives of the agents 
 
 * **Check for available rewards.** Review the incentives that a specified address can currently claim for the specified agents or components. You can specify more than one agent or component in a single call. Note that the specified address must be the owner of that components or agents to properly use this functionality.
 
-* **Claim rewards.** Withdraw the rewards available for the specified components or agents. You can specify more than one agent or component in a single call. The connected wallet will ask to approve the transaction. Note that rewards claiming is currently paused and will resume once the governance unpauses withdrawals.
+* **Claim rewards.** Collects available rewards for the specified components or agents. You can specify more than one agent or component in a single call. The connected wallet will ask to approve the transaction. Note that rewards claiming is currently paused and will resume once the governance unpauses withdrawals.
 
 * **Estimate rewards for next epoch.** Estimate claimable rewards for the next epoch for the specified agent or component. Note that such rewards are estimated, as they might eventually change during the epoch due to other donations.
 
