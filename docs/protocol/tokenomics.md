@@ -68,7 +68,7 @@ Developers can use this screen to review and claim the incentives of the agents 
 
 * **Check for available rewards.** Review the incentives that a specified address can currently claim for the specified agents or components. You can specify more than one agent or component in a single call. Note that the specified address must be the owner of that components or agents to properly use this functionality.
 
-* **Claim rewards.** Collects available rewards for the specified components or agents. You can specify more than one agent or component in a single call. The connected wallet will ask to approve the transaction. Note that claiming rewards is currently suspended and may be reinstated subject to governance approval
+* **Claim rewards.** Collect available rewards for the specified components or agents. You can specify more than one agent or component in a single call. The connected wallet will ask to approve the transaction. Note that claiming rewards is currently suspended and may be reinstated subject to governance approval.
 
 * **Estimate rewards for next epoch.** Estimate claimable rewards for the next epoch for the specified agent or component. Note that such rewards are estimated, as they might eventually change during the epoch due to other donations.
 
