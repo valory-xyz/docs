@@ -55,4 +55,3 @@ Notes:
 
 * Occasionally, Step 1 can be merged into Step 2 above. That is, a single PR "Update submodules & Prepare for release vX.Y.Z".
 * Since this repository aggregates several submodules that might be updated independently, the versioning of this repository follows the convention of using version number of Open Autonomy repository. Updates of this repository between releases of Open Autonomy will append a number starting at .1 (for example, v0.13.0**.1**, v0.12.1.post4**.1**, etc.)
-
