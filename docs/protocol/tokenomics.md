@@ -44,7 +44,7 @@ The {{ autonolas_protocol_tokenomics_dapp }} provides a front-end for **donors**
 Anyone can make a voluntary donation to a given service. Donations to the protocol are distributed to agent or component owners according to their direct contribution measure. Developers can later claim their incentive proportionally to the usefulness of their code.
 
 <figure markdown>
-![Tokenomics donate](./images/tokenomics_donate.png){ align=left width=500 }
+![Tokenomics donate](./images/tokenomics_donate.png){ align=left width=600 }
 </figure>
 
 This page also displays the current epoch, the minimum epoch length, the estimated time for the current epoch to end and the end time of the previous one. 
@@ -61,7 +61,7 @@ Connect your wallet and indicate the service ID you wish to donate. Allowed acti
 Developers can use this screen to review and claim the incentives of the agents and components they own. 
 
 <figure markdown>
-![Tokenomics dev incentives](./images/tokenomics_dev_incentives.png){ align=left width=500 }
+![Tokenomics dev incentives](./images/tokenomics_dev_incentives.png){ align=left width=600 }
 </figure>
 
  Connect your wallet and indicate the ID and unit type (agent or component) that you wish to refer to. Allowed actions:
@@ -79,7 +79,7 @@ Developers can use this screen to review and claim the incentives of the agents 
 Review bonding programs information and apply for a bond on an active program.
 
 <figure markdown>
-![Tokenomics bonding programs](./images/tokenomics_bonding_programs.png){ align=left width=500 }
+![Tokenomics bonding programs](./images/tokenomics_bonding_programs.png){ align=left width=600 }
 </figure>
 
 Connect your wallet and create a bond for the program you wish to apply. Allowed actions:
@@ -91,7 +91,7 @@ Connect your wallet and create a bond for the program you wish to apply. Allowed
 Review OLAS payout for your bonds and redeem your matured ones.
 
 <figure markdown>
-![Tokenomics my bonds](./images/tokenomics_my_bonds.png){ align=left width=500 }
+![Tokenomics my bonds](./images/tokenomics_my_bonds.png){ align=left width=600 }
 </figure>
 
 Connect your wallet and redeem any of your matured bonds. Allowed actions:
