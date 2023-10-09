@@ -47,7 +47,7 @@ Anyone can make a voluntary donation to a given service. Donations to the protoc
 ![Tokenomics donate](./images/tokenomics_donate.png){ align=left width=600 }
 </figure>
 
-This page also displays the current epoch, the minimum epoch length, the estimated time for the current epoch to end and the end time of the previous one. 
+This page also displays the current epoch, the minimum epoch length, the estimated time for the current epoch to end and the end time of the previous one.
 
 Connect your wallet and indicate the service ID you wish to donate. Allowed actions:
 
@@ -58,7 +58,7 @@ Connect your wallet and indicate the service ID you wish to donate. Allowed acti
 
 ### Developer Rewards
 
-Developers can use this screen to review and claim the incentives of the agents and components they own. 
+Developers can use this screen to review and claim the incentives of the agents and components they own.
 
 <figure markdown>
 ![Tokenomics dev incentives](./images/tokenomics_dev_incentives.png){ align=left width=600 }
