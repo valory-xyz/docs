@@ -19,6 +19,10 @@ Toolkits
 * KeeperKit: https://github.com/valory-xyz/agent-academy-2 - agent-academy-2 (v0.6.1)
 * MessagingKit: https://github.com/valory-xyz/open-acn - open-acn
 
+Demos
+
+* Hello World: https://github.com/valory-xyz/hello-world.git - hello-world (v0.1.1)
+
 ## v0.12.1.post4 (2023-09-29)
 
 Frameworks
