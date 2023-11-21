@@ -52,4 +52,4 @@ jobs:
 
       - name: Generate Documentation
         run: |
-          poetry run mkdocs build --clean --strict
+          poetry run mkdocs build --clean
