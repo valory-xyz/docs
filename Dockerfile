@@ -12,11 +12,6 @@ COPY pyproject.toml .
 RUN poetry install
 COPY . /build
 
-RUN find . -name "mkdocs.yml" | xargs -L1 sed -i.snrbck "s/materialx.emoji.twemoji/material.extensions.emoji.twemoji/g"
-RUN find . -name "mkdocs.yml" | xargs -L1 sed -i.snrbck "s/materialx.emoji.to_svg/material.extensions.emoji.to_svg/g"
-RUN find . -name "*.snrbck" | xargs -L1 rm
-
-RUN $VIRTUAL_ENV/bin/poetry run pip3 install mkdocs-material==9.4.10 mkdocs-material-extensions==1.3
 RUN $VIRTUAL_ENV/bin/poetry run mkdocs build
 
 FROM python:3.10-alpine
