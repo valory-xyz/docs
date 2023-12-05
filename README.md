@@ -25,7 +25,7 @@ tox -e docs
 ## Release process
 
 1. Submodule update PR (see an example [here](https://github.com/valory-xyz/docs/pull/27)):
-    * **Branch:** `chore/update_submodules-vX.Y.Z`
+    * **Branch:** `chore/update-submodules-vX.Y.Z`
     * **Title:** "Update submodules"
     * **Contents:** Submodules point to the required commit (typically, it will be the latest release for each submodule). The command `make prepare-release` updates submodules to their latest tag.
     * **Approval:** The PR should be verified and approved by each submodule author.
