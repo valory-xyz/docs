@@ -1,5 +1,27 @@
 # Release History - Autonolas Documentation
 
+## v0.0.0 (2023-12-05)
+
+Frameworks
+
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.13.8)
+
+Toolkits
+
+* SMPKit: https://github.com/valory-xyz/autonomous-fund - autonomous-fund (v0.7.2)
+* MintKit: https://github.com/valory-xyz/agent-academy-1 - agent-academy-1 (v0.10.2)
+* CoordinationKit: https://github.com/valory-xyz/contribution-service - contribution-service (v0.6.2)
+* MLKit: https://github.com/valory-xyz/apy-oracle - apy-oracle (v0.10.14)
+* OracleKit: https://github.com/valory-xyz/price-oracle - price-oracle (v0.10.15)
+* IEKit: https://github.com/valory-xyz/IEKit - IEKit (v0.5.2)
+* GovKit: https://github.com/valory-xyz/governatooorr - governatooorr (v0.1.0.alpha14)
+* MechKit: https://github.com/valory-xyz/mech - mech (v0.5.3)
+* KeeperKit: https://github.com/valory-xyz/agent-academy-2 - agent-academy-2 (v0.6.2)
+* MessagingKit: https://github.com/valory-xyz/open-acn - open-acn
+
+Demos
+* Hello World: https://github.com/valory-xyz/hello-world.git - hello-world (v0.1.2)
+
 ## v0.13.4 (2023-09-29)
 
 Frameworks

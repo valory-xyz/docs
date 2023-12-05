@@ -1,7 +1,13 @@
+EMPTY_STR=""
+
 .PHONY: prepare-release
 prepare-release:
 	git submodule update --recursive --remote --init
+ifeq ($(AUTONOMY_VERSION), )
 	cd open-autonomy/; git fetch origin --tags --force; git checkout $$(git tag --sort=committerdate | tail -n 1)
+else
+	cd open-autonomy/; git fetch origin --tags --force; git checkout $$AUTONOMY_VERSION
+endif
 	cd agent-academy-1/; git fetch origin --tags --force; git checkout $$(git tag --sort=committerdate | tail -n 1)
 	cd apy-oracle/; git fetch origin --tags --force; git checkout $$(git tag --sort=committerdate | tail -n 1)
 	cd autonomous-fund/; git fetch origin --tags --force; git checkout $$(git tag --sort=committerdate | tail -n 1)
