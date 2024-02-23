@@ -1,5 +1,27 @@
 # Release History - Autonolas Documentation
 
+## v0.14.6 (2024-02-23)
+
+Frameworks
+
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.14.6-1-gdd0ce04f3)
+
+Toolkits
+
+* SMPKit: https://github.com/valory-xyz/autonomous-fund - autonomous-fund (v0.8.0)
+* MintKit: https://github.com/valory-xyz/agent-academy-1 - agent-academy-1 (v0.11.0)
+* CoordinationKit: https://github.com/valory-xyz/contribution-service - contribution-service (v0.7.0)
+* MLKit: https://github.com/valory-xyz/apy-oracle - apy-oracle (v0.11.0)
+* OracleKit: https://github.com/valory-xyz/price-oracle - price-oracle (v0.11.0)
+* IEKit: https://github.com/valory-xyz/IEKit - IEKit (v0.8.0)
+* GovKit: https://github.com/valory-xyz/governatooorr - governatooorr (v0.2.1)
+* MechKit: https://github.com/valory-xyz/mech - mech (v0.7.0)
+* KeeperKit: https://github.com/valory-xyz/agent-academy-2 - agent-academy-2 (v0.6.2-5-gc5af1c4)
+* MessagingKit: https://github.com/valory-xyz/open-acn - open-acn
+
+Demos
+* Hello World: https://github.com/valory-xyz/hello-world.git - hello-world (v0.1.5)
+
 ## v0.13.6 (2024-02-21)
 
 Frameworks
@@ -21,19 +43,6 @@ Toolkits
 
 Demos
 * Hello World: https://github.com/valory-xyz/hello-world.git - hello-world (v0.1.4)
-
-
-* SMPKit:          autonomous-fund (v0.7.2)              2023-12-04
-* MintKit:         agent-academy-1 (v0.10.2)             2023-12-04
-* CoordinationKit: contribution-service (v0.6.2)         2023-12-04
-* MLKit:           apy-oracle (v0.10.14)                         2023-12-04
-* OracleKit:       price-oracle (v0.0.0-test-staging-deployment)                 2024-01-23
-* IEKit:           IEKit (v0.7.0)                        2024-02-07
-* GovKit:          governatooorr (v0.1.0)                        2023-12-20
-* MechKit:         mech (v0.6.0)                         2024-02-15
-* KeeperKit:       agent-academy-2 (v0.6.2)                      2023-12-04
-* MessagingKit:    open-acn (heads/main)                         2023-09-29
-* Hello World      hello-world (v0.1.4)                  2024-02-21
 
 ## v0.13.5 (2023-12-05)
 
