@@ -1,5 +1,77 @@
 # Release History - Autonolas Documentation
 
+## 0.14.7 (2024-03-20)
+
+Frameworks
+
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.14.8)
+
+Toolkits
+
+* SMPKit: https://github.com/valory-xyz/autonomous-fund - autonomous-fund (v0.8.0)
+* MintKit: https://github.com/valory-xyz/agent-academy-1 - agent-academy-1 (v0.11.0)
+* CoordinationKit: https://github.com/valory-xyz/contribution-service - contribution-service (v0.7.0)
+* MLKit: https://github.com/valory-xyz/apy-oracle - apy-oracle (v0.11.0)
+* OracleKit: https://github.com/valory-xyz/price-oracle - price-oracle (v0.11.0)
+* IEKit: https://github.com/valory-xyz/IEKit - IEKit (v0.8.0)
+* GovKit: https://github.com/valory-xyz/governatooorr - governatooorr (v0.2.1)
+* MechKit: https://github.com/valory-xyz/mech - mech (v0.7.0)
+* KeeperKit: https://github.com/valory-xyz/agent-academy-2 - agent-academy-2 (v0.6.2)
+* MessagingKit: https://github.com/valory-xyz/open-acn - open-acn (heads/main)
+
+Demos
+* Hello World: https://github.com/valory-xyz/hello-world.git - hello-world (v0.1.6)
+
+
+* SMPKit:          autonomous-fund (v0.8.0)		 2024-02-23
+* MintKit:         agent-academy-1 (v0.11.0)		 2024-02-23
+* CoordinationKit: contribution-service (v0.7.0)	 2024-02-23
+* MLKit:           apy-oracle (v0.11.0)			 2024-02-23
+* OracleKit:       price-oracle (v0.11.0)		 2024-02-23
+* IEKit:           IEKit (v0.8.0)			 2024-02-23
+* GovKit:          governatooorr (v0.2.1)			 2024-02-23
+* MechKit:         mech (v0.7.0)			 2024-02-23
+* KeeperKit:       agent-academy-2 (v0.6.2)			 2023-12-04
+* MessagingKit:    open-acn (heads/main)			 2023-09-29
+* Hello World      hello-world (v0.1.6)			 2024-03-01
+
+
+## 0.14.7 (2024-03-20)
+
+Frameworks
+
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.14.8)
+
+Toolkits
+
+* SMPKit: https://github.com/valory-xyz/autonomous-fund - autonomous-fund (v0.8.0)
+* MintKit: https://github.com/valory-xyz/agent-academy-1 - agent-academy-1 (v0.11.0)
+* CoordinationKit: https://github.com/valory-xyz/contribution-service - contribution-service (v0.7.0)
+* MLKit: https://github.com/valory-xyz/apy-oracle - apy-oracle (v0.11.0)
+* OracleKit: https://github.com/valory-xyz/price-oracle - price-oracle (v0.11.0)
+* IEKit: https://github.com/valory-xyz/IEKit - IEKit (v0.8.0)
+* GovKit: https://github.com/valory-xyz/governatooorr - governatooorr (v0.2.1)
+* MechKit: https://github.com/valory-xyz/mech - mech (v0.7.0)
+* KeeperKit: https://github.com/valory-xyz/agent-academy-2 - agent-academy-2 (v0.6.2)
+* MessagingKit: https://github.com/valory-xyz/open-acn - open-acn (heads/main)
+
+Demos
+* Hello World: https://github.com/valory-xyz/hello-world.git - hello-world (v0.1.6)
+
+
+* SMPKit:          autonomous-fund (v0.8.0)		 2024-02-23
+* MintKit:         agent-academy-1 (v0.11.0)		 2024-02-23
+* CoordinationKit: contribution-service (v0.7.0)	 2024-02-23
+* MLKit:           apy-oracle (v0.11.0)			 2024-02-23
+* OracleKit:       price-oracle (v0.11.0)		 2024-02-23
+* IEKit:           IEKit (v0.8.0)			 2024-02-23
+* GovKit:          governatooorr (v0.2.1)			 2024-02-23
+* MechKit:         mech (v0.7.0)			 2024-02-23
+* KeeperKit:       agent-academy-2 (v0.6.2)			 2023-12-04
+* MessagingKit:    open-acn (heads/main)			 2023-09-29
+* Hello World      hello-world (v0.1.6)			 2024-03-01
+
+
 ## v0.14.6 (2024-02-23)
 
 Frameworks
