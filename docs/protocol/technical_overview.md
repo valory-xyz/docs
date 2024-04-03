@@ -59,7 +59,7 @@ Periphery contracts are fully controlled by the governance and can be replaced t
 
 ### Contract addresses
 
-The [Autonolas Registries repository](https://github.com/valory-xyz/autonolas-registries) contains the most up-to-date information on the deployment status. Find [here](https://github.com/valory-xyz/autonolas-registries/blob/main/docs/configuration.json) the currently deployed contract addresses.
+The [Autonolas Registries repository](https://github.com/valory-xyz/autonolas-registries) contains the most up-to-date information on the deployment status. Find the currently deployed contract addresses [here](https://github.com/valory-xyz/autonolas-registries/blob/main/docs/configuration.json).
 
 ## Tokenomics
 
@@ -69,7 +69,7 @@ The [Autonolas Registries repository](https://github.com/valory-xyz/autonolas-re
 
 ### Contract addresses
 
-The [Autonolas Tokenomics repository](https://github.com/valory-xyz/autonolas-tokenomics) contains the most up-to-date information on the deployment status. Find [here](https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/configuration.json) the currently deployed contract addresses.
+The [Autonolas Tokenomics repository](https://github.com/valory-xyz/autonolas-tokenomics) contains the most up-to-date information on the deployment status. Find the currently deployed contract addresses [here](https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/configuration.json).
 
 ## Governance
 
@@ -79,4 +79,4 @@ The [Autonolas Tokenomics repository](https://github.com/valory-xyz/autonolas-to
 
 ### Contract addresses
 
-The [Autonolas Governance repository](https://github.com/valory-xyz/autonolas-governance) contains the most up-to-date information on the deployment status. Find [here](https://github.com/valory-xyz/autonolas-governance/blob/main/docs/configuration.json) the currently deployed contract addresses.
+The [Autonolas Governance repository](https://github.com/valory-xyz/autonolas-governance) contains the most up-to-date information on the deployment status. Find the currently deployed contract addresses [here](https://github.com/valory-xyz/autonolas-governance/blob/main/docs/configuration.json).

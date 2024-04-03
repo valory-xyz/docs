@@ -6,7 +6,7 @@
 
 The **Autonolas Protocol** is a collection of smart contracts that implements a mechanism to coordinate, secure, and manage software code on a public blockchain, and provides incentives to developers proportionally to their relative contribution to the growth of the Autonolas ecosystem. The protocol is built with the {{open_autonomy}} framework in mind as the primary framework for realizing autonomous services,  alternative frameworks can also be used.
 
-The Autonolas Protocol is [currently deployed](https://olas.network/#chains) in several blockchains, and it will be progressively deployed on further smart-contract blockchains.
+The Autonolas Protocol is [currently deployed](https://olas.network/#chains) on several blockchains, and the DAO may decide to deploy on more blockchains in the future.
 
 ## Components
 
