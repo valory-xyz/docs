@@ -1,5 +1,13 @@
 # Release History - Autonolas Documentation
 
+## v0.14.6.post2 (2024-02-23)
+
+Minor update on protocol documentation links.
+
+## v0.14.6.post1 (2024-02-25)
+
+Minor update on hashes.
+
 ## v0.14.6 (2024-02-23)
 
 Frameworks
