@@ -49,7 +49,7 @@ tox -e docs
    * **Title:** vX.Y.Z
    * **Contents:** Latest entry in `HISTORY.md`
 
-5. Publish the release. The hash of the created Docker image containing the documentation site can be found on the release workflow. See an example [here](https://github.com/valory-xyz/docs/actions/runs/4536574834/jobs/7993431764#step:8:24).
+5. Publish the release. The hash of the created Docker image containing the documentation site can be found on the release workflow (Build Images workflow / Docker Push).
 
 Notes:
 
