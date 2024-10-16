@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bullseye as base
+FROM python:3.10-slim-bullseye AS base
 ENV VIRTUAL_ENV=/opt/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN mkdir /build
