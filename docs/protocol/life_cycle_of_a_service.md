@@ -8,7 +8,7 @@ The life cycle of a service minted in the Autonolas Protocol consists of the fol
 
 !!! example
 
-    Look at [this service]({{ autonolas_protocol_registry_dapp_link }}/services/1) on the Autonolas Protocol web app to see the current state of a live service.
+    Look at [this service]({{ autonolas_protocol_registry_dapp_link }}/ethereum/services/1) on the Autonolas Protocol web app to see the current state of a live service.
 
 The figure below summarizes the life cycle and the actions that provoke a transition between states. Most of the service state transitions are initiated by the service owner. However, some state transitions are also triggered automatically. For example, when an operator registers the last available agent instance in the _Active Registration_ state, the service will automatically transit to the _Finished Registration_ state.
 
