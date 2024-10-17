@@ -4,7 +4,7 @@
 
 Frameworks
 
-* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.16.1)
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.17.0)
 
 Toolkits
 
