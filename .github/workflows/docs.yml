@@ -57,4 +57,4 @@ jobs:
           find . -name "*.snrbck" | xargs -L1 rm
           
           poetry run pip3 install mkdocs-material==9.4.10 mkdocs-material-extensions==1.3
-          poetry run mkdocs build --clean --no-stricts
+          poetry run mkdocs build --clean --no-strict
