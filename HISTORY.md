@@ -1,5 +1,16 @@
 # Release History - Autonolas Documentation
 
+## v0.16.2 (2025-01-14)
+
+Frameworks
+
+* Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.18.4)
+
+Toolkits
+
+* IEKit: https://github.com/valory-xyz/IEKit - IEKit (v0.15.0)
+* MechKit: https://github.com/valory-xyz/mech - mech (v0.8.0)
+
 ## v0.16.1 (2024-10-16)
 
 Frameworks

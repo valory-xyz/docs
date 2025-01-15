@@ -42,6 +42,9 @@ nav:
       - Hello World: '!include ./hello-world/mkdocs.yml'
       - Price oracle: 'demos/price-oracle/index.md'
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
+  - Olas SDK: 'olas-sdk/index.md'
+  - Mech Client: 'mech-client/index.md'
+  - Mech Tools: 'mech-tool/index.md'
   - Autonolas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
