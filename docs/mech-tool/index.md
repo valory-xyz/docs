@@ -10,19 +10,17 @@ In order to create a tool, the steps are as follows:
 
 1. Fork the repository https://github.com/valory-xyz/mech and clone the forked copy;
 2. Create a folder username [replace with username] in the folder “packages”, and inside this folder create a folder which corresponds to the tool. This folder should contain two files : `component.yaml` and `tool_name.py`. For the second file, replace `tool_name` by the name of the tool.
-
-        ```
+    ```
         mkdir username
         cd username
         mkdir tool_name 
         cd too_name
         touch component.yaml
         touch tool_name.yaml
-        ```
+    ```
 
 3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name [name of the module], author [name of the author], entry_point [points at .py file in which is executable function is], callable [points at the function which is called in the entry_point], dependencies [lists the dependencies of the module],  description [simple description of the module].
-
-        ```
+    ```
         name: tool_name
         author: author_name
         version: 0.1.0
@@ -31,8 +29,10 @@ In order to create a tool, the steps are as follows:
         license: Apache-2.0
         aea_version: '>=1.0.0, <2.0.0'
         fingerprint:
-         __init__.py: bafybeictllsxej6cl3hhrsfyroyiqcp5ian2wayajwpesbyjwnf5gwinxq
-         tool_name.py: bafybeicx7fuf5hdbqc4i2uwup33quhoqzy5g4i6vyqcmcdl7rkmnsbvg3a
+            __init__.py:
+    bafybeictllsxej6cl3hhrsfyroyiqcp5ian2wayajwpesbyjwnf5gwinxq
+            tool_name.py:
+    bafybeicx7fuf5hdbqc4i2uwup33quhoqzy5g4i6vyqcmcdl7rkmnsbvg3a
         fingerprint_ignore_patterns: []
         entry_point: tool_name.py
         callable: run
@@ -41,14 +41,13 @@ In order to create a tool, the steps are as follows:
            version: ==0.5.3
          dependency_2:
            version: '>=2.20.0'
-        ```
+    ```
 
 4. Create the code for the tool in the file `tool_name.py` (following the examples of tools found in the package folder); the only requirement is to implement the function specified in callable of the `component.yaml` file; a minimal file would be the following for the template in the previous step for instance: 
-
-        ```
+    ```
         def run(**kwargs):
             pass
-        ```
+    ```
 	
     This function needs to return the result of using the tool.
 
