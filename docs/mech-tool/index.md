@@ -70,9 +70,9 @@ In order to create a tool, the steps are as follows:
     autonomy push-all
     ```
 
-3. Mint the tool here as a component on the Olas Registry; For this is needed: an address (EOA), and the hash of the meta-data file. It is possible to generate this hash by clicking on “Generate Hash & File” and providing the following information: name (name of the author); description (of the tool); version; package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window)]; in order to push an image on IPFS, this script can be used.
+3. Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is needed: an address (EOA), and the hash of the meta-data file. It is possible to generate this hash by clicking on “Generate Hash & File” and providing the following information: name (name of the author); description (of the tool); version; package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window)]; in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
 
-After this the tool can be deployed to be used by a Mech. 
+After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
 
 # 2. Testing Mech locally 
@@ -98,7 +98,7 @@ After this the tool can be deployed to be used by a Mech.
     - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
     - Click on “Project” and then “Create project”, give a name to the project and click again on “Create project”. 
     - Then click on the following icon on the left menu: 
- 
+        ![testnet](./imgs/testnet.png "Testnet")
     - Then click on “Create Virtual TestNet”.
     - Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and unmark “Use latest block” in order to enter the following custom block: 36619660.
     - Finally, click on the “Create” button.
