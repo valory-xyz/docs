@@ -1,10 +1,12 @@
-**Summary.** This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#3-deploying-a-mech) into production. 
+## **Summary.** 
+
+This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#3-deploying-a-mech) into production. 
 
 # 1. Creating and publishing a tool
 
 ## 1. 1. Creating a tool
 
-**Requirements**: Python >= 3.8; Pip; Pipenv >= 2001.x.xx ; Docker Engine ; Docker Compose 
+**Requirements**: [Python](https://www.python.org/) >= 3.8; [Pip](https://pip.pypa.io/en/stable/installation/); [Pipenv](https://pipenv.pypa.io/en/latest/installation.html) >= 2001.x.xx ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
 In order to create a tool, the steps are as follows: 
 
@@ -78,7 +80,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 
 ## 2. 1. Setup 
 
-**Requirements**: Python == 3.10 ; Poetry >= 1.4.0 ; Docker Engine ; Docker Compose
+**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
 1. Run the followings in the terminal: 
     ```
@@ -136,7 +138,7 @@ The activity of the Mech is visible on the virtual testnet.
 
 ## 3. 1. Setup 
 
-**Requirements**: Python == 3.10 ; Poetry >= 1.4.0 ; Docker Engine ; Docker Compose
+**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
 1. Run the followings in the terminal: 
 
