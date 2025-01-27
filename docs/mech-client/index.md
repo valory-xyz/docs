@@ -1,6 +1,6 @@
 ## **Summary**. 
 
-This guide contains practical guidelines for integrating mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), with the [web interface](#3-sending-requests-with-the-web-interface), and receiving the responses to these requests.  
+This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), with the [web interface](#3-sending-requests-with-the-web-interface), and receiving the responses to these requests.  
 
 ## 1. How to Send a request to a Mech from Terminal
 
@@ -38,7 +38,7 @@ This guide contains practical guidelines for integrating mechs to an application
         2. Copy this key in the file `ethereum_private_key.txt`.
 
 3. Choose a mech:
-    - The list of deployed mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Select one;
+    - The list of deployed Mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Select one;
     - Add funds corresponding to the network of the mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests; 
 
 ### 1.2. Sending requests
@@ -86,7 +86,7 @@ This guide contains practical guidelines for integrating mechs to an application
 
 ## 2. Script for automatizing request sending
 
-The following script can be used in order to automatise request sending:
+The following script can be used in order to automatize request sending:
 
 ```
 from mech_client.interact import interact
