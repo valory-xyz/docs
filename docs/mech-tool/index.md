@@ -11,7 +11,7 @@ This guide contains guidelines for contributing to the development of Mechs, by 
 In order to create a tool, the steps are as follows: 
 
 1. Fork the repository https://github.com/valory-xyz/mech and clone the forked copy;
-2. Create a folder username [replace with username] in the folder “packages”, and inside this folder create a folder which corresponds to the tool. This folder should contain two files : `component.yaml` and `tool_name.py`. For the second file, replace `tool_name` by the name of the tool.
+2. Create a folder "username" [replace with your username] in the folder “packages”, and inside this folder create a folder which corresponds to the tool. This folder should contain two files : `component.yaml` and `tool_name.py`. For the second file, replace `tool_name` by the name of the tool.
     ```
         mkdir username
         cd username
@@ -21,7 +21,7 @@ In order to create a tool, the steps are as follows:
         touch tool_name.yaml
     ```
 
-3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name [name of the module], author [name of the author], entry_point [points at .py file in which is executable function is], callable [points at the function which is called in the entry_point], dependencies [lists the dependencies of the module],  description [simple description of the module].
+3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (points at .py file in which is executable function is), callable (points at the function which is called in the entry_point), dependencies (lists the dependencies of the module),  description [simple description of the module].
     ```
         name: tool_name
         author: author_name
@@ -97,7 +97,11 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 3. Rename the file .api_keys.json.example into .api_keys.json (leave the dummy keys as they are). 
 4. Create a tenderly virtual testnet, following these steps: 
     - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
-    - Click on “Project” and then “Create project”, give a name to the project and click again on “Create project”. 
+    - Click on “Project” and then “Create project”, as on the following picture. 
+
+      ![create_project](./imgs/screenshot_create_project.png "Create Project")
+
+      Give a name to the project and click again on “Create project”. 
     - Then click on the following icon on the left menu: 
         ![testnet](./imgs/testnet.png "Testnet")
     - Then click on “Create Virtual TestNet”.
