@@ -1,11 +1,12 @@
-**Summary**. This guide contains practical guidelines for integrating mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), with the [web interface](#3-sending-requests-with-the-web-interface), and receiving the responses to these requests.  
+## **Summary**. 
+
+This guide contains practical guidelines for integrating mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), with the [web interface](#3-sending-requests-with-the-web-interface), and receiving the responses to these requests.  
 
 ## 1. How to Send a request to a Mech from Terminal
 
 ### 1.1. Setup
 
-**Requirements**: Python >= 3.10
-
+**Requirements**: [Python](https://www.python.org/) >= 3.10
 
 1. Install the mech client: 
     - Using [Poetry](https://github.com/python-poetry/poetry): 
