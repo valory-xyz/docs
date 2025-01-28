@@ -38,7 +38,7 @@ This guide contains practical guidelines for integrating Mechs to an application
         2. Copy this key in the file `ethereum_private_key.txt`.
 
 3. Choose a mech:
-    - The list of deployed Mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Select one;
+    - The list of chains in which the Mechs are deployed  can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs).
     - Add funds corresponding to the network of the mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests; 
 
 ### 1.2. Sending requests
