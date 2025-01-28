@@ -43,7 +43,7 @@ In order to create a tool, the steps are as follows:
            version: '>=2.20.0'
     ```
 
-4. Create the code for the tool in the file `tool_name.py` (following the examples of tools found in the package folder); the only requirement is to implement the function specified in callable of the `component.yaml` file; a minimal file would be the following for the template in the previous step for instance: 
+4. Create the code for the tool in the file `tool_name.py` (following the examples of tools found [here](https://github.com/valory-xyz/mech-predict/tree/main/packages), for instance https://github.com/valory-xyz/mech-predict/tree/main/packages/gnosis/customs/ofv_market_resolver); the only requirement is to implement the function specified in callable of the `component.yaml` file; a minimal file would be the following for the template in the previous step for instance: 
     ```
         def run(**kwargs):
             pass
