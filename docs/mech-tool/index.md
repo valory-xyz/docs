@@ -14,7 +14,7 @@ In order to create a tool, the steps are as follows:
 2. In the main folder, in terminal:
     ```
     pip install open-autonomy
-    autonomy init --remote --ipfs --author <author_name>
+    autonomy init --remote --ipfs --author <author_name> 
     autonomy packages sync
     ```
 2. Create a folder "username" [replace with your username] in the folder “packages”, inside this create a folder "customs", and inside this folder create a folder whose name corresponds to the tool. This folder should contain the following files : `component.yaml`, `tool_name.py` and `__init__.py`. For the second file, replace `tool_name` by the name of the tool.
@@ -72,7 +72,7 @@ In order to create a tool, the steps are as follows:
 1. Create the package hash, by running the following commands, from the root:
 
     ```
-    autonomy packages lock 
+    autonomy packages lock
     autonomy push-all
     ```
 
