@@ -55,7 +55,7 @@ This guide contains practical guidelines for integrating Mechs to an application
     - It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
 
         ```
-        mechx interact <prompt> <agent_id> -- tool <tool>
+        mechx interact <prompt> <agent_id> --tool <tool>
         ```
 
       In this case, replace `<tool>` by the name of the tool. 
