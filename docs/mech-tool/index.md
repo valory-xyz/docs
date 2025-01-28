@@ -13,10 +13,11 @@ In order to create a tool, the steps are as follows:
 1. Fork the repository https://github.com/valory-xyz/mech and clone the forked copy;
 2. Create a folder "username" [replace with your username] in the folder “packages”, and inside this folder create a folder which corresponds to the tool. This folder should contain two files : `component.yaml` and `tool_name.py`. For the second file, replace `tool_name` by the name of the tool.
     ```
-        mkdir username
-        cd username
-        mkdir tool_name 
-        cd too_name
+        cd packages
+        mkdir <username>
+        cd <username>
+        mkdir <tool_name> 
+        cd <tool_name>
         touch component.yaml
         touch tool_name.yaml
     ```
