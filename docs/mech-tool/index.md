@@ -96,7 +96,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 2. Clone the mech-quickstart repository:
 
     ```
-    git clone git@github.com:valory-xyz/mech-quickstart.git
+    git clone https://github.com/valory-xyz/mech-quickstart.git
     ```
 
 3. Rename the file .api_keys.json.example into .api_keys.json (leave the dummy keys as they are). 
@@ -108,13 +108,13 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 
       Give a name to the project and click again on “Create project”. 
     
-    - Then click on the following icon on the left menu: 
+    - Then click on "Virtual Test Nets" on the left menu (or on the following icon if the menu bar is collapsed): 
       ![testnet](./imgs/testnet.png "Testnet")
     
     - Then click on “Create Virtual TestNet”.
-    - Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and un-mark “Use latest block” in order to enter the following custom block: 36619660.
+    - Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and un-mark “Use latest block” in the State Sync section in order to enter the following custom block: 36619660.
     - Finally, click on the “Create” button.
-    - Copy the HTTPS link in the webpage which appears then, it will be used later. 
+    - After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later. 
 5. Change folder to mech-quickstart and create environment (in terminal): 
     ```
     cd mech-quickstart
