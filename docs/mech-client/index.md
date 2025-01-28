@@ -22,7 +22,7 @@ This guide contains practical guidelines for integrating Mechs to an application
         pip install mech-client
         ```
 
-1. Setting up an EOA account: 
+2. Setting up an EOA account: 
     - Option 1 (manual creation):
         1. Install browser extension of Metamask and open it; 
         2. Click on the account icon, then on “Add account or hardware wallet”, then “Add a new Ethereum account”, provide a name for the account and then click on “Add account”; 
@@ -71,7 +71,7 @@ This guide contains practical guidelines for integrating Mechs to an application
         mechx tool-description <unique_identifier>
         ```
 
-1. Receive the response: 
+2. Receive the response: 
     - Normally, whenever the mech has been delivered, a json is printed, in which the key ‘result’ corresponds to the mech’s response to the request. For instance, for the following line, the result may be "In a world of chaos and strife,\nThere's beauty in the simplest of life.\nA gentle breeze whispers through the trees,\nAnd birds sing melodies with ease.\n\nThe sun sets in a fiery hue,\nPainting the sky in shades of blue.\nStars twinkle in the darkness above,\nGuiding us with their light and love.\n\nSo take a moment to pause and see,\nThe wonders of this world so free.\nEmbrace the joy that each day brings,\nAnd let your heart soar on gentle wings.": 
 
         ```
