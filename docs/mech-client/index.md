@@ -72,16 +72,12 @@ This guide contains practical guidelines for integrating Mechs to an application
         ```
 
 2. Receive the response: 
-    - In response to the request, you should see a response as follows: 
+    - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
+        ```
+            mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
+        ``` 
+    you should receive a response as follows: 
         ![screenshot_response](screenshot_request.png)
-    
-     A json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, for the following request, the result may be "In a world of chaos and strife,\nThere's beauty in the simplest of life.\nA gentle breeze whispers through the trees,\nAnd birds sing melodies with ease.\n\nThe sun sets in a fiery hue,\nPainting the sky in shades of blue.\nStars twinkle in the darkness above,\nGuiding us with their light and love.\n\nSo take a moment to pause and see,\nThe wonders of this world so free.\nEmbrace the joy that each day brings,\nAnd let your heart soar on gentle wings.": 
-
-        ```
-        mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
-        ```
-    
-    
 
     - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 

@@ -100,8 +100,10 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
       ![create_project](./imgs/screenshot_create_project.png "Create Project")
 
       Give a name to the project and click again on “Create project”. 
+    
     - Then click on the following icon on the left menu: 
-        ![testnet](./imgs/testnet.png "Testnet")
+      ![testnet](./imgs/testnet.png "Testnet")
+    
     - Then click on “Create Virtual TestNet”.
     - Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and un-mark “Use latest block” in order to enter the following custom block: 36619660.
     - Finally, click on the “Create” button.
