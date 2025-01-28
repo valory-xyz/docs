@@ -37,9 +37,9 @@ This guide contains practical guidelines for integrating Mechs to an application
             This creates a file keys.json in which the private key can be found on the key “private_key”. 
         2. Copy this key in the file `ethereum_private_key.txt`.
 
-3. Choose a mech:
-    - The list of chains in which the Mechs are deployed  can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs).
-    - Add funds corresponding to the network of the mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests; 
+3. Choose a Mech:
+    - The list of chains in which the Mechs are deployed on can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
+    - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract', then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
 ### 1.2. Sending requests
 
