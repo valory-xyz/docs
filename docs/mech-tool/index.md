@@ -11,18 +11,27 @@ This guide contains guidelines for contributing to the development of Mechs, by 
 In order to create a tool, the steps are as follows: 
 
 1. Fork the repository https://github.com/valory-xyz/mech and clone the forked copy;
-2. Create a folder "username" [replace with your username] in the folder “packages”, and inside this folder create a folder which corresponds to the tool. This folder should contain two files : `component.yaml` and `tool_name.py`. For the second file, replace `tool_name` by the name of the tool.
+2. In the main folder, in terminal:
+    ```
+    pip install open-autonomy
+    autonomy init --remote --ipfs --author <author_name>
+    autonomy packages sync
+    ```
+2. Create a folder "username" [replace with your username] in the folder “packages”, inside this create a folder "customs", and inside this folder create a folder whose name corresponds to the tool. This folder should contain the following files : `component.yaml`, `tool_name.py` and `__init__.py`. For the second file, replace `tool_name` by the name of the tool.
     ```
         cd packages
         mkdir <username>
         cd <username>
+        mkdir customs 
+        cd customs
         mkdir <tool_name> 
         cd <tool_name>
         touch component.yaml
-        touch tool_name.yaml
+        touch tool_name.py
+        touch __init__.py
     ```
 
-3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (points at .py file in which is executable function is), callable (points at the function which is called in the entry_point), dependencies (lists the dependencies of the module), description [simple description of the module]. In fingerprint, replace tool_name.py by the chosen entry point file.
+3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (points at .py file in which is executable function is), callable (points at the function which is called in the entry_point), description [simple description of the module]. In fingerprint, replace tool_name.py by the chosen entry point file.
     ```
         name: tool_name
         author: author_name
@@ -37,11 +46,17 @@ In order to create a tool, the steps are as follows:
         fingerprint_ignore_patterns: []
         entry_point: tool_name.py
         callable: run
-        dependencies:
-         dependency_1:
-           version: ==0.5.3
-         dependency_2:
-           version: '>=2.20.0'
+        dependencies: {}
+    ```
+
+    If the module has any dependencies, remove `{}` and add them in the following format: 
+
+    ```
+    dependencies: 
+        dependency_1:
+            version: ==0.5.3
+        dependency_2:
+            version: '>=2.20.0'
     ```
 
 4. Create the code for the tool in the file `tool_name.py` (following the examples of tools found [here](https://github.com/valory-xyz/mech-predict/tree/main/packages), for instance https://github.com/valory-xyz/mech-predict/tree/main/packages/gnosis/customs/ofv_market_resolver); the only requirement is to implement the function specified in callable of the `component.yaml` file; a minimal file would be the following for the template in the previous step for instance: 
@@ -54,23 +69,14 @@ In order to create a tool, the steps are as follows:
 
 ## 1. 2. Publishing the tool
 
-1. In the main folder, in terminal:
-
-    ```
-    pip install open-autonomy
-    pip install open-aea-ledger-ethereum
-    autonomy init --remote --ipfs --author <author_name>
-    autonomy packages init
-    ```
-
-2. Create the package hash:
+1. Create the package hash, by running the following commands, from the root:
 
     ```
     autonomy packages lock 
     autonomy push-all
     ```
 
-3. Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is needed: an address (EOA), and the hash of the meta-data file. It is possible to generate this hash by clicking on “Generate Hash & File” and providing the following information: name (name of the author); description (of the tool); version; package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
+2. Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is needed: an address (EOA), and the hash of the meta-data file. It is possible to generate this hash by clicking on “Generate Hash & File” and providing the following information: name (name of the author); description (of the tool); version; package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
 
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
