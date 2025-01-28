@@ -30,7 +30,6 @@ GovernorOLAS
 incentivizes
 incentivizing
 ipfs
-IPFS
 kwargs
 mainnet
 MakerDAO
@@ -153,3 +152,6 @@ NO_MAJORITY
 ROUND_TIMEOUT
 AbstractRoundBehaviour
 tx
+valory
+tendermint
+valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
