@@ -4,15 +4,20 @@
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
 ABCI
+abci
 AbciApp
 AEA
 AEAs
+tomte
 Autonolas
+analysing
+Dockerfiles
 blockchain
 blockchains
 buOLAS
 Chainlink
 Collectooorr
+governatooorr
 composable
 composability
 crypto
@@ -28,8 +33,14 @@ GörliWei
 GovernorOLAS
 incentivizes
 incentivizing
+ipfs
+kwargs
 mainnet
 MakerDAO
+Mech
+Mechs
+mechx
+MECHX
 md-button
 md-button--primary
 Metamask
@@ -44,6 +55,8 @@ OpenSea
 OracleKit
 pausable
 permissionless
+Pipenv
+pipenv
 reusability
 resp.
 SMPKit
@@ -53,6 +66,7 @@ timelock
 tokenomics
 toolkit
 toolkits
+Toolkits
 tradable
 unbond
 Uniswap
@@ -120,6 +134,8 @@ SafeDeploymentAbciApp
 RandomnessOracleRound
 AbstractRound
 IPFS
+eede
+bdcc
 CoinMarketCap
 CoinGecko
 Binance
@@ -135,11 +151,23 @@ lceil
 8
 14
 rceil
+Görli
+offchain
+behaviour
+behavioural
 Hardhat
 HardHat
+docstrings
 Pipenv
+mkdocs
+Pipfile
+aiohttp
+asyncio
 stateDiagram-v2
 NO_MAJORITY
 ROUND_TIMEOUT
 AbstractRoundBehaviour
 tx
+valory
+tendermint
+valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
