@@ -21,7 +21,7 @@ In order to create a tool, the steps are as follows:
         touch tool_name.yaml
     ```
 
-3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (points at .py file in which is executable function is), callable (points at the function which is called in the entry_point), dependencies (lists the dependencies of the module),  description [simple description of the module].
+3. In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (points at .py file in which is executable function is), callable (points at the function which is called in the entry_point), dependencies (lists the dependencies of the module), description [simple description of the module]. In fingerprint, replace tool_name.py by the chosen entry point file.
     ```
         name: tool_name
         author: author_name
@@ -32,9 +32,7 @@ In order to create a tool, the steps are as follows:
         aea_version: '>=1.0.0, <2.0.0'
         fingerprint:
             __init__.py:
-    bafybeictllsxej6cl3hhrsfyroyiqcp5ian2wayajwpesbyjwnf5gwinxq
             tool_name.py:
-    bafybeicx7fuf5hdbqc4i2uwup33quhoqzy5g4i6vyqcmcdl7rkmnsbvg3a
         fingerprint_ignore_patterns: []
         entry_point: tool_name.py
         callable: run
