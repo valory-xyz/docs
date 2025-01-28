@@ -53,6 +53,7 @@ OracleKit
 pausable
 permissionless
 Pipenv
+pipenv
 reusability
 resp.
 SMPKit
@@ -130,6 +131,8 @@ SafeDeploymentAbciApp
 RandomnessOracleRound
 AbstractRound
 IPFS
+eede
+bdcc
 CoinMarketCap
 CoinGecko
 Binance
@@ -148,6 +151,9 @@ rceil
 Hardhat
 HardHat
 Pipenv
+Pipfile
+aiohttp
+asyncio
 stateDiagram-v2
 NO_MAJORITY
 ROUND_TIMEOUT
