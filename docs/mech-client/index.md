@@ -8,7 +8,7 @@ This guide contains practical guidelines for integrating Mechs to an application
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10
 
-1. Install the mech client: 
+1. Install the [Mech client](https://github.com/valory-xyz/mech-client): 
     - Using [Poetry](https://github.com/python-poetry/poetry): 
         ```
         poetry new my_project
