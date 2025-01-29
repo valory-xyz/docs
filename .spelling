@@ -173,6 +173,10 @@ tendermint
 xDAI
 service
 terminal
+mech-quickstart
+OpenAI
+Google
+API Keys
 PROMPT_TEXT
 AGENT_ID
 TOOL_NAME
