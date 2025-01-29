@@ -31,7 +31,6 @@ In order to create a tool, the steps are as follows:
         touch __init__.py
     ```
 For the third file, copy and paste the following copyright text: 
-#!/usr/bin/env python3
 
 ```
 # -*- coding: utf-8 -*-
