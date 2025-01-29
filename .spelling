@@ -171,6 +171,8 @@ tx
 valory
 tendermint
 xDAI
+service
+terminal
 PROMPT_TEXT
 AGENT_ID
 TOOL_NAME
