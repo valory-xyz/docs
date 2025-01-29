@@ -1,4 +1,4 @@
-## **Summary.** 
+## **Summary** 
 
 This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#3-deploying-a-mech) into production. 
 
@@ -79,7 +79,7 @@ At this point you will be prompted to choose "dev" or "third-part". Choose "dev"
     ```
     autonomy push-all
     ```
-3. Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is needed: an address (EOA), and the hash of the meta-data file. It is possible to generate this hash by clicking on “Generate Hash & File” and providing the following information: name (name of the author); description (of the tool); version; package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
+3. Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
 
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
@@ -133,7 +133,11 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 bash run_service.sh
 ```
 
-2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier).
+2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier). If you want to test a specific tool, when prompted "Do you want to set the tools_to_packages_hash", enter `y`, and then enter the following dictionary: 
+    ```
+    {<tool_name> : <hash>}
+    ```
+where `<tool_name>` is replaced by the name of your tool (string format), and `<hash>` is the hash of the tool created above (also in string format).
 3. When prompted to do so, add funds to the required address. In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
 4. Logs are visible with: 
 ```
@@ -190,7 +194,11 @@ poetry install
 bash run_service.sh
 ```
 
-2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier) and send funds to the prompted address.
+2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier). If you want to test a specific tool, when prompted "Do you want to set the tools_to_packages_hash", enter `y`, and then enter the following dictionary: 
+    ```
+    {<tool_name> : <hash>}
+    ```
+where `<tool_name>` is replaced by the name of your tool (string format), and `<hash>` is the hash of the tool created above (also in string format).
 3. Logs are visible with: 
 
 ```
