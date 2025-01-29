@@ -1,5 +1,9 @@
 # Release History - Autonolas Documentation
 
+## v0.16.3 (2025-01-29)
+
+Mech docs 
+
 ## v0.16.2 (2025-01-14)
 
 Frameworks
