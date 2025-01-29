@@ -1,6 +1,6 @@
 ## **Summary**. 
 
-This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), with the [web interface](#3-sending-requests-with-the-web-interface), and receiving the responses to these requests.  
+This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), and receiving the responses to these requests.  
 
 ## 1. How to Send a request to a Mech from Terminal
 
@@ -9,14 +9,14 @@ This guide contains practical guidelines for integrating Mechs to an application
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
 
 1. Install the [Mech client](https://github.com/valory-xyz/mech-client): 
-    - Using [Poetry](https://github.com/python-poetry/poetry): 
+    - (Option 1) Using [Poetry](https://github.com/python-poetry/poetry): 
         ```
         poetry new my_project
         cd my_project
         poetry shell
         poetry add mech-client
         ```
-    - On local python installation: 
+    - (Option 2) On local python installation: 
 
         ```
         pip install mech-client
@@ -39,7 +39,7 @@ This guide contains practical guidelines for integrating Mechs to an application
 
 3. Choose a Mech:
     - The list of chains in which the Mechs are deployed on can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
-    - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract', then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
+    - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
 ### 1.2. Sending requests
 
@@ -77,7 +77,7 @@ This guide contains practical guidelines for integrating Mechs to an application
             mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
         ``` 
     you should receive a response as follows: 
-        ![screenshot_response](screenshot_request.png)
+        ![screenshot_response](./imgs/screenshot_request.png)
 
     - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 
@@ -104,12 +104,3 @@ result = interact(
 ```
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
-
-## 3. Sending requests with the web interface
-
-It is possible to send requests to Mechs on the following [link](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). For this, follow these steps: 
-
-1. Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the [webpage](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). This wallet must be provided with xDAI in order to pay the Mechs for the requests. 
-2. Click on the “Send Request” button. The following window should appear:
-    ![screenshot](./imgs/screenshot.png "Screenshot")
-4. Enter the prompt and select the tool and then click on the “Request” button.

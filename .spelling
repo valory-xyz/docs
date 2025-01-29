@@ -38,6 +38,7 @@ kwargs
 mainnet
 MakerDAO
 Mech
+mech
 Mechs
 mechx
 MECHX
@@ -170,4 +171,48 @@ AbstractRoundBehaviour
 tx
 valory
 tendermint
-valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
+xDAI
+service
+package.json
+packages
+hash
+.api_keys.json.example
+.api.keys.json
+terminal
+mech-quickstart
+OpenAI
+Google
+API Keys
+PROMPT_TEXT
+AGENT_ID
+TOOL_NAME
+json
+python
+virtual testnet
+block
+fingerprint
+tool_name.py
+.py
+2001.x.xx
+dummy
+keys
+file
+!/usr/bin/env 
+python3 
+1.
+2.
+3.
+4.
+5.
+executable
+function
+module
+Rename
+response
+dummy keys
+request
+result
+un-mark
+click 
+webpage
+entry_point
