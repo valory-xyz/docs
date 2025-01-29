@@ -187,6 +187,7 @@ PROMPT_TEXT
 AGENT_ID
 TOOL_NAME
 json
+python
 virtual testnet
 block
 fingerprint
