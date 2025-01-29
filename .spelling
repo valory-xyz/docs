@@ -172,6 +172,11 @@ valory
 tendermint
 xDAI
 service
+package.json
+packages
+hash
+.api_keys.json.example
+.api.keys.json
 terminal
 mech-quickstart
 OpenAI
@@ -181,4 +186,9 @@ PROMPT_TEXT
 AGENT_ID
 TOOL_NAME
 json
-valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
+virtual testnet
+block
+fingerprint
+tool_name.py
+.py
+2001.x.xx
