@@ -99,7 +99,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     git clone https://github.com/valory-xyz/mech-quickstart.git
     ```
 
-3. Rename the file .api_keys.json.example into .api_keys.json (leave the dummy keys as they are). 
+3. Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys). 
 4. Create a tenderly virtual testnet, following these steps: 
     - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
     - Click on “Project” and then “Create project”, as on the following picture. 
