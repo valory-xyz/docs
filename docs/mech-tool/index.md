@@ -174,7 +174,7 @@ docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic
 6. Clone the mech-quickstart repository:
 
 ```
-git clone git@github.com:valory-xyz/mech-quickstart.git
+git clone https://github.com/valory-xyz/mech-quickstart.git
 ```
 
 7. Rename the file `.api_keys.json.example` into `.api_keys.json` and add OpenAI and Google API keys in the file. 
