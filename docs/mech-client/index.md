@@ -77,7 +77,7 @@ This guide contains practical guidelines for integrating Mechs to an application
             mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
         ``` 
     you should receive a response as follows: 
-        ![screenshot_response](screenshot_request.png)
+        ![screenshot_response](./imgs/screenshot_request.png)
 
     - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 
