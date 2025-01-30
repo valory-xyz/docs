@@ -49,7 +49,7 @@ For the third file, copy and paste the following copyright text found for instan
         dependencies: {}
     ```
 
-    If the module has any dependencies, remove `{}` and add them in the following format: 
+If the module has any dependencies, remove `{}` and add them in the following format: 
 
     ```
     dependencies: 
