@@ -91,7 +91,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 
 ## 2. 1. Setup 
 
-**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
+**Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; Yarn == `1.22.19` ; npx/npm == `10.8.2` ; Node == `20.18.1`.
 
 1. Run the followings in the terminal: 
     ```
@@ -105,7 +105,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     git clone https://github.com/valory-xyz/mech-quickstart.git
     ```
 
-3. Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys). 
+3. Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys), and the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
 4. Create a tenderly virtual testnet, following these steps: 
     - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
     - Click on “Project” and then “Create project”, as on the following picture. 
@@ -120,10 +120,37 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     - Then click on “Create Virtual TestNet”.
     - Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and un-mark “Use latest block” in the State Sync section in order to enter the following custom block: 36619660.
     - Finally, click on the “Create” button.
-    - After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later. 
-5. Change folder to mech-quickstart and create environment (in terminal): 
+    - After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later.
+5. Setup the virtual testnet, by following these steps: 
+    - In a separate folder, clone the ai-registry-mech repository: 
+        ```
+        git clone https://github.com/KahanMajmudar/ai-registry-mech.git
+        ```
+    - Update submodules: 
+        ```
+        git submodule update --init --recursive
+        ```
+    - Then change the branch to "testnet-setup".
+    - Crate an access token on Tenderly, by clicking on the profile icon (top-right), then on "Account settings", "Access tokens" in the left menu, then "Generate access token". Choose a label (it is only informative) and then click on "Generate". Copy the generated token.  
+    - Connect to tenderly in the terminal: 
+        ```
+        tenderly login --access-key <access_token>
+        ```
+    where `<access_token>` has to be replaced with the access key created as before.
+    - In the file `hardhat.config.js`, change the url of virtual_testnet (line 47) to the RPC of the testnet created on tenderly. On lines 141 and 142, change "project" and "username" strings with the ones found on tenderly in the opened project. This can be found by clicking on "Project" on the tenderly dashboard, then selecting the opened project, and "Settings" on the right menu. The "project" corresponds to "Project slug" and "username" corresponds to "Account slug".
+    - In the file `globals.json`, change "networkURL" on line 6 to the RPC of the testnet and "privateKey" (line 7) to the private key of your wallet. 
+    - Install the dependencies using the following: 
     ```
-    cd mech-quickstart
+    yarn install
+    ```
+    - Run the script to deploy the contracts which are necessary to test the Mech locally: 
+    ```
+    bash setup-tdly.sh
+    ``` 
+    - From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: "mechMarketplaceProxyAddress" -> line 490 ; 
+    "mechFactoryFixedPriceNativeAddress" -> line 495 ; "mechFactoryFixedPriceTokenAddress" -> line 500.
+6. Change folder to the mech-quickstart one and then create environment (in terminal): 
+    ```
     poetry shell
     poetry install
     ```
@@ -136,11 +163,13 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 bash run_service.sh
 ```
 
-2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier). If you want to test a specific tool, when prompted "Do you want to set the tools_to_packages_hash", enter `y`, and then enter the following dictionary: 
-    ```
-    {<tool_name> : <hash>}
-    ```
-where `<tool_name>` is replaced by the name of your tool (string format), and `<hash>` is the hash of the tool created above (also in string format).
+2. Provide information when prompted, in particular: 
+
+    - "Please enter a GNOSIS RPC URL" -> enter the RPC endpoint (https address copied earlier). 
+    - "Which type of mech do you want to deploy?" -> this corresponds to the payment model of the Mech (Native: native token ; Token: ERC20 tokens; Nevermined: subscription); default is Native. 
+
+Other values can be left to default (by pressing enter when prompted).
+
 3. When prompted to do so, add funds to the required address. In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
 4. Logs are visible with: 
 ```
@@ -180,7 +209,7 @@ docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic
 git clone https://github.com/valory-xyz/mech-quickstart.git
 ```
 
-7. Rename the file `.api_keys.json.example` into `.api_keys.json` and add OpenAI and Google API keys in the file. 
+7. Rename the file `.api_keys.json.example` into `.api_keys.json` and add OpenAI and Google API keys in the file. Also rename the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
 8. Change folder to mech-quickstart and create environment (in terminal): 
 
 ```
@@ -197,11 +226,7 @@ poetry install
 bash run_service.sh
 ```
 
-2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier). If you want to test a specific tool, when prompted "Do you want to set the tools_to_packages_hash", enter `y`, and then enter the following dictionary: 
-    ```
-    {<tool_name> : <hash>}
-    ```
-where `<tool_name>` is replaced by the name of your tool (string format), and `<hash>` is the hash of the tool created above (also in string format).
+2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier).
 3. Logs are visible with: 
 
 ```
