@@ -1,6 +1,6 @@
-## **Summary**. 
+## **Summary** 
 
-This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), and receiving the responses to these requests.  
+This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), via a [web interface](#3-sending-requests-through-the-web-interface), and receiving the responses to these requests.  
 
 ## 1. How to Send a request to a Mech from Terminal
 
@@ -104,3 +104,16 @@ result = interact(
 ```
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
+
+
+## 3. Sending requests through the web interface
+
+1. Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
+2. Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a).
+3. Click on "New Request". The following pop-up will appear: 
+![screenshot](./imgs/screenshot.png)
+4. Enter a prompt and select the tool, then click on "Request". 
+5. A window like the one as follows will appear: 
+![confirmation](./imgs/confirmation.png)
+Click on "Confirm".
+6. You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
