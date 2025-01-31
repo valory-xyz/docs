@@ -207,10 +207,10 @@ The activity of the Mech is visible on the virtual testnet.
     "tdly": {
         "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
         "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
-        "rpc_url": "https://virtual.gnosis.rpc.tenderly.co/ffd35020-60eb-4233-b49c-127b9f47efb2",
+        "rpc_url": ,
         "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
         "ledger_config": {
-            "address": "https://virtual.gnosis.rpc.tenderly.co/ffd35020-60eb-4233-b49c-127b9f47efb2",
+            "address": ,
             "chain_id": 10200,
             "poa_chain": false,
             "default_gas_price_strategy": "eip1559",
@@ -225,8 +225,8 @@ The activity of the Mech is visible on the virtual testnet.
         },
         "gas_limit": 500000,
         "price": 10000000000000000,
-        "contract_abi_url": "https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
-        "transaction_url": "https://gnosisscan.io/tx/{transaction_digest}",
+        "contract_abi_url": ,
+        "transaction_url": ,
         "subgraph_url": ""
     }
     ```
