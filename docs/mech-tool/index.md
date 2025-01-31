@@ -2,9 +2,9 @@
 
 This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#3-deploying-a-mech) into production. 
 
-# 1. Creating and publishing a tool
+## 1. Creating and publishing a tool
 
-## 1. 1. Creating a tool
+### 1. 1. Creating a tool
 
 **Requirements**: [Python](https://www.python.org/) >= 3.8; [Pip](https://pip.pypa.io/en/stable/installation/); [Pipenv](https://pipenv.pypa.io/en/latest/installation.html) >= 2001.x.xx ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
@@ -70,7 +70,7 @@ If the module has any dependencies, remove `{}` and add them in the following fo
 	
     This function needs to return the result of using the tool.
 
-## 1. 2. Publishing the tool
+### 1. 2. Publishing the tool
 
 1. Create the package hash, by running the following commands, from the root:
 
@@ -87,9 +87,9 @@ At this point you will be prompted to choose "dev" or "third-part". Choose "dev"
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
 
-# 2. Testing Mech locally 
+## 2. Testing Mech locally 
 
-## 2. 1. Setup 
+### 2. 1. Setup 
 
 **Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; Yarn == `1.22.19` ; npx/npm == `10.8.2` ; Node == `20.18.1`.
 
@@ -155,7 +155,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     poetry install
     ```
 
-## 2. 2. Running the Mech
+### 2. 2. Running the Mech
 
 1. Run the mech service (in terminal):
 
@@ -184,9 +184,9 @@ The activity of the Mech is visible on the virtual testnet.
 ./stop_service.sh
 ```
 
-# 3. Deploying a Mech
+## 3. Deploying a Mech
 
-## 3. 1. Setup 
+### 3. 1. Setup 
 
 **Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
@@ -218,7 +218,7 @@ poetry shell
 poetry install
 ```
 
-## 3.2. Running the mech service
+### 3.2. Running the mech service
 
 1. Run the mech service (in terminal):
 
