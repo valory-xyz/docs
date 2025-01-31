@@ -231,6 +231,12 @@ The activity of the Mech is visible on the virtual testnet.
     }
     ```
 
+
+where the urls are as follows: 
+
+![alt text](./imgs/url1.png)
+![alt text](./imgs/url2.png)
+
 Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
 
 4. Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
