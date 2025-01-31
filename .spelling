@@ -190,6 +190,24 @@ json
 python
 virtual testnet
 block
+npx/npm
+ai-registry-mech
+submodule
+virtual_testnet
+RPC
+mech-quickstart 
+mechMarketplaceProxyAddress
+->
+mechFactoryFixedPriceNativeAddress
+mechFactoryFixedPriceTokenAddress
+Token
+ERC20 
+tokens
+Nevermined
+networkURL
+testnet 
+privateKey
+private key
 fingerprint
 tool_name.py
 .py

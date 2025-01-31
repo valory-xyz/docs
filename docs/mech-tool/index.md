@@ -91,7 +91,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 
 ### 2. 1. Setup 
 
-**Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; Yarn == `1.22.19` ; npx/npm == `10.8.2` ; Node == `20.18.1`.
+**Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; [Yarn](https://yarnpkg.com/) == `1.22.19` ; [Node](https://nodejs.org/en) == `20.18.1`; npx/npm == `10.8.2` ;
 
 1. Run the followings in the terminal: 
     ```
@@ -137,7 +137,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
         tenderly login --access-key <access_token>
         ```
     where `<access_token>` has to be replaced with the access key created as before.
-    - In the file `hardhat.config.js`, change the url of virtual_testnet (line 47) to the RPC of the testnet created on tenderly. On lines 141 and 142, change "project" and "username" strings with the ones found on tenderly in the opened project. This can be found by clicking on "Project" on the tenderly dashboard, then selecting the opened project, and "Settings" on the right menu. The "project" corresponds to "Project slug" and "username" corresponds to "Account slug".
+    - In the file `hardhat.config.js`, change the url of `virtual_testnet` (line 47) to the RPC of the testnet created on tenderly. On lines 141 and 142, change "project" and "username" strings with the ones found on tenderly in the opened project. This can be found by clicking on "Project" on the tenderly dashboard, then selecting the opened project, and "Settings" on the right menu. The "project" corresponds to "Project slug" and "username" corresponds to "Account slug".
     - In the file `globals.json`, change "networkURL" on line 6 to the RPC of the testnet and "privateKey" (line 7) to the private key of your wallet. 
     - Install the dependencies using the following: 
     ```
