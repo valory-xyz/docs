@@ -190,7 +190,8 @@ json
 python
 virtual testnet
 block
-npx/npm
+npx
+npm
 ai-registry-mech
 submodule
 virtual_testnet
@@ -202,6 +203,13 @@ mechFactoryFixedPriceNativeAddress
 mechFactoryFixedPriceTokenAddress
 Token
 ERC20 
+`20.18.1`
+npx/npm 
+== 
+`10.8.2`
+Update 
+url
+47
 tokens
 Nevermined
 networkURL
