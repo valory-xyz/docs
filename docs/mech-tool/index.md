@@ -145,6 +145,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     ```
     yarn install
     ```
+    - Fund the EOA address in tenderly (with the default amount). In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
     - Run the script to deploy the contracts which are necessary to test the Mech locally: 
     ```
     bash setup-tdly.sh
@@ -172,7 +173,7 @@ bash run_service.sh
 
 Other values can be left to default (by pressing enter when prompted).
 
-3. When prompted to do so, add funds to the required address. In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
+3. When prompted to do so, add funds to the required address. 
 4. Logs are visible with: 
 ```
 docker logs mech_abci_0 --follow
@@ -185,6 +186,70 @@ The activity of the Mech is visible on the virtual testnet.
 ```
 ./stop_service.sh
 ```
+
+### 2. 3. Sending a request
+
+1. In another folder, clone the mech-client repository: 
+
+    ```
+    git clone https://github.com/valory-xyz/mech-client.git
+    ```
+
+2. Install the mech-client package: 
+
+    ```
+    pip install -e.
+    ```
+
+3. Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
+
+    ```
+    "tdly": {
+        "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
+        "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
+        "rpc_url": ,
+        "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
+        "ledger_config": {
+            "address": ,
+            "chain_id": 10200,
+            "poa_chain": false,
+            "default_gas_price_strategy": "eip1559",
+            "is_gas_estimation_enabled": false
+        },
+        "mech_marketplace_config": {
+            "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
+            "priority_mech_service_id": 981,
+            "requester_service_id": 0,
+            "response_timeout": 300,
+            "payment_data": "0x"
+        },
+        "gas_limit": 500000,
+        "price": 10000000000000000,
+        "contract_abi_url": ,
+        "transaction_url": ,
+        "subgraph_url": ""
+    }
+    ```
+
+
+where the urls are as follows: 
+
+![alt text](./imgs/url1.png)
+![alt text](./imgs/url2.png)
+
+Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
+
+4. Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
+
+5. Run the following command in terminal in the mech-client repository: 
+
+    ```
+    mechx interact <prompt> --tool <tool_name> --chain-config tdly
+    ```
+
+where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
+
+6. You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
 ## 3. Deploying a Mech
 
