@@ -126,7 +126,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
         ```
         git clone https://github.com/KahanMajmudar/ai-registry-mech.git
         ```
-    - Update the submodules: 
+    - Run the following: 
         ```
         git submodule update --init --recursive
         ```
