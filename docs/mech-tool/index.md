@@ -106,6 +106,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     ```
 
 3. Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys), and the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
+
 4. Create a tenderly virtual testnet, following these steps: 
     - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
     - Click on “Project” and then “Create project”, as on the following picture. 
@@ -121,6 +122,7 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
     - Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and un-mark “Use latest block” in the State Sync section in order to enter the following custom block: 36619660.
     - Finally, click on the “Create” button.
     - After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later.
+
 5. Setup the virtual testnet, by following these steps: 
     - In a separate folder, clone the ai-registry-mech repository: 
         ```
