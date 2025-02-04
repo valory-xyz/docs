@@ -201,7 +201,9 @@ The activity of the Mech is visible on the virtual testnet.
     pip install -e.
     ```
 
-3. Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
+3. If the mech-client folder does not contain a file `ethereum_private_key.txt` already, create it and paste in it the private key of your EOA.
+
+4. Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
 
     ```
     "tdly": {
@@ -219,7 +221,6 @@ The activity of the Mech is visible on the virtual testnet.
         "mech_marketplace_config": {
             "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
             "priority_mech_service_id": 981,
-            "requester_service_id": 0,
             "response_timeout": 300,
             "payment_data": "0x"
         },
@@ -239,9 +240,9 @@ where the urls are as follows:
 
 Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
 
-4. Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
+5. Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
 
-5. Run the following command in terminal in the mech-client repository: 
+6. Run the following command in terminal in the mech-client repository: 
 
     ```
     mechx interact <prompt> --tool <tool_name> --chain-config tdly
@@ -249,7 +250,7 @@ Replace line 210 and line 213 with the RPC endpoint address, and line 220 with t
 
 where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
 
-6. You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
+7. You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
 ## 3. Deploying a Mech
 
