@@ -1,6 +1,6 @@
 ## **Summary** 
 
-This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#3-deploying-a-mech) into production. 
+This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#4-deploying-a-mech) into production. You can also find instructions to [register](#3-registering-an-agent-on-the-mech-marketplace) your agent to the Mech Marketplace in order to put it to work.
 
 ## 1. Creating and publishing a tool
 
@@ -252,9 +252,13 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 
 7. You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
-## 3. Deploying a Mech
+## 3. Registering an agent on the Mech Marketplace
 
-### 3. 1. Setup 
+
+
+## 4. Deploying a Mech with quickstart
+
+### 4. 1. Setup 
 
 **Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
@@ -286,7 +290,7 @@ poetry shell
 poetry install
 ```
 
-### 3.2. Running the mech service
+### 4.2. Running the mech service
 
 1. Run the mech service (in terminal):
 
@@ -295,13 +299,14 @@ bash run_service.sh
 ```
 
 2. Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier).
-3. Logs are visible with: 
+3. In order to send a request to it, follow the steps in the [section 2.3](#2-3-sending-a-request) above, replacing the RPC endpoint with the one created here. 
+4. Logs are visible with: 
 
 ```
 docker logs mech_abci_0 --follow
 ```
 
-4. Stop the mech service: 
+5. Stop the mech service: 
 
 ```
 ./stop_service.sh
