@@ -166,7 +166,13 @@ where `<access_token>` has to be replaced with the access key created as before.
     ```
     bash setup-tdly.sh
     ``` 
-- From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: "mechMarketplaceProxyAddress" -> line 490 ;"mechFactoryFixedPriceNativeAddress" -> line 495 ; "mechFactoryFixedPriceTokenAddress" -> line 500.
+- From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: 
+
+    **a.** "mechMarketplaceProxyAddress" -> line 490 ; 
+
+    **b.** "mechFactoryFixedPriceNativeAddress" -> line 495 ; 
+    
+    **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
 
 **6.** Change folder to the mech-quickstart one and then create environment (in terminal): 
     ```
