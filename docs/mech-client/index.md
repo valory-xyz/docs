@@ -11,17 +11,18 @@ This guide contains practical guidelines for integrating Mechs to an application
 **1.** Install the [Mech client](https://github.com/valory-xyz/mech-client): 
     
 - *(Option 1)* Using [Poetry](https://github.com/python-poetry/poetry): 
-        ```
-        poetry new my_project
-        cd my_project
-        poetry shell
-        poetry add mech-client
-        ```
+```
+poetry new my_project
+cd my_project
+poetry shell
+poetry add mech-client
+```
+
 - *(Option 2)* On local python installation: 
 
-        ```
-        pip install mech-client
-        ```
+```
+pip install mech-client
+```
 
 **2.** Setting up an EOA account: 
 
@@ -38,10 +39,11 @@ This guide contains practical guidelines for integrating Mechs to an application
 - *Option 2* (using [open-autonomy](https://github.com/valory-xyz/open-autonomy)): 
         
     **a.** Use the following to generate a private key: 
-                ```
-                autonomy generate-key ethereum -n 1
-                ```
-        This creates a file keys.json in which the private key can be found on the key “private_key”. 
+    ```
+    autonomy generate-key ethereum -n 1
+    ```
+    
+    This creates a file keys.json in which the private key can be found on the key “private_key”. 
         
     **b.** Copy this key in the file `ethereum_private_key.txt`.
 
@@ -57,46 +59,48 @@ This guide contains practical guidelines for integrating Mechs to an application
     
 - Use the command mechx in terminal, which is structured as follows: 
         
-        ```
-        mechx interact <prompt> <agent_id>
-        ```
+```
+mechx interact <prompt> <agent_id>
+```
 
 Replace `<agent_id>` with the following: the number (as an integer, not string) after the character “-” in the column “Mech Instance (Fixed Pricing) - Agent Id” of the table [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs) for the chosen mech; Replace `<prompt>` by a string which corresponds to the request to send to the Mech. 
 
 - It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
 
-        ```
-        mechx interact <prompt> <agent_id> --tool <tool>
-        ```
+```
+mechx interact <prompt> <agent_id> --tool <tool>
+```
 
 In this case, replace `<tool>` by the name of the tool. 
 
 - Tools available for the chosen agent can be found as follows (the tools names are listed in the column “Tool Name” in the output table):
 
-        ```
-        mechx tools-for-agents --agent-id <agent_id>
-        ```
+```
+mechx tools-for-agents --agent-id <agent_id>
+```
 
 - In order to select a tool, it is possible to find the description of a tool using the following, where `<unique_identifier>` is replaced by the tool’s identifier which can be found in the table obtained by the previous line.  
 
-        ```
-        mechx tool-description <unique_identifier>
-        ```
+```
+mechx tool-description <unique_identifier>
+```
 
 **2.** Receive the response: 
 
 - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
-        ```
-            mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
-        ``` 
+
+```
+mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
+``` 
+
 you should receive a response as follows: 
         ![screenshot_response](./imgs/screenshot_request.png)
 
 - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 
-        ```
-        export MECHX_GAS_LIMIT=200000
-        ```
+```
+export MECHX_GAS_LIMIT=200000
+```
 
 ## 2. Script for automatizing request sending
 

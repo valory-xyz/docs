@@ -13,76 +13,83 @@ In order to create a tool, the steps are as follows:
 **1.** Fork the repository https://github.com/valory-xyz/mech and clone the forked copy;
 
 **2.** In the main folder, in terminal:
-    ```
-    pip install open-autonomy
-    autonomy init --remote --ipfs --author <author_name> 
-    autonomy packages sync
-    ```
+
+```
+pip install open-autonomy
+autonomy init --remote --ipfs --author <author_name> 
+autonomy packages sync
+```
 
 **3.** Create a folder "username" [replace with your username] in the folder “packages”, inside this create a folder "customs", and inside this folder create a folder whose name corresponds to the tool. This folder should contain the following files : `component.yaml`, `tool_name.py` and `__init__.py`. For the second file, replace `tool_name` by the name of the tool.
-    ```
-        cd packages
-        mkdir <username>
-        cd <username>
-        mkdir customs 
-        cd customs
-        mkdir <tool_name> 
-        cd <tool_name>
-        touch component.yaml
-        touch tool_name.py
-        touch __init__.py
-    ```
+
+```
+cd packages
+mkdir <username>
+cd <username>
+mkdir customs 
+cd customs
+mkdir <tool_name> 
+cd <tool_name>
+touch component.yaml
+touch tool_name.py
+touch __init__.py
+```
+
 For the third file, copy and paste the following copyright text found for instance [here](https://github.com/KahanMajmudar/mech/blob/main/packages/valory/connections/__init__.py). 
 
 **4.** In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (this points at the python file in which the executable function is), callable (points at the function which is called in the entry_point), description (simple description of the module). In fingerprint, replace tool_name.py by the chosen entry point file.
-    ```
-        name: tool_name
-        author: author_name
-        version: 0.1.0
-        type: custom
-        description: Tool description
-        license: Apache-2.0
-        aea_version: '>=1.0.0, <2.0.0'
-        fingerprint:
-            __init__.py:
-            tool_name.py:
-        fingerprint_ignore_patterns: []
-        entry_point: tool_name.py
-        callable: run
-        dependencies: {}
-    ```
+
+```
+name: tool_name
+author: author_name
+version: 0.1.0
+type: custom
+description: Tool description
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+    __init__.py:
+    tool_name.py:
+fingerprint_ignore_patterns: []
+entry_point: tool_name.py
+callable: run
+dependencies: {}
+```
 
 If the module has any dependencies, remove `{}` and add them in the following format: 
 
-    ```
-    dependencies: 
-        dependency_1:
-            version: ==0.5.3
-        dependency_2:
-            version: '>=2.20.0'
-    ```
+```
+dependencies: 
+    dependency_1:
+        version: ==0.5.3
+    dependency_2:
+        version: '>=2.20.0'
+```
 
 **5.** Create the code for the tool in the file `tool_name.py` (following the examples of tools found [here](https://github.com/valory-xyz/mech-predict/tree/main/packages), for instance https://github.com/valory-xyz/mech-predict/tree/main/packages/gnosis/customs/ofv_market_resolver); the only requirement is to implement the function specified in callable of the `component.yaml` file; a minimal file would be the following for the template in the previous step for instance: 
-    ```
-        def run(**kwargs):
-            pass
-    ```
+
+```
+def run(**kwargs):
+    pass
+```
 	
-    This function needs to return the result of using the tool.
+This function needs to return the result of using the tool.
 
 ### 1. 2. Publishing the tool
 
 **1.** Create the package hash, by running the following commands, from the root:
 
-    ```
-    autonomy packages lock
-    ```
+```
+autonomy packages lock
+```
+
 At this point you will be prompted to choose "dev" or "third-part". Choose "dev".
 
 **2.** Push the packages to IPFS: 
-    ```
-    autonomy push-all
-    ```
+
+```
+autonomy push-all
+```
 
 **3.** Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is 
 needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
@@ -97,16 +104,16 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 **Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; [Yarn](https://yarnpkg.com/) == `1.22.19` ; [Node](https://nodejs.org/en) == `20.18.1`; npx/npm == `10.8.2` ;
 
 **1.** Run the followings in the terminal: 
-    ```
-    docker pull valory/open-autonomy-tendermint:0.18.3
-    docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
-    ```
+```
+docker pull valory/open-autonomy-tendermint:0.18.3
+docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
+```
 
 **2.** Clone the mech-quickstart repository:
 
-    ```
-    git clone https://github.com/valory-xyz/mech-quickstart.git
-    ```
+```
+git clone https://github.com/valory-xyz/mech-quickstart.git
+```
 
 **3.** Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys), and the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
 
@@ -163,22 +170,23 @@ where `<access_token>` has to be replaced with the access key created as before.
 - Fund the EOA address in tenderly (with the default amount). In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
 
 - Run the script to deploy the contracts which are necessary to test the Mech locally: 
-    ```
-    bash setup-tdly.sh
-    ``` 
+```
+bash setup-tdly.sh
+``` 
 - From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: 
 
     **a.** "mechMarketplaceProxyAddress" -> line 490 ; 
 
     **b.** "mechFactoryFixedPriceNativeAddress" -> line 495 ; 
-    
+
     **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
 
 **6.** Change folder to the mech-quickstart one and then create environment (in terminal): 
-    ```
-    poetry shell
-    poetry install
-    ```
+
+```
+poetry shell
+poetry install
+```
 
 ### 2. 2. Running the Mech
 
@@ -215,46 +223,46 @@ The activity of the Mech is visible on the virtual testnet.
 
 **1.** In another folder, clone the mech-client repository: 
 
-    ```
-    git clone https://github.com/valory-xyz/mech-client.git
-    ```
+```
+git clone https://github.com/valory-xyz/mech-client.git
+```
 
 **2.** Install the mech-client package: 
 
-    ```
-    pip install -e.
-    ```
+```
+pip install -e.
+```
 
 **3.** If the mech-client folder does not contain a file `ethereum_private_key.txt` already, create it and paste in it the private key of your EOA.
 
 **4.** Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
 
-    ```
-    "tdly": {
-        "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
-        "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
-        "rpc_url": ,
-        "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
-        "ledger_config": {
-            "address": ,
-            "chain_id": 10200,
-            "poa_chain": false,
-            "default_gas_price_strategy": "eip1559",
-            "is_gas_estimation_enabled": false
-        },
-        "mech_marketplace_config": {
-            "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
-            "priority_mech_service_id": 981,
-            "response_timeout": 300,
-            "payment_data": "0x"
-        },
-        "gas_limit": 500000,
-        "price": 10000000000000000,
-        "contract_abi_url": ,
-        "transaction_url": ,
-        "subgraph_url": ""
-    }
-    ```
+```
+"tdly": {
+    "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
+    "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
+    "rpc_url": ,
+    "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
+    "ledger_config": {
+        "address": ,
+        "chain_id": 10200,
+        "poa_chain": false,
+        "default_gas_price_strategy": "eip1559",
+        "is_gas_estimation_enabled": false
+    },
+    "mech_marketplace_config": {
+        "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
+        "priority_mech_service_id": 981,
+        "response_timeout": 300,
+        "payment_data": "0x"
+    },
+    "gas_limit": 500000,
+    "price": 10000000000000000,
+    "contract_abi_url": ,
+    "transaction_url": ,
+    "subgraph_url": ""
+}
+```
 
 
 where the urls are as follows: 
@@ -268,9 +276,9 @@ Replace line 210 and line 213 with the RPC endpoint address, and line 220 with t
 
 **6.** Run the following command in terminal in the mech-client repository: 
 
-    ```
-    mechx interact <prompt> --tool <tool_name> --chain-config tdly
-    ```
+```
+mechx interact <prompt> --tool <tool_name> --chain-config tdly
+```
 
 where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
 
