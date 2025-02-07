@@ -203,6 +203,7 @@ mechFactoryFixedPriceNativeAddress
 mechFactoryFixedPriceTokenAddress
 Token
 ERC20 
+quickstart 
 `20.18.1`
 npx/npm 
 == 
