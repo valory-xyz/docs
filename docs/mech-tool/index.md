@@ -253,6 +253,8 @@ pip install -e.
     "mech_marketplace_config": {
         "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
         "priority_mech_service_id": 981,
+        "payment_type":,
+        "max_delivery_rate":,
         "response_timeout": 300,
         "payment_data": "0x"
     },
@@ -345,6 +347,9 @@ bash run_service.sh
 ```
 docker logs mech_abci_0 --follow
 ```
+
+You can find there the agent id, in order to send requests to the mech via the mech client. The mech hash can be 
+found in `.mech_quickstart/local_config.json`.
 
 **5.** Stop the mech service: 
 
