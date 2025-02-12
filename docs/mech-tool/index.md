@@ -251,10 +251,8 @@ pip install -e.
         "is_gas_estimation_enabled": false
     },
     "mech_marketplace_config": {
-        "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
-        "priority_mech_service_id": 981,
-        "payment_type":,
-        "max_delivery_rate":,
+        "mech_marketplace_contract": "0x74867dC703Cc99D0C537Cd8385308B31D15D81f3",
+        "priority_mech_address": "0x9322F08ffCCc5Ecb2Fb5417B02b43369FE3dc45d",
         "response_timeout": 300,
         "payment_data": "0x"
     },
@@ -273,6 +271,11 @@ where the urls are as follows:
 ![alt text](./imgs/url2.png)
 
 Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
+Change also `priority_mech_address` with the address of your Mech. This address can be found in the tab "Contracts" of the page of the Testnet created above: 
+
+![alt text](image.png)
+
+The contract is the one named "Contract". 
 
 **5.** Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
 
