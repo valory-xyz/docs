@@ -1,6 +1,6 @@
 ## **Summary** 
 
-This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running a Mech on the Mech Marketplace with abstract funds and [deploying a Mech](#4-deploying-a-mech) into production. 
+Tools are intelligent programs which a Mech uses in order to respond to requests it receives. This guide contains guidelines for [creating tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, as well as instructions for [deploying a Mech locally](#2-testing-mech-locally) on the Mech Marketplace in order to test a tool without using actual crypto payments to pay the Mech. After that you can find instructions for [deploying a Mech](#4-deploying-a-mech) into production. If you have an agent, it is possible to put it to work by [registering](#5-registering-an-agent-on-the-mech-marketplace) it on the Mech Marketplace. 
 
 ## 1. Creating and publishing a tool
 
@@ -362,3 +362,5 @@ docker logs mech_abci_0 --follow
 ```
 ./stop_service.sh
 ```
+
+## 5. Registering an agent on the Mech Marketplace
