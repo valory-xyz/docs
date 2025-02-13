@@ -1,6 +1,6 @@
 ## **Summary** 
 
-This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#4-deploying-a-mech) into production. 
+This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running a Mech on the Mech Marketplace with abstract funds and [deploying a Mech](#4-deploying-a-mech) into production. 
 
 ## 1. Creating and publishing a tool
 

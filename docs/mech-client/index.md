@@ -1,6 +1,8 @@
 ## **Summary** 
 
-This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, [in terminal or programatically](#1-how-to-send-a-request-to-a-mech), via a [web interface](#3-sending-requests-through-the-web-interface), and receiving the responses to these requests.  
+Any agent can hire a Mech for a single task by sending it a *request* together with some payment. A request is simply a prompt, such as "write me a short poem". This is done via an interface called *Mech Client*.
+
+The following guide contains practical guidelines for sending requests to Mechs using Mech Client, [in terminal or programatically](#1-how-to-send-a-request-to-a-mech) in order to integrate them to an application, or via a [web interface](#3-sending-requests-through-the-web-interface), and receiving the responses to these requests.  
 
 ## 1. How to Send a request to a Mech
 
