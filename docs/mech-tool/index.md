@@ -97,7 +97,7 @@ needed: an address (EOA), and the hash of the meta-data file. In order to genera
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
 
-## 2. Testing Mech locally 
+## 2. Testing Mech locally on the Mech Marketplace
 
 ### 2. 1. Setup 
 
@@ -271,7 +271,7 @@ where the urls are as follows:
 ![alt text](./imgs/url2.png)
 
 Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
-Change also `priority_mech_address` with the address of your Mech. This address can be found in the tab "Contracts" of the page of the Testnet created above: 
+Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
 
 ![alt text](image.png)
 
@@ -290,7 +290,7 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 **7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
 
-## 4. Deploying a Mech with quickstart
+## 4. Deploying a Mech on the Mech Marketplace with quickstart
 
 ### 4. 1. Setup 
 
@@ -351,8 +351,7 @@ bash run_service.sh
 docker logs mech_abci_0 --follow
 ```
 
-You can find there the agent id, in order to send requests to the mech via the mech client. The mech hash can be 
-found in `.mech_quickstart/local_config.json`.
+**6.** Send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This can be found in `.mech_quickstart/local_config.json`, key `mech_address`.
 
 **5.** Stop the mech service: 
 

@@ -1,8 +1,8 @@
 ## **Summary** 
 
-This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, in [terminal](#1-how-to-send-a-request-to-a-mech-from-terminal), via a [python script](#2-script-for-automatizing-request-sending), via a [web interface](#3-sending-requests-through-the-web-interface), and receiving the responses to these requests.  
+This guide contains practical guidelines for integrating Mechs to an application, by sending them requests, [in terminal or programatically](#1-how-to-send-a-request-to-a-mech), via a [web interface](#3-sending-requests-through-the-web-interface), and receiving the responses to these requests.  
 
-## 1. How to Send a request to a Mech from Terminal
+## 1. How to Send a request to a Mech
 
 ### 1.1. Setup
 
@@ -49,11 +49,13 @@ pip install mech-client
 
 **3.** Choose a Mech:
 
-- The list of chains in which the Mechs are deployed on can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
+- A list of deployed Mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id or address if it uses the Mech Marketplace;  
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
-### 1.2. Sending requests
+### 1.2. Sending requests to Mechs which do not use the Mech Marketplace
+
+#### 1.2.1 In terminal
 
 **1.** Send a request: 
     
@@ -102,7 +104,7 @@ you should receive a response as follows:
 export MECHX_GAS_LIMIT=200000
 ```
 
-## 2. Script for automatizing request sending
+#### 1.2.2. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -121,6 +123,70 @@ result = interact(
 ```
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
+
+### 1.3. Sending requests to Mechs which do not use the Mech Marketplace
+
+#### 1.3.1 In terminal
+
+**1.** Send a request: 
+    
+- Use the command mechx in terminal, which is structured as follows: 
+        
+```
+mechx interact <prompt> --chain-config <chain-config>
+```
+
+Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
+
+- It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
+
+```
+mechx interact <prompt> --tool <tool> --chain-config <chain-config>
+```
+
+In this case, replace `<tool>` by the name of the tool. 
+
+- In order to select a tool, it is possible to find the description of a tool using the following, where `<unique_identifier>` is replaced by the tool’s identifier which can be found in the table obtained by the previous line.  
+
+```
+mechx tool-description <unique_identifier>
+```
+
+**2.** Receive the response: 
+
+- In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
+
+```
+mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config gnosis
+``` 
+
+you should receive a response as follows: 
+        ![screenshot_response](./imgs/screenshot_request.png)
+
+- Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
+
+```
+export MECHX_GAS_LIMIT=200000
+```
+
+#### 1.3.2. Script for automatizing request sending
+
+The following script can be used in order to automatize request sending:
+
+```
+from mech_client.interact import interact
+
+PROMPT_TEXT = 'Will Gnosis pay reach 100k cards in 2024?'
+TOOL_NAME = "prediction-online"
+
+result = interact(
+    prompt=PROMPT_TEXT,
+    tool=TOOL_NAME
+)
+```
+
+The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
+
 
 
 ## 3. Sending requests through the web interface
