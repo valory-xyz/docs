@@ -92,10 +92,21 @@ autonomy push-all
 ```
 
 **3.** Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is 
-needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used. Place it in the main folder and place the image in the folder `mints` in the format `.jpg`. Then run the script: 
+needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window). In order to push an image on IPFS, there are two possibilities: 
 
+- Use this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py). Place it in the main folder and place the image in the folder `mints` in the format `.jpg`. Then run the script: 
 ```
 python ipfs_pin.py
+```
+
+- Clone the mech-client repository:
+```
+git clone https://github.com/valory-xyz/mech-client.git
+cd mech-client
+```
+Then put the file in the mech-client folder and run the following in terminal, replacing `<file_name>` with the name of your file: 
+```
+mechx push-to-ipfs ./<file_name>
 ```
 
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
