@@ -119,10 +119,10 @@ result = interact(
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
 
-### 1.2. Sending requests to Mechs which do not use the Mech Marketplace
+### 1.2. Sending requests to legacy Mechs
 
-It is also possible to send requests to Mechs without going through the Mech Marketplace. This section describes how 
-to do this. 
+It is also possible to send requests to Mechs which were deployed before the Mech Marketplace, thus called legacy Mechs. 
+This section describes how to do this (note that in this case, you will not have the guarantee that your request will be answered).
 
 #### 1.2.1 In terminal
 
