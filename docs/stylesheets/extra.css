@@ -26,12 +26,11 @@
 
 
 /* can add more fonts from autonolas repo if more fonts are needed */
-
 :root {
-  --md-primary-fg-color: #7200D6;
-  --md-primary-fg-color--light: rgb(0 217 72 / 10%);
-  --md-primary-fg-color--dark: #086228;
-  --md-typeset-a-color: var(--md-primary-fg-color--dark);
+  --md-primary-fg-color: #7E22CE;
+  --md-primary-fg-color--dark: #581C87;
+  --md-accent-fg-color: #581C87;
+  /* --md-typeset-a-color: #7E22CE; */
 
   --md-extra-color-white: #FFFFFF;
   --md-extra-color-black: #000000;
@@ -121,19 +120,24 @@
 }
 
 .md-typeset a {
-  color: var(--md-typeset-a-color);
+  /* color: var(--md-typeset-a-color); */
   font-weight: bold;
 }
 
 .md-typeset a:active,
 .md-typeset a:hover {
-  color: var(--md-typeset-a-color);
+  /* color: var(--md-typeset-a-color); */
+}
+
+/* ------ button ------ */
+.md-typeset .md-button--primary {
+  /* background-color: var(--md-typeset-a-color); */
 }
 
 /* ------ footer ------ */
-.md-footer {
+/* .md-footer {
   background-color: var(--md-primary-fg-color);
-}
+} */
 
 .md-footer .md-footer-nav,
 .md-footer .md-footer-nav__direction {
@@ -169,10 +173,11 @@ code {
 
 .md-header,
 .md-tabs,
+.md-footer,
 .md-footer-meta,
 .md-footer-nav,
 .md-footer-nav__inner {
-  background-color: var(--md-primary-fg-color);
+  background-color: var(--md-accent-fg-color);
 }
 
 .md-nav__title {
