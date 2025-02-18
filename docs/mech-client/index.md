@@ -55,78 +55,7 @@ pip install mech-client
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
-### 1.2. Sending requests to Mechs which do not use the Mech Marketplace
-
-#### 1.2.1 In terminal
-
-**1.** Send a request: 
-    
-- Use the command mechx in terminal, which is structured as follows: 
-        
-```
-mechx interact <prompt> <agent_id>
-```
-
-Replace `<agent_id>` with the following: the number (as an integer, not string) after the character “-” in the column “Mech Instance (Fixed Pricing) - Agent Id” of the table [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs) for the chosen mech; Replace `<prompt>` by a string which corresponds to the request to send to the Mech. 
-
-- It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
-
-```
-mechx interact <prompt> <agent_id> --tool <tool>
-```
-
-In this case, replace `<tool>` by the name of the tool. 
-
-- Tools available for the chosen agent can be found as follows (the tools names are listed in the column “Tool Name” in the output table):
-
-```
-mechx tools-for-agents --agent-id <agent_id>
-```
-
-- In order to select a tool, it is possible to find the description of a tool using the following, where `<unique_identifier>` is replaced by the tool’s identifier which can be found in the table obtained by the previous line.  
-
-```
-mechx tool-description <unique_identifier>
-```
-
-**2.** Receive the response: 
-
-- In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
-
-```
-mechx interact "write a short poem" 6 --tool openai-gpt-3.5-turbo
-``` 
-
-you should receive a response as follows: 
-        ![screenshot_response](./imgs/screenshot_request.png)
-
-- Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
-
-```
-export MECHX_GAS_LIMIT=200000
-```
-
-#### 1.2.2. Script for automatizing request sending
-
-The following script can be used in order to automatize request sending:
-
-```
-from mech_client.interact import interact
-
-PROMPT_TEXT = 'Will Gnosis pay reach 100k cards in 2024?'
-AGENT_ID = 6
-TOOL_NAME = "prediction-online"
-
-result = interact(
-    prompt=PROMPT_TEXT,
-    agent_id=AGENT_ID,
-    tool=TOOL_NAME
-)
-```
-
-The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
-
-### 1.3. Sending requests to Mechs which do not use the Mech Marketplace
+### 1.3. Sending requests to Mechs
 
 #### 1.3.1 In terminal
 
@@ -189,6 +118,62 @@ result = interact(
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
+
+### 1.2. Sending requests to Mechs which do not use the Mech Marketplace
+
+It is also possible to send requests to Mechs without going through the Mech Marketplace. This section describes how 
+to do this. 
+
+#### 1.2.1 In terminal
+
+**1.** Send a request: 
+    
+- Use the command mechx in terminal, which is structured as follows: 
+        
+```
+mechx interact <prompt> --agent_id <agent_id>
+```
+
+Replace `<agent_id>` with the following: the number (as an integer, not string) after the character “-” in the column “Mech Instance (Fixed Pricing) - Agent Id” of the table [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs) for the chosen mech; Replace `<prompt>` by a string which corresponds to the request to send to the Mech. 
+
+- The list of ids and the names of the tools that the Mech can use will appear. You will be prompted to enter the id of a tool that the Mech will use to respond to the request.
+
+**2.** Receive the response: 
+
+- In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
+
+```
+mechx interact "write a short poem" 6
+``` 
+
+and after selecting the tool openai-gpt-3.5-turbo, you should receive a response as follows: 
+        ![screenshot_response](./imgs/screenshot_request.png)
+
+- Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
+
+```
+export MECHX_GAS_LIMIT=200000
+```
+
+#### 1.2.2. Script for automatizing request sending
+
+The following script can be used in order to automatize request sending:
+
+```
+from mech_client.interact import interact
+
+PROMPT_TEXT = 'Will Gnosis pay reach 100k cards in 2024?'
+AGENT_ID = 6
+TOOL_NAME = "prediction-online"
+
+result = interact(
+    prompt=PROMPT_TEXT,
+    agent_id=AGENT_ID,
+    tool=TOOL_NAME
+)
+```
+
+The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
 
 ## 3. Sending requests through the web interface
