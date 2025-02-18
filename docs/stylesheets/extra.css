@@ -29,8 +29,7 @@
 :root {
   --md-primary-fg-color: #7E22CE;
   --md-primary-fg-color--dark: #581C87;
-  --md-accent-fg-color: #581C87;
-  /* --md-typeset-a-color: #7E22CE; */
+  --md-accent-fg-color: #7E22CE;
 
   --md-extra-color-white: #FFFFFF;
   --md-extra-color-black: #000000;
@@ -95,15 +94,9 @@
   font-size: 18px;
 }
 
-
-.md-sidebar .md-nav__link.md-nav__link {
-  color: var(--md-extra-color-gray-1);
-}
-
 .md-sidebar .md-nav__link.md-nav__link--active,
 .md-sidebar .md-nav__link:active {
   text-decoration: underline;
-  color: var(--md-extra-color-black);
 }
 
 .md-sidebar .md-nav__link:focus,
@@ -112,7 +105,6 @@
 }
 
 /* right sidebar */
-
 /* ------ content ------ */
 .md-content__inner h1 {
   font-weight: bold;
@@ -120,25 +112,10 @@
 }
 
 .md-typeset a {
-  /* color: var(--md-typeset-a-color); */
   font-weight: bold;
 }
 
-.md-typeset a:active,
-.md-typeset a:hover {
-  /* color: var(--md-typeset-a-color); */
-}
-
-/* ------ button ------ */
-.md-typeset .md-button--primary {
-  /* background-color: var(--md-typeset-a-color); */
-}
-
 /* ------ footer ------ */
-/* .md-footer {
-  background-color: var(--md-primary-fg-color);
-} */
-
 .md-footer .md-footer-nav,
 .md-footer .md-footer-nav__direction {
   color: var(--md-extra-color-black);
@@ -178,10 +155,6 @@ code {
 .md-footer-nav,
 .md-footer-nav__inner {
   background-color: var(--md-accent-fg-color);
-}
-
-.md-nav__title {
-  color: var(--md-primary-fg-color--dark);
 }
 
 /* Needed so that Mermaid UML diagrams don't end up being massively tall */
