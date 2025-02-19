@@ -6,7 +6,7 @@ The agent can be built using any framework and it will be made available through
 
 ### Considerations for building the agent
 - Environment variables will be set up in a docker container when the service starts through {{ olas_agent_quickstart }} with the prefix `CONNECTION_CONFIGS_CONFIG_<variable_name>`.
-- {{ olas_agent_quickstart }} will deploy a service from a given agent and configure the sergvice multisig Safe and the agent EOA. These information will be available in the docker container as follows:
+- {{ olas_agent_quickstart }} will deploy a service from a given agent and configure the service multisig Safe and the agent EOA. These information will be available in the docker container as follows:
     - The agent EOA private key will be on the file `/agent_key/ethereum_private_key.txt`.
     - The service safe contract address will be accessible through the environment variable `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` as a dictionary with the chain as the key (e.g., `{ "gnosis": "0xE7CA89bE11A7A3b3d0bF6016d7a09f33c03a0a8f" }`).
 
@@ -44,7 +44,7 @@ You can find a docker file example [here](https://github.com/valory-xyz/langchai
 ## Step 4: Minting the Olas Agent
 To register the agent in the {{ autonolas_protocol_registry_dapp }}, follow the steps in this guide: [Mint an Agent](https://docs.autonolas.network/protocol/mint_packages_nfts/#mint-an-agent).
 
-**Note 1:** Your Olas Agent must provide at least one depencency, as default specify the value 1. 
+**Note 1:** Your Olas Agent must provide at least one dependency, as default specify the value 1. 
 
 **Note 2:** The agent hash can be found in **`packages/packages.json`** from Step 2.
 
