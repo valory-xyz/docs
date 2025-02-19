@@ -1,7 +1,7 @@
 # Autonolas Developer Documentation
 
 <figure markdown>
-![Autonolas logo](./images/logo_purple.svg){ align=left width="300" }
+![Autonolas logo](./images/olas-logo.svg){ align=left width="200" }
 </figure>
 
 Autonolas' mission is to provide a foundation on which new types of autonomous services can be built, which:
