@@ -55,9 +55,9 @@ pip install mech-client
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
-### 1.3. Sending requests to Mechs
+### 1.2. Sending requests
 
-#### 1.3.1 In terminal
+#### 1.2.1. In terminal
 
 **1.** Send a request: 
     
@@ -100,7 +100,7 @@ you should receive a response as follows:
 export MECHX_GAS_LIMIT=200000
 ```
 
-#### 1.3.2. Script for automatizing request sending
+#### 1.2.2. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -118,13 +118,29 @@ result = interact(
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
+#### 1.2.3. Sending requests through the web interface
 
-### 1.2. Sending requests to legacy Mechs
+**1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
+
+**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a).
+
+**3.** Click on "New Request". The following pop-up will appear: 
+![screenshot](./imgs/screenshot.png)
+
+**4.** Enter a prompt and select the tool, then click on "Request". 
+
+**5.** A window like the one as follows will appear: 
+![confirmation](./imgs/confirmation.png)
+Click on "Confirm".
+
+**6.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
+
+## 2. Sending requests to legacy Mechs
 
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace, thus called legacy Mechs. 
-This section describes how to do this (note that in this case, you will not have the guarantee that your request will be answered).
+This section describes how to do this (note that in this case, you will benefit from Mech Marketplace feature, and in particular not have the guarantee that your request will be answered, or of the quality of the answer).
 
-#### 1.2.1 In terminal
+### 2.1. In terminal
 
 **1.** Send a request: 
     
@@ -155,7 +171,7 @@ and after selecting the tool openai-gpt-3.5-turbo, you should receive a response
 export MECHX_GAS_LIMIT=200000
 ```
 
-#### 1.2.2. Script for automatizing request sending
+### 2.2. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -174,21 +190,3 @@ result = interact(
 ```
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
-
-
-## 3. Sending requests through the web interface
-
-**1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
-
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a).
-
-**3.** Click on "New Request". The following pop-up will appear: 
-![screenshot](./imgs/screenshot.png)
-
-**4.** Enter a prompt and select the tool, then click on "Request". 
-
-**5.** A window like the one as follows will appear: 
-![confirmation](./imgs/confirmation.png)
-Click on "Confirm".
-
-**6.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.

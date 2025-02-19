@@ -112,7 +112,7 @@ mechx push-to-ipfs ./<file_name>
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
 
-## 2. Testing Mech locally on the Mech Marketplace
+## 2. Testing a tool by deploying a Mech locally
 
 ### 2. 1. Setup 
 
@@ -196,14 +196,16 @@ bash setup-tdly.sh
 
     **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
 
-**6.** Change folder to the mech-quickstart one and then create environment (in terminal): 
+
+
+### 2. 2. Running the Mech
+
+**0.** Change folder to the mech-quickstart one and then create environment (in terminal): 
 
 ```
 poetry shell
 poetry install
 ```
-
-### 2. 2. Running the Mech
 
 **1.** Run the mech service (in terminal):
 
@@ -290,7 +292,7 @@ Change also `priority_mech_address` with the address of your Mech (it can be fou
 
 ![alt text](image.png)
 
-The contract is the one named "Contract". 
+The contract is the last one created in the list of contracts found in tenderly. 
 
 **5.** Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
 
@@ -304,8 +306,7 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 
 **7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
-
-## 4. Deploying a Mech on the Mech Marketplace with quickstart
+## 4. Deploying a Mech on the Mech Marketplace
 
 ### 4. 1. Setup 
 
@@ -366,12 +367,22 @@ bash run_service.sh
 docker logs mech_abci_0 --follow
 ```
 
-**6.** Send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This can be found in `.mech_quickstart/local_config.json`, key `mech_address`.
+**5.** You can send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This address can be found in `.mech_quickstart/local_config.json`, key `mech_address`. Then use the mechx command: 
 
-**5.** Stop the mech service: 
+```
+mechx interact <prompt> --tool <tool_name> --chain-config <chain>
+```
+
+where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool, and `<chain>` is replaced by the 
+name of the chosen chain.
+
+**6.** Stop the mech service: 
 
 ```
 ./stop_service.sh
 ```
 
 ## 5. Registering an agent on the Mech Marketplace
+
+In case you have already a service and want to put it to work for other agents, you only need to register 
+it on the Mech Marketplace. 
