@@ -83,13 +83,7 @@ In this case, replace `<tool>` by the name of the tool.
 python ./scripts/deposit_{{payment_model}}.py
 ```
 
-where `{{payment_model}}` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). Then when prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.  
-
-- In order to select a tool, it is possible to find the description of a tool using the following, where `<unique_identifier>` is replaced by the tool’s identifier which can be found in the table obtained by the previous line.  
-
-```
-mechx tool-description <unique_identifier>
-```
+where `{{payment_model}}` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). When prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.
 
 **2.** Receive the response: 
 
@@ -161,6 +155,20 @@ mechx interact <prompt> --agent_id <agent_id>
 Replace `<agent_id>` with the following: the number (as an integer, not string) after the character “-” in the column “Mech Instance (Fixed Pricing) - Agent Id” of the table [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs) for the chosen mech; Replace `<prompt>` by a string which corresponds to the request to send to the Mech. 
 
 - The list of ids and the names of the tools that the Mech can use will appear. You will be prompted to enter the id of a tool that the Mech will use to respond to the request.
+
+- In order to select a tool, you can use the following to see which tools are used by which agents: 
+
+```
+mechx tools-for-agents
+```
+
+You can identify which tools are used by a Mech by looking at the "Agent ID" column. Using the unique identifier of the tool, you can find a description of the tool, using the following: 
+
+```
+mechx tool-description <unique_identifier> --chain-config <chain_config>
+```
+
+where `<unique_identifier>` is replaced by the unique id of the tool and `<chain_config>` by the name of the network.
 
 **2.** Receive the response: 
 
