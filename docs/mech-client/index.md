@@ -77,6 +77,14 @@ mechx interact <prompt> --tool <tool> --chain-config <chain-config>
 
 In this case, replace `<tool>` by the name of the tool. 
 
+- If prompted to make a deposit, use the following: 
+
+```
+python ./scripts/deposit_{{payment_model}}.py
+```
+
+where `{{payment_model}}` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). Then when prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.  
+
 - In order to select a tool, it is possible to find the description of a tool using the following, where `<unique_identifier>` is replaced by the tool’s identifier which can be found in the table obtained by the previous line.  
 
 ```

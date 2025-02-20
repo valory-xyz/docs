@@ -386,3 +386,5 @@ name of the chosen chain.
 
 In case you have already a service and want to put it to work for other agents, you only need to register 
 it on the Mech Marketplace. 
+
+## 6. How to accrue the payments
