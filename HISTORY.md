@@ -1,5 +1,10 @@
 # Release History - Autonolas Documentation
 
+## v0.16.4 (2025-02-20)
+
+Olas SDK
+    * Release of first version of Olas SDK instructions
+
 ## v0.16.2 (2025-01-14)
 
 Frameworks
