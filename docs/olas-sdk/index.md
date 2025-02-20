@@ -15,12 +15,12 @@ Here you can see the examples of two agents built with different frameworks:
 
 - [Langchain Hello World Agent](https://github.com/valory-xyz/langchain_hello_world)
 
-- [Eliza Memeooorr Agent](LINK_TO_ELIZA_REPO)
+- Eliza Memeooorr Agent (link to repo will be added soon)
 
 ## Step 2: Olas Agent and Service Configuration
 Once the agent is ready, the next step is to configure the Olas Agent and Service. 
 
-Check the guide at [Olas SDK Starter](https://github.com/valory-xyz/olas-sdk-starter/main/README.md).
+Check the guide at [Olas SDK Starter](https://github.com/valory-xyz/olas-sdk-starter/blob/main/README.md).
 
 ## Step 3: Docker Image
 Once the Olas Agent configuration is complete, the next step is to push the Docker image to [Docker Hub](https://hub.docker.com/). The image needs to follow the requirements below:
@@ -30,7 +30,7 @@ Once the Olas Agent configuration is complete, the next step is to push the Dock
 - **ENTRYPOINT**: A script file should be used to start the agent execution.
 - **HEALTHCHECK**: A health check must be defined; otherwise, the agent will not be executed through {{ olas_agent_quickstart }}.
 
-You can find a docker file example [here](https://github.com/valory-xyz/langchain_hello_world/main/Dockerfile).
+You can find a docker file example [here](https://github.com/valory-xyz/langchain_hello_world/blob/main/Dockerfile).
 
 - **Image Name**: The image name must be:
 
@@ -58,79 +58,79 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
 
 ### 2. Add a `config.json` file to the `configs` folder with the following fields:
 
-    - **`agent_name`**: The name of your Olas Agent defined on Step 2.
-    - **`agent_id`**: The id of your agent minted on {{ autonolas_protocol_registry_dapp }}, this is number you see on your agent page from Step 4.
-    - **`service_hash`**: The hash of your Olas Service generated on Step 2.
-    - **`env_variables`**: Here you can define the environment variables that your agent needs, the names must follow what was configured on service.yaml on Step 2. The provision type of these variables can be:
-        - **user**: It will prompt the user running your agent to provide a value.
-        - **fixed**: It will use the value you define on the config.
-        - **computed**: It will be automatically computed.
+- **`agent_name`**: The name of your Olas Agent defined on Step 2.
+- **`agent_id`**: The id of your agent minted on {{ autonolas_protocol_registry_dapp }}, this is number you see on your agent page from Step 4.
+- **`service_hash`**: The hash of your Olas Service generated on Step 2.
+- **`env_variables`**: Here you can define the environment variables that your agent needs, the names must follow what was configured on service.yaml on Step 2. The provision type of these variables can be:
+    - **user**: It will prompt the user running your agent to provide a value.
+    - **fixed**: It will use the value you define on the config.
+    - **computed**: It will be automatically computed.
 
 
   **Example of `config_hello_world.json`**
 
-    ```json
-    {
-        "name": "<agent_name>",
-        "agent_id": <agent_id>,
-        "hash": "<service_hash>",
-        "description": "My awesome agent service",
-        "image": "",
-        "service_version": "v0.1.0",
-        "home_chain": "gnosis",
-        "configurations": {
-            "gnosis": {
-                "nft": "bafybeifgj3kackzfoq4fxjiuousm6epgwx7jbc3n2gjwzjgvtbbz7fc3su",
-                "threshold": 1,
-                "use_mech_marketplace": false,
-                "fund_requirements": {
-                    "0x0000000000000000000000000000000000000000": {
-                        "agent": 0,
-                        "safe": 0
-                    }
+```json
+{
+    "name": "<agent_name>",
+    "agent_id": <agent_id>,
+    "hash": "<service_hash>",
+    "description": "My awesome agent service",
+    "image": "",
+    "service_version": "v0.1.0",
+    "home_chain": "gnosis",
+    "configurations": {
+        "gnosis": {
+            "nft": "bafybeifgj3kackzfoq4fxjiuousm6epgwx7jbc3n2gjwzjgvtbbz7fc3su",
+            "threshold": 1,
+            "use_mech_marketplace": false,
+            "fund_requirements": {
+                "0x0000000000000000000000000000000000000000": {
+                    "agent": 0,
+                    "safe": 0
                 }
             }
+        }
+    },
+    "staking_programs": {
+        "no_staking": "0x0000000000000000000000000000000000000000"
+    },
+    "env_variables": {
+        "SAFE_CONTRACT_ADDRESSES": {
+            "name": "Safe contract addresses",
+            "description": "",
+            "value": "",
+            "provision_type": "computed"
         },
-        "staking_programs": {
-            "no_staking": "0x0000000000000000000000000000000000000000"
+        "GNOSIS_LEDGER_RPC": {
+            "name": "Gnosis ledger RPC",
+            "description": "",
+            "value": "",
+            "provision_type": "computed"
         },
-        "env_variables": {
-            "SAFE_CONTRACT_ADDRESSES": {
-                "name": "Safe contract addresses",
-                "description": "",
-                "value": "",
-                "provision_type": "computed"
-            },
-            "GNOSIS_LEDGER_RPC": {
-                "name": "Gnosis ledger RPC",
-                "description": "",
-                "value": "",
-                "provision_type": "computed"
-            },
-            "<ENV_VAR_NAME_1>": {
-                "name": "<ENV_VAR_NAME_1>",
-                "description": "",
-                "value": "",
-                "provision_type": "user"
-            },
-            "<ENV_VAR_NAME_2>": {
-                "name": "<ENV_VAR_NAME_2>",
-                "description": "",
-                "value": "",
-                "provision_type": "user"
-            }
+        "<ENV_VAR_NAME_1>": {
+            "name": "<ENV_VAR_NAME_1>",
+            "description": "",
+            "value": "",
+            "provision_type": "user"
+        },
+        "<ENV_VAR_NAME_2>": {
+            "name": "<ENV_VAR_NAME_2>",
+            "description": "",
+            "value": "",
+            "provision_type": "user"
         }
     }
-    ```
+}
+```
 
 ### 3. Once all the {{ olas_agent_quickstart }} repo requirements are met, start the service by running:
-   ```sh
-   ./run_service.sh <agent_config.json>
-   ```
+```sh
+./run_service.sh <agent_config.json>
+```
 
-    This script will
-    - Prompts for the Gnosis RPC and required environment variables.
-    - Sets up the service safe and agent wallet (asking for required funds).
-    - Mints the service in the registry until it reaches the `DEPLOYED` state.
-    - Downloads the agent's docker image.
-    - Setup and starts the docker container.
+This script will
+- Prompts for the Gnosis RPC and required environment variables.
+- Sets up the service safe and agent wallet (asking for required funds).
+- Mints the service in the registry until it reaches the `DEPLOYED` state.
+- Downloads the agent's docker image.
+- Setup and starts the docker container.
