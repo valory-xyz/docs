@@ -72,7 +72,6 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
 ```json
 {
     "name": "<agent_name>",
-    "agent_id": <agent_id>,
     "hash": "<service_hash>",
     "description": "My awesome agent service",
     "image": "",
@@ -80,6 +79,7 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
     "home_chain": "gnosis",
     "configurations": {
         "gnosis": {
+            "agent_id": <agent_id>,
             "nft": "bafybeifgj3kackzfoq4fxjiuousm6epgwx7jbc3n2gjwzjgvtbbz7fc3su",
             "threshold": 1,
             "use_mech_marketplace": false,
@@ -90,9 +90,6 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
                 }
             }
         }
-    },
-    "staking_programs": {
-        "no_staking": "0x0000000000000000000000000000000000000000"
     },
     "env_variables": {
         "SAFE_CONTRACT_ADDRESSES": {
@@ -129,8 +126,8 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
 ```
 
 This script will
-- Prompts for the Gnosis RPC and required environment variables.
-- Sets up the service safe and agent wallet (asking for required funds).
-- Mints the service in the registry until it reaches the `DEPLOYED` state.
-- Downloads the agent's docker image.
-- Setup and starts the docker container.
+    - Prompts for the Gnosis RPC and required environment variables.
+    - Sets up the service safe and agent wallet (asking for required funds).
+    - Mints the service in the registry until it reaches the `DEPLOYED` state.
+    - Downloads the agent's docker image.
+    - Setup and starts the docker container.
