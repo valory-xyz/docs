@@ -61,9 +61,9 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
 - **`agent_name`**: The name of your Olas Agent defined on Step 2.
 - **`agent_id`**: The id of your agent minted on {{ autonolas_protocol_registry_dapp }}, this is number you see on your agent page from Step 4.
 - **`service_hash`**: The hash of your Olas Service generated on Step 2.
-- **`env_variables`**: Here you can define the environment variables that your agent needs, the names must follow what was configured on service.yaml on Step 2. The provision type of these variables can be:
+- **`env_variables`**: Here you can define the environment variables that your agent needs, the names must follow what was configured on the file `service.yaml` on Step 2. The provision type of these variables can be:
     - **user**: It will prompt the user running your agent to provide a value.
-    - **fixed**: It will use the value you define on the config.
+    - **fixed**: It will use the value defined on the configuration file.
     - **computed**: It will be automatically computed.
 
 
