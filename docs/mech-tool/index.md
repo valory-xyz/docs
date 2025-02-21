@@ -399,7 +399,6 @@ name of the chosen chain.
 In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register 
 it on the Mech Marketplace. 
 
-create(uint256 serviceId, address mechFactory, bytes memory payload)
 
 **1.** For this, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network and enter it in the scan of this network.
 
