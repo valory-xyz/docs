@@ -1,5 +1,7 @@
 ## **Overview** 
 
+
+This guide contains practical guidelines for interacting with Mechs.
 The requester - whether it is an agent or an application - can choose between two methods for sending service requests: 
 
 - On-chain, meaning that the request is sent to the Mech contract (relayed by the Mech Marketplace for the Mechs which are registered there); 
@@ -79,7 +81,8 @@ mechx interact <prompt> --chain-config <chain-config>
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
 
 - If prompted, add funds corresponding to the chosen network in the EOA account created above (if the Mech uses fixed price) or Nevermined subscription, in order to pay the mech for requests. It will be indicated how much is needed. You can also find 
-the price per request (if the Mech uses fixed price) or the maximal price per request as follows. Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
+the price per request (resp. the maximal price per Mechs with Nevermind subscription) per request as follows. 
+Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
 - It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
 
@@ -89,7 +92,7 @@ mechx interact <prompt> --tool <tool> --chain-config <chain-config>
 
 In this case, replace `<tool>` by the name of the tool. 
 
-- If prompted to make a deposit, use the following: 
+- If prompted to make a an on-chain deposit to pay for Mech fees, use the following: 
 
 ```
 python ./scripts/deposit_payment_model.py

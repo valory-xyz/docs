@@ -1,5 +1,7 @@
 ## **Overview** 
 
+This guide contains guidelines for contributing to the development of Mechs and offer services.
+
 In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the Mech MarketPlace. Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
 
 - Native:  A fixed-price model where the requester pays using the chain with native token native token for each delivered service;
@@ -401,20 +403,22 @@ name of the chosen chain.
 
 ## 5. Registering an agent on the Mech Marketplace
 
-In case you have already a service and want to put it to work for other agents, you only need to register 
+In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register 
 it on the Mech Marketplace. 
 
 To do that, you may follow the instruction below.
 
 **1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network and enter it in the scan of this network.
 
-**2.** Click on "Contract" and then "Write Contract". Find the function `create` and enter your service id and the Mech Factory address for the chosen network and the chosen payment model which can be found [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). The key is the following for each of the three payment models: 
+**2.** Click on "Contract" and then "Write Contract". Find the function `create` and enter the following inputs:
+- Your service ID.
+- The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
 
-- Native: MechFactoryFixedPriceNative
+     - For Native, look for the MechFactoryFixedPriceNative address.
 
 - Token: MechFactoryFixedPriceToken
 
-- Nevermined: MechFactoryNvmSubscriptionNative
+     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
 Also enter the maximum price (which corresponds to the variable payload) in bytes format. In order to obtain this, multiply the actual price by 10^18 and then convert the obtained integer in hexadecimal. 
 Replace the suffix of same length in 0x0000000000000000000000000000000000000000000000000000000000000000 with the obtained string.
