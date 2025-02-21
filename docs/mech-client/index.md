@@ -20,7 +20,7 @@ The detailed instructions to send a request to a Mech can be found below.
 
 ## 1. How to Send a request to a Mech
 
-### 1.1. Setup
+### 1. 1. Setup
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
 
@@ -63,15 +63,10 @@ pip install mech-client
         
     **b.** Copy this key in the file `ethereum_private_key.txt`.
 
-**3.** Choose a Mech:
 
-- A list of deployed Mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id or address if it uses the Mech Marketplace;  
+### 1. 3. Sending requests
 
-- Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
-
-### 1.2. Sending requests
-
-#### 1.2.1. In terminal
+#### 1. 3. 1. In terminal
 
 **1.** Send a request: 
     
@@ -81,7 +76,10 @@ pip install mech-client
 mechx interact <prompt> --chain-config <chain-config>
 ```
 
-Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
+Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to (leave it as it is if you want to send a request to the default Mech). 
+
+- If prompted, add funds corresponding to the chosen network in the EOA account created above (if the Mech uses fixed price) or Nevermined subscription, in order to pay the mech for requests. It will be indicated how much is needed. You can also find 
+the price per request (if the Mech uses fixed price) or the maximal price per request as follows. Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
 - It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
 
@@ -94,10 +92,10 @@ In this case, replace `<tool>` by the name of the tool.
 - If prompted to make a deposit, use the following: 
 
 ```
-python ./scripts/deposit_{{payment_model}}.py
+python ./scripts/deposit_payment_model.py
 ```
 
-where `{{payment_model}}` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). When prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.
+where `payment_model` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). When prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.
 
 **2.** Receive the response: 
 
@@ -116,7 +114,7 @@ you should receive a response as follows:
 export MECHX_GAS_LIMIT=200000
 ```
 
-#### 1.2.2. Script for automatizing request sending
+#### 1. 3. 2. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -134,7 +132,7 @@ result = interact(
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
-#### 1.2.3. Sending requests through the web interface
+#### 1. 3. 3. Sending requests through the web interface
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
@@ -156,7 +154,15 @@ Click on "Confirm".
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace, thus called legacy Mechs. 
 This section describes how to do this (note that in this case, you will benefit from Mech Marketplace feature, and in particular not have the guarantee that your request will be answered, or of the quality of the answer).
 
-### 2.1. In terminal
+Follow first the steps in the [setup](#1-1-setup) above.
+
+### 2. 1. Choosing a Mech
+
+- A list of deployed Mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
+
+- Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
+
+### 2. 2. In terminal
 
 **1.** Send a request: 
     
@@ -201,7 +207,7 @@ and after selecting the tool openai-gpt-3.5-turbo, you should receive a response
 export MECHX_GAS_LIMIT=200000
 ```
 
-### 2.2. Script for automatizing request sending
+### 2. 3. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
