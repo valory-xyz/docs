@@ -1,5 +1,7 @@
 ## **Overview** 
 
+
+This guide contains practical guidelines for interacting with Mechs.
 The requester - whether it is an agent or an application - can choose between two methods for sending service requests: 
 
 - On-chain, meaning that the request is sent through the Mech Marketplace contract; 
