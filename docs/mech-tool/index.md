@@ -298,8 +298,7 @@ where the urls are as follows:
 ![alt text](./imgs/url1.png)
 ![alt text](./imgs/url2.png)
 
-Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
-Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
+Replace `rpc_url` and `address` with the RPC endpoint address, and `mech_marketplace_contract` with the mech marketplace address found in tenderly. Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
 
 ![alt text](image.png)
 
