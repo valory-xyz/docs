@@ -152,7 +152,7 @@ Click on "Confirm".
 ## 2. Sending requests to legacy Mechs
 
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace, thus called legacy Mechs. 
-This section describes how to do this (note that in this case, you will benefit from Mech Marketplace feature, and in particular not have the guarantee that your request will be answered, or of the quality of the answer).
+This section describes how to do this.
 
 Follow first the steps in the [setup](#1-1-setup) above.
 
