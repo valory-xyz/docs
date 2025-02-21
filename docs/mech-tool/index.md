@@ -406,7 +406,7 @@ it on the Mech Marketplace.
 - Your service ID.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
 
-- Native: MechFactoryFixedPriceNative
+     - For Native, look for the MechFactoryFixedPriceNative address.
 
 - Token: MechFactoryFixedPriceToken
 
