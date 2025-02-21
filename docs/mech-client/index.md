@@ -195,10 +195,10 @@ where `<unique_identifier>` is replaced by the unique id of the tool and `<chain
 - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
 
 ```
-mechx interact "write a short poem" 6
+mechx interact "write a short poem" --agent_id 6
 ``` 
 
-and after selecting the tool openai-gpt-3.5-turbo, you should receive a response as follows: 
+and after selecting `openai-gpt-3.5-turbo` for the tool, you will receive a response as follows: 
         ![screenshot_response](./imgs/screenshot_request.png)
 
 - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
