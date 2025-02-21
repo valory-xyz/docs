@@ -15,6 +15,8 @@ The detailed instructions to create tools, test them locally and deploy a Mech a
 
 ## 1. Creating and publishing a tool
 
+In order to contribute to Mechs' abilities, you can create and publish a tool. In order to do so, follow the instructions below. 
+
 ### 1. 1. Creating a tool
 
 **Requirements**: [Python](https://www.python.org/) >= 3.8; [Pip](https://pip.pypa.io/en/stable/installation/); [Pipenv](https://pipenv.pypa.io/en/latest/installation.html) >= 2001.x.xx ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
@@ -124,6 +126,9 @@ After this the tool can be deployed to be used by a [Mech](#2-testing-mech-local
 
 
 ## 2. Testing a tool by deploying a Mech locally
+
+In order to test a tool that you developed, it is possible to do this by deploying a Mech locally and send it 
+requests, specifying your tool as the one to be used. In order to do so, follow the instructions below.
 
 ### 2. 1. Setup 
 
@@ -279,8 +284,8 @@ pip install -e.
         "is_gas_estimation_enabled": false
     },
     "mech_marketplace_config": {
-        "mech_marketplace_contract": "0x74867dC703Cc99D0C537Cd8385308B31D15D81f3",
-        "priority_mech_address": "0x9322F08ffCCc5Ecb2Fb5417B02b43369FE3dc45d",
+        "mech_marketplace_contract": "",
+        "priority_mech_address": "",
         "response_timeout": 300,
         "payment_data": "0x"
     },
@@ -317,6 +322,8 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 **7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
 ## 4. Deploying a Mech on the Mech Marketplace
+
+In order to deploy a Mech on the Mech Marketplace (including the service and the Mech contract), follow the instructions below.
 
 ### 4. 1. Setup 
 
@@ -397,9 +404,9 @@ name of the chosen chain.
 In case you have already a service and want to put it to work for other agents, you only need to register 
 it on the Mech Marketplace. 
 
-create(uint256 serviceId, address mechFactory, bytes memory payload)
+To do that, you may follow the instruction below.
 
-**1.** For this, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network and enter it in the scan of this network.
+**1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network and enter it in the scan of this network.
 
 **2.** Click on "Contract" and then "Write Contract". Find the function `create` and enter your service id and the Mech Factory address for the chosen network and the chosen payment model which can be found [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). The key is the following for each of the three payment models: 
 
