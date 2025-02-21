@@ -1,8 +1,22 @@
-## **Summary** 
+## **Overview** 
 
-Any agent can hire a Mech for a single task by sending it a *request* together with some payment. A request is simply a prompt, such as "write me a short poem". This is done via an interface called *Mech Client*.
+The requester - whether it is an agent or an application - can choose between two methods for sending service requests: 
 
-The following guide contains practical guidelines for sending requests to Mechs using Mech Client, [in terminal or programatically](#1-how-to-send-a-request-to-a-mech) in order to integrate them to an application, or via a [web interface](#3-sending-requests-through-the-web-interface), and receiving the responses to these requests.  
+- On-chain, meaning that the request is sent through the Mech Marketplace contract; 
+
+- Off-chain: the request is sent directly to the Mech while delivery is sent by the Mech through the Mech Marketplace.
+
+In order to send a request, the workflow is the following: 
+
+**1.** Choose a Mech; 
+
+**2.** Make an on-chain deposit according to the Mech’s [payment model](../mech-tool/index.md#overview).
+
+**3.** Choose a method for sending the request;
+
+**4.** Send the request.
+		
+The detailed instructions to send a request to a Mech can be found below.
 
 ## 1. How to Send a request to a Mech
 

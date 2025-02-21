@@ -1,6 +1,17 @@
-## **Summary** 
+## **Overview** 
 
-Tools are intelligent programs which a Mech uses in order to respond to requests it receives. This guide contains guidelines for [creating tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, as well as instructions for [deploying a Mech locally](#2-testing-mech-locally) on the Mech Marketplace in order to test a tool without using actual crypto payments to pay the Mech. After that you can find instructions for [deploying a Mech](#4-deploying-a-mech) into production. If you have an agent, it is possible to put it to work by [registering](#5-registering-an-agent-on-the-mech-marketplace) it on the Mech Marketplace. Once done, your Mech is ready work.  
+In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the Mech MarketPlace. Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
+
+- Native:  A fixed-price model where the requester pays using the chain with native token native token for each delivered service;
+
+- Token: Similar to the Native model, but payments are made using a specified ERC20 token; 
+
+- Nevermined subscription: A dynamic pricing model that allows flexible pricing across different services.
+
+Mech agent deployment and related Mech contract creation process is handled by the Mech quickstart, and the main inputs to provide are the list of tools to be used, and the chosen payment model. 
+
+The detailed instructions to create tools, test them locally and deploy a Mech agent, and accrue payments can be found below.
+ 
 
 ## 1. Creating and publishing a tool
 
