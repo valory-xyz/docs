@@ -151,7 +151,7 @@ Click on "Confirm".
 
 **6.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
 
-## 2. Sending requests to legacy Mechs
+## 2. Sending requests to legacy Mechs (i.e. Mechs not registered in the MarketPlace)
 
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace, thus called legacy Mechs. 
 This section describes how to do this.
