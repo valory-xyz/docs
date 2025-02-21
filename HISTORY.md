@@ -15,6 +15,7 @@ Olas SDK
 Frameworks
 
 * Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.18.4)
+* Open AEA Framework: https://github.com/valory-xyz/open-aea - open-aea (v0.19.0)
 
 Toolkits
 
