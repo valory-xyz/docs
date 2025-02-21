@@ -396,7 +396,7 @@ name of the chosen chain.
 
 ## 5. Registering an agent on the Mech Marketplace
 
-In case you have already a service and want to put it to work for other agents, you only need to register 
+In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register 
 it on the Mech Marketplace. 
 
 create(uint256 serviceId, address mechFactory, bytes memory payload)
