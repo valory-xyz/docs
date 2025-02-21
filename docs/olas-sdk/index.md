@@ -15,7 +15,7 @@ Here you can see the examples of two agents built with different frameworks:
 
 - [Langchain Hello World Agent](https://github.com/valory-xyz/langchain_hello_world)
 
-- Eliza Memeooorr Agent (link to repo will be added soon)
+- [Eliza Memeooorr Agent](https://github.com/valory-xyz/agents-fun-eliza)
 
 ## Step 2: Olas Agent and Service Configuration
 Once the agent is ready, the next step is to configure the Olas Agent and Service. 
