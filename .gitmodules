@@ -34,3 +34,6 @@
 [submodule "hello-world"]
 	path = hello-world
 	url = https://github.com/valory-xyz/hello-world.git
+[submodule "open-aea"]
+	path = open-aea
+	url = https://github.com/valory-xyz/open-aea

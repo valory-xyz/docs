@@ -36,7 +36,6 @@ extra_css:
 
 nav:
   - Home: 'index.md' 
-   #- Open AEA Framework: '!include ./open-aea/mkdocs.yml'
   - Demo autonomous services: 
       - 'demos/index.md'
       - Hello World: '!include ./hello-world/mkdocs.yml'
@@ -63,6 +62,7 @@ nav:
       - MechKit: '!include ./mech/mkdocs.yml'
       - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
       - MessagingKit: '!include ./open-acn/mkdocs.yml'
+  - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
 
 plugins:
   - macros:
