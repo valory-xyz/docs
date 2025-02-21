@@ -91,7 +91,7 @@ mechx interact <prompt> --tool <tool> --chain-config <chain-config>
 
 In this case, replace `<tool>` by the name of the tool. 
 
-- If prompted to make a deposit, use the following: 
+- If prompted to make a an on-chain deposit to pay for Mech fees, use the following: 
 
 ```
 python ./scripts/deposit_payment_model.py
