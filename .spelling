@@ -218,6 +218,7 @@ gnosis
 maxDeliveryRate
 MaxDeliveryRate
 openai-gpt-3.5-turbo
+openai-gpt-3.5-turbo,
 tool
 uint256
 serviceId
@@ -230,6 +231,9 @@ Nevermined
 0x00000000000000000000000000000000000000000000000000000000000003e8. 
 /docs/configuration.json 
 BalanceTracker
+BalanceTrackerFixedPriceNative 
+BalanceTrackerFixedPriceToken 
+BalanceTrackerNvmSubscriptionNative 
 npx/npm 
 == 
 urls
