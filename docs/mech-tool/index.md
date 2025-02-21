@@ -402,7 +402,9 @@ it on the Mech Marketplace.
 
 **1.** For this, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network and enter it in the scan of this network.
 
-**2.** Click on "Contract" and then "Write Contract". Find the function `create` and enter your service id and the Mech Factory address for the chosen network and the chosen payment model which can be found [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). The key is the following for each of the three payment models: 
+**2.** Click on "Contract" and then "Write Contract". Find the function `create` and enter the following inputs:
+- Your service ID.
+- The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
 
 - Native: MechFactoryFixedPriceNative
 
