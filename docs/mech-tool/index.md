@@ -323,7 +323,7 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 
 ## 4. Deploying a Mech on the Mech Marketplace
 
-In order to deploy a Mech on the Mech Marketplace (including the service and the Mech contract), follow the instructions below.
+In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
 
 ### 4. 1. Setup 
 
@@ -409,7 +409,7 @@ In order to do so, follow the instructions below.
 
 **2.** Trigger the function `create` of this contract with the following inputs (in order):
 
-- The service ID.
+- The service id.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
 
     - For Native, look for the MechFactoryFixedPriceNative address.
@@ -418,12 +418,8 @@ In order to do so, follow the instructions below.
 
     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-The parameter payload corresponds to the price of the Mech (also called maxDeliveryRate). In order to convert it in the format uint256 you can proceed as follows:
-
-- Convert to Wei: e.g. 1 xDAI  = 10^18 wei.
-- Use [ABI Hashex Encoder](https://abi.hashex.org/).
-- Select uint256 as the type and enter the value 1000000000000000000 (which represents 1 xDAI in wei).
-- The tool will generate the encoded result: 0000000000000000000000000000000000000000000000000de0b6b3a7640000
+- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
+is equal to 10^18.
 
 You can find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. Clone the repository: 
 
@@ -431,7 +427,7 @@ You can find a script for triggering this function [there](https://github.com/Sf
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
 ```
 
-Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key, serviceId and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
+Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
 
 ```
 cd scripts/mech_registration

@@ -165,13 +165,13 @@ The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed
 ## 2. Sending requests to legacy Mechs
 
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace (we call these _legacy Mechs_). 
-This section describes how to do this (note that in this case, you will benefit from Mech Marketplace feature, and in particular not have the guarantee that your request will be answered, or of the quality of the answer).
+This section describes how to do this.
 
 Follow first the steps in the [setup](#1-1-setup) above, then [choose a Mech](#2-1-choosing-a-mech). After this, there are three possible ways to send a request to a legacy Mech: in [terminal](#2-2-in-terminal), via a python [script](#2-3-script-for-automatizing-request-sending) or via the [web interface](#2-4-sending-requests-through-the-web-interface).
 
 ### 2. 1. Choosing a Mech
 
-- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
+- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
