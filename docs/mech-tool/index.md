@@ -420,7 +420,7 @@ To do that, you may follow the instruction below.
 
      - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-Also enter the maximum price (which corresponds to the variable payload) in bytes format. In order to obtain this, multiply the actual price by 10^18 and then convert the obtained integer in hexadecimal. 
+In order to obtain this, multiply the actual price by 10^18 and then convert the obtained integer in hexadecimal. 
 Replace the suffix of same length in 0x0000000000000000000000000000000000000000000000000000000000000000 with the obtained string.
 
 
