@@ -83,7 +83,7 @@ Replace `<prompt>` by a string which corresponds to the request to send to the M
 - If prompted, add funds to EOA account created above in order to be able to deposit on-chain to account for the mech fees. Specifically, add
      - native network token, e.g. xDAI for Gnosis, whether the Mech uses native fixed price
      - OLAS token on the network, whether the Mech uses Olas token fixed price
-     - Nevermind plan related to the network, whether the Mech uses Nevermined subscription.
+     - Nevermined plan related to the network, whether the Mech uses Nevermined subscription.
      
       
        It will be indicated how much is needed. You can also find 

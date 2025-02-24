@@ -403,28 +403,31 @@ name of the chosen chain.
 
 ## 5. Registering an agent on the Mech Marketplace
 
-In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register 
-it on the Mech Marketplace. 
+In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register it on the Mech Marketplace. 
 
-To do that, you may follow the instruction below.
+In order to do so, follow the instructions below.
 
-**1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network and enter it in the scan of this network.
+**1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
-**2.** Click on "Contract" and then "Write Contract". Find the function `create` and enter the following inputs:
-- Your service ID.
+**2.** Trigger the function `create` of this contract with the following inputs (in order):
+
+- The service ID.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
 
-     - For Native, look for the MechFactoryFixedPriceNative address.
+    - For Native, look for the MechFactoryFixedPriceNative address.
 
-- Token: MechFactoryFixedPriceToken
+    - For Token: MechFactoryFixedPriceToken
 
-     - For Nevermined, find MechFactoryNvmSubscriptionNative.
+    - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-In order to obtain this, multiply the actual price by 10^18 and then convert the obtained integer in hexadecimal. 
-Replace the suffix of same length in 0x0000000000000000000000000000000000000000000000000000000000000000 with the obtained string.
+The parameter payload corresponds to the price of the Mech (also called maxDeliveryRate). In order to convert it in the format uint256 you can proceed as follows:
 
+- Convert to Wei: e.g. 1 xDAI  = 10^18 wei.
+- Go to the [ABI Hashex Encoder Tool](https://abi.hashex.org/).
+- Select uint256 as the type and enter the value 1000000000000000000 (which represents 1 xDAI in wei).
+- The tool will generate the encoded result: 0000000000000000000000000000000000000000000000000de0b6b3a7640000
 
-**3.** Click on the transaction to find the address of the created Mech. 
+**3.** You will find the address of the Mech contract in the logs.
 
 ## 6. How to accrue the payments
 
@@ -436,4 +439,4 @@ In order to accrue the payments of your Mech, find [there](https://github.com/va
 
 - Nevermined: BalanceTrackerNvmSubscriptionNative
 
-Enter its address in the scan of the chosen network. Click on "Contract" and then "Write Contract" and trigger the function processPayment. This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract. 
+Enter its address in the scan of the chosen network. Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract. 
