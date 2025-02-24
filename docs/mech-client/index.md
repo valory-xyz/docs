@@ -22,6 +22,8 @@ The detailed instructions to send a request to a Mech can be found below.
 
 ## 1. How to Send a request to a Mech (registered on the Mech MarketPlace)
 
+In order to send a request to a Mech which is registered on the Mech Marketplace, follow the [instructions](#1-2-sending-requests) below, after a [setup](#1-1-setup).
+
 ### 1. 1. Setup
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
@@ -66,28 +68,30 @@ pip install mech-client
     **b.** Copy this key in the file `ethereum_private_key.txt`.
 
 
-### 1. 3. Sending requests
+### 1. 2. Sending requests
 
-#### 1. 3. 1. In terminal
+There are two possible ways to send requests to a Mech: via the [terminal](#1-2-1-in-terminal) and using a python [script](#1-2-2-script-for-automatizing-request-sending).
+
+#### 1. 2. 1. In terminal
 
 **1.** Send a request: 
     
 - Use the command mechx in terminal, which is structured as follows: 
         
 ```
-mechx interact <prompt> --chain-config <chain-config>
+mechx interact <prompt> --chain-config <chain-config> --use-off-chain <use_off_chain>
 ```
 
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
+Change `<use_off_chain>` to True in order to use the off-chain method, and False otherwise. 
 
-- If prompted, add funds to EOA account created above in order to be able to deposit on-chain to account for the mech fees. Specifically, add
-     - native network token, e.g. xDAI for Gnosis, whether the Mech uses native fixed price
-     - OLAS token on the network, whether the Mech uses Olas token fixed price
-     - Nevermined plan related to the network, whether the Mech uses Nevermined subscription.
+- If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Specifically, add:
+     - Native network token, e.g. xDAI for Gnosis, if the Mech uses native fixed price
+     - OLAS token on the network if the Mech uses Olas token fixed price
+     - Nevermined plan related to the network if the Mech uses Nevermined subscription.
      
-      
-       It will be indicated how much is needed. You can also find 
-the price per request (resp. the maximal price per Mechs with Nevermined subscription) per request as follows. 
+It will be indicated how much is needed. You can also find 
+the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
 Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
 - It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
@@ -123,7 +127,7 @@ you should receive a response as follows:
 export MECHX_GAS_LIMIT=200000
 ```
 
-#### 1. 3. 2. Script for automatizing request sending
+#### 1. 2. 2. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -147,7 +151,7 @@ The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace (we call these _legacy Mechs_). 
 This section describes how to do this (note that in this case, you will benefit from Mech Marketplace feature, and in particular not have the guarantee that your request will be answered, or of the quality of the answer).
 
-Follow first the steps in the [setup](#1-1-setup) above.
+Follow first the steps in the [setup](#1-1-setup) above, then [choose a Mech](#2-1-choosing-a-mech). After this, there are three possible ways to send a request to a legacy Mech: in [terminal](#2-2-in-terminal), via a python [script](#2-3-script-for-automatizing-request-sending) or via the [web interface](#2-4-sending-requests-through-the-web-interface).
 
 ### 2. 1. Choosing a Mech
 
