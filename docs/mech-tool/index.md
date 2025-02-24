@@ -423,7 +423,7 @@ In order to do so, follow the instructions below.
 The parameter payload corresponds to the price of the Mech (also called maxDeliveryRate). In order to convert it in the format uint256 you can proceed as follows:
 
 - Convert to Wei: e.g. 1 xDAI  = 10^18 wei.
-- Go to the [ABI Hashex Encoder Tool](https://abi.hashex.org/).
+- Use [ABI Hashex Encoder](https://abi.hashex.org/).
 - Select uint256 as the type and enter the value 1000000000000000000 (which represents 1 xDAI in wei).
 - The tool will generate the encoded result: 0000000000000000000000000000000000000000000000000de0b6b3a7640000
 
