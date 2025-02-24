@@ -232,6 +232,9 @@ Wei
 xDAI
 10^18
 wei
+CreateMech
+CreateMechFixedPriceNative
+MechMarketplace
 ABI
 Hashex
 Encoder
