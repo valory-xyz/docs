@@ -135,11 +135,12 @@ TOOL_NAME = "prediction-online"
 
 result = interact(
     prompt=PROMPT_TEXT,
-    tool=TOOL_NAME
+    tool=TOOL_NAME,
+    chain-config=CHAIN_CONFIG
 )
 ```
 
-The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
+The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
 ## 2. Sending requests to legacy Mechs
 
