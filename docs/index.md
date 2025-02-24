@@ -1,10 +1,10 @@
-# Autonolas Developer Documentation
+# Olas Developer Documentation
 
 <figure markdown>
-![Autonolas logo](./images/olas-logo.svg){ align=left width="200" }
+![Olas logo](./images/olas-logo.svg){ align=left width="200" }
 </figure>
 
-Autonolas' mission is to provide a foundation on which new types of autonomous services can be built, which:
+Olas' mission is to provide a foundation on which new types of autonomous services can be built, which:
 
 * Run continuously.
 * Take action on their own.
@@ -14,15 +14,15 @@ Autonolas' mission is to provide a foundation on which new types of autonomous s
 * Are crypto-native: decentralized, trust-minimized, transparent, and robust.
 
 <figure markdown>
-[:material-book-open-variant: &nbsp; Read the Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf){ .md-button .md-button--primary}
+[:material-book-open-variant: &nbsp; Read the Olas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf){ .md-button .md-button--primary}
 </figure>
 
-## The Autonolas Stack
+## The Olas Stack
 
-The Autonolas Stack is made of three main components:
+The Olas Stack is made of three main components:
 
 * The [Open Autonomy](https://docs.autonolas.network/open-autonomy/)  framework.
-* The [Autonolas Protocol](https://docs.autonolas.network/protocol/).
+* The [Olas Protocol](https://docs.autonolas.network/protocol/).
 * A number of [toolkits](https://docs.autonolas.network/products/) for building a growing collection of autonomous services.
 
 ## Get involved

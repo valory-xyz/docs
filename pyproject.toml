@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "docs"
 version = "0.1.0"
-description = "Autonolas ecosystem developer documentation"
+description = "Olas ecosystem developer documentation"
 authors = ["developer-valory <develope@valory.xyz>"]
 license = "Apache-2.0 license"
 

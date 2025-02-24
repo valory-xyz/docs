@@ -1,4 +1,4 @@
-The life cycle of a service minted in the Autonolas Protocol consists of the following stages:
+The life cycle of a service minted in the Olas Protocol consists of the following stages:
 
 1. Pre-Registration
 2. Active Registration
@@ -8,7 +8,7 @@ The life cycle of a service minted in the Autonolas Protocol consists of the fol
 
 !!! example
 
-    Look at [this service]({{ autonolas_protocol_registry_dapp_link }}/ethereum/services/1) on the Autonolas Protocol web app to see the current state of a live service.
+    Look at [this service]({{ autonolas_protocol_registry_dapp_link }}/ethereum/services/1) on the Olas Protocol web app to see the current state of a live service.
 
 The figure below summarizes the life cycle and the actions that provoke a transition between states. Most of the service state transitions are initiated by the service owner. However, some state transitions are also triggered automatically. For example, when an operator registers the last available agent instance in the _Active Registration_ state, the service will automatically transit to the _Finished Registration_ state.
 
@@ -18,7 +18,7 @@ The figure below summarizes the life cycle and the actions that provoke a transi
 
 ## Service states
 
-This section details the states of a service minted in the Autonolas Protocol, as well as how to transit between them. You need to connect your wallet to the {{ autonolas_protocol_registry_dapp }} in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
+This section details the states of a service minted in the Olas Protocol, as well as how to transit between them. You need to connect your wallet to the {{ autonolas_protocol_registry_dapp }} in order to execute the available actions in each state. The connected wallet will ask to approve any transaction.
 
 ### Pre-Registration
 
@@ -53,7 +53,7 @@ All agent instance slots have been filled. Waiting for the service owner to cont
 
 Available actions:
 
-* **Deploy.** The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in the deploy form are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. The service will transit to the _Deployed_ state.
+* **Deploy.** The service owner can deploy the [Safe](https://app.safe.global/) multisig contract that will be associated with the service. The parameters shown in the deploy form are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. The service will transit to the _Deployed_ state.
 * **Terminate.** The service owner can terminate the service, which will transit to the _Terminated Bonded_ state.
   
 ### Deployed
