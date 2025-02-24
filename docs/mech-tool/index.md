@@ -427,7 +427,7 @@ You can find a script for triggering this function [there](https://github.com/Sf
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
 ```
 
-Install submodules and dependencies and compile the contracts: 
+Update the submodules, install the dependencies and compile the contracts: 
 
 ```
 git submodule update --init --recursive
