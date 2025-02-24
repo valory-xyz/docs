@@ -422,7 +422,6 @@ To do that, you may follow the instruction below.
 
 Also enter the maximum price (which corresponds to the variable payload) in bytes format. In order to obtain this, multiply the actual price by 10^18 and then convert the obtained integer in hexadecimal. 
 Replace the suffix of same length in 0x0000000000000000000000000000000000000000000000000000000000000000 with the obtained string.
-For instance, a price of 0.000000000000001 corresponds: 0x00000000000000000000000000000000000000000000000000000000000003e8.
 
 
 **3.** Click on the transaction to find the address of the created Mech. 
