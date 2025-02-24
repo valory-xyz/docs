@@ -53,7 +53,7 @@ All agent instance slots have been filled. Waiting for the service owner to cont
 
 Available actions:
 
-* **Deploy.** The service owner can deploy the [Safe](https://gnosis-safe.io/) multisig contract that will be associated with the service. The parameters shown in the deploy form are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. The service will transit to the _Deployed_ state.
+* **Deploy.** The service owner can deploy the [Safe](https://app.safe.global/) multisig contract that will be associated with the service. The parameters shown in the deploy form are related to the creation of the safe (check the `setup` method [here](https://github.com/safe-global/safe-contracts/blob/main/contracts/Safe.sol)). If you are not familiar with the setup of such contracts, simply leave the default values. The service will transit to the _Deployed_ state.
 * **Terminate.** The service owner can terminate the service, which will transit to the _Terminated Bonded_ state.
   
 ### Deployed
