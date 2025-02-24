@@ -427,6 +427,18 @@ The parameter payload corresponds to the price of the Mech (also called maxDeliv
 - Select uint256 as the type and enter the value 1000000000000000000 (which represents 1 xDAI in wei).
 - The tool will generate the encoded result: 0000000000000000000000000000000000000000000000000de0b6b3a7640000
 
+You can find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. Clone the repository: 
+
+```
+git clone https://github.com/Sfgangloff/ai-registry-mech.git
+```
+
+Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key, serviceId and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, on gnosis and for a native fixed price Mech: 
+
+```
+node create_mech_native.js
+```
+
 **3.** You will find the address of the Mech contract in the logs.
 
 ## 6. How to accrue the payments
