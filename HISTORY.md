@@ -1,4 +1,4 @@
-# Release History - Autonolas Documentation
+# Release History - Olas Documentation
 
 ## v0.18.11 (2025-02-21)
 
@@ -361,11 +361,11 @@ Toolkits
 
 ## v0.8.0.post5 (2023-02-10)
 
-* Updates Autonolas Protocol section.
+* Updates Olas Protocol section.
 
 ## v0.8.0.post4 (2023-02-01)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -381,7 +381,7 @@ Toolkits
 
 ## v0.8.0.post3 (2023-01-27)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -397,7 +397,7 @@ Toolkits
 
 ## v0.8.0.post2 (2023-01-26)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -413,7 +413,7 @@ Toolkits
 
 ## v0.8.0.post1 (2023-01-25)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -429,7 +429,7 @@ Toolkits
 
 ## v0.8.0 (2023-01-20)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -445,7 +445,7 @@ Toolkits
 
 ## v0.7.0.post1 (2023-01-13)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -457,4 +457,4 @@ Products
 * ML APY Prediction Oracle: apy-oracle (https://github.com/valory-xyz/apy-oracle v0.4.0-9-ga60113aa9)
 * Smart Managed Pools: autonomous-fund (https://github.com/valory-xyz/autonomous-fund v0.1.0.post3-79-g7514c32)
 * El Collectooorr: agent-academy-1 (https://github.com/valory-xyz/agent-academy-1 v0.4.1-6-gf3c86c0)
-* Autonolas Contribute: contribution-service (https://github.com/valory-xyz/contribution-service v0.1.0-32-g0308824)
+* Olas Contribute: contribution-service (https://github.com/valory-xyz/contribution-service v0.1.0-32-g0308824)

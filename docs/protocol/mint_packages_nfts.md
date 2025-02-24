@@ -1,4 +1,4 @@
-This guide describes how to use the {{ autonolas_protocol_registry_dapp }} to mint software packages NFTs in the Autonolas Protocol. You can mint three types of packages: **services**, **agents** and **components**.
+This guide describes how to use the {{ autonolas_protocol_registry_dapp }} to mint software packages NFTs in the Olas Protocol. You can mint three types of packages: **services**, **agents** and **components**.
 
 ## How packages are minted
 
@@ -7,7 +7,7 @@ To mint a package (also referred to as _unit_) in the protocol, it must have bee
 Minting a software package involves creating a **metadata file** that contains the package data and a pointer to the IPFS where the package is published.
 The {{ autonolas_protocol_registry_dapp }} will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information provided by the user in an online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.
 
-Upon completing the minting process, you will have an NFT representing your package in the Autonolas Protocol. See the figure below.
+Upon completing the minting process, you will have an NFT representing your package in the Olas Protocol. See the figure below.
 
 <figure markdown>
 ![Package minting](./images/package_minting.svg)
