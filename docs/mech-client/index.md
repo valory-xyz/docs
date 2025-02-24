@@ -70,9 +70,25 @@ pip install mech-client
 
 ### 1. 2. Sending requests
 
-There are two possible ways to send requests to a Mech: via the [terminal](#1-2-1-in-terminal) and using a python [script](#1-2-2-script-for-automatizing-request-sending).
+In order to send a request to a Mech which receives requests via the Mech Marketplace, follow the instructions below. 
+First, [choose a Mech](#1-2-1-choose-a-mech). Then choose among the following ways to send a request: via the [terminal](#1-2-2-in-terminal) and using a python [script](#1-2-3-script-for-automatizing-request-sending) and follow the instructions within the corresponding section.
 
-#### 1. 2. 1. In terminal
+#### 1. 2. 1. Choose a Mech
+
+One can find the list of chains on which the Mech Marketplace contracts are deployed [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) (they are the keys of this dictionary).
+
+In order to find the deployed Mechs, choose a network and copy the corresponding MechMarketplace address, and enter it in the scan of the network ([there](https://gnosisscan.io/) for Gnosis for instance).
+
+Click on "Events" as on the following picture.
+
+![alt text](./imgs/image.png)
+
+Each event whose name begins with "CreateMech", as on the following picture (there the name of the event is "CreateMechFixedPriceNative"), corresponds to the creation of a Mech contract. Click on the name of the event, and you can see right below the name of the event the address of the Mech contract which was created. 
+
+![alt text](./imgs/image_2.png)
+
+
+#### 1. 2. 2. In terminal
 
 **1.** Send a request: 
     
@@ -127,7 +143,7 @@ you should receive a response as follows:
 export MECHX_GAS_LIMIT=200000
 ```
 
-#### 1. 2. 2. Script for automatizing request sending
+#### 1. 2. 3. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -155,7 +171,7 @@ Follow first the steps in the [setup](#1-1-setup) above, then [choose a Mech](#2
 
 ### 2. 1. Choosing a Mech
 
-- A list of deployed Mechs can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
+- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;  
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 

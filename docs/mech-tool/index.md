@@ -214,8 +214,6 @@ bash setup-tdly.sh
 
     **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
 
-
-
 ### 2. 2. Running the Mech
 
 **0.** Change folder to the mech-quickstart one and then create environment (in terminal): 
@@ -440,7 +438,7 @@ cd scripts/mech_registration
 node create_mech_native.js
 ```
 
-**3.** You will find the address of the Mech contract in the logs.
+**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
 
 ## 6. How to accrue the payments
 
