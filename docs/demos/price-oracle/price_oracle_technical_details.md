@@ -1,4 +1,4 @@
-#Price Oracle - Technical Details
+# Price Oracle - Technical Details
 
 Agents communicate directly to their local Tendermint node, whereas the `AbciApp`
 is used to handle requests they receive (e.g., in response to their behaviour).
@@ -22,7 +22,6 @@ Moreover, it has the following specific components to implement the particular c
 - `valory/price_estimation_abci`: it implements the round-based
     ABCI application for price estimation of a cryptocurrency,
     with a finalization step over an Ethereum chain.
-
 
 ## The constituent {{fsm_app}}s
 
@@ -82,7 +81,7 @@ can compromise the funds contained in it.
 
 2. `DeploySafeRound` <br/>
    A designated sender among the participants of the current period deploys a
-   <a href="https://gnosis-safe.io/">Gnosis Safe contract</a> with all the
+   <a href="https://app.safe.global/">Gnosis Safe contract</a> with all the
    participants as owners and with `ceil((2n + 1) / 3)` as threshold. If the
    safe deployment has not been completed after some time, a new keeper will be
    selected and the safe deployment will be re-run.
