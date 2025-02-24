@@ -80,7 +80,13 @@ mechx interact <prompt> --chain-config <chain-config>
 
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
 
-- If prompted, add funds corresponding to the chosen network in the EOA account created above (if the Mech uses fixed price) or Nevermined subscription, in order to pay the mech for requests. It will be indicated how much is needed. You can also find 
+- If prompted, add funds to EOA account created above in order to be able to deposit on-chain to account for the mech fees. Specifically, add
+     - native network token, e.g. xDAI for Gnosis, whether the Mech uses native fixed price
+     - OLAS token on the network, whether the Mech uses Olas token fixed price
+     - Nevermind plan related to the network, whether the Mech uses Nevermined subscription.
+     
+      
+       It will be indicated how much is needed. You can also find 
 the price per request (resp. the maximal price per Mechs with Nevermined subscription) per request as follows. 
 Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
