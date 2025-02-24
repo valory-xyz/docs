@@ -427,12 +427,22 @@ You can find a script for triggering this function [there](https://github.com/Sf
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
 ```
 
+Install submodules,dependencies and compile the contracts: 
+
+```
+git submodule update --init --recursive
+yarn install
+npx hardhat compile
+```
+
 Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
 
 ```
 cd scripts/mech_registration
 node create_mech_native.js
 ```
+
+/!\ The private key must correspond to the EOA used to deploy the service.
 
 **3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
 
