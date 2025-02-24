@@ -1,5 +1,9 @@
 # Release History - Olas Documentation
 
+## v0.19.0.post1 (2025-02-24)
+
+* Substitute main 'Autonolas' instances by 'Olas' on docs repo.
+
 ## v0.18.11 (2025-02-21)
 
 Olas SDK
