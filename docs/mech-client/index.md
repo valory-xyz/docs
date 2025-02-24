@@ -85,7 +85,7 @@ Click on "Events" as on the following picture.
 
 Each event whose name begins with "CreateMech", as on the following picture (there the name of the event is "CreateMechFixedPriceNative"), corresponds to the creation of a Mech contract. Click on the name of the event, and you can see right below the name of the event the address of the Mech contract which was created. 
 
-![alt text](./imgs/image_2.png)
+![alt text](./imgs/image-1.png)
 
 
 #### 1. 2. 2. In terminal
