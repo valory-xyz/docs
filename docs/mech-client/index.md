@@ -219,7 +219,7 @@ result = interact(
 
 The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
-#### 2. 4. Sending requests through the web interface
+### 2. 4. Sending requests through the web interface
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 

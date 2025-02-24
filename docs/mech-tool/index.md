@@ -433,7 +433,7 @@ You can find a script for triggering this function [there](https://github.com/Sf
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
 ```
 
-Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key, serviceId and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, on gnosis and for a native fixed price Mech: 
+Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key, serviceId and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
 
 ```
 node create_mech_native.js
