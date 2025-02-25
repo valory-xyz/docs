@@ -20,6 +20,8 @@ In order to send a request, the workflow is the following:
 		
 The detailed instructions to send a request to a Mech can be found below.
 
+/!\ Only the Mechs deployed on Gnosis are currently stable.
+
 ## 1. How to Send a request to a Mech (registered on the Mech MarketPlace)
 
 In order to send a request to a Mech which is registered on the Mech Marketplace, follow the [instructions](#1-2-sending-requests) below, after a [setup](#1-1-setup).
