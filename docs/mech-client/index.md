@@ -4,7 +4,7 @@
 This guide contains practical guidelines for interacting with Mechs.
 The requester - whether it is an agent or an application - can choose between two methods for sending service requests: 
 
-- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](../mech-tool/index.md#appendix-what-is-the-mech-marketplace-)for the Mechs which are registered there); 
+- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](../mech-tool/index.md##appendix--what-is-the-mech-marketplace-) for the Mechs which are registered there); 
 
 - Off-chain: the request is sent directly to the Mech service while delivery is sent by the Mech service to the Mech contract (and then relayed by Mech Marketplace contract for Mechs which are registered there); 
 
