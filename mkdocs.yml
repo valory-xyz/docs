@@ -1,6 +1,6 @@
-site_name: Autonolas Developer Documentation
+site_name: Olas Developer Documentation
 site_url: https://docs.autonolas.network/
-site_description: Developer documentation of Autonolas ecosystem products.
+site_description: Developer documentation of Olas ecosystem products.
 #repo_url: https://github.com/valory-xyz/docs
 site_author: developer@valory.xyz
 edit_uri: ""
@@ -36,7 +36,6 @@ extra_css:
 
 nav:
   - Home: 'index.md' 
-   #- Open AEA Framework: '!include ./open-aea/mkdocs.yml'
   - Demo autonomous services: 
       - 'demos/index.md'
       - Hello World: '!include ./hello-world/mkdocs.yml'
@@ -45,7 +44,7 @@ nav:
   - Olas SDK: 'olas-sdk/index.md'
   - Mech Client: 'mech-client/index.md'
   - Mech Tools: 'mech-tool/index.md'
-  - Autonolas Protocol:
+  - Olas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
       - Manage the life cycle of a service: 'protocol/life_cycle_of_a_service.md'
@@ -63,6 +62,7 @@ nav:
       - MechKit: '!include ./mech/mkdocs.yml'
       - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
       - MessagingKit: '!include ./open-acn/mkdocs.yml'
+  - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
 
 plugins:
   - macros:
@@ -114,21 +114,22 @@ extra:
   open_autonomy_api: '[Open Autonomy API](https://docs.autonolas.network)'
   open_aea_repository: '[Open AEA repository](https://github.com/valory-xyz/open-aea)'
   open_autonomy_repository: '[Open Autonomy repository](https://github.com/valory-xyz/open-autonomy)'
-  autonolas_whitepaper: '[Autonolas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf)'
-  autonolas_protocol: '[Autonolas Protocol](https://docs.autonolas.network/protocol)'
+  autonolas_whitepaper: '[Olas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf)'
+  autonolas_protocol: '[Olas Protocol](https://docs.autonolas.network/protocol)'
   autonolas_protocol_registry_dapp_link: 'https://registry.olas.network'
-  autonolas_protocol_registry_dapp: '[Autonolas Protocol web app](https://registry.olas.network)'
-  autonolas_protocol_tokenomics_dapp: '[Autonolas Tokenomics web app](https://tokenomics.olas.network)'
+  autonolas_protocol_registry_dapp: '[Olas Protocol web app](https://registry.olas.network)'
+  autonolas_protocol_tokenomics_dapp: '[Olas Tokenomics web app](https://tokenomics.olas.network)'
+  olas_agent_quickstart: '[Olas Agent Quickstart](https://github.com/valory-xyz/quickstart)'
   social:
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/autonolas
-      name: Autonolas on Twitter
+      link: https://x.com/autonolas
+      name: Olas on X
     - icon: fontawesome/brands/discord
       link: https://discord.com/invite/z2PT65jKqQ
-      name: Autonolas on Discord
+      name: Olas on Discord
     - icon: fontawesome/brands/github
       link: https://github.com/valory-xyz
-      name: Autonolas on GitHub
+      name: Olas on GitHub
 
 
 extra_javascript:
