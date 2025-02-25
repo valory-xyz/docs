@@ -180,7 +180,9 @@ Follow first the steps in the [setup](#1-1-setup) above, then [choose a Mech](#2
 
 ### 2. 1. Choosing a Mech
 
-- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)"), and note its id;   
+- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). They are also displayed on the picture below. For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)" and not "Mech Instance (Nevermined)"), and note its id;  
+
+![List of Mechs](./imgs/list_of_mechs.png)
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
