@@ -387,7 +387,9 @@ mechx interact <prompt> --tool <tool_name> --chain-config <chain>
 where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool, and `<chain>` is replaced by the 
 name of the chosen chain.
 
-**6.** Stop the mech service: 
+**6.** In order to add new tools when the mech is deployed, add its name and hash in `.tools_to_packages_hash.json`.
+
+**7.** Stop the mech service: 
 
 ```
 ./stop_service.sh
