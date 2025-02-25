@@ -1,8 +1,23 @@
-## **Summary** 
+## **Overview** 
 
-This guide contains guidelines for contributing to the development of Mechs, by [creating and publishing tools](#1-creating-and-publishing-a-tool) which can be then used by Mechs, [testing a Mech locally](#2-testing-mech-locally) by running the Mech with abstract funds and [deploying a Mech](#4-deploying-a-mech) into production. 
+This guide contains guidelines for contributing to the development of Mechs and offer services.
+
+In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech MarketPlace](#appendix--what-is-the-mech-marketplace-). Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
+
+- Native:  A fixed-price model where the requester pays using the chain with native token native token for each delivered service;
+
+- Token: Similar to the Native model, but payments are made using a specified ERC20 token; 
+
+- Nevermined subscription: A dynamic pricing model that allows flexible pricing across different services.
+
+Mech agent deployment and related Mech contract creation process is handled by the Mech quickstart, and the main inputs to provide are the list of tools to be used, and the chosen payment model. 
+
+The detailed instructions to create tools, test them locally and deploy a Mech agent, and accrue payments can be found below.
+ 
 
 ## 1. Creating and publishing a tool
+
+In order to contribute to Mechs' abilities, you can create and publish a tool. In order to do so, follow the instructions below. 
 
 ### 1. 1. Creating a tool
 
@@ -92,12 +107,30 @@ autonomy push-all
 ```
 
 **3.** Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is 
-needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window); in order to push an image on IPFS, this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py) can be used.
+needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window). In order to push an image on IPFS, there are two possibilities: 
+
+- Use this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py). Place it in the main folder and place the image in the folder `mints` in the format `.jpg`. Then run the script: 
+```
+python ipfs_pin.py
+```
+
+- Clone the mech-client repository:
+```
+git clone https://github.com/valory-xyz/mech-client.git
+cd mech-client
+```
+Then put the file in the mech-client folder and run the following in terminal, replacing `<file_name>` with the name of your file: 
+```
+mechx push-to-ipfs ./<file_name>
+```
 
 After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
 
-## 2. Testing Mech locally 
+## 2. Testing a tool by deploying a Mech locally
+
+In order to test a tool that you developed, it is possible to do this by deploying a Mech locally and send it 
+requests, specifying your tool as the one to be used. In order to do so, follow the instructions below.
 
 ### 2. 1. Setup 
 
@@ -181,14 +214,14 @@ bash setup-tdly.sh
 
     **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
 
-**6.** Change folder to the mech-quickstart one and then create environment (in terminal): 
+### 2. 2. Running the Mech
+
+**0.** Change folder to the mech-quickstart one and then create environment (in terminal): 
 
 ```
 poetry shell
 poetry install
 ```
-
-### 2. 2. Running the Mech
 
 **1.** Run the mech service (in terminal):
 
@@ -251,26 +284,24 @@ pip install -e.
         "is_gas_estimation_enabled": false
     },
     "mech_marketplace_config": {
-        "mech_marketplace_contract": "0x9efde57bcc6495c7f9a9844d31b8cd1f04100346",
-        "priority_mech_service_id": 981,
+        "mech_marketplace_contract": "",
+        "priority_mech_address": "",
         "response_timeout": 300,
         "payment_data": "0x"
     },
     "gas_limit": 500000,
     "price": 10000000000000000,
-    "contract_abi_url": ,
-    "transaction_url": ,
+    "contract_abi_url":"https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
+    "transaction_url":"https:/gnosisscan.iotx/{transaction_digest}",
     "subgraph_url": ""
 }
 ```
 
+Replace `rpc_url` and `address` with the RPC endpoint address, and `mech_marketplace_contract` with the mech marketplace address found in tenderly. Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
 
-where the urls are as follows: 
+![alt text](image.png)
 
-![alt text](./imgs/url1.png)
-![alt text](./imgs/url2.png)
-
-Replace line 210 and line 213 with the RPC endpoint address, and line 220 with the mech marketplace address found in tenderly. 
+The contract is the last one created in the list of contracts found in tenderly. 
 
 **5.** Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
 
@@ -284,8 +315,9 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 
 **7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
+## 4. Deploying a Mech on the Mech Marketplace
 
-## 4. Deploying a Mech with quickstart
+In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
 
 ### 4. 1. Setup 
 
@@ -346,8 +378,94 @@ bash run_service.sh
 docker logs mech_abci_0 --follow
 ```
 
-**5.** Stop the mech service: 
+**5.** You can send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This address can be found in `.mech_quickstart/local_config.json`, key `mech_address`. Then use the mechx command: 
+
+```
+mechx interact <prompt> --tool <tool_name> --chain-config <chain>
+```
+
+where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool, and `<chain>` is replaced by the 
+name of the chosen chain.
+
+**6.** In order to add new tools when the mech is deployed, add its name and hash in `.tools_to_packages_hash.json`.
+
+**7.** Stop the mech service: 
 
 ```
 ./stop_service.sh
 ```
+
+## 5. Registering an agent on the Mech Marketplace
+
+In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register it on the Mech Marketplace. 
+
+In order to do so, follow the instructions below.
+
+**1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
+
+**2.** Trigger the function `create` of this contract with the following inputs (in order):
+
+- The service id.
+- The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
+
+    - For Native, look for the MechFactoryFixedPriceNative address.
+
+    - For Token: MechFactoryFixedPriceToken
+
+    - For Nevermined, find MechFactoryNvmSubscriptionNative.
+
+- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
+is equal to 10^18.
+
+You can find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. Clone the repository: 
+
+```
+git clone https://github.com/Sfgangloff/ai-registry-mech.git
+```
+
+Update the submodules, install the dependencies and compile the contracts: 
+
+```
+git submodule update --init --recursive
+yarn install
+npx hardhat compile
+```
+
+Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
+
+```
+cd scripts/mech_registration
+node create_mech_native.js
+```
+
+/!\ The private key must correspond to the EOA used to deploy the service.
+
+**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
+
+## 6. How to accrue the payments
+
+In order to accrue the payments of your Mech, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
+
+- Native: BalanceTrackerFixedPriceNative
+
+- Token: BalanceTrackerFixedPriceToken
+
+- Nevermined: BalanceTrackerNvmSubscriptionNative
+
+Enter its address in the scan of the chosen network. Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract. 
+
+## Appendix : What is the Mech Marketplace ?
+
+The Mech Marketplace is a collection of smart contracts designed to facilitate seamless interactions between agents or applications (referred to as requesters) and Mech agents which provide task-based services. Essentially, it acts as a relay, enabling secure, on-chain payments while ensuring efficient task requests and service delivery. 
+
+Specifically, the Mech Marketplace enables the following.
+
+- **Effortless Mech contract creation and delivery**: Any agent registered on the Olas Service registry can quickly deploy a Mech contract with minimal inputs. This streamlined process allows agents to rapidly offer their service and receive on-chain payments.
+
+- **Seamless task execution requests**: Requesters—whether agents or applications—can opt to directly submit service requests through the Mech Marketplace. The on-chain contracts manage payments, ensuring a smooth and transparent interaction between requesters and Mech agents.
+
+- **Guaranteed task completion**: A take-over mechanism is in place: if a designated Mech fails to respond within a deadline specified by the requester, any other available Mech can step in to complete the task. Therefore, there is a high likelihood that every request is fulfilled, maintaining the system’s reliability.
+Karma - A reputation score system: The Karma contract tracks each Mech’s performance by maintaining a reputation score. This reflects how often a Mech successfully completes assigned tasks versus how often it fails. Mech agents that maintain high Karma scores are considered more trustworthy by requesters. Assuming honest participation, Mech agents that maintain high Karma scores are considered more trustworthy by requesters.
+
+- **Competitive environment**: Mechs are incentivized to deliver outstanding results promptly in order to maintain high Karma scores and secure more tasks.
+
