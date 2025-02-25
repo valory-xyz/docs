@@ -196,6 +196,7 @@ ai-registry-mech
 submodule
 virtual_testnet
 RPC
+contract_abi_url
 mech-quickstart 
 mechMarketplaceProxyAddress
 ->
