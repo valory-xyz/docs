@@ -102,11 +102,11 @@ Each event whose name begins with "CreateMech", as on the following picture (the
 - Use the command mechx in terminal, which is structured as follows: 
         
 ```
-mechx interact <prompt> --chain-config <chain-config> --confirm <method>
+mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool>
 ```
 
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
-Change `<method>` to `off-chain` in order to use the off-chain method, and `on-chain` otherwise. 
+Change `<bool>` to True in order to use the off-chain method, and False otherwise. 
 
 - If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Specifically, add:
      - Native network token, e.g. xDAI for Gnosis, if the Mech uses native fixed price
