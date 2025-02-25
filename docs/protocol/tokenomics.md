@@ -1,6 +1,6 @@
-The Autonolas Protocol tokenomics is the economic model designed to foster the development and composability of autonomous services. The primary goal is to create a sustainable ecosystem to incentivize developers to contribute to the network and reward them for their participation proportionally to their efforts, while the platform itself grows and becomes more valuable.
+The Olas Protocol tokenomics is the economic model designed to foster the development and composability of autonomous services. The primary goal is to create a sustainable ecosystem to incentivize developers to contribute to the network and reward them for their participation proportionally to their efforts, while the platform itself grows and becomes more valuable.
 
-Autonolas uses a **bonding mechanism** to grow the protocol-owned liquidity, a **staking model** for code to enable developers to track their code contributions on-chain, and **a system to distribute rewards** for useful code. Additionally, Autonolas aims to create a flywheel to **attract donations** and provide decentralized protocol-owned services to ensure ecosystem longevity.
+Olas uses a **bonding mechanism** to grow the protocol-owned liquidity, a **staking model** for code to enable developers to track their code contributions on-chain, and **a system to distribute rewards** for useful code. Additionally, Olas aims to create a flywheel to **attract donations** and provide decentralized protocol-owned services to ensure ecosystem longevity.
 
 !!! abstract "Learn more"
 
@@ -12,7 +12,7 @@ The protocol coordinates the goals described above through a tradable utility to
 [OLAS](https://etherscan.io/address/0x0001A500A6B18995B03f44bb040A5fFc28E45CB0), that will provide access to the core functionalities. The
 token follows the ERC20 standard and is deployed on the Ethereum mainnet.
 
-* OLAS can be locked for voting-escrow OLAS ([veOLAS](https://etherscan.io/address/0x7e01A500805f8A52Fad229b3015AD130A332B7b3)) to participate in the Autonolas DAO governance, thus shaping the protocol and its tokenomics.
+* OLAS can be locked for voting-escrow OLAS ([veOLAS](https://etherscan.io/address/0x7e01A500805f8A52Fad229b3015AD130A332B7b3)) to participate in the Olas DAO governance, thus shaping the protocol and its tokenomics.
 * OLAS can be locked for veOLAS tokens for permissionless access to a service whitelist that
 unlocks code owners’ top-ups (incentives in OLAS that boost the developers' ETH rewards). See the details [here](https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/Autonolas_tokenomics_audit.pdf).
 * OLAS can be used to acquire (on a third-party DEX) LP-tokens that are required for
@@ -24,14 +24,14 @@ Let us briefly present how the staking model for agents and component code incen
 
 1. Developers stake agents and/or components on-chain by [minting their software packages as NFTs](./mint_packages_nfts.md#mint-a-component).
 2. Service owners use staked agents and components to create autonomous
-services. Then they [mint their service](./mint_packages_nfts.md#mint-a-service) in the Autonolas Protocol.
-3. Services can receive ETH donations through the Autonolas Protocol as a sign of recognition for their effort and utility.
+services. Then they [mint their service](./mint_packages_nfts.md#mint-a-service) in the Olas Protocol.
+3. Services can receive ETH donations through the Olas Protocol as a sign of recognition for their effort and utility.
 4. With a share of accrued donations, the protocol will reward the staked agents and/or components that facilitated such donations. Rewards are distributed proportionally to the code contribution to the donated services. Subject to governance approval, a portion of service donations can be eventually accrued by the Protocol Treasury and used by the DAO for ecosystem growth.
 5. Moreover, when service owners or service donors meet a specific threshold of veOLAS (i.e., they have locked a certain amount of OLAS for a certain period of time), they are considered whitelisted. Under this condition, the protocol tops up the ETH rewards from donations by allocating a portion of the OLAS inflation to the staked components or agents associated with the whitelisted services.
 
 ## Incentivizing bonders
 
-The Autonolas Tokenomics bonding mechanism enables users holding supported LP-pair assets to deposit them into the Autonolas depository smart contract. In return, they receive OLAS tokens at a discount relative to the price quoted on the relevant DEX after a vesting time. The interest rate on purchased bonds and the discount factor can be adjusted to incentivize or discourage bond demand. The protocol currently incentivizes bonding when there is a large potential output of code production in the ecosystem and a production function is used to measure potential code production during one epoch to establish the interest rate and discount factor.
+The Olas Tokenomics bonding mechanism enables users holding supported LP-pair assets to deposit them into the Olas depository smart contract. In return, they receive OLAS tokens at a discount relative to the price quoted on the relevant DEX after a vesting time. The interest rate on purchased bonds and the discount factor can be adjusted to incentivize or discourage bond demand. The protocol currently incentivizes bonding when there is a large potential output of code production in the ecosystem and a production function is used to measure potential code production during one epoch to establish the interest rate and discount factor.
 
 This version maintains the key information while providing a clearer and more concise description of the process.
 

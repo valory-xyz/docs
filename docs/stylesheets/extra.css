@@ -26,12 +26,10 @@
 
 
 /* can add more fonts from autonolas repo if more fonts are needed */
-
 :root {
-  --md-primary-fg-color: #7200D6;
-  --md-primary-fg-color--light: rgb(0 217 72 / 10%);
-  --md-primary-fg-color--dark: #086228;
-  --md-typeset-a-color: var(--md-primary-fg-color--dark);
+  --md-primary-fg-color: #7E22CE;
+  --md-primary-fg-color--dark: #581C87;
+  --md-accent-fg-color: #7E22CE;
 
   --md-extra-color-white: #FFFFFF;
   --md-extra-color-black: #000000;
@@ -96,24 +94,25 @@
   font-size: 18px;
 }
 
-
-.md-sidebar .md-nav__link.md-nav__link {
-  color: var(--md-extra-color-gray-1);
-}
-
 .md-sidebar .md-nav__link.md-nav__link--active,
 .md-sidebar .md-nav__link:active {
   text-decoration: underline;
-  color: var(--md-extra-color-black);
 }
 
 .md-sidebar .md-nav__link:focus,
-.md-nav__link:hover {
+.md-nav__link:hover,
+.md-typeset a:focus, 
+.md-typeset a:hover  {
   color: var(--md-primary-fg-color--dark);
 }
 
-/* right sidebar */
+.md-typeset .md-button:focus, 
+.md-typeset .md-button:hover {
+  background-color: var(--md-primary-fg-color--dark);
+  border-color: var(--md-primary-fg-color--dark);
+}
 
+/* right sidebar */
 /* ------ content ------ */
 .md-content__inner h1 {
   font-weight: bold;
@@ -121,20 +120,10 @@
 }
 
 .md-typeset a {
-  color: var(--md-typeset-a-color);
   font-weight: bold;
 }
 
-.md-typeset a:active,
-.md-typeset a:hover {
-  color: var(--md-typeset-a-color);
-}
-
 /* ------ footer ------ */
-.md-footer {
-  background-color: var(--md-primary-fg-color);
-}
-
 .md-footer .md-footer-nav,
 .md-footer .md-footer-nav__direction {
   color: var(--md-extra-color-black);
@@ -169,14 +158,11 @@ code {
 
 .md-header,
 .md-tabs,
+.md-footer,
 .md-footer-meta,
 .md-footer-nav,
 .md-footer-nav__inner {
-  background-color: var(--md-primary-fg-color);
-}
-
-.md-nav__title {
-  color: var(--md-primary-fg-color--dark);
+  background-color: var(--md-accent-fg-color);
 }
 
 /* Needed so that Mermaid UML diagrams don't end up being massively tall */

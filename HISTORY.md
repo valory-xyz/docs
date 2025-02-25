@@ -1,10 +1,25 @@
-# Release History - Autonolas Documentation
+# Release History - Olas Documentation
+
+## v0.19.0.post1 (2025-02-24)
+
+* Substitute main 'Autonolas' instances by 'Olas' on docs repo.
+
+## v0.18.11 (2025-02-21)
+
+Olas SDK
+    * Update Eliza agent repo link
+
+## v0.16.4 (2025-02-20)
+
+Olas SDK
+    * Release of first version of Olas SDK instructions
 
 ## v0.16.2 (2025-01-14)
 
 Frameworks
 
 * Open Autonomy Framework: https://github.com/valory-xyz/open-autonomy - open-autonomy (v0.18.4)
+* Open AEA Framework: https://github.com/valory-xyz/open-aea - open-aea (v0.19.0)
 
 Toolkits
 
@@ -350,11 +365,11 @@ Toolkits
 
 ## v0.8.0.post5 (2023-02-10)
 
-* Updates Autonolas Protocol section.
+* Updates Olas Protocol section.
 
 ## v0.8.0.post4 (2023-02-01)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -370,7 +385,7 @@ Toolkits
 
 ## v0.8.0.post3 (2023-01-27)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -386,7 +401,7 @@ Toolkits
 
 ## v0.8.0.post2 (2023-01-26)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -402,7 +417,7 @@ Toolkits
 
 ## v0.8.0.post1 (2023-01-25)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -418,7 +433,7 @@ Toolkits
 
 ## v0.8.0 (2023-01-20)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -434,7 +449,7 @@ Toolkits
 
 ## v0.7.0.post1 (2023-01-13)
 
-Release of Autonolas Developer Documentation
+Release of Olas Developer Documentation
 
 Frameworks
 
@@ -446,4 +461,4 @@ Products
 * ML APY Prediction Oracle: apy-oracle (https://github.com/valory-xyz/apy-oracle v0.4.0-9-ga60113aa9)
 * Smart Managed Pools: autonomous-fund (https://github.com/valory-xyz/autonomous-fund v0.1.0.post3-79-g7514c32)
 * El Collectooorr: agent-academy-1 (https://github.com/valory-xyz/agent-academy-1 v0.4.1-6-gf3c86c0)
-* Autonolas Contribute: contribution-service (https://github.com/valory-xyz/contribution-service v0.1.0-32-g0308824)
+* Olas Contribute: contribution-service (https://github.com/valory-xyz/contribution-service v0.1.0-32-g0308824)
