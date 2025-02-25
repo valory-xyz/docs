@@ -291,17 +291,11 @@ pip install -e.
     },
     "gas_limit": 500000,
     "price": 10000000000000000,
-    "contract_abi_url": ,
-    "transaction_url": ,
+    "contract_abi_url":"https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
+    "transaction_url":"https:/gnosisscan.iotx/{transaction_digest}",
     "subgraph_url": ""
 }
 ```
-
-
-where the urls are as follows: 
-
-![alt text](./imgs/url1.png)
-![alt text](./imgs/url2.png)
 
 Replace `rpc_url` and `address` with the RPC endpoint address, and `mech_marketplace_contract` with the mech marketplace address found in tenderly. Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
 

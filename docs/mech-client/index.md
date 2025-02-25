@@ -67,6 +67,7 @@ pip install mech-client
         
     **b.** Copy this key in the file `ethereum_private_key.txt`.
 
+**3.** Create an API key for the network you want to use. For instance, follow the steps described [here](https://docs.gnosisscan.io/getting-started/viewing-api-usage-statistics#creating-an-api-key) for Gnosis. Then replace the value corresponding to the key "contract_abi_url" in the network's dictionary in `mech_client/configs/mechs.json`.
 
 ### 1. 2. Sending requests
 
