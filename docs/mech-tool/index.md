@@ -2,7 +2,7 @@
 
 This guide contains guidelines for contributing to the development of Mechs and offer services.
 
-In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech MarketPlace](#appendix--what-is-the-mech-marketplace-). Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
+In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech MarketPlace](#appendix-what-is-the-mech-marketplace). Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
 
 - Native:  A fixed-price model where the requester pays using the chain with native token native token for each delivered service;
 
@@ -360,7 +360,7 @@ poetry shell
 poetry install
 ```
 
-### 4.2. Running the mech service
+### 4. 2. Running the mech service
 
 **1.** Run the mech service (in terminal):
 
