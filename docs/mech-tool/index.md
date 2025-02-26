@@ -360,7 +360,7 @@ poetry shell
 poetry install
 ```
 
-### 4.2. Running the mech service
+### 4. 2. Running the mech service
 
 **1.** Run the mech service (in terminal):
 

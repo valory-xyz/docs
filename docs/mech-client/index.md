@@ -20,7 +20,7 @@ In order to send a request, the workflow is the following:
 		
 The detailed instructions to send a request to a Mech can be found below.
 
-/!\ Only the Mechs deployed on Gnosis with fixed pricing are currently stable.
+/!\ Only the Mechs with fixed pricing are currently stable.
 
 ### Setup
 
@@ -98,6 +98,7 @@ Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mec
 
 ![alt text](./imgs/legacy_tab.png)
 
+You will then see the list of available Mech Marketplace Mechs.
 
 ### 1. 2. In terminal
 
@@ -206,6 +207,8 @@ Follow first the steps in the [setup](#setup) above, then [choose a Mech](#2-1-c
 For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Click on "Legacy" tab as on the following picture.
 
 ![Mech Marketplace vs Legacy](./imgs/legacy_tab.png)
+
+You will see the list of Legacy Mechs available.
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
