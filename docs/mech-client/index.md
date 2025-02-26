@@ -4,7 +4,7 @@
 This guide contains practical guidelines for interacting with Mechs.
 The requester - whether it is an agent or an application - can choose between two methods for sending service requests: 
 
-- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](../mech-tool/index.md#appendix--what-is-the-mech-marketplace-) for the Mechs which are registered there); 
+- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](../mech-tool/index.md#appendix-what-is-the-mech-marketplace) for the Mechs which are registered there); 
 
 - Off-chain: the request is sent directly to the Mech service while delivery is sent by the Mech service to the Mech contract (and then relayed by Mech Marketplace contract for Mechs which are registered there); 
 
@@ -22,11 +22,7 @@ The detailed instructions to send a request to a Mech can be found below.
 
 /!\ Only the Mechs deployed on Gnosis with fixed pricing are currently stable.
 
-## 1. How to Send a request to a Mech (registered on the Mech MarketPlace)
-
-In order to send a request to a Mech which is registered on the Mech Marketplace, follow the [instructions](#1-2-sending-requests) below, after a [setup](#1-1-setup).
-
-### 1. 1. Setup
+### Setup
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
 
@@ -77,12 +73,14 @@ export MECHX_API_KEY=<api_key>
 
 where `<api_key>` is the key just created.
 
-### 1. 2. Sending requests
+## 1. How to Send a request to a Mech (registered on the Mech MarketPlace)
+
+In order to send a request to a Mech which is registered on the Mech Marketplace, follow the [instructions](#1-2-sending-requests) below, after a [setup](#setup).
 
 In order to send a request to a Mech which receives requests via the Mech Marketplace, follow the instructions below. 
-First, [choose a Mech](#1-2-1-choose-a-mech). Then choose among the following ways to send a request: via the [terminal](#1-2-2-in-terminal) and using a python [script](#1-2-3-script-for-automatizing-request-sending) and follow the instructions within the corresponding section.
+First, [choose a Mech](#1-1-choosing-a-mech). Then choose among the following ways to send a request: via the [terminal](#1-2-in-terminal), using a python [script](#1-3-script-for-automatizing-request-sending), or via the [web interface](#1-4-sending-requests-through-the-web-interface) and follow the instructions within the corresponding section.
 
-#### 1. 2. 1. Choose a Mech
+### 1. 1. Choosing a Mech
 
 One can find the list of chains on which the Mech Marketplace contracts are deployed [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) (they are the keys of this dictionary).
 
@@ -96,8 +94,12 @@ Each event whose name begins with "CreateMech", as on the following picture (the
 
 ![alt text](./imgs/image-1.png)
 
+Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mechs on this [webpage](https://aimechs.autonolas.network/). Click on "Mech Marketplace" tab as on the following picture.
 
-#### 1. 2. 2. In terminal
+![alt text](./imgs/legacy_tab.png)
+
+
+### 1. 2. In terminal
 
 **1.** Send a request: 
     
@@ -152,7 +154,7 @@ you should receive a response as follows:
 export MECHX_GAS_LIMIT=200000
 ```
 
-#### 1. 2. 3. Script for automatizing request sending
+### 1. 3. Script for automatizing request sending
 
 The following script can be used in order to automatize request sending:
 
@@ -171,18 +173,39 @@ result = interact(
 
 The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
 
+### 1. 4. Sending requests through the web interface
+
+**1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
+
+**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+
+**4.** Click on "New Request". The following pop-up will appear: 
+![screenshot](./imgs/screenshot.png)
+
+**5.** Enter a prompt and select the tool, then click on "Request". 
+
+**6.** A window like the one as follows will appear: 
+![confirmation](./imgs/confirmation.png)
+Click on "Confirm".
+
+**7.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
+
 ## 2. Sending requests to legacy Mechs
 
 It is also possible to send requests to Mechs which were deployed before the Mech Marketplace (we call these _legacy Mechs_). 
 This section describes how to do this.
 
-Follow first the steps in the [setup](#1-1-setup) above, then [choose a Mech](#2-1-choosing-a-mech). After this, there are three possible ways to send a request to a legacy Mech: in [terminal](#2-2-in-terminal), via a python [script](#2-3-script-for-automatizing-request-sending) or via the [web interface](#2-4-sending-requests-through-the-web-interface).
+Follow first the steps in the [setup](#setup) above, then [choose a Mech](#2-1-choosing-a-mech). After this, there are three possible ways to send a request to a legacy Mech: in [terminal](#2-2-in-terminal), via a python [script](#2-3-script-for-automatizing-request-sending) or via the [web interface](#2-4-sending-requests-through-the-web-interface).
 
 ### 2. 1. Choosing a Mech
 
-- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). They are also displayed on the picture below. For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)" and not "Mech Instance (Nevermined)"), and note its id;  
+- A list of chains on which legacy Mechs are deployed and the Mech contracts addresses can be found [here](https://github.com/valory-xyz/mech?tab=readme-ov-file#examples-of-deployed-mechs). They are also displayed on the picture below. Choose the chain and the Mech (column "Mech Instance (Fixed Pricing)" and not "Mech Instance (Nevermined)"), and note its id;  
 
 ![List of Mechs](./imgs/list_of_mechs.png)
+
+For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Click on "Legacy" tab as on the following picture.
+
+![Mech Marketplace vs Legacy](./imgs/legacy_tab.png)
 
 - Add funds corresponding to the network of the Mech (column “Network” of the table) in the EOA account created above, in order to pay the mech for requests. The price per request can be found as follows. Find the contract of the Mech. For instance, [here](https://gnosisscan.io/address/0x77af31De935740567Cf4fF1986D04B2c964A786a#readContract) is the contract for a Mech on Gnosis chain. Click on "Contract", then "Read contract" and find and click on "price" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request (here 0.01 xDAI).
 
@@ -255,15 +278,15 @@ The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. Th
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a).
+**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
 
-**3.** Click on "New Request". The following pop-up will appear: 
+**4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)
 
-**4.** Enter a prompt and select the tool, then click on "Request". 
+**5.** Enter a prompt and select the tool, then click on "Request". 
 
-**5.** A window like the one as follows will appear: 
+**6.** A window like the one as follows will appear: 
 ![confirmation](./imgs/confirmation.png)
 Click on "Confirm".
 
-**6.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
+**7.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
