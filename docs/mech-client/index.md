@@ -46,6 +46,7 @@ pip install mech-client
 git clone https://github.com/valory-xyz/mech-client.git
 cd mech-client
 poetry shell
+poetry install
 ```
 
 **2.** Setting up an EOA account: 
