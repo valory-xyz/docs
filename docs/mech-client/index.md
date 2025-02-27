@@ -20,7 +20,7 @@ In order to send a request, the workflow is the following:
 		
 The detailed instructions to send a request to a Mech can be found below.
 
-/!\ Only the Mechs with fixed pricing are currently stable.
+/!\ Only the Mechs with fixed pricing are currently usable.
 
 ### Setup
 
@@ -37,9 +37,15 @@ poetry add mech-client
 ```
 
 - *(Option 2)* On local python installation: 
-
 ```
 pip install mech-client
+```
+
+- *(Option 3)* Clone the repository: 
+```
+git clone https://github.com/valory-xyz/mech-client.git
+cd mech-client
+poetry shell
 ```
 
 **2.** Setting up an EOA account: 
