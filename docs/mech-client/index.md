@@ -26,22 +26,8 @@ The detailed instructions to send a request to a Mech can be found below.
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
 
-**1.** Install the [Mech client](https://github.com/valory-xyz/mech-client): 
-    
-- *(Option 1)* Using [Poetry](https://github.com/python-poetry/poetry): 
-```
-poetry new my_project
-cd my_project
-poetry shell
-poetry add mech-client
-```
+**1.** Clone the [Mech client](https://github.com/valory-xyz/mech-client) repository: 
 
-- *(Option 2)* On local python installation: 
-```
-pip install mech-client
-```
-
-- *(Option 3)* Clone the repository: 
 ```
 git clone https://github.com/valory-xyz/mech-client.git
 cd mech-client
@@ -51,26 +37,13 @@ poetry install
 
 **2.** Setting up an EOA account: 
 
-- *Option 1* (manual creation):
+**a.** Install browser extension of Metamask and open it; 
 
-    **a.** Install browser extension of Metamask and open it; 
-        
-    **b.** Click on the account icon, then on “Add account or hardware wallet”, then “Add a new Ethereum account”, provide a name for the account and then click on “Add account”; 
-        
-    **c.** Select the newly created account and then click on the top-right menu icon and then “Account details”. You can find the private key by clicking “Show private key”. 
-        
-    **d.** Copy this key in the file `ethereum_private_key.txt` in your project folder (do not include any leading or trailing spaces, tabs or newlines or any other character); 
-    
-- *Option 2* (using [open-autonomy](https://github.com/valory-xyz/open-autonomy)): 
-        
-    **a.** Use the following to generate a private key: 
-    ```
-    autonomy generate-key ethereum -n 1
-    ```
-    
-    This creates a file keys.json in which the private key can be found on the key “private_key”. 
-        
-    **b.** Copy this key in the file `ethereum_private_key.txt`.
+**b.** Click on the account icon, then on “Add account or hardware wallet”, then “Add a new Ethereum account”, provide a name for the account and then click on “Add account”; 
+
+**c.** Select the newly created account and then click on the top-right menu icon and then “Account details”. You can find the private key by clicking “Show private key”. 
+
+**d.** Copy this key in the file `ethereum_private_key.txt` in your project folder (do not include any leading or trailing spaces, tabs or newlines or any other character); 
 
 **3.** Create an API key for the network you want to use. For instance, follow the steps described [here](https://docs.gnosisscan.io/getting-started/viewing-api-usage-statistics#creating-an-api-key) for Gnosis. Then use the following:
 
@@ -107,6 +80,10 @@ Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mec
 
 You will then see the list of available Mech Marketplace Mechs.
 
+In order to find which tools the Mech uses, click on its service id, and then "View code" in the window which opens. Open the folder `mech` and then `service.yaml`. Copy the IPFS hash which follows `agent: valory/mech:0.1.0` and open the corresponding 
+file by going to https://gateway.autonolas.tech/ipfs/IPFS_HASH, where IPFS_HASH is replaced with the copied hash. Open the `mech` folder and then the file `aea-config.yaml`. In this file, the keys of the dictionary `tools_to_package_hash` are the
+names of the tools that this service uses. 
+
 ### 1. 2. In terminal
 
 **1.** Send a request: 
@@ -129,7 +106,7 @@ It will be indicated how much is needed. You can also find
 the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
 Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
-- If prompted to make a an on-chain deposit to pay for Mech fees, use the following: 
+- If prompted to make an on-chain deposit to pay for Mech fees, use the following: 
 
 ```
 python ./scripts/deposit_payment_model.py
