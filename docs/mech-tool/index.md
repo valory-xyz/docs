@@ -477,9 +477,9 @@ First, you need to configure the service.
 
 Ensure you have a file with the agent address and private key (`keys.json`). You can generate a new private key file using the Open Autonomy CLI:
 
-    ```bash
-    autonomy generate-key ethereum -n 1
-    ```
+```bash
+autonomy generate-key ethereum -n 1
+```
 
 Replace the address by your own agent address and the private key by the one of this address.
 
@@ -536,7 +536,6 @@ The rest of the common environment variables are present in the [service.yaml](h
 
 #### Running the service 
 
-
 1. Run the service:
 
     ```
@@ -550,7 +549,6 @@ cd mech
 build_dir=$(ls -d abci_build_????/ 2>/dev/null || echo "abci_build")
 autonomy deploy run --build-dir $build_dir
 ```
-
 
 3. In a separate terminal, run the following to see the logs:
 

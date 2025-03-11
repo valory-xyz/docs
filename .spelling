@@ -195,6 +195,13 @@ virtual testnet
 block
 npx
 npm
+Prefill address
+.example_agent.env 
+prefilled
+mechs
+mech
+config                              
+service.yaml
 ai-registry-mech
 submodule
 virtual_testnet

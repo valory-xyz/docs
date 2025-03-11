@@ -114,11 +114,11 @@ You will then see the list of available Mech Marketplace Mechs.
 - Use the command mechx in terminal, which is structured as follows: 
         
 ```
-mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool>
+mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool> --tool <tool>
 ```
 
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
-Change `<bool>` to True in order to use the off-chain method, and False otherwise. 
+Change `<bool>` to True in order to use the off-chain method, and False otherwise. Finally, change `<tool>` to the name of the tool you want to use.
 
 - If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Specifically, add:
      - Native network token, e.g. xDAI for Gnosis, if the Mech uses native fixed price
@@ -128,14 +128,6 @@ Change `<bool>` to True in order to use the off-chain method, and False otherwis
 It will be indicated how much is needed. You can also find 
 the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
 Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
-
-- It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
-
-```
-mechx interact <prompt> --tool <tool> --chain-config <chain-config>
-```
-
-In this case, replace `<tool>` by the name of the tool. 
 
 - If prompted to make a an on-chain deposit to pay for Mech fees, use the following: 
 
