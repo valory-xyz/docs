@@ -203,6 +203,8 @@ ServiceRegistryL2
 IPFS_HASH
 hexadecimal
 Prefill address
+Deliver
+owner address
 id
 mech
 config                              
