@@ -125,6 +125,8 @@ mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config g
 you should receive a response as follows: 
         ![screenshot_response](./imgs/screenshot_request.png)
 
+If not, you can note the request id provided in the logs, convert it to hexadecimal (using this [tool](https://www.rapidtables.com/convert/number/decimal-to-hex.html) for instance), find the Mech on this [page](https://mech.olas.network/mechs) (by searching for its service id or address for instance) and click on its address. You should see the list of requests sent to this Mech. You can find your request with its id in hexademical format. Then click on "Delivers Data" to see the response. 
+
 - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 
 ```
