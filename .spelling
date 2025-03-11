@@ -199,6 +199,8 @@ Prefill address
 .example_agent.env 
 prefilled
 mechs
+ServiceRegistryL2
+IPFS_HASH
 mech
 config                              
 service.yaml
