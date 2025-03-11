@@ -81,7 +81,7 @@ Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mec
 You will then see the list of available Mech Marketplace Mechs.
 
 In order to find which tools the Mech uses, click on its service id, and then "View code" in the window which opens. Open the folder `mech` and then `service.yaml`. Copy the IPFS hash which follows `agent: valory/mech:0.1.0` and open the corresponding 
-file by going to https://gateway.autonolas.tech/ipfs/IPFS_HASH, where IPFS_HASH is replaced with the copied hash. Open the `mech` folder and then the file `aea-config.yaml`. In this file, the keys of the dictionary `tools_to_package_hash` are the
+file by going to https://gateway.autonolas.tech/ipfs/ with the copied hash at the end of this address. Open the `mech` folder and then the file `aea-config.yaml`. In this file, the keys of the dictionary `tools_to_package_hash` are the
 names of the tools that this service uses. 
 
 ### 1. 2. In terminal
