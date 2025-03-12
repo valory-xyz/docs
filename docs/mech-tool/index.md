@@ -458,7 +458,7 @@ node create_mech_native.js
 
 /!\ The private key must correspond to the EOA used to deploy the service.
 
-**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
+You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
 
 ### 5.3 Running the Mech service
 
