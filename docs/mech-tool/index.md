@@ -433,9 +433,9 @@ In order to register your service on the Mech Marketplace, follow the instructio
     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
 - The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
-is equal to 10^18.
+is equal to 10^18. Then Use [ABI Hashex Encoder](https://abi.hashex.org/). Select uint256 as the type and enter the value 1000000000000000000 (which represents 1 xDAI in wei). The tool will generate the encoded result: 0000000000000000000000000000000000000000000000000de0b6b3a7640000.
 
-You can find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. Clone the repository: 
+You can also find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. In order to use it, clone the repository: 
 
 ```
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
