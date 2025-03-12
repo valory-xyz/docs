@@ -421,7 +421,7 @@ In order to register your service on the Mech Marketplace, follow the instructio
 
 **1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
-**2.** Trigger the function `create` of this contract with the following inputs (in order):
+**2.** Using the scan of the chosen network, trigger the function `create` of this contract with the following inputs (in order):
 
 - The service id.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
@@ -435,7 +435,7 @@ In order to register your service on the Mech Marketplace, follow the instructio
 - The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
 is equal to 10^18. Then Use [ABI Hashex Encoder](https://abi.hashex.org/). Select uint256 as the type and enter the value 1000000000000000000 (which represents 1 xDAI in wei). The tool will generate the encoded result: 0000000000000000000000000000000000000000000000000de0b6b3a7640000.
 
-You can also find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. In order to use it, clone the repository: 
+**3.** _Alternatively_, you can also find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. In order to use it, clone the repository: 
 
 ```
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
