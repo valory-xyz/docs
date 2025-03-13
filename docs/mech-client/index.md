@@ -26,13 +26,14 @@ The detailed instructions to send a request to a Mech can be found below.
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
 
-**1.** Clone the [Mech client](https://github.com/valory-xyz/mech-client) repository: 
+**1.** Install mech-client: 
 
 ```
-git clone https://github.com/valory-xyz/mech-client.git
-cd mech-client
-poetry shell
+poetry my_project
+cd my_project
+poetry add mech-client
 poetry install
+poetry shell
 ```
 
 **2.** Setting up an EOA account: 
@@ -91,11 +92,11 @@ names of the tools that this service uses.
 - Use the command mechx in terminal, which is structured as follows: 
         
 ```
-mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool> --tool <tool>
+mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool> --tool <tool> --priority-mech <mech_address>
 ```
 
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
-Change `<bool>` to True in order to use the off-chain method, and False otherwise. Finally, change `<tool>` to the name of the tool you want to use.
+Change `<bool>` to True in order to use the off-chain method, and False otherwise. Change `<tool>` to the name of the tool you want to use. Finally, change `<mech_address>` to the address of the Mech you want to send a request to.
 
 - If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Specifically, add:
      - Native network token, e.g. xDAI for Gnosis, if the Mech uses native fixed price
@@ -130,6 +131,7 @@ If not, you can note the request id provided in the logs, convert it to hexadeci
 ```bash
 printf "%x\n" <request_id>
 ```
+
 where `<request_id>` is replaced by the id of your request. Find the Mech on this [page](https://mech.olas.network/mechs) (by searching for its service id or address for instance) and click on its address. You should see the list of requests sent to this Mech. You can find your request using its id (in hexadecimal format). Then click on "Delivers Data" to see the response. 
 
 - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
