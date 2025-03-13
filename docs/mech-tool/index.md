@@ -448,7 +448,7 @@ Clone the `mech-predict` repository:
 git clone https://github.com/valory-xyz/mech-predict.git
 ```
 
-Then follow the instructions in the README.md file (section 'Running the old base mech').
+Then follow the instructions in the README.md file (section 'Running the Mech').
 
 ## 6. How to accrue the payments
 
