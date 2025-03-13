@@ -472,12 +472,12 @@ In case you have already a Mech service deployed on Olas Registry and want to pu
 
 In order to do so, follow the instructions below.
 
-**1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
+**1.** Find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
 **2.** Trigger the function `create` of this contract with the following inputs (in order):
 
 - The service id.
-- The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
+- The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json). Search for the address that matches the chosen payment model:
 
     - For Native, look for the MechFactoryFixedPriceNative address.
 
@@ -488,7 +488,7 @@ In order to do so, follow the instructions below.
 - The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
 is equal to 10^18.
 
-You can find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. Clone the repository: 
+You can find a script for triggering this function [here](https://github.com/Sfgangloff/ai-registry-mech/tree/05d14fcf95608ef0da74c5f1e1640f7d82b1dbc3/scripts/mech_registration) for each payment model. Clone the repository: 
 
 ```
 git clone https://github.com/Sfgangloff/ai-registry-mech.git
@@ -515,7 +515,7 @@ node create_mech_native.js
 
 ## 6. How to accrue the payments
 
-In order to accrue the payments of your Mech, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
+In order to accrue the payments of your Mech, find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
 
 - Native: BalanceTrackerFixedPriceNative
 
