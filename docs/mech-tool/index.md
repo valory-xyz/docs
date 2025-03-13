@@ -21,42 +21,44 @@ In order to contribute to Mechs' abilities, you can create and publish a tool. I
 
 ### 1. 1. Creating a tool
 
-**Requirements**: [Python](https://www.python.org/) >= 3.8; [Pip](https://pip.pypa.io/en/stable/installation/); [Pipenv](https://pipenv.pypa.io/en/latest/installation.html) >= 2001.x.xx ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
+**Requirements**:
+  - [Python](https://www.python.org/) `>= 3.10`
+  - [Poetry](https://python-poetry.org/docs/) `>=1.4.0` 
 
 In order to create a tool, the steps are as follows: 
 
-**1.** Fork the repository https://github.com/valory-xyz/mech and clone the forked copy;
+**1.** Fork the [mech](https://github.com/valory-xyz/mech) repository and clone the forked copy.
+You may use Github's UI or its CLI tools:
 
-**2.** In the main folder, in terminal:
-
-```
-pip install open-autonomy
-autonomy init --remote --ipfs --author <author_name> 
-autonomy packages sync
+```bash
+gh repo fork https://github.com/valory-xyz/mech --clone=true
 ```
 
-**3.** Create a folder "username" [replace with your username] in the folder “packages”, inside this create a folder "customs", and inside this folder create a folder whose name corresponds to the tool. This folder should contain the following files : `component.yaml`, `tool_name.py` and `__init__.py`. For the second file, replace `tool_name` by the name of the tool.
+**2.** Install the dependencies, set up a remote and fetch the third-party packages from IPFS.
+You may use the following command after replacing the value for the `AUTHORNAME` variable:
 
-```
-cd packages
-mkdir <username>
-cd <username>
-mkdir customs 
-cd customs
-mkdir <tool_name> 
-cd <tool_name>
-touch component.yaml
-touch tool_name.py
-touch __init__.py
+```bash
+AUTHORNAME=author
+
+cd mech && \
+poetry install && \
+poetry run autonomy init --remote --ipfs --author $AUTHORNAME && \
+poetry run autonomy packages sync --update-packages
 ```
 
-For the third file, copy and paste the following copyright text found for instance [here](https://github.com/KahanMajmudar/mech/blob/main/packages/valory/connections/__init__.py). 
+**3.** Create the tool's structure by using the following command, after replacing the values for the `AUTHORNAME` and `TOOL_NAME` variables:
 
-**4.** In `component.yaml`, copy and paste the following template (or the content of the `component.yaml` of any other tool), and replace the following fields: name (name of the module), author (name of the author), entry_point (this points at the python file in which the executable function is), callable (points at the function which is called in the entry_point), description (simple description of the module). In fingerprint, replace tool_name.py by the chosen entry point file.
+```bash
+AUTHORNAME=author
+TOOL_NAME=tool_name
 
-```
-name: tool_name
-author: author_name
+TOOL_PATH=packages/"$AUTHORNAME"/customs/"$TOOL_NAME"
+YEAR=$(date +"%Y")
+
+mkdir -p $TOOL_PATH && \
+cat > $TOOL_PATH/component.yaml <<EOF
+name: $TOOL_NAME
+author: $AUTHORNAME
 version: 0.1.0
 type: custom
 description: Tool description
@@ -64,37 +66,98 @@ license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
     __init__.py:
-    tool_name.py:
+    $TOOL_NAME.py:
 fingerprint_ignore_patterns: []
-entry_point: tool_name.py
+entry_point: $TOOL_NAME.py
 callable: run
 dependencies: {}
+EOF
+
+for file in __init__.py "$TOOL_NAME.py"; do
+  cat > $TOOL_PATH/$file <<EOF
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#
+#   Copyright $YEAR Valory AG
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+# ------------------------------------------------------------------------------
+
+EOF
+done
+
+cat >> "$TOOL_PATH/$TOOL_NAME.py" <<EOF
+"""The implementation of the $TOOL_NAME tool."""
+
+
+def run(*args, **kwargs):
+    """The callable for the $TOOL_NAME tool."""
+    # TODO: Implement the tool logic
+    print(f"Running $TOOL_NAME with {args=} and {kwargs=}.)
+
+EOF
+
+poetry run autonomy packages lock
 ```
 
-If the module has any dependencies, remove `{}` and add them in the following format: 
+This command will generate the following structure, with template code:
 
 ```
-dependencies: 
+packages/  
+ ├── authorname/  
+ │   ├── customs/  
+ │   │   ├── tool_name/  
+ │   │   │   ├── component.yaml
+ │   │   │   ├── tool_name.py
+ │   │   │   ├── __init__.py
+```
+
+**4.** Now that your tool's structure is set up, 
+all that's left is to configure the tool component and implement the tool's functionality in Python.
+The `component.yaml` file contains the tool's configuration. 
+Here is an explanation of its fields:
+- name: the name of the tool.
+- author: the author's name.
+- version: the version of the tool.
+- type: the component type of the `open-autonomy` framework. This should be `custom`.
+- description: the description of the tool.
+- license: the licencing of the tool. It should be Apache-2.0.
+- aea_version: the supported `open-aea` version.
+- fingerprint: unique hash of the tool. This is autogenerated by the framework's `autonomy packages lock` command.
+- fingerprint_ignore_patterns: ignore patterns for the fingerprint's generation.
+- entry_point: the module which contains the tool's implementation.
+- callable: points to the function which is called in the tool's module.
+- dependencies: the module's dependencies. You may specify them in the following format:
+
+```
+dependencies:
     dependency_1:
         version: ==0.5.3
     dependency_2:
         version: '>=2.20.0'
 ```
 
-**5.** Create the code for the tool in the file `tool_name.py` (following the examples of tools found [here](https://github.com/valory-xyz/mech-predict/tree/main/packages), for instance https://github.com/valory-xyz/mech-predict/tree/main/packages/gnosis/customs/ofv_market_resolver); the only requirement is to implement the function specified in callable of the `component.yaml` file; a minimal file would be the following for the template in the previous step for instance: 
-
-```
-def run(**kwargs):
-    pass
-```
-	
-This function needs to return the result of using the tool.
-
 ### 1. 2. Publishing the tool
+
+Before proceeding, make sure that you are inside the poetry environment:
+```bash
+poetry shell
+```
 
 **1.** Create the package hash, by running the following commands, from the root:
 
-```
+```bash
 autonomy packages lock
 ```
 
@@ -102,29 +165,37 @@ At this point you will be prompted to choose "dev" or "third-part". Choose "dev"
 
 **2.** Push the packages to IPFS: 
 
-```
+```bash
 autonomy push-all
 ```
 
-**3.** Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; For this is 
-needed: an address (EOA), and the hash of the meta-data file. In order to generate this hash, click on “Generate Hash & File” and providing the following information: name (name of the tool); description (of the tool); version (this is found in the file `component.yaml`); package hash (this can be found in package.json in the packages folder, in the entry which corresponds to the created tool); NFT image URL (for instance on IPFS, supported domains are listed in the window). In order to push an image on IPFS, there are two possibilities: 
+**3.** Mint the tool [here](https://registry.olas.network/ethereum/components/mint) as a component on the Olas Registry; 
+For this is needed: an address (EOA), 
+and the hash of the meta-data file. 
+In order to generate this hash, 
+click on “Generate Hash & File” and provide the following information: 
+name (name of the tool); 
+description (of the tool); 
+version (this needs to match the version in the file `component.yaml`); 
+package hash (this can be found in `packages.json` under the `packages` folder); 
+NFT image URL (for instance on IPFS, supported domains are listed in the window). 
+In order to push an image on IPFS, there are two options: 
 
-- Use this [script](https://github.com/dvilelaf/tsunami/blob/main/scripts/ipfs_pin.py). Place it in the main folder and place the image in the folder `mints` in the format `.jpg`. Then run the script: 
-```
+1. Use this [script](https://github.com/dvilelaf/tsunami/blob/v0.9.0/scripts/ipfs_pin.py). 
+   Place the image in a folder called `mints` in `.jpg` format. 
+   Then, run the script:
+```bash
 python ipfs_pin.py
 ```
 
-- Clone the mech-client repository:
-```
-git clone https://github.com/valory-xyz/mech-client.git
-cd mech-client
-```
-Then put the file in the mech-client folder and run the following in terminal, replacing `<file_name>` with the name of your file: 
-```
+2. Use the [mech-client](https://github.com/valory-xyz/mech-client.git), 
+   replacing `<file_name>` with the name of your file:
+```bash
+poetry add mech-client &&\
 mechx push-to-ipfs ./<file_name>
 ```
 
-After this the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
+After this, the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
 
 
 ## 2. Testing a tool by deploying a Mech locally
