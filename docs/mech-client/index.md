@@ -125,7 +125,12 @@ mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config g
 you should receive a response as follows: 
         ![screenshot_response](./imgs/screenshot_request.png)
 
-If not, you can note the request id provided in the logs, convert it to hexadecimal (using this [tool](https://www.rapidtables.com/convert/number/decimal-to-hex.html) for instance), find the Mech on this [page](https://mech.olas.network/mechs) (by searching for its service id or address for instance) and click on its address. You should see the list of requests sent to this Mech. You can find your request using its id (in hexadecimal format). Then click on "Delivers Data" to see the response. 
+If not, you can note the request id provided in the logs, convert it to hexadecimal:
+
+```bash
+printf "%x\n" <request_id>
+```
+where `<request_id>` is replaced by the id of your request. Find the Mech on this [page](https://mech.olas.network/mechs) (by searching for its service id or address for instance) and click on its address. You should see the list of requests sent to this Mech. You can find your request using its id (in hexadecimal format). Then click on "Delivers Data" to see the response. 
 
 - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 
@@ -156,7 +161,7 @@ The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+**2.** Go to the webpage [here](https://mech.olas.network/gnosis/mechs). Click on the address of the Mech you want to send a request to.
 
 **4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)
@@ -259,7 +264,7 @@ The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. Th
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+**2.** Go to the webpage [here](https://mech.olas.network/gnosis/mechs?legacy=true). Click on the address of the Mech you want to send a request to.
 
 **4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)
