@@ -315,11 +315,11 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 
 **7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
-## 4. Deploying a Mech on the Mech Marketplace (quickstart)
+## 3. Deploying a Mech on the Mech Marketplace (quickstart)
 
 In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
 
-### 4. 1. Setup 
+### 3. 1. Setup 
 
 **Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
@@ -360,7 +360,7 @@ poetry shell
 poetry install
 ```
 
-### 4. 2. Running the mech service
+### 3. 2. Running the mech service
 
 **1.** Run the mech service (in terminal):
 
@@ -395,11 +395,11 @@ name of the chosen chain.
 ./stop_service.sh
 ```
 
-## 5. Deploying a Mech on the Mech Marketplace (manually)
+## 4. Deploying a Mech on the Mech Marketplace (manually)
 
 In order to deploy a Mech, it is also possible to do so manually, first by deploying a service, registering it on the Mech Marketplace, and then running it locally.
 
-### 5.1 Creating a Mech service
+### 4.1 Creating a Mech service
 
 In order to create the service, go to the [Olas Registry](https://registry.olas.network/gnosis/services) webpage. 
 
@@ -415,7 +415,7 @@ In order to create the service, go to the [Olas Registry](https://registry.olas.
 
 **6.** The service is now deployed, and you can see the safe contract address below. You will need this address in order to run the Mech.
 
-### 5.2 Registering the service on the Mech Marketplace
+### 4.2 Registering the service on the Mech Marketplace
 
 In order to register your service on the Mech Marketplace, follow the instructions below.
 
@@ -438,7 +438,7 @@ is equal to 10^18. Then Use [ABI Hashex Encoder](https://abi.hashex.org/). Selec
 
 :warning: You must use the same EOA as the one used to deploy the service.
 
-### 5.3 Running the Mech service
+### 4.3 Running the Mech service
 
 In order to run the Mech service that you created, follow the steps below.
 
@@ -450,7 +450,7 @@ git clone https://github.com/valory-xyz/mech-predict.git
 
 Then follow the instructions in the README.md file (section 'Running the Mech').
 
-## 6. How to accrue the payments
+## 5. How to accrue the payments
 
 In order to accrue the payments of your Mech, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
 
