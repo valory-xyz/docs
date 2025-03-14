@@ -119,14 +119,22 @@ where `payment_model` is replaced with "native" or "token" depending on the paym
 
 - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
 
-```
+```bash
 mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config gnosis
 ``` 
 
 you should receive a response as follows: 
         ![screenshot_response](./imgs/screenshot_request.png)
 
-If not, you can note the request id provided in the logs, convert it to hexadecimal:
+Note that for some Mechs, a response may take few minutes to come, the websocket connection might be lost. 
+In this case, you can use a custom websocket provider (we suggest QuickNode for instance). Once you have a wss url, 
+change the following environment variable, replacing `<wss_url>` with yours.
+
+```bash
+export MECHX_WSS_ENDPOINT=<wss_url>
+```
+
+Otherwise, you can note the request id provided in the logs, convert it to hexadecimal:
 
 ```bash
 printf "%x\n" <request_id>
