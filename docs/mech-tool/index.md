@@ -34,7 +34,7 @@ You may use GitHub's UI or its CLI tools:
 gh repo fork https://github.com/valory-xyz/mech --clone=true
 ```
 
-**2.** Install the dependencies, set up a remote and fetch the third-party packages from IPFS.
+**2.** Install the dependencies, set up a remote registry, and fetch the third-party packages from IPFS.
 You may use the following command after replacing the value for the `AUTHORNAME` variable:
 
 ```bash
