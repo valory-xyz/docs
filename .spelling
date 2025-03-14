@@ -297,3 +297,6 @@ un-mark
 click 
 webpage
 entry_point
+licencing
+aea_version
+fingerprint_ignore_patterns
