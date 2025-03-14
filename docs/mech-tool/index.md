@@ -315,11 +315,11 @@ where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name 
 
 **7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
-## 4. Deploying a Mech on the Mech Marketplace
+## 3. Deploying a Mech on the Mech Marketplace (quickstart)
 
 In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
 
-### 4. 1. Setup 
+### 3. 1. Setup 
 
 **Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
@@ -360,7 +360,7 @@ poetry shell
 poetry install
 ```
 
-### 4. 2. Running the mech service
+### 3. 2. Running the mech service
 
 **1.** Run the mech service (in terminal):
 
@@ -368,7 +368,7 @@ poetry install
 bash run_service.sh
 ```
 
-**2.** Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier).
+**2.** Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier). Also add funds to the required address.
 
 **3.** In order to send a request to it, follow the steps in the [section 2.3](#2-3-sending-a-request) above, replacing the RPC endpoint with the one created here. 
 
@@ -395,15 +395,33 @@ name of the chosen chain.
 ./stop_service.sh
 ```
 
-## 5. Registering an agent on the Mech Marketplace
+## 4. Deploying a Mech on the Mech Marketplace (manually)
 
-In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register it on the Mech Marketplace. 
+In order to deploy a Mech, it is also possible to do so manually, first by deploying a service, registering it on the Mech Marketplace, and then running it locally.
 
-In order to do so, follow the instructions below.
+### 4.1 Creating a Mech service
+
+In order to create the service, go to the [Olas Registry](https://registry.olas.network/gnosis/services) webpage. 
+
+**1.** Choose the network and connect your wallet. 
+
+**2.** Click on the button "Mint".
+
+**3.** Click on the `Prefill address` button in order to fill the `owner address` field. You will need to have funds on this address in order to deploy the service. For the hash of the metadata file, click on "Generate Hash & File". The hash should be the one found in the file `packages/packages.json` in the mech-predict [repository](https://github.com/valory-xyz/mech-predict/) for the key `service/valory/mech/`. Select first the prefix and fill the field with the remaining part. The version is contained in this key (e.g. `service/valory/mech/0.1.0`). For the agent id, follow the instructions on the opened page (we suggest agent id = 9 to test). The number of slots corresponds to the number of agents that the service contains (we suggest 1 to test). For the cost of agent bound, we suggest that you use a small value (e.g., 1000000000000000 GörliWei = 0.001 GörliETH). We suggest to write threshold = 1 to test. Then click on submit.
+
+**4.** Click on "Services". The last entry corresponds to the service you have created. Click on "View".
+
+**5.** Click first on "Activate registration" (Step 1). Then in the field "Agent Instance Addresses" (Step 2), enter one address (not the same one as the one used as owner address) for each agent in the service, and click on "Register Agents". Choose a service multisig (Step 3) and click on "Submit".
+
+**6.** The service is now deployed, and you can see the safe contract address below. You will need this address in order to run the Mech.
+
+### 4.2 Registering the service on the Mech Marketplace
+
+In order to register your service on the Mech Marketplace, follow the instructions below.
 
 **1.** Find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
-**2.** Trigger the function `create` of this contract with the following inputs (in order):
+**2.** Using the scan of the chosen network, trigger the function `create` of this contract with the following inputs (in order):
 
 - The service id.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json). Search for the address that matches the chosen payment model:
@@ -414,35 +432,25 @@ In order to do so, follow the instructions below.
 
     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
-is equal to 10^18.
+- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. In order to do this, first multiply 
+the price in xDAI by 10^18. For instance, for a price of 1 xDAI, this 
+is equal to 10^18. Then Use [ABI Hashex Encoder](https://abi.hashex.org/). Select uint256 as the type and enter the obtained value (for 1 xDAI this is 1000000000000000000 in wei). The tool will generate the encoded result, which is the following in the example: 0000000000000000000000000000000000000000000000000de0b6b3a7640000. Finally add 0x at the beginning of the sequence to obtain 0x0000000000000000000000000000000000000000000000000de0b6b3a7640000 in the example. This is the sequence that should be entered. 
 
-You can find a script for triggering this function [there](https://github.com/Sfgangloff/ai-registry-mech/tree/main/scripts/mech_registration) for each payment model. Clone the repository: 
+:warning: You must use the same EOA as the one used to deploy the service.
 
-```
-git clone https://github.com/Sfgangloff/ai-registry-mech.git
-```
+### 4.3 Running the Mech service
 
-Update the submodules, install the dependencies and compile the contracts: 
+In order to run the Mech service that you created, follow the steps below.
 
-```
-git submodule update --init --recursive
-yarn install
-npx hardhat compile
-```
-
-Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
+Clone the `mech-predict` repository:
 
 ```
-cd scripts/mech_registration
-node create_mech_native.js
+git clone https://github.com/valory-xyz/mech-predict.git
 ```
 
-/!\ The private key must correspond to the EOA used to deploy the service.
+Then follow the instructions in the README.md file (section 'Running the Mech').
 
-**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
-
-## 6. How to accrue the payments
+## 5. How to accrue the payments
 
 In order to accrue the payments of your Mech, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
 

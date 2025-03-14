@@ -195,6 +195,22 @@ virtual testnet
 block
 npx
 npm
+Prefill address
+.example_agent.env 
+prefilled
+mechs
+ServiceRegistryL2
+IPFS_HASH
+hexadecimal
+0x 
+0x0000000000000000000000000000000000000000000000000de0b6b3a7640000
+README.md
+Deliver
+owner address
+id
+mech
+config                              
+service.yaml
 ai-registry-mech
 submodule
 virtual_testnet
