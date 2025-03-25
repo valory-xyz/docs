@@ -50,6 +50,8 @@ nav:
       - Manage the life cycle of a service: 'protocol/life_cycle_of_a_service.md'
       - Tokenomics: 'protocol/tokenomics.md'
       - Technical overview: 'protocol/technical_overview.md'
+  - Integrations:
+      - Nevermined: 'integrations/nevermined.md'
   - Toolkits:
       - 'products/index.md'
       - SMPKit: '!include ./autonomous-fund/mkdocs.yml'
