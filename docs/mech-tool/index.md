@@ -450,7 +450,7 @@ git clone https://github.com/valory-xyz/mech-predict.git
 
 Then follow the instructions in the README.md file (section 'Running the Mech').
 
-## 5. How to accrue the payments
+## 6. How to accrue the payments
 
 In order to accrue the payments of your Mech, find [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
 

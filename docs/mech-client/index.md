@@ -20,8 +20,6 @@ In order to send a request, the workflow is the following:
 		
 The detailed instructions to send a request to a Mech can be found below.
 
-/!\ Only the Mechs with fixed pricing are currently usable.
-
 ### Setup
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
@@ -98,29 +96,33 @@ mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool> --to
 Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). 
 Change `<bool>` to True in order to use the off-chain method, and False otherwise. Change `<tool>` to the name of the tool you want to use. Finally, change `<mech_address>` to the address of the Mech you want to send a request to.
 
-- If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Specifically, add:
-     - Native network token, e.g. xDAI for Gnosis, if the Mech uses native fixed price
-     - OLAS token on the network if the Mech uses Olas token fixed price
-     - Nevermined plan related to the network if the Mech uses Nevermined subscription.
-     
-It will be indicated how much is needed. You can also find 
-the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
+- If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Add native token or OLAS token depending on the payment model of the Mech. It will be indicated how much is needed. You can also find the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
 Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
-- If prompted to make an on-chain deposit to pay for Mech fees, use the following: 
+- If prompted to make an on-chain deposit to pay for Mech fees, use the following, if the Mech uses fixed price in native token, where `<network_name>` is replaced with the name of the network (`gnosis` or `base` for instance) and `<amount>` is replaced with the amount to deposit:  
 
-```
-python ./scripts/deposit_payment_model.py
+```bash
+mechx deposit-native --chain-config <network_name> <amount>
 ```
 
-where `payment_model` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). When prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.
+In order to be able to send a request, the amount should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate. For other payment models, this is similar. For a fixed price Mech receiving payments in an ERC20 token, use the following: 
+
+```bash
+mechx deposit-token --chain-config <network_name> <amount>
+```
+
+For a Mech using Nevermined subscriptions, use the following (the amount is fixed and allows multiple requests): 
+
+```bash 
+mechx purchase-nvm-subscription --chain-config <network_name> --key ethereum_private_key.txt
+```
 
 **2.** Receive the response: 
 
 - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
 
 ```bash
-mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config gnosis
+mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config gnosis --priority-mech <mech_address>
 ``` 
 
 you should receive a response as follows: 
