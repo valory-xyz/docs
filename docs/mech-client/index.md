@@ -155,19 +155,23 @@ export MECHX_GAS_LIMIT=200000
 The following script can be used in order to automatize request sending:
 
 ```
-from mech_client.interact import interact
+from mech_client.marketplace_interact import marketplace_interact
 
-PROMPT_TEXT = 'Will Gnosis pay reach 100k cards in 2024?'
-TOOL_NAME = "prediction-online"
+PRIORITY_MECH_ADDRESS = <priority_mech_address>
+PROMPT_TEXT = <prompt_text>
+TOOL_NAME = <tool_name>
+CHAIN_CONFIG=<network_name>
 
-result = interact(
+result = marketplace_interact(
     prompt=PROMPT_TEXT,
+    priority_mech=PRIORITY_MECH_ADDRESS,
+    use_offchain=USE_OFFCHAIN,
     tool=TOOL_NAME,
-    chain-config=CHAIN_CONFIG
+    chain_config=CHAIN_CONFIG
 )
 ```
 
-The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
+Replace `<priority_mech_address>`, `<prompt_text>`, `<tool_name>` and `<network_name>` respectively with the address of the targeted Mech, the text of the prompt to be sent, the name of the tool and the name of the network. The variable **result** contains the response of the mech. 
 
 ### 1. 4. Sending requests through the web interface
 
