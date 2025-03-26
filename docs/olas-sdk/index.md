@@ -1,28 +1,19 @@
-Olas SDK is a set of tools and instructions that allow engineers to register autonomous agents built with any framework to be registered on {{ autonolas_protocol_registry_dapp }} and executed through {{ olas_agent_quickstart }}
+## Bring your agent to the Olas Protocol
 
-## Step 1: Building the Agent
+Agents built with any framework can now be brought to the Olas Protocol in just a few steps.
 
-The agent can be built using any framework and it will be made available through the deployment of Olas Agent Configuration (step 2) and a docker image (step 3).
+This allows you to:
 
-### Considerations for building the agent
-- Environment variables will be set up in a docker container when the service starts through {{ olas_agent_quickstart }} with the prefix `CONNECTION_CONFIGS_CONFIG_<variable_name>`.
-- {{ olas_agent_quickstart }} will deploy a service from a given agent and configure the service multisig Safe and the agent EOA. These information will be available in the docker container as follows:
-    - The agent EOA private key will be on the file `/agent_key/ethereum_private_key.txt`.
-    - The service safe contract address will be accessible through the environment variable `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` as a dictionary with the chain as the key (e.g., `{ "gnosis": "0xE7CA89bE11A7A3b3d0bF6016d7a09f33c03a0a8f" }`).
+- Monetize your agent by earning [Dev Rewards](https://open-autonomy.docs.autonolas.tech/protocol/tokenomics/).
+- Start your agent with all of the wallet abstraction necessary to make on-chain transactions.
 
-### Agent examples
-Here you can see the examples of two agents built with different frameworks:
 
-- [Langchain Hello World Agent](https://github.com/valory-xyz/langchain_hello_world)
+The Olas SDK is a set of tools and instructions that allows engineers to register autonomous agents built with any framework on the {{ autonolas_protocol_registry_dapp }}. Once registered you can start your agent using {{ olas_agent_quickstart }}.
 
-- [Eliza Memeooorr Agent](https://github.com/valory-xyz/agents-fun-eliza)
-
-## Step 2: Olas Agent and Service Configuration
-Once the agent is ready, the next step is to configure the Olas Agent and Service. 
-
+## Step 1: Build Olas Agent Configuration
 Check the guide at [Olas SDK Starter](https://github.com/valory-xyz/olas-sdk-starter/blob/main/README.md).
 
-## Step 3: Docker Image
+## Step 2: Publish it
 Once the Olas Agent configuration is complete, the next step is to push the Docker image to [Docker Hub](https://hub.docker.com/). The image needs to follow the requirements below:
 
 ### Docker Image Requirements
@@ -39,16 +30,18 @@ You can find a docker file example [here](https://github.com/valory-xyz/langchai
     ```
     - **`author_name`** and **`agent_name`**: These must match the names defined at Step 2 in the Olas agent and service configuration.
     
-    - **`agent_package_hash`**: The hash generated when the Olas agent package was pushed to IPFS. This can be found in **`packages/packages.json`** from Step 2.
+    - **`agent_package_hash`**: The hash generated when the Olas agent package was pushed to IPFS. This can be found in **`packages/packages.json`** from Step 1.
 
-## Step 4: Minting the Olas Agent
+## Step 3: Mint it
+
 To register the agent in the {{ autonolas_protocol_registry_dapp }}, follow the steps in this guide: [Mint an Agent](https://docs.autonolas.network/protocol/mint_packages_nfts/#mint-an-agent).
 
 **Note 1:** Your Olas Agent must provide at least one dependency, as default specify the value 1. 
 
-**Note 2:** The agent hash can be found in **`packages/packages.json`** from Step 2.
+**Note 2:** The agent hash can be found in **`packages/packages.json`** from Step 1.
 
-## Executing the Agent via {{ olas_agent_quickstart }}
+## Step 4: Execute it
+
 To run the agent using {{ olas_agent_quickstart }}, follow these steps:
 
 ### 1. Clone the {{ olas_agent_quickstart }} repository:
@@ -58,10 +51,10 @@ To run the agent using {{ olas_agent_quickstart }}, follow these steps:
 
 ### 2. Add a `config.json` file to the `configs` folder with the following fields:
 
-- **`agent_name`**: The name of your Olas Agent defined on Step 2.
+- **`agent_name`**: The name of your Olas Agent defined on Step 1.
 - **`agent_id`**: The id of your agent minted on {{ autonolas_protocol_registry_dapp }}, this is number you see on your agent page from Step 4.
-- **`service_hash`**: The hash of your Olas Service generated on Step 2.
-- **`env_variables`**: Here you can define the environment variables that your agent needs, the names must follow what was configured on the file `service.yaml` on Step 2. The provision type of these variables can be:
+- **`service_hash`**: The hash of your Olas Service generated on Step 1.
+- **`env_variables`**: Here you can define the environment variables that your agent needs, the names must follow what was configured on the file `service.yaml` on Step 1. The provision type of these variables can be:
     - **user**: It will prompt the user running your agent to provide a value.
     - **fixed**: It will use the value defined on the configuration file.
     - **computed**: It will be automatically computed.
@@ -131,3 +124,20 @@ This script will
     - Mints the service in the registry until it reaches the `DEPLOYED` state.
     - Downloads the agent's docker image.
     - Setup and starts the docker container.
+
+## Consideration for building your agent
+
+The agent can be built using any framework and it will be made available on {{ olas_agent_quickstart }} through a docker image. The {{ olas_agent_quickstart }} allows your user to easily start the agent by providing the values you set up as environment variables.
+
+- Environment variables will be set up in a docker container when the service starts through {{ olas_agent_quickstart }} with the prefix `CONNECTION_CONFIGS_CONFIG_<variable_name>`.
+- {{ olas_agent_quickstart }} will deploy a service from a given agent and configure the service multisig Safe and the agent EOA. These information will be available in the docker container as follows:
+    - The agent EOA private key will be on the file `/agent_key/ethereum_private_key.txt`.
+    - The service safe contract address will be accessible through the environment variable `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` as a dictionary with the chain as the key (e.g., `{ "gnosis": "0xE7CA89bE11A7A3b3d0bF6016d7a09f33c03a0a8f" }`).
+
+## Agent examples
+Here you can see the examples of two agents built with different frameworks:
+
+- [Langchain Hello World Agent](https://github.com/valory-xyz/langchain_hello_world)
+
+- [Eliza Memeooorr Agent](https://github.com/valory-xyz/agents-fun-eliza)
+
