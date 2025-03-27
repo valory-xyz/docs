@@ -208,6 +208,10 @@ README.md
 Deliver
 owner address
 id
+websocket
+QuickNode
+wss
+url
 mech
 config                              
 service.yaml
