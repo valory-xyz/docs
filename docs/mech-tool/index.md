@@ -238,7 +238,7 @@ chmod +x run_service.sh
 
 **5.** When you see the following, the service is running: 
 
-![alt text](image-1.png)
+![alt text](imgs/image-1.png)
 
 **6.** In order to see the logs, run the following command in a separate terminal: 
 
