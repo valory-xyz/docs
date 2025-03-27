@@ -105,7 +105,7 @@ Enter the address of the Mech in the scan of the network. Click on "Contract", t
 mechx deposit-native --chain-config <network_name> <amount>
 ```
 
-In order to be able to send a request, the amount should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate. For other payment models, this is similar. For a fixed price Mech receiving payments in an ERC20 token, use the following: 
+In order to be able to send a request, the amount should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate. For other payment models, this is similar. For a fixed price Mech receiving payments in OLAS, use the following (the amount is in ether): 
 
 ```bash
 mechx deposit-token --chain-config <network_name> <amount>
@@ -114,8 +114,10 @@ mechx deposit-token --chain-config <network_name> <amount>
 For a Mech using Nevermined subscriptions, use the following (the amount is fixed and allows multiple requests): 
 
 ```bash 
-mechx purchase-nvm-subscription --chain-config <network_name> --key ethereum_private_key.txt
+mechx purchase-nvm-subscription --chain-config <network_name>
 ```
+
+In order to select a custom private key file path, you can use the option --key.
 
 **2.** Receive the response: 
 

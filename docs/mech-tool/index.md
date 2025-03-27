@@ -199,83 +199,53 @@ After this the tool can be deployed to be used by a [Mech](#2-running-a-mech-loc
 
 ## 2. Running a Mech locally on the Mech Marketplace
 
-In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
+In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment - follow the instructions below. 
 
-### 2. 1. Setup 
+**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.8.3 ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
-**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
+**1.** Clone the quickstart repository:
 
-**1.** Run the followings in the terminal: 
-
-```
-docker pull valory/open-autonomy-tendermint:0.18.3
-docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
+```bash
+git clone https://github.com/valory-xyz/quickstart.git
+cd quickstart
 ```
 
-**2.** Create an EOA (add xDAI amounts on this account whenever requested). 
+**2.** Configure the Mech service by changing the variables in the file `configs/config_mech.json`. You can in particular 
+change the value of "agent_id". This corresponds to the code of the off-chain agent in the Mech service. The list of agents can be found [there](https://registry.olas.network/ethereum/agents). Change the value of "use_mech_marketplace" to true if you want to deploy a Mech on the Mech Marketplace. 
 
-**3.** Create a RPC endpoint, for instance using https://www.nodies.app/. The steps are the following ones: 
+**3.** Change the value the key "value" in `METADATA_HASH` and in `TOOLS_TO_PACKAGE_HASH` in order to use your custom tools.
+In order to change the first one, use the [mech-client](https://github.com/valory-xyz/mech-client.git). 
+Clone the repository and create a local file, following the model provided by the IPFS hash in the file `configs/config_mech.json`. Then run the following, replacing `<file_name>` with the name of your file:
 
-- Create an account; 
-
-- Create a project; 
-
-- Add an app to this project (choose the Gnosis chain); 
-
-- Copy the HTTPS link (under “Endpoint networks”) → this will be requested later; 
-
-**5.** Create a Google API Key and an OpenAI API key. 
-
-**6.** Clone the mech-quickstart repository:
-
-```
-git clone https://github.com/valory-xyz/mech-quickstart.git
+```bash
+poetry add mech-client &&\
+mechx push-to-ipfs ./<file_name>
 ```
 
-**7.** Rename the file `.api_keys.json.example` into `.api_keys.json` and add OpenAI and Google API keys in the file. Also rename the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
+Then place the second hash value which appears in the terminal in the file `configs/config_mech.json`. 
 
-**8.** Change folder to mech-quickstart and create environment (in terminal): 
+In order to change the value in `TOOLS_TO_PACKAGE_HASH`, follow the format and add your tools and their hashes (created in the first [section](#1-creating-and-publishing-a-tool)).
 
-```
-cd mech-quickstart
-poetry shell
-poetry install
-```
 
-### 2. 2. Running the mech service
+**3.** Run the following in order to deploy and run a new Mech: 
 
-**1.** Run the mech service (in terminal):
-
-```
-bash run_service.sh
+```bash
+chmod +x run_service.sh
+./run_service.sh configs/config_mech.json
 ```
 
-**2.** Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier). Also add funds to the required address.
+**4.** You will be prompted to provide an RPC endpoint (using QuickNode for instance), to choose to use a staking contract or not (choose option 1 by default), to enter API keys, the payment model of the Mech (Native, Token, Nevermined), and to add funds to two addresses, which correspond to the agent's address and the safe contract address of the Mech. The API keys dictionary that you enter should contain all the keys necessary for running your tools. You can find the Mech address using the transaction hashes displayed in the logs.
 
-**3.** In order to send a request to it, follow the steps in the [section 2.3](#2-3-sending-a-request) above, replacing the RPC endpoint with the one created here. 
+**5.** When you see the following, the service is running: 
 
-**4.** Logs are visible with: 
+![alt text](image-1.png)
 
-```
-docker logs mech_abci_0 --follow
-```
+**6.** In order to see the logs, run the following command in a separate terminal: 
 
-**5.** You can send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This address can be found in `.mech_quickstart/local_config.json`, key `mech_address`. Then use the mechx command: 
-
-```
-mechx interact <prompt> --tool <tool_name> --chain-config <chain>
+```bash
+docker logs $(docker ps --filter "name=<mech>" --format "{{.Names}}" | grep "_abci" | head -n 1) --follow
 ```
 
-where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool, and `<chain>` is replaced by the 
-name of the chosen chain.
-
-**6.** In order to add new tools when the mech is deployed, add its name and hash in `.tools_to_packages_hash.json`.
-
-**7.** Stop the mech service: 
-
-```
-./stop_service.sh
-```
 
 ## 3. Deploying a Mech on the Mech Marketplace (manually)
 
