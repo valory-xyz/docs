@@ -20,50 +20,29 @@ In order to send a request, the workflow is the following:
 		
 The detailed instructions to send a request to a Mech can be found below.
 
-/!\ Only the Mechs with fixed pricing are currently stable.
-
 ### Setup
 
 **Requirements**: [Python](https://www.python.org/) >= 3.10, [Poetry](https://github.com/python-poetry/poetry) == 1.8.4
 
-**1.** Install the [Mech client](https://github.com/valory-xyz/mech-client): 
-    
-- *(Option 1)* Using [Poetry](https://github.com/python-poetry/poetry): 
+**1.** Install mech-client: 
+
 ```
-poetry new my_project
+poetry my_project
 cd my_project
-poetry shell
 poetry add mech-client
-```
-
-- *(Option 2)* On local python installation: 
-
-```
-pip install mech-client
+poetry install
+poetry shell
 ```
 
 **2.** Setting up an EOA account: 
 
-- *Option 1* (manual creation):
+**a.** Install browser extension of Metamask and open it; 
 
-    **a.** Install browser extension of Metamask and open it; 
-        
-    **b.** Click on the account icon, then on “Add account or hardware wallet”, then “Add a new Ethereum account”, provide a name for the account and then click on “Add account”; 
-        
-    **c.** Select the newly created account and then click on the top-right menu icon and then “Account details”. You can find the private key by clicking “Show private key”. 
-        
-    **d.** Copy this key in the file `ethereum_private_key.txt` in your project folder (do not include any leading or trailing spaces, tabs or newlines or any other character); 
-    
-- *Option 2* (using [open-autonomy](https://github.com/valory-xyz/open-autonomy)): 
-        
-    **a.** Use the following to generate a private key: 
-    ```
-    autonomy generate-key ethereum -n 1
-    ```
-    
-    This creates a file keys.json in which the private key can be found on the key “private_key”. 
-        
-    **b.** Copy this key in the file `ethereum_private_key.txt`.
+**b.** Click on the account icon, then on “Add account or hardware wallet”, then “Add a new Ethereum account”, provide a name for the account and then click on “Add account”; 
+
+**c.** Select the newly created account and then click on the top-right menu icon and then “Account details”. You can find the private key by clicking “Show private key”. 
+
+**d.** Copy this key in the file `ethereum_private_key.txt` in your project folder (do not include any leading or trailing spaces, tabs or newlines or any other character); 
 
 **3.** Create an API key for the network you want to use. For instance, follow the steps described [here](https://docs.gnosisscan.io/getting-started/viewing-api-usage-statistics#creating-an-api-key) for Gnosis. Then use the following:
 
@@ -100,6 +79,10 @@ Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mec
 
 You will then see the list of available Mech Marketplace Mechs.
 
+In order to find which tools the Mech uses, click on its service id, and then "View code" in the window which opens. Open the folder `mech` and then `service.yaml`. Copy the IPFS hash which follows `agent: valory/mech:0.1.0` and open the corresponding 
+file by going to https://gateway.autonolas.tech/ipfs/ with the copied hash at the end of this address. Open the `mech` folder and then the file `aea-config.yaml`. In this file, the keys of the dictionary `tools_to_package_hash` are the
+names of the tools that this service uses. 
+
 ### 1. 2. In terminal
 
 **1.** Send a request: 
@@ -107,47 +90,61 @@ You will then see the list of available Mech Marketplace Mechs.
 - Use the command mechx in terminal, which is structured as follows: 
         
 ```
-mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool>
+mechx interact <prompt> --chain-config <chain-config> --use-offchain <bool> --tool <tool> --priority-mech <mech_address>
 ```
 
-Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). In the dictionary corresponding to this key, replace the value of `priority_mech_address` with the address of the mech you want to send the request to. 
-Change `<bool>` to True in order to use the off-chain method, and False otherwise. 
+Replace `<prompt>` by a string which corresponds to the request to send to the Mech, and `<chain-config>` by one of the keys in the dictionary found in the file `.mech_client/configs/mechs.json` (for instance "gnosis"). 
+Change `<bool>` to True in order to use the off-chain method, and False otherwise. Change `<tool>` to the name of the tool you want to use. Finally, change `<mech_address>` to the address of the Mech you want to send a request to.
 
-- If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Specifically, add:
-     - Native network token, e.g. xDAI for Gnosis, if the Mech uses native fixed price
-     - OLAS token on the network if the Mech uses Olas token fixed price
-     - Nevermined plan related to the network if the Mech uses Nevermined subscription.
-     
-It will be indicated how much is needed. You can also find 
-the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
+- If prompted, add funds to EOA account created above in order to be able to make a deposit on-chain and account for the mech fees. Add native token or OLAS token depending on the payment model of the Mech. It will be indicated how much is needed. You can also find the price per request (resp. the maximal price per Mechs with Nevermined subscription) as follows. 
 Enter the address of the Mech in the scan of the network. Click on "Contract", then "Read contract" and find and click on "maxDeliveryRate" in the list which appears below. Divide the displayed number by 10^8 in order to obtain the price per request.
 
-- It is possible (and optional) to specify which tool should be used by the mech. The command line is then:  
+- If prompted to make an on-chain deposit to pay for Mech fees, use the following, if the Mech uses fixed price in native token, where `<network_name>` is replaced with the name of the network (`gnosis` or `base` for instance) and `<amount>` is replaced with the amount to deposit:  
 
-```
-mechx interact <prompt> --tool <tool> --chain-config <chain-config>
-```
-
-In this case, replace `<tool>` by the name of the tool. 
-
-- If prompted to make a an on-chain deposit to pay for Mech fees, use the following: 
-
-```
-python ./scripts/deposit_payment_model.py
+```bash
+mechx deposit-native --chain-config <network_name> <amount>
 ```
 
-where `payment_model` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). When prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.
+In order to be able to send a request, the amount should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate. For other payment models, this is similar. For a fixed price Mech receiving payments in OLAS, use the following (the amount is in ether): 
+
+```bash
+mechx deposit-token --chain-config <network_name> <amount>
+```
+
+For a Mech using Nevermined subscriptions, use the following (the amount is fixed and allows multiple requests): 
+
+```bash 
+mechx purchase-nvm-subscription --chain-config <network_name>
+```
+
+In order to select a custom private key file path, you can use the option --key.
 
 **2.** Receive the response: 
 
 - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command  
 
-```
-mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config gnosis
+```bash
+mechx interact "write a short poem" --tool openai-gpt-3.5-turbo --chain-config gnosis --priority-mech <mech_address>
 ``` 
 
 you should receive a response as follows: 
         ![screenshot_response](./imgs/screenshot_request.png)
+
+Note that for some Mechs, a response may take few minutes to come, the websocket connection might be lost. 
+In this case, you can use a custom websocket provider (we suggest QuickNode for instance). Once you have a wss url, 
+change the following environment variable, replacing `<wss_url>` with yours.
+
+```bash
+export MECHX_WSS_ENDPOINT=<wss_url>
+```
+
+Otherwise, you can note the request id provided in the logs, convert it to hexadecimal:
+
+```bash
+printf "%x\n" <request_id>
+```
+
+where `<request_id>` is replaced by the id of your request. Find the Mech on this [page](https://mech.olas.network/mechs) (by searching for its service id or address for instance) and click on its address. You should see the list of requests sent to this Mech. You can find your request using its id (in hexadecimal format). Then click on "Delivers Data" to see the response. 
 
 - Remark: If an "Out of gas" error is encountered, an increase of the gas limit, can solve the problem, using the following line: 
 
@@ -160,25 +157,29 @@ export MECHX_GAS_LIMIT=200000
 The following script can be used in order to automatize request sending:
 
 ```
-from mech_client.interact import interact
+from mech_client.marketplace_interact import marketplace_interact
 
-PROMPT_TEXT = 'Will Gnosis pay reach 100k cards in 2024?'
-TOOL_NAME = "prediction-online"
+PRIORITY_MECH_ADDRESS = <priority_mech_address>
+PROMPT_TEXT = <prompt_text>
+TOOL_NAME = <tool_name>
+CHAIN_CONFIG=<network_name>
 
-result = interact(
+result = marketplace_interact(
     prompt=PROMPT_TEXT,
+    priority_mech=PRIORITY_MECH_ADDRESS,
+    use_offchain=USE_OFFCHAIN,
     tool=TOOL_NAME,
-    chain-config=CHAIN_CONFIG
+    chain_config=CHAIN_CONFIG
 )
 ```
 
-The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed. The variable **result** contains the response of the mech. 
+Replace `<priority_mech_address>`, `<prompt_text>`, `<tool_name>` and `<network_name>` respectively with the address of the targeted Mech, the text of the prompt to be sent, the name of the tool and the name of the network. The variable **result** contains the response of the mech. 
 
 ### 1. 4. Sending requests through the web interface
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+**2.** Go to the webpage [here](https://mech.olas.network/gnosis/mechs). Click on the address of the Mech you want to send a request to.
 
 **4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)
@@ -281,7 +282,7 @@ The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. Th
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+**2.** Go to the webpage [here](https://mech.olas.network/gnosis/mechs?legacy=true). Click on the address of the Mech you want to send a request to.
 
 **4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)

@@ -2,19 +2,18 @@
 
 This guide contains guidelines for contributing to the development of Mechs and offer services.
 
-In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech MarketPlace](#appendix-what-is-the-mech-marketplace). Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
+In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech MarketPlace](#appendix-what-is-the-mech-marketplace). Mech agents, when creating on-chain Mech contracts via the Mech Marketplace, can choose among three distinct payment models, each defining how the requester can pay for the service requested. Specifically, the payment models are the following:
 
 - Native:  A fixed-price model where the requester pays using the chain with native token native token for each delivered service;
 
-- Token: Similar to the Native model, but payments are made using a specified ERC20 token; 
+- Token: Similar to the Native model, but payments are made using a specified ERC20 token;
 
 - Nevermined subscription: A dynamic pricing model that allows flexible pricing across different services.
 
-Mech agent deployment and related Mech contract creation process is handled by the Mech quickstart, and the main inputs to provide are the list of tools to be used, and the chosen payment model. 
+Mech agent deployment and related Mech contract creation process is handled by the [Mech quickstart](#2-running-a-mech-locally-on-the-mech-marketplace), and the main inputs to provide are the list of tools to be used, and the chosen payment model. It is also possible to follow these steps [manually](#3-deploying-a-mech-on-the-mech-marketplace-manually).
 
 The detailed instructions to create tools, test them locally and deploy a Mech agent, and accrue payments can be found below.
  
-
 ## 1. Creating and publishing a tool
 
 In order to contribute to Mechs' abilities, you can create and publish a tool. In order to do so, follow the instructions below. 
@@ -84,7 +83,7 @@ for file in __init__.py "$TOOL_NAME.py"; do
 #   you may not use this file except in compliance with the License.
 #   You may obtain a copy of the License at
 #
-#       http://www.apache.org/licenses/LICENSE-2.0
+#       https://www.apache.org/licenses/LICENSE-2.0
 #
 #   Unless required by applicable law or agreed to in writing, software
 #   distributed under the License is distributed on an "AS IS" BASIS,
@@ -195,286 +194,87 @@ poetry add mech-client &&\
 mechx push-to-ipfs ./<file_name>
 ```
 
-After this, the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
+After this the tool can be deployed to be used by a [Mech](#2-running-a-mech-locally-on-the-mech-marketplace). 
 
 
-## 2. Testing a tool by deploying a Mech locally
+## 2. Running a Mech locally on the Mech Marketplace
 
-In order to test a tool that you developed, it is possible to do this by deploying a Mech locally and send it 
-requests, specifying your tool as the one to be used. In order to do so, follow the instructions below.
+In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment - follow the instructions below. 
 
-### 2. 1. Setup 
+**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.8.3 ; [Docker Compose](https://docs.docker.com/compose/install/) 
 
-**Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; [Yarn](https://yarnpkg.com/) == `1.22.19` ; [Node](https://nodejs.org/en) == `20.18.1`; npx/npm == `10.8.2` ;
+**1.** Clone the quickstart repository:
 
-**1.** Run the followings in the terminal: 
-```
-docker pull valory/open-autonomy-tendermint:0.18.3
-docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
+```bash
+git clone https://github.com/valory-xyz/quickstart.git
+cd quickstart
 ```
 
-**2.** Clone the mech-quickstart repository:
+**2.** Configure the Mech service by changing the variables in the file `configs/config_mech.json`. You can in particular 
+change the value of "agent_id". This corresponds to the code of the off-chain agent in the Mech service. The list of agents can be found [there](https://registry.olas.network/ethereum/agents). Change the value of "use_mech_marketplace" to true if you want to deploy a Mech on the Mech Marketplace. 
 
-```
-git clone https://github.com/valory-xyz/mech-quickstart.git
-```
+**3.** Change the value the key "value" in `METADATA_HASH` and in `TOOLS_TO_PACKAGE_HASH` in order to use your custom tools.
+In order to change the first one, use the [mech-client](https://github.com/valory-xyz/mech-client.git). 
+Clone the repository and create a local file, following the model provided by the IPFS hash in the file `configs/config_mech.json`. Then run the following, replacing `<file_name>` with the name of your file:
 
-**3.** Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys), and the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
-
-**4.** Create a tenderly virtual testnet, following these steps: 
-
-- Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
-
-- Click on “Project” and then “Create project”, as on the following picture. 
-
-      ![create_project](./imgs/screenshot_create_project.png "Create Project")
-
-      Give a name to the project and click again on “Create project”. 
-    
-- Then click on "Virtual Test Nets" on the left menu (or on the following icon if the menu bar is collapsed): 
-      ![testnet](./imgs/testnet.png "Testnet")
-    
-- Then click on “Create Virtual TestNet”.
-
-- Choose “Gnosis chain” as the parent network, give a name to the virtual testnet and un-mark “Use latest block” in the State Sync section in order to enter the following custom block: 36619660.
-    
-- Finally, click on the “Create” button.
-
-- After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later.
-
-**5.** Setup the virtual testnet, by following these steps: 
-
-- In a separate folder, clone the ai-registry-mech repository: 
-        ```
-        git clone https://github.com/KahanMajmudar/ai-registry-mech.git
-        ```
-- Run the following: 
-        ```
-        git submodule update --init --recursive
-        ```
-- Then change the branch to "testnet-setup".
-
-- Crate an access token on Tenderly, by clicking on the profile icon (top-right), then on "Account settings", "Access tokens" in the left menu, then "Generate access token". Choose a label (it is only informative) and then click on "Generate". Copy the generated token.  
-
-- Connect to tenderly in the terminal: 
-        ```
-        tenderly login --access-key <access_token>
-        ```
-where `<access_token>` has to be replaced with the access key created as before.
-
-- In the file `hardhat.config.js`, change the url of `virtual_testnet` (line 47) to the RPC of the testnet created on tenderly. On lines 141 and 142, change "project" and "username" strings with the ones found on tenderly in the opened project. This can be found by clicking on "Project" on the tenderly dashboard, then selecting the opened project, and "Settings" on the right menu. The "project" corresponds to "Project slug" and "username" corresponds to "Account slug".
-
-- In the file `globals.json`, change "networkURL" on line 6 to the RPC of the testnet and "privateKey" (line 7) to the private key of your wallet. 
-
-- Install the dependencies using the following: 
-    ```
-    yarn install
-    ```
-
-- Fund the EOA address in tenderly (with the default amount). In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
-
-- Run the script to deploy the contracts which are necessary to test the Mech locally: 
-```
-bash setup-tdly.sh
-``` 
-- From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: 
-
-    **a.** "mechMarketplaceProxyAddress" -> line 490 ; 
-
-    **b.** "mechFactoryFixedPriceNativeAddress" -> line 495 ; 
-
-    **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
-
-### 2. 2. Running the Mech
-
-**0.** Change folder to the mech-quickstart one and then create environment (in terminal): 
-
-```
-poetry shell
-poetry install
+```bash
+poetry add mech-client &&\
+mechx push-to-ipfs ./<file_name>
 ```
 
-**1.** Run the mech service (in terminal):
+Then place the second hash value which appears in the terminal in the file `configs/config_mech.json`. 
 
-```
-bash run_service.sh
-```
+In order to change the value in `TOOLS_TO_PACKAGE_HASH`, follow the format and add your tools and their hashes (created in the first [section](#1-creating-and-publishing-a-tool)).
 
-**2.** Provide information when prompted, in particular: 
 
-- "Please enter a GNOSIS RPC URL" -> enter the RPC endpoint (https address copied earlier). 
+**3.** Run the following in order to deploy and run a new Mech: 
 
-- "Which type of mech do you want to deploy?" -> this corresponds to the payment model of the Mech (Native: native token ; Token: ERC20 tokens; Nevermined: subscription); default is Native. 
-
-Other values can be left to default (by pressing enter when prompted).
-
-**3.** When prompted to do so, add funds to the required address. 
-
-**4.** Logs are visible with: 
-```
-docker logs mech_abci_0 --follow
+```bash
+chmod +x run_service.sh
+./run_service.sh configs/config_mech.json
 ```
 
-The activity of the Mech is visible on the virtual testnet.
+**4.** You will be prompted to provide an RPC endpoint (using QuickNode for instance), to choose to use a staking contract or not (choose option 1 by default), to enter API keys, the payment model of the Mech (Native, Token, Nevermined), and to add funds to two addresses, which correspond to the agent's address and the safe contract address of the Mech. The API keys dictionary that you enter should contain all the keys necessary for running your tools. You can find the Mech address using the transaction hashes displayed in the logs.
 
-**5.** Stop the mech service: 
+**5.** When you see the following, the service is running: 
 
+![alt text](imgs/image-1.png)
+
+**6.** In order to see the logs, run the following command in a separate terminal: 
+{% raw %}
+```bash
+docker logs $(docker ps --filter "name=<mech>" --format "{{.Names}}" | grep "_abci" | head -n 1) --follow
 ```
-./stop_service.sh
-```
+{% endraw %}
 
-### 2. 3. Sending a request
 
-**1.** In another folder, clone the mech-client repository: 
+## 3. Deploying a Mech on the Mech Marketplace (manually)
 
-```
-git clone https://github.com/valory-xyz/mech-client.git
-```
+In order to deploy a Mech, it is also possible to do so manually, first by deploying a service, registering it on the Mech Marketplace, and then running it locally.
 
-**2.** Install the mech-client package: 
+### 3.1 Creating a Mech service
 
-```
-pip install -e.
-```
+In order to create the service, go to the [Olas Registry](https://registry.olas.network/gnosis/services) webpage. 
 
-**3.** If the mech-client folder does not contain a file `ethereum_private_key.txt` already, create it and paste in it the private key of your EOA.
+**1.** Choose the network and connect your wallet. 
 
-**4.** Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
+**2.** Click on the button "Mint".
 
-```
-"tdly": {
-    "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
-    "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
-    "rpc_url": ,
-    "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
-    "ledger_config": {
-        "address": ,
-        "chain_id": 10200,
-        "poa_chain": false,
-        "default_gas_price_strategy": "eip1559",
-        "is_gas_estimation_enabled": false
-    },
-    "mech_marketplace_config": {
-        "mech_marketplace_contract": "",
-        "priority_mech_address": "",
-        "response_timeout": 300,
-        "payment_data": "0x"
-    },
-    "gas_limit": 500000,
-    "price": 10000000000000000,
-    "contract_abi_url":"https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
-    "transaction_url":"https:/gnosisscan.iotx/{transaction_digest}",
-    "subgraph_url": ""
-}
-```
+**3.** Click on the `Prefill address` button in order to fill the `owner address` field. You will need to have funds on this address in order to deploy the service. For the hash of the metadata file, click on "Generate Hash & File". The hash should be the one found in the file `packages/packages.json` in the mech-predict [repository](https://github.com/valory-xyz/mech-predict/) for the key `service/valory/mech/`. Select first the prefix and fill the field with the remaining part. The version is contained in this key (e.g. `service/valory/mech/0.1.0`). For the agent id, follow the instructions on the opened page (for instance agent id = 9 to test). The number of slots corresponds to the number of agents that the service contains (we suggest 1 to test). For the cost of agent bound, we suggest that you use a small value (e.g., 1000000000000000 GörliWei = 0.001 GörliETH). We suggest to write threshold = 1 to test. Then click on submit.
 
-Replace `rpc_url` and `address` with the RPC endpoint address, and `mech_marketplace_contract` with the mech marketplace address found in tenderly. Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
+**4.** Click on "Services". The last entry corresponds to the service you have created. Click on "View".
 
-![alt text](image.png)
+**5.** Click first on "Activate registration" (Step 1). Then in the field "Agent Instance Addresses" (Step 2), enter one address (not the same one as the one used as owner address) for each agent in the service, and click on "Register Agents". Choose a service multisig (Step 3) and click on "Submit".
 
-The contract is the last one created in the list of contracts found in tenderly. 
+**6.** The service is now deployed, and you can see the safe contract address below. You will need this address in order to run the Mech.
 
-**5.** Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
+### 3.2 Registering the service on the Mech Marketplace
 
-**6.** Run the following command in terminal in the mech-client repository: 
-
-```
-mechx interact <prompt> --tool <tool_name> --chain-config tdly
-```
-
-where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
-
-**7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
-
-## 4. Deploying a Mech on the Mech Marketplace
-
-In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
-
-### 4. 1. Setup 
-
-**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) 
-
-**1.** Run the followings in the terminal: 
-
-```
-docker pull valory/open-autonomy-tendermint:0.18.3
-docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
-```
-
-**2.** Create an EOA (add xDAI amounts on this account whenever requested). 
-
-**3.** Create a RPC endpoint, for instance using https://www.nodies.app/. The steps are the following ones: 
-
-- Create an account; 
-
-- Create a project; 
-
-- Add an app to this project (choose the Gnosis chain); 
-
-- Copy the HTTPS link (under “Endpoint networks”) → this will be requested later; 
-
-**5.** Create a Google API Key and an OpenAI API key. 
-
-**6.** Clone the mech-quickstart repository:
-
-```
-git clone https://github.com/valory-xyz/mech-quickstart.git
-```
-
-**7.** Rename the file `.api_keys.json.example` into `.api_keys.json` and add OpenAI and Google API keys in the file. Also rename the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
-
-**8.** Change folder to mech-quickstart and create environment (in terminal): 
-
-```
-cd mech-quickstart
-poetry shell
-poetry install
-```
-
-### 4. 2. Running the mech service
-
-**1.** Run the mech service (in terminal):
-
-```
-bash run_service.sh
-```
-
-**2.** Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier).
-
-**3.** In order to send a request to it, follow the steps in the [section 2.3](#2-3-sending-a-request) above, replacing the RPC endpoint with the one created here. 
-
-**4.** Logs are visible with: 
-
-```
-docker logs mech_abci_0 --follow
-```
-
-**5.** You can send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This address can be found in `.mech_quickstart/local_config.json`, key `mech_address`. Then use the mechx command: 
-
-```
-mechx interact <prompt> --tool <tool_name> --chain-config <chain>
-```
-
-where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool, and `<chain>` is replaced by the 
-name of the chosen chain.
-
-**6.** In order to add new tools when the mech is deployed, add its name and hash in `.tools_to_packages_hash.json`.
-
-**7.** Stop the mech service: 
-
-```
-./stop_service.sh
-```
-
-## 5. Registering an agent on the Mech Marketplace
-
-In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register it on the Mech Marketplace. 
-
-In order to do so, follow the instructions below.
+In order to register your service on the Mech Marketplace, follow the instructions below.
 
 **1.** Find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
-**2.** Trigger the function `create` of this contract with the following inputs (in order):
+**2.** Using the scan of the chosen network, trigger the function `create` of this contract with the following inputs (in order):
 
 - The service id.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json). Search for the address that matches the chosen payment model:
@@ -485,35 +285,26 @@ In order to do so, follow the instructions below.
 
     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
-is equal to 10^18.
+- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. In order to do this, first multiply 
+the price in xDAI by 10^18. For instance, for a price of 1 xDAI, this 
+is equal to 10^18. Then Use [ABI Hashex Encoder](https://abi.hashex.org/). Select uint256 as the type and enter the obtained value (for 1 xDAI this is 1000000000000000000 in wei). The tool will generate the encoded result, which is the following in the example: 0000000000000000000000000000000000000000000000000de0b6b3a7640000. Finally add 0x at the beginning of the sequence to obtain 0x0000000000000000000000000000000000000000000000000de0b6b3a7640000 in the example. This is the sequence that should be entered. 
 
-You can find a script for triggering this function [here](https://github.com/Sfgangloff/ai-registry-mech/tree/05d14fcf95608ef0da74c5f1e1640f7d82b1dbc3/scripts/mech_registration) for each payment model. Clone the repository: 
 
-```
-git clone https://github.com/Sfgangloff/ai-registry-mech.git
-```
+:warning: You must use the same EOA as the one used to deploy the service.
 
-Update the submodules, install the dependencies and compile the contracts: 
+### 3.3 Running the Mech service
 
-```
-git submodule update --init --recursive
-yarn install
-npx hardhat compile
-```
+In order to run the Mech service that you created, follow the steps below.
 
-Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
+Clone the `mech-predict` repository:
 
 ```
-cd scripts/mech_registration
-node create_mech_native.js
+git clone https://github.com/valory-xyz/mech-predict.git
 ```
 
-/!\ The private key must correspond to the EOA used to deploy the service.
+Then follow the instructions in the README.md file (section 'Running the Mech').
 
-**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
-
-## 6. How to accrue the payments
+## 4. How to accrue the payments
 
 In order to accrue the payments of your Mech, find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models: 
 
