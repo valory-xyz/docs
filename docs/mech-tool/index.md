@@ -241,10 +241,11 @@ chmod +x run_service.sh
 ![alt text](imgs/image-1.png)
 
 **6.** In order to see the logs, run the following command in a separate terminal: 
-
+{% raw %}
 ```bash
 docker logs $(docker ps --filter "name=<mech>" --format "{{.Names}}" | grep "_abci" | head -n 1) --follow
 ```
+{% endraw %}
 
 
 ## 3. Deploying a Mech on the Mech Marketplace (manually)
