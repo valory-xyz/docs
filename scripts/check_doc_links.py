@@ -62,7 +62,8 @@ URL_SKIPS = [
     "wss://gnosis-chiado-rpc.publicnode.com",
     "https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
     "https:/gnosisscan.iotx/{transaction_digest}",
-    "http://www.apache.org/licenses/LICENSE-2.0"
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a"
 ]
 
 # Define here custom timeouts for some edge cases
