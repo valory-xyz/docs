@@ -94,7 +94,7 @@ Each event whose name begins with "CreateMech", as on the following picture (the
 
 ![alt text](./imgs/image-1.png)
 
-Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mechs on this [webpage](https://aimechs.autonolas.network/). Click on "Mech Marketplace" tab as on the following picture.
+Alternatively, for Gnosis network, you can find the list of Mech Marketplace Mechs on this [webpage](https://mech.olas.network/). Click on "Mech Marketplace" tab as on the following picture.
 
 ![alt text](./imgs/legacy_tab.png)
 
@@ -178,7 +178,7 @@ The variables **PROMPT_TEXT**, **CHAIN_CONFIG** and **TOOL_NAME** can be changed
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+**2.** Go to the webpage [here](https://mech.olas.network/). In the url, replace the address with the one of the Mech you intend to send a request to.
 
 **4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)
@@ -204,7 +204,7 @@ Follow first the steps in the [setup](#setup) above, then [choose a Mech](#2-1-c
 
 ![List of Mechs](./imgs/list_of_mechs.png)
 
-For Gnosis, more legacy Mechs are listed on this [webpage](https://aimechs.autonolas.network/). Click on "Legacy" tab as on the following picture.
+For Gnosis, more legacy Mechs are listed on this [webpage](https://mech.olas.network/). Click on "Legacy" tab as on the following picture.
 
 ![Mech Marketplace vs Legacy](./imgs/legacy_tab.png)
 
@@ -281,7 +281,7 @@ The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. Th
 
 **1.** Create a wallet (for instance with [Metamask](https://metamask.io/)) and connect it to the web interface by clicking on the button “Connect wallet” on the webpage. This wallet must be provided with xDAI in order to pay the Mechs for the requests.
 
-**2.** Go to the webpage [here](https://aimechs.autonolas.network/mech/0x77af31De935740567Cf4fF1986D04B2c964A786a). In the url, replace the address with the one of the Mech you intend to send a request to.
+**2.** Go to the webpage [here](https://mech.olas.network/). In the url, replace the address with the one of the Mech you intend to send a request to.
 
 **4.** Click on "New Request". The following pop-up will appear: 
 ![screenshot](./imgs/screenshot.png)

@@ -43,7 +43,7 @@ nav:
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Olas SDK: 'olas-sdk/index.md'
   - Mech Client: 'mech-client/index.md'
-  - Mech Tools: 'mech-tool/index.md'
+  - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
   - Olas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'

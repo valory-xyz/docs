@@ -37,3 +37,6 @@
 [submodule "open-aea"]
 	path = open-aea
 	url = https://github.com/valory-xyz/open-aea
+[submodule "mech-tools-dev"]
+	path = mech-tools-dev
+	url = https://github.com/valory-xyz/mech-tools-dev
