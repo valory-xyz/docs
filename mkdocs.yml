@@ -42,7 +42,7 @@ nav:
       - Price oracle: 'demos/price-oracle/index.md'
   - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
   - Olas SDK: 'olas-sdk/index.md'
-  - Mech Client: 'mech-client/index.md'
+  - Mech Client: '!include ./mech-client/mkdocs.yml'
   - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
   - Olas Protocol:
       - 'protocol/index.md'
