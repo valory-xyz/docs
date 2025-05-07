@@ -293,3 +293,9 @@ The variables **PROMPT_TEXT**, **AGENT_ID** and **TOOL_NAME** can be changed. Th
 Click on "Confirm".
 
 **7.** You can find the request by searching for your wallet's address in the column "Sender". When the request is delivered, you can access the delivered data in the column "Delivers data" in the corresponding row.
+
+
+## Troubleshooting :
+
+1. **Issue**: Invalid character in tool names <br>
+**Solution**: It is possible sometimes for the request tool to contain \\u201c or \\u201d. This means it is using a quotation mark character that is not accepted, replace the quotation mark characher " for a compatible one.
