@@ -527,7 +527,7 @@ Enter its address in the scan of the chosen network. Click on "Contract" and the
 
 ## Troubleshooting :
 
-1. **Issue**: 0xa25d624C49eE3691a2B25223e3a899c77738FDa3 not in list of participants: [\'0xc062E6cfdCb48700de374905BF66A0BAD1Ef36E7\']"
+1. **Issue**: `0xa25d624C49eE3691a2B25223e3a899c77738FDa3` not in list of participants: "[`0xc062E6cfdCb48700de374905BF66A0BAD1Ef36E7`]"
 **Solution**: Make sure the private keys inside keys.json match the address in ALL_PARTICIPANTS env
 
 2. **Issue**: Exception raised while executing task: No module named 'anthropic'
@@ -550,7 +550,7 @@ Enter its address in the scan of the chosen network. Click on "Contract" and the
 **Solution**: Make sure to add proper key names inside API_KEYS env
 
 7. **Issue**: Error: Number of agents cannot be greater than available keys.
-**Solution**: It's possible the code editor is formating env files so double check the format of the keys and values. 
+**Solution**: It's possible the code editor is formatting env files so double check the format of the keys and values. 
 So for example, for 1 agent system
 
     ```txt
