@@ -134,6 +134,12 @@ The agent can be built using any framework and it will be made available on {{ o
     - The agent EOA private key will be on the file `/agent_key/ethereum_private_key.txt`.
     - The service safe contract address will be accessible through the environment variable `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` as a dictionary with the chain as the key (e.g., `{ "gnosis": "0xE7CA89bE11A7A3b3d0bF6016d7a09f33c03a0a8f" }`).
 
+## Building a binary of your agent
+
+You also have the option to build a standalone executable binary of your agent and use it in place of Docker containers. While the process of creating the binary is at the discretion of the agent developers, it is essential to adhere to the same specifications outlined in the [Docker Image Requirements](#docker-image-requirements).
+
+[Here's an example](https://github.com/valory-xyz/agents-fun-eliza/blob/main/docs/binary_building.md) of how to build a binary of an Eliza agent. Note that the process can be different depending on the agent framework used.
+
 ## Agent examples
 Here you can see the examples of two agents built with different frameworks:
 
