@@ -541,7 +541,7 @@ Enter its address in the scan of the chosen network. Click on "Contract" and the
     ```
     MECH_TO_CONFIG='{"0xbead38e4C4777341bB3FD44e8cd4D1ba1a7Ad9D7":{"use_dynamic_pricing":false,"is_marketplace_mech":true}}' 
     ```
-    ⚠️ It is possible sometimes for the env to contain \\u201c or \\u201d. This means it is using a quotation mark character that is not accepted, replace the quotation mark characher " for a compatible one.
+    ⚠️ It is possible sometimes for the env to contain \\u201c or \\u201d. This means it is using a quotation mark character that is not accepted, replace the quotation mark character " for a compatible one.
 
 5. **Issue**: ValueError: {'code': -32603, 'message': 'Filter with id: 1950087 does not exist.'}. Error when requesting transaction digest: {'code': -32010, 'message': 'AlreadyKnown'} <br>
 **Solution**: Please check RPC is correct or change to a different provider
@@ -565,7 +565,7 @@ So for example, for 1 agent system
 8. **Issue**: Client.__init__() got an unexpected keyword argument 'proxies'"
 **Solution**: Try to pin httpx to 0.25.2 inside tool's component.yaml and aea-config.yaml
 
-9. **Issue**: Tool tool_name is not supported. <br>
+9. **Issue**: Tool  <tool_name>  is not supported. <br>
 **Solution**: Make sure the tool_name is inside the ALLOWED_TOOLS inside the tool.py
 
 10. **Issue**: Incompatible counter_callback. <br>

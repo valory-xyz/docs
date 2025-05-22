@@ -298,4 +298,4 @@ Click on "Confirm".
 ## Troubleshooting :
 
 1. **Issue**: Invalid character in tool names <br>
-**Solution**: It is possible sometimes for the request tool to contain \\u201c or \\u201d. This means it is using a quotation mark character that is not accepted, replace the quotation mark characher " for a compatible one.
+**Solution**: It is possible sometimes for the request tool to contain \\u201c or \\u201d. This means it is using a quotation mark character that is not accepted, replace the quotation mark character " for a compatible one.
