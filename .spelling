@@ -300,6 +300,7 @@ entry_point
 licencing
 aea_version
 fingerprint_ignore_patterns
+standalone
 EOA
 3.10
 1.8.4
