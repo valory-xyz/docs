@@ -525,6 +525,64 @@ In order to accrue the payments of your Mech, find [here](https://github.com/val
 
 Enter its address in the scan of the chosen network. Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract. 
 
+## Troubleshooting :
+
+1. **Issue**: `0xa25d624C49eE3691a2B25223e3a899c77738FDa3` not in list of participants: "[`0xc062E6cfdCb48700de374905BF66A0BAD1Ef36E7`]"
+**Solution**: Make sure the private keys inside keys.json match the address in ALL_PARTICIPANTS env
+
+2. **Issue**: Exception raised while executing task: No module named 'anthropic'
+**Solution**: Make sure the deps are listed in tool/component.yaml and aea-config.yaml and are pinned
+
+3. **Issue**: Tool changes not being reflected <br>
+**Solution**: Update the tool hash if there are any changes inside the tools or configs. To update run autonomy packages lock and update the tool hash (if needed) inside TOOLS_TO_PACKAGE_HASH
+
+4. **Issue**: env formatting issues <br>
+**Solution**: Make sure there are no whitespaces in dicts and lists and are represented as a string. So example this is the correct format. Also pay attention to utf coding of the " in str fields. 
+    ```
+    MECH_TO_CONFIG='{"0xbead38e4C4777341bB3FD44e8cd4D1ba1a7Ad9D7":{"use_dynamic_pricing":false,"is_marketplace_mech":true}}' 
+    ```
+    ⚠️ It is possible sometimes for the env to contain \\u201c or \\u201d. This means it is using a quotation mark character that is not accepted, replace the quotation mark character " for a compatible one.
+
+5. **Issue**: ValueError: {'code': -32603, 'message': 'Filter with id: 1950087 does not exist.'}. Error when requesting transaction digest: {'code': -32010, 'message': 'AlreadyKnown'} <br>
+**Solution**: Please check RPC is correct or change to a different provider
+
+6. **Issue**: Service `\'\'api_key\'\'` not found in KeyChain. <br>
+**Solution**: Make sure to add proper key names inside API_KEYS env
+
+7. **Issue**: Error: Number of agents cannot be greater than available keys.
+**Solution**: It's possible the code editor is formatting env files so double check the format of the keys and values. 
+So for example, for 1 agent system
+
+    ```txt
+    Wrong: 
+    ETHEREUM_LEDGER_RPC_0 = (
+        "https://rpc.gnosischain.com/"
+    )
+
+    Right: ETHEREUM_LEDGER_RPC_0="https://rpc.gnosischain.com/"
+    ```
+
+8. **Issue**: Client.__init__() got an unexpected keyword argument 'proxies'"
+**Solution**: Try to pin httpx to 0.25.2 inside tool's component.yaml and aea-config.yaml
+
+9. **Issue**: Tool  <tool_name>  is not supported. <br>
+**Solution**: Make sure the tool_name is inside the ALLOWED_TOOLS inside the tool.py
+
+10. **Issue**: Incompatible counter_callback. <br>
+**Solution**: If your tool is going to use the counter_callback function available at the run template and your tool is using a model that is not in [this](https://github.com/valory-xyz/mech/blob/main/packages/valory/skills/task_execution/utils/benchmarks.py#L31) list, please contact the mech developers for your model to be included, otherwise do not use the counter_callback function
+
+11. **Issue**: Port already in use. <br>
+**Solution**: When running locally the mech agent if you face an error of the type 
+`ERROR: failed to start node: failed to listen on 127.0.0.1:26658: listen tcp 127.0.0.1:26658: bind: address already in use` <br>
+Then check at the CLI which process is using the port:
+    ```bash
+    $ lsof -i :26658
+    ```
+    and kill the process with: 
+    ```bash
+    $ kill -9 process_id
+    ```
+
 ## Appendix : What is the Mech Marketplace ?
 
 The Mech Marketplace is a collection of smart contracts designed to facilitate seamless interactions between agents or applications (referred to as requesters) and Mech agents which provide task-based services. Essentially, it acts as a relay, enabling secure, on-chain payments while ensuring efficient task requests and service delivery. 
