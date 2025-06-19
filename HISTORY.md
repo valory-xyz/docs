@@ -1,6 +1,6 @@
 # Release History - Olas Documentation
 
-## v0.20.3 (2025-07-19)
+## v0.20.4 (2025-07-19)
 
 * Remove Discord invite.
 
