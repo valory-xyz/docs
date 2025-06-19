@@ -27,6 +27,6 @@ The Olas Stack is made of three main components:
 
 ## Get involved
 
-We look forward to you getting involved in the Olas ecosystem and deploying your own autonomous services. If you have any questions, or if you have found any missing information in these pages, or you are simply interested in knowing more about the project, feel free to reach through the [Olas website](https://olas.network/) and follow us on [X](https://x.com/autonolas).
+We look forward to you getting involved in the Olas ecosystem and deploying your own autonomous services. If you have any questions, or if you have found any missing information in these pages, or you are simply interested in knowing more about the project, feel free to reach us through the [Olas website](https://olas.network/) and follow us on [X](https://x.com/autonolas).
 
 <div style="text-align: right"><small>Documentation version {{git.tag}} ({{ git.short_commit}}) {{ git.date.strftime("%b %d, %Y %H:%M:%S UTC%z") }}.</small></div>
