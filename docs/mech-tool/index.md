@@ -213,15 +213,13 @@ docker pull valory/open-autonomy-tendermint:0.18.3
 docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
 ```
 
-**2.** Clone the mech-quickstart repository:
+**2.** Clone the quickstart repository:
 
 ```
-git clone https://github.com/valory-xyz/mech-quickstart.git
+git clone https://github.com/valory-xyz/quickstart.git
 ```
 
-**3.** Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys), and the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
-
-**4.** Create a tenderly virtual testnet, following these steps: 
+**3.** Create a tenderly virtual testnet, following these steps: 
 
 - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
 
@@ -242,52 +240,9 @@ git clone https://github.com/valory-xyz/mech-quickstart.git
 
 - After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later.
 
-**5.** Setup the virtual testnet, by following these steps: 
-
-- In a separate folder, clone the ai-registry-mech repository: 
-        ```
-        git clone https://github.com/KahanMajmudar/ai-registry-mech.git
-        ```
-- Run the following: 
-        ```
-        git submodule update --init --recursive
-        ```
-- Then change the branch to "testnet-setup".
-
-- Crate an access token on Tenderly, by clicking on the profile icon (top-right), then on "Account settings", "Access tokens" in the left menu, then "Generate access token". Choose a label (it is only informative) and then click on "Generate". Copy the generated token.  
-
-- Connect to tenderly in the terminal: 
-        ```
-        tenderly login --access-key <access_token>
-        ```
-where `<access_token>` has to be replaced with the access key created as before.
-
-- In the file `hardhat.config.js`, change the url of `virtual_testnet` (line 47) to the RPC of the testnet created on tenderly. On lines 141 and 142, change "project" and "username" strings with the ones found on tenderly in the opened project. This can be found by clicking on "Project" on the tenderly dashboard, then selecting the opened project, and "Settings" on the right menu. The "project" corresponds to "Project slug" and "username" corresponds to "Account slug".
-
-- In the file `globals.json`, change "networkURL" on line 6 to the RPC of the testnet and "privateKey" (line 7) to the private key of your wallet. 
-
-- Install the dependencies using the following: 
-    ```
-    yarn install
-    ```
-
-- Fund the EOA address in tenderly (with the default amount). In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
-
-- Run the script to deploy the contracts which are necessary to test the Mech locally: 
-```
-bash setup-tdly.sh
-``` 
-- From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: 
-
-    **a.** "mechMarketplaceProxyAddress" -> line 490 ; 
-
-    **b.** "mechFactoryFixedPriceNativeAddress" -> line 495 ; 
-
-    **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
-
 ### 2. 2. Running the Mech
 
-**0.** Change folder to the mech-quickstart one and then create environment (in terminal): 
+**0.** Change folder to the quickstart one and then create environment (in terminal): 
 
 ```
 poetry shell
@@ -297,7 +252,8 @@ poetry install
 **1.** Run the mech service (in terminal):
 
 ```
-bash run_service.sh
+chmod +x run_service.sh
+./run_service.sh configs/config_mech.json
 ```
 
 **2.** Provide information when prompted, in particular: 
@@ -325,66 +281,27 @@ The activity of the Mech is visible on the virtual testnet.
 
 ### 2. 3. Sending a request
 
-**1.** In another folder, clone the mech-client repository: 
+**1.** In another folder, clone the mech-client repository and follow the steps in README to setup: 
 
 ```
 git clone https://github.com/valory-xyz/mech-client.git
 ```
 
-**2.** Install the mech-client package: 
-
-```
-pip install -e.
-```
-
-**3.** If the mech-client folder does not contain a file `ethereum_private_key.txt` already, create it and paste in it the private key of your EOA.
-
-**4.** Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
-
-```
-"tdly": {
-    "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
-    "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
-    "rpc_url": ,
-    "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
-    "ledger_config": {
-        "address": ,
-        "chain_id": 10200,
-        "poa_chain": false,
-        "default_gas_price_strategy": "eip1559",
-        "is_gas_estimation_enabled": false
-    },
-    "mech_marketplace_config": {
-        "mech_marketplace_contract": "",
-        "priority_mech_address": "",
-        "response_timeout": 300,
-        "payment_data": "0x"
-    },
-    "gas_limit": 500000,
-    "price": 10000000000000000,
-    "contract_abi_url":"https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
-    "transaction_url":"https:/gnosisscan.iotx/{transaction_digest}",
-    "subgraph_url": ""
-}
-```
-
-Replace `rpc_url` and `address` with the RPC endpoint address, and `mech_marketplace_contract` with the mech marketplace address found in tenderly. Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
+**2.** Export `MECHX_RPC_URL` as the RPC endpoint address found in tenderly. Please note the `priority_mech_address`. This address can be found in the tab "Contracts" of the page of the Testnet created above: 
 
 ![alt text](image.png)
 
 The contract is the last one created in the list of contracts found in tenderly. 
 
-**5.** Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
-
-**6.** Run the following command in terminal in the mech-client repository: 
+**3.** Run the following command in terminal in the mech-client repository: 
 
 ```
-mechx interact <prompt> --tool <tool_name> --chain-config tdly
+mechx interact --prompts <prompt> --priority-mech <priority mech address> --tools <tool-name> --chain-config <chain_config>
 ```
 
 where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
 
-**7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
+**4.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
 ## 4. Deploying a Mech on the Mech Marketplace
 
