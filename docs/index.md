@@ -14,7 +14,7 @@ Olas' mission is to provide a foundation on which new types of autonomous servic
 * Are crypto-native: decentralized, trust-minimized, transparent, and robust.
 
 <figure markdown>
-[:material-book-open-variant: &nbsp; Read the Olas Whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf){ .md-button .md-button--primary}
+[:material-book-open-variant: &nbsp; Read the Olas Whitepaper](https://olas.network/documents/whitepaper/Whitepaper%20v1.0.pdf){ .md-button .md-button--primary}
 </figure>
 
 ## The Olas Stack
