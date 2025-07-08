@@ -340,4 +340,5 @@ httpx
 tool_name
 ALLOWED_TOOLS
 tool.py
+dropdown
 counter_callback

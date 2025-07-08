@@ -404,9 +404,9 @@ In order to do so, follow the instructions below.
 
 - The maximum price of the Mech (also called maxDeliveryRate), converted to Wei in bytes.
 
- - To convert price to wei, go to [wei converter](https://eth-converter.com/) and input the desired price in eth. So if you want the mech to have a price of 0.01xDai, the desired output is `10000000000000000` in Wei
+ - To convert price to wei, go to [wei converter](https://eth-converter.com/) and input the desired price in ETH. So if you want the mech to have a price of 0.01 xDAI, the desired output is `10000000000000000` in Wei
 
- - To convert wei to bytes, go to [bytes convertor](https://abi.hashex.org/) and select `Add Argument`. From the dropdown, select `uint256` as the option and paste the wei value. You will get the `encoded data` as the ouput. In our example, it is `000000000000000000000000000000000000000000000000002386f26fc10000`
+ - To convert wei to bytes, go to [bytes convertor](https://abi.hashex.org/) and select `Add Argument`. From the dropdown, select `uint256` as the option and paste the wei value. You will get the `encoded data` as the output. In our example, it is `000000000000000000000000000000000000000000000000002386f26fc10000`
 
 **3.** You will find the address of the Mech contract in the logs of the create tx. 
 
