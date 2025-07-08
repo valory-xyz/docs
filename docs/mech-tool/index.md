@@ -391,7 +391,7 @@ In order to do so, follow the instructions below.
 
 **1.** Find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
-**2.** Trigger the function `create` of this contract with the following inputs (in order):
+**2.** Trigger the function `create` inside `Write as proxy` of this contract with the following inputs (in order):
 
 - The service id.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json). Search for the address that matches the chosen payment model:
@@ -402,33 +402,13 @@ In order to do so, follow the instructions below.
 
     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
-is equal to 10^18.
+- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei in bytes.
 
-You can find a script for triggering this function [here](https://github.com/Sfgangloff/ai-registry-mech/tree/05d14fcf95608ef0da74c5f1e1640f7d82b1dbc3/scripts/mech_registration) for each payment model. Clone the repository: 
+ - To convert price to wei, go to [wei converter](https://eth-converter.com/) and input the desired price in eth. So if you want the mech to have a price of 0.01xDai, the desired output is `10000000000000000` in Wei
 
-```
-git clone https://github.com/Sfgangloff/ai-registry-mech.git
-```
+ - To convert wei to bytes, go to [bytes convertor](https://abi.hashex.org/) and select `Add Argument`. From the dropdown, select `uint256` as the option and paste the wei value. You will get the `encoded data` as the ouput. In our example, it is `000000000000000000000000000000000000000000000000002386f26fc10000`
 
-Update the submodules, install the dependencies and compile the contracts: 
-
-```
-git submodule update --init --recursive
-yarn install
-npx hardhat compile
-```
-
-Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
-
-```
-cd scripts/mech_registration
-node create_mech_native.js
-```
-
-/!\ The private key must correspond to the EOA used to deploy the service.
-
-**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
+**3.** You will find the address of the Mech contract in the logs of the create tx. 
 
 ## 6. How to accrue the payments
 
