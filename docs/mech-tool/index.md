@@ -46,69 +46,10 @@ poetry run autonomy init --remote --ipfs --author $AUTHORNAME && \
 poetry run autonomy packages sync --update-packages
 ```
 
-**3.** Create the tool's structure by using the following command, after replacing the values for the `AUTHORNAME` and `TOOL_NAME` variables:
+**3.** Create the tool's structure by using the following command:
 
 ```bash
-AUTHORNAME=author
-TOOL_NAME=tool_name
-
-TOOL_PATH=packages/"$AUTHORNAME"/customs/"$TOOL_NAME"
-YEAR=$(date +"%Y")
-
-mkdir -p $TOOL_PATH && \
-cat > $TOOL_PATH/component.yaml <<EOF
-name: $TOOL_NAME
-author: $AUTHORNAME
-version: 0.1.0
-type: custom
-description: Tool description
-license: Apache-2.0
-aea_version: '>=1.0.0, <2.0.0'
-fingerprint:
-    __init__.py:
-    $TOOL_NAME.py:
-fingerprint_ignore_patterns: []
-entry_point: $TOOL_NAME.py
-callable: run
-dependencies: {}
-EOF
-
-for file in __init__.py "$TOOL_NAME.py"; do
-  cat > $TOOL_PATH/$file <<EOF
-# -*- coding: utf-8 -*-
-# ------------------------------------------------------------------------------
-#
-#   Copyright $YEAR Valory AG
-#
-#   Licensed under the Apache License, Version 2.0 (the "License");
-#   you may not use this file except in compliance with the License.
-#   You may obtain a copy of the License at
-#
-#       https://www.apache.org/licenses/LICENSE-2.0
-#
-#   Unless required by applicable law or agreed to in writing, software
-#   distributed under the License is distributed on an "AS IS" BASIS,
-#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#   See the License for the specific language governing permissions and
-#   limitations under the License.
-#
-# ------------------------------------------------------------------------------
-
-EOF
-done
-
-cat >> "$TOOL_PATH/$TOOL_NAME.py" <<EOF
-"""The implementation of the $TOOL_NAME tool."""
-
-
-def run(*args, **kwargs):
-    """The callable for the $TOOL_NAME tool."""
-    # TODO: Implement the tool logic
-    print(f"Running $TOOL_NAME with {args=} and {kwargs=}.)
-
-EOF
-
-poetry run autonomy packages lock
+mtd add-tool -d TOOL_DESCRIPTION authorname tool_name
 ```
 
 This command will generate the following structure, with template code:
@@ -121,6 +62,11 @@ packages/
  │   │   │   ├── component.yaml
  │   │   │   ├── tool_name.py
  │   │   │   ├── __init__.py
+```
+
+For more options, use the tool helper:
+```bash
+mtd --help
 ```
 
 **4.** Now that your tool's structure is set up, 
