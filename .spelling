@@ -341,4 +341,6 @@ tool_name
 ALLOWED_TOOLS
 tool.py
 dropdown
+onchain
+cli
 counter_callback
