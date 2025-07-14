@@ -119,7 +119,8 @@ extra:
   autonolas_protocol_registry_dapp_link: 'https://registry.olas.network'
   autonolas_protocol_registry_dapp: '[Olas Protocol web app](https://registry.olas.network)'
   autonolas_protocol_tokenomics_dapp: '[Olas Tokenomics web app](https://tokenomics.olas.network)'
-  olas_agent_quickstart: '[Olas Agent Quickstart](https://github.com/valory-xyz/quickstart)'
+  olas_operate_quickstart: '[Quickstart](https://github.com/valory-xyz/quickstart)'
+  olas_operate_app: '[Pearl App](https://olas.network/pearl)'
   social:
     - icon: fontawesome/brands/twitter
       link: https://x.com/autonolas
