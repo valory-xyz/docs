@@ -488,10 +488,10 @@ In order to do so, follow the instructions below.
 - The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
 is equal to 10^18.
 
-You can find a script for triggering this function [here](https://github.com/Sfgangloff/ai-registry-mech/tree/05d14fcf95608ef0da74c5f1e1640f7d82b1dbc3/scripts/mech_registration) for each payment model. Clone the repository: 
+You can find a script for triggering this function [here](https://github.com/valory-xyz/ai-registry-mech/tree/05d14fcf95608ef0da74c5f1e1640f7d82b1dbc3/scripts/mech_registration) for each payment model. Clone the repository: 
 
 ```
-git clone https://github.com/Sfgangloff/ai-registry-mech.git
+git clone https://github.com/valory-xyz/ai-registry-mech.git
 ```
 
 Update the submodules, install the dependencies and compile the contracts: 
