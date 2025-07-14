@@ -341,3 +341,5 @@ tool_name
 ALLOWED_TOOLS
 tool.py
 counter_callback
+Healthcheck
+Github

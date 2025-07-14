@@ -13,7 +13,7 @@ The Olas SDK is a set of tools and instructions that allows engineers to registe
 ## Step 1: Build the agent supporting the following requirements
 - **ENTRYPOINT**: A script file should be used to start the agent execution.
 - **AGENT EOA**: Agent reads the file `ethereum_private_key.txt` from its working directory, which contains the Agent EOA private key.
-- **SERVICE_SAFE**: Agent reads the environment variable `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` which contains the addresses of the Agent Safe in the relevant chains. Syntax is a JSON object with the chain as the key (e.g., `{ "gnosis": "0xE7CA89bE11A7A3b3d0bF6016d7a09f33c03a0a8f" }`).
+- **SERVICE SAFE**: Agent reads the environment variable `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` which contains the addresses of the Agent Safe in the relevant chains. Syntax is a JSON object with the chain as the key (e.g., `{ "gnosis": "0xE7CA89bE11A7A3b3d0bF6016d7a09f33c03a0a8f" }`).
 - **LOGS**: Agent produces a `log.txt` file in its working directory. Log file follows format `[YYYY-MM-DD HH:MM:SS,mmm] [LOG_LEVEL] [agent] Your message`.
 - **HEALTHCHECK**: Agent exposes the endpoint at `GET http://localhost:8716/healthcheck`. Healthcheck response satisfies the required JSON format (`seconds_since_last_transition`, `is_transitioning_fast`, etc.).
 - **AGENT UI** (optional): Agent exposes the endpoint at `GET http://localhost:8716/`. Agent handles `POST` requests for real-time communication if needed. Endpoints can also return HTML content with appropriate `content-type` headers for agent specific UI.
