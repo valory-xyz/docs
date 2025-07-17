@@ -2,36 +2,38 @@
 
 This guide contains guidelines for contributing to the development of Mechs and offer services.
 
-In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech MarketPlace](#appendix-what-is-the-mech-marketplace). Mech agents, when creating on-chain Mech contracts via the Mech Marketplace can choose among three distinct payment models, each defining how the requester can pay for the service requested Specifically, the payment models are the following:
+In order to offer services, anyone can create and deploy their own Mech agents. First, developers can use existing pieces of code, called tools, or create and publish new ones. Once tools are created, Mech agents can be deployed on the Olas Registry. At this point, a Mech contract can be created via the [Mech Marketplace](#appendix-what-is-the-mech-marketplace). Mech agents, when creating onchain Mech contracts via the Mech Marketplace, can choose among four distinct payment models, each defining how the requester can pay for the service requested. Specifically, payment models are the following:
 
-- Native:  A fixed-price model where the requester pays using the chain with native token native token for each delivered service;
+- Native:  A fixed-price model where the requester pays using the chain with native token for each delivered service;
 
 - Token: Similar to the Native model, but payments are made using a specified ERC20 token; 
 
-- Nevermined subscription: A dynamic pricing model that allows flexible pricing across different services.
+- Nevermined subscription native: A dynamic pricing model that allows flexible pricing across different services with native token.
 
-Mech agent deployment and related Mech contract creation process is handled by the Mech quickstart, and the main inputs to provide are the list of tools to be used, and the chosen payment model. 
+- Nevermined subscription token: A dynamic pricing model that allows flexible pricing across different services using a specified ERC20 token.
+
+Mech agent deployment and related Mech contract creation process is handled by the Mech quickstart package, and the main inputs to provide are the list of tools to be used, and the chosen payment model. 
 
 The detailed instructions to create tools, test them locally and deploy a Mech agent, and accrue payments can be found below.
  
 
 ## 1. Creating and publishing a tool
 
-In order to contribute to Mechs' abilities, you can create and publish a tool. In order to do so, follow the instructions below. 
+In order to contribute to Mechs' abilities, one can create and publish a tool. In order to do so, follow the instructions below. 
 
 ### 1. 1. Creating a tool
 
 **Requirements**:
-  - [Python](https://www.python.org/) `>= 3.10`
-  - [Poetry](https://python-poetry.org/docs/) `>=1.4.0` 
+  - [Python](https://www.python.org/) `>=3.10`
+  - [Poetry](https://python-poetry.org/docs/) `>=1.4.0 && <2.x` 
 
 In order to create a tool, the steps are as follows: 
 
-**1.** Fork the [mech](https://github.com/valory-xyz/mech) repository and clone the forked copy.
+**1.** Fork the [mech-tools-dev](https://github.com/valory-xyz/mech-tools-dev) repository and clone the forked copy.
 You may use GitHub's UI or its CLI tools:
 
 ```bash
-gh repo fork https://github.com/valory-xyz/mech --clone=true
+git clone git@github.com:<your-username>/mech-tools-dev.git
 ```
 
 **2.** Install the dependencies, set up a remote registry, and fetch the third-party packages from IPFS.
@@ -40,75 +42,20 @@ You may use the following command after replacing the value for the `AUTHORNAME`
 ```bash
 AUTHORNAME=author
 
-cd mech && \
+cd mech-tools-dev && \
 poetry install && \
 poetry run autonomy init --remote --ipfs --author $AUTHORNAME && \
 poetry run autonomy packages sync --update-packages
 ```
 
-**3.** Create the tool's structure by using the following command, after replacing the values for the `AUTHORNAME` and `TOOL_NAME` variables:
+**3.** Create the tool's structure by using the following command, after replacing the values for the `TOOL_DESCRIPTION`, `AUTHORNAME` and `TOOL_NAME` variables:
 
 ```bash
+TOOL_DESCRIPTION="Tool description"
 AUTHORNAME=author
 TOOL_NAME=tool_name
 
-TOOL_PATH=packages/"$AUTHORNAME"/customs/"$TOOL_NAME"
-YEAR=$(date +"%Y")
-
-mkdir -p $TOOL_PATH && \
-cat > $TOOL_PATH/component.yaml <<EOF
-name: $TOOL_NAME
-author: $AUTHORNAME
-version: 0.1.0
-type: custom
-description: Tool description
-license: Apache-2.0
-aea_version: '>=1.0.0, <2.0.0'
-fingerprint:
-    __init__.py:
-    $TOOL_NAME.py:
-fingerprint_ignore_patterns: []
-entry_point: $TOOL_NAME.py
-callable: run
-dependencies: {}
-EOF
-
-for file in __init__.py "$TOOL_NAME.py"; do
-  cat > $TOOL_PATH/$file <<EOF
-# -*- coding: utf-8 -*-
-# ------------------------------------------------------------------------------
-#
-#   Copyright $YEAR Valory AG
-#
-#   Licensed under the Apache License, Version 2.0 (the "License");
-#   you may not use this file except in compliance with the License.
-#   You may obtain a copy of the License at
-#
-#       https://www.apache.org/licenses/LICENSE-2.0
-#
-#   Unless required by applicable law or agreed to in writing, software
-#   distributed under the License is distributed on an "AS IS" BASIS,
-#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#   See the License for the specific language governing permissions and
-#   limitations under the License.
-#
-# ------------------------------------------------------------------------------
-
-EOF
-done
-
-cat >> "$TOOL_PATH/$TOOL_NAME.py" <<EOF
-"""The implementation of the $TOOL_NAME tool."""
-
-
-def run(*args, **kwargs):
-    """The callable for the $TOOL_NAME tool."""
-    # TODO: Implement the tool logic
-    print(f"Running $TOOL_NAME with {args=} and {kwargs=}.)
-
-EOF
-
-poetry run autonomy packages lock
+mtd add-tool -d TOOL_DESCRIPTION AUTHORNAME TOOL_NAME
 ```
 
 This command will generate the following structure, with template code:
@@ -123,22 +70,28 @@ packages/
  │   │   │   ├── __init__.py
 ```
 
+For more options, use the tool helper:
+```bash
+mtd --help
+```
+
 **4.** Now that your tool's structure is set up, 
 all that's left is to configure the tool component and implement the tool's functionality in Python.
-The `component.yaml` file contains the tool's configuration. 
+The [component.yaml](https://github.com/valory-xyz/mech-tools-dev/blob/main/mtd/templates/config.template) file contains the tool's configuration and looks as follows:
+
 Here is an explanation of its fields:
-- name: the name of the tool.
-- author: the author's name.
-- version: the version of the tool.
-- type: the component type of the `open-autonomy` framework. This should be `custom`.
-- description: the description of the tool.
-- license: the licencing of the tool. It should be Apache-2.0.
-- aea_version: the supported `open-aea` version.
-- fingerprint: unique hash of the tool. This is auto-generated by the framework's `autonomy packages lock` command.
-- fingerprint_ignore_patterns: ignore patterns for the fingerprint's generation.
-- entry_point: the module which contains the tool's implementation.
-- callable: points to the function which is called in the tool's module.
-- dependencies: the module's dependencies. You may specify them in the following format:
+- `name`: the name of the tool.
+- `author`: the author's name.
+- `version`: the version of the tool.
+- `type`: the component type of the `open-autonomy` framework. This should be `custom`.
+- `description`: the description of the tool.
+- `license`: the licencing of the tool. It should be Apache-2.0.
+- `aea_version`: the supported `open-aea` version.
+- `fingerprint`: unique hash of the tool. This is auto-generated by the framework's `autonomy packages lock` command.
+- `fingerprint_ignore_patterns`: ignore patterns for the fingerprint's generation.
+- `entry_point`: the module which contains the tool's implementation.
+- `callable`: points to the function which is called in the tool's module.
+- `dependencies`: the module's dependencies. You may specify them in the following format:
 
 ```
 dependencies:
@@ -154,6 +107,7 @@ Before proceeding, make sure that you are inside the poetry environment:
 ```bash
 poetry shell
 ```
+
 
 **1.** Create the package hash, by running the following commands, from the root:
 
@@ -184,18 +138,19 @@ In order to push an image on IPFS, there are two options:
 1. Use this [script](https://github.com/dvilelaf/tsunami/blob/v0.9.0/scripts/ipfs_pin.py). 
    Place the image in a folder called `mints` in `.jpg` format. 
    Then, run the script:
+
 ```bash
 python ipfs_pin.py
 ```
 
-2. Use the [mech-client](https://github.com/valory-xyz/mech-client.git), 
-   replacing `<file_name>` with the name of your file:
+2. Use the [mech-client](https://github.com/valory-xyz/mech-client.git) cli tool, replacing `<file_name>` with the name of your file:
+
 ```bash
 poetry add mech-client &&\
 mechx push-to-ipfs ./<file_name>
 ```
 
-After this, the tool can be deployed to be used by a [Mech](#2-testing-mech-locally). 
+After this, the tool can be deployed to be used by a Mech as shown in steps outlined below. 
 
 
 ## 2. Testing a tool by deploying a Mech locally
@@ -208,20 +163,19 @@ requests, specifying your tool as the one to be used. In order to do so, follow 
 **Requirements**: [Python](https://www.python.org/) == `3.10`; [Poetry](https://python-poetry.org/docs/) >= `1.4.0` ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/) ; [Yarn](https://yarnpkg.com/) == `1.22.19` ; [Node](https://nodejs.org/en) == `20.18.1`; npx/npm == `10.8.2` ;
 
 **1.** Run the followings in the terminal: 
+
 ```
 docker pull valory/open-autonomy-tendermint:0.18.3
 docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
 ```
 
-**2.** Clone the mech-quickstart repository:
+**2.** Clone the quickstart repository:
 
 ```
-git clone https://github.com/valory-xyz/mech-quickstart.git
+git clone https://github.com/valory-xyz/quickstart.git
 ```
 
-**3.** Rename the file `.api_keys.json.example` into `.api_keys.json` (don't change the dummy keys), and the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
-
-**4.** Create a tenderly virtual testnet, following these steps: 
+**3.** Create a tenderly virtual testnet, following these steps: 
 
 - Create an account/connect to Tenderly: https://dashboard.tenderly.co/. 
 
@@ -242,52 +196,9 @@ git clone https://github.com/valory-xyz/mech-quickstart.git
 
 - After you are redirected to the TestNet "Explorer" page, copy the RPC Admin HTTPS link, it will be used later.
 
-**5.** Setup the virtual testnet, by following these steps: 
-
-- In a separate folder, clone the ai-registry-mech repository: 
-        ```
-        git clone https://github.com/KahanMajmudar/ai-registry-mech.git
-        ```
-- Run the following: 
-        ```
-        git submodule update --init --recursive
-        ```
-- Then change the branch to "testnet-setup".
-
-- Crate an access token on Tenderly, by clicking on the profile icon (top-right), then on "Account settings", "Access tokens" in the left menu, then "Generate access token". Choose a label (it is only informative) and then click on "Generate". Copy the generated token.  
-
-- Connect to tenderly in the terminal: 
-        ```
-        tenderly login --access-key <access_token>
-        ```
-where `<access_token>` has to be replaced with the access key created as before.
-
-- In the file `hardhat.config.js`, change the url of `virtual_testnet` (line 47) to the RPC of the testnet created on tenderly. On lines 141 and 142, change "project" and "username" strings with the ones found on tenderly in the opened project. This can be found by clicking on "Project" on the tenderly dashboard, then selecting the opened project, and "Settings" on the right menu. The "project" corresponds to "Project slug" and "username" corresponds to "Account slug".
-
-- In the file `globals.json`, change "networkURL" on line 6 to the RPC of the testnet and "privateKey" (line 7) to the private key of your wallet. 
-
-- Install the dependencies using the following: 
-    ```
-    yarn install
-    ```
-
-- Fund the EOA address in tenderly (with the default amount). In order to do so, click on “Fund account” on the webpage of the virtual testnet created before, enter the address to fund, the quantity and the token. For a custom token, click on “Use custom token address” and enter the token address. Then click on “Fund”.
-
-- Run the script to deploy the contracts which are necessary to test the Mech locally: 
-```
-bash setup-tdly.sh
-``` 
-- From the file `globals.json` in the ai-registry-mech folder, copy the following values and paste them in the corresponding lines of the `utils.py` file of the mech-quickstart folder: 
-
-    **a.** "mechMarketplaceProxyAddress" -> line 490 ; 
-
-    **b.** "mechFactoryFixedPriceNativeAddress" -> line 495 ; 
-
-    **c.** "mechFactoryFixedPriceTokenAddress" -> line 500.
-
 ### 2. 2. Running the Mech
 
-**0.** Change folder to the mech-quickstart one and then create environment (in terminal): 
+**0.** Change folder to the quickstart one and then create environment (in terminal): 
 
 ```
 poetry shell
@@ -297,7 +208,8 @@ poetry install
 **1.** Run the mech service (in terminal):
 
 ```
-bash run_service.sh
+chmod +x run_service.sh
+./run_service.sh configs/config_mech.json
 ```
 
 **2.** Provide information when prompted, in particular: 
@@ -325,70 +237,31 @@ The activity of the Mech is visible on the virtual testnet.
 
 ### 2. 3. Sending a request
 
-**1.** In another folder, clone the mech-client repository: 
+**1.** Switch back to the `mech-tools-dev` folder
 
 ```
-git clone https://github.com/valory-xyz/mech-client.git
+cd ../mech-tools-dev
 ```
 
-**2.** Install the mech-client package: 
-
-```
-pip install -e.
-```
-
-**3.** If the mech-client folder does not contain a file `ethereum_private_key.txt` already, create it and paste in it the private key of your EOA.
-
-**4.** Add the following at the end of the dictionary in `mech_client/configs/mechs.json`: 
-
-```
-"tdly": {
-    "agent_registry_contract": "0x9dEc6B62c197268242A768dc3b153AE7a2701396",
-    "service_registry_contract": "0x9338b5153ae39bb89f50468e608ed9d764b755fd",
-    "rpc_url": ,
-    "wss_endpoint": "wss://gnosis-chiado-rpc.publicnode.com",
-    "ledger_config": {
-        "address": ,
-        "chain_id": 10200,
-        "poa_chain": false,
-        "default_gas_price_strategy": "eip1559",
-        "is_gas_estimation_enabled": false
-    },
-    "mech_marketplace_config": {
-        "mech_marketplace_contract": "",
-        "priority_mech_address": "",
-        "response_timeout": 300,
-        "payment_data": "0x"
-    },
-    "gas_limit": 500000,
-    "price": 10000000000000000,
-    "contract_abi_url":"https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
-    "transaction_url":"https:/gnosisscan.iotx/{transaction_digest}",
-    "subgraph_url": ""
-}
-```
-
-Replace `rpc_url` and `address` with the RPC endpoint address, and `mech_marketplace_contract` with the mech marketplace address found in tenderly. Change also `priority_mech_address` with the address of your Mech (it can be found in `mech-quickstart/.mech_quickstart/local_config.json`, key `mech_address`). This address can be found in the tab "Contracts" of the page of the Testnet created above: 
+**2.** Export `MECHX_RPC_URL` as the RPC endpoint address found in tenderly. Please note the `priority_mech_address`. This address can be found in the tab "Contracts" of the page of the Testnet created above: 
 
 ![alt text](image.png)
 
 The contract is the last one created in the list of contracts found in tenderly. 
 
-**5.** Comment lines 560 to 566 in `mech_client/marketplace_interact.py`.
-
-**6.** Run the following command in terminal in the mech-client repository: 
+**3.** Run the following command in terminal in the mech-client repository: 
 
 ```
-mechx interact <prompt> --tool <tool_name> --chain-config tdly
+mechx interact --prompts <prompt> --priority-mech <priority mech address> --tools <tool-name> --chain-config <chain_config>
 ```
 
 where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
 
-**7.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
+**4.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
 
 ## 4. Deploying a Mech on the Mech Marketplace
 
-In order to register a Mech on the Mech Marketplace - including Mech service creation and deployment, and Mech contract deployment- follow the instructions below.
+In order to register a Mech on the Mech Marketplace, including Mech service creation and Mech contract deployment, follow the instructions below.
 
 ### 4. 1. Setup 
 
@@ -403,7 +276,7 @@ docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic
 
 **2.** Create an EOA (add xDAI amounts on this account whenever requested). 
 
-**3.** Create a RPC endpoint, for instance using https://www.nodies.app/. The steps are the following ones: 
+**3.** Create an RPC endpoint, for instance using https://www.nodies.app/. The steps are the following ones: 
 
 - Create an account; 
 
@@ -474,7 +347,7 @@ In order to do so, follow the instructions below.
 
 **1.** Find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
 
-**2.** Trigger the function `create` of this contract with the following inputs (in order):
+**2.** Trigger the function `create` inside `Write as proxy` of this contract with the following inputs (in order):
 
 - The service id.
 - The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json). Search for the address that matches the chosen payment model:
@@ -485,33 +358,13 @@ In order to do so, follow the instructions below.
 
     - For Nevermined, find MechFactoryNvmSubscriptionNative.
 
-- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei. For instance, for a price of 1 xDAI, this 
-is equal to 10^18.
+- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei in bytes.
 
-You can find a script for triggering this function [here](https://github.com/valory-xyz/ai-registry-mech/tree/05d14fcf95608ef0da74c5f1e1640f7d82b1dbc3/scripts/mech_registration) for each payment model. Clone the repository: 
+ - To convert price to wei, go to [wei converter](https://eth-converter.com/) and input the desired price in ETH. So if you want the mech to have a price of 0.01 xDAI, the desired output is `10000000000000000` in Wei
 
-```
-git clone https://github.com/valory-xyz/ai-registry-mech.git
-```
+ - To convert wei to bytes, go to [bytes convertor](https://abi.hashex.org/) and select `Add Argument`. From the dropdown, select `uint256` as the option and paste the wei value. You will get the `encoded data` as the output. In our example, it is `000000000000000000000000000000000000000000000000002386f26fc10000`
 
-Update the submodules, install the dependencies and compile the contracts: 
-
-```
-git submodule update --init --recursive
-yarn install
-npx hardhat compile
-```
-
-Choose the one which corresponds to the chosen payment model, and replace the name of the network on line 6. Then add your private key (privateKey), service id (serviceId) and maximum price (payload) in the globals file which corresponds to the chosen network. Finally, run the script. For instance, for a native fixed price Mech: 
-
-```
-cd scripts/mech_registration
-node create_mech_native.js
-```
-
-/!\ The private key must correspond to the EOA used to deploy the service.
-
-**3.** You will find the address of the Mech contract in the logs. It will also be written in the globals file. 
+**3.** You will find the address of the Mech contract in the logs of the create tx. 
 
 ## 6. How to accrue the payments
 
@@ -525,7 +378,7 @@ In order to accrue the payments of your Mech, find [here](https://github.com/val
 
 Enter its address in the scan of the chosen network. Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract. 
 
-## Troubleshooting :
+## Troubleshooting
 
 1. **Issue**: `0xa25d624C49eE3691a2B25223e3a899c77738FDa3` not in list of participants: "[`0xc062E6cfdCb48700de374905BF66A0BAD1Ef36E7`]"
 **Solution**: Make sure the private keys inside keys.json match the address in ALL_PARTICIPANTS env
@@ -583,15 +436,15 @@ Then check at the CLI which process is using the port:
     $ kill -9 process_id
     ```
 
-## Appendix : What is the Mech Marketplace ?
+## Appendix: What is the Mech Marketplace?
 
-The Mech Marketplace is a collection of smart contracts designed to facilitate seamless interactions between agents or applications (referred to as requesters) and Mech agents which provide task-based services. Essentially, it acts as a relay, enabling secure, on-chain payments while ensuring efficient task requests and service delivery. 
+The Mech Marketplace is a collection of smart contracts designed to facilitate seamless interactions between agents or applications (referred to as requesters) and Mech agents which provide task-based services. Essentially, it acts as a relay, enabling secure, onchain payments while ensuring efficient task requests and service delivery. 
 
 Specifically, the Mech Marketplace enables the following.
 
-- **Effortless Mech contract creation and delivery**: Any agent registered on the Olas Service registry can quickly deploy a Mech contract with minimal inputs. This streamlined process allows agents to rapidly offer their service and receive on-chain payments.
+- **Effortless Mech contract creation and delivery**: Any agent registered on the Olas Service registry can quickly deploy a Mech contract with minimal inputs. This streamlined process allows agents to rapidly offer their service and receive onchain payments.
 
-- **Seamless task execution requests**: Requesters—whether agents or applications—can opt to directly submit service requests through the Mech Marketplace. The on-chain contracts manage payments, ensuring a smooth and transparent interaction between requesters and Mech agents.
+- **Seamless task execution requests**: Requesters—whether agents or applications—can opt to directly submit service requests through the Mech Marketplace. The onchain contracts manage payments, ensuring a smooth and transparent interaction between requesters and Mech agents.
 
 - **Guaranteed task completion**: A take-over mechanism is in place: if a designated Mech fails to respond within a deadline specified by the requester, any other available Mech can step in to complete the task. Therefore, there is a high likelihood that every request is fulfilled, maintaining the system’s reliability.
 Karma - A reputation score system: The Karma contract tracks each Mech’s performance by maintaining a reputation score. This reflects how often a Mech successfully completes assigned tasks versus how often it fails. Mech agents that maintain high Karma scores are considered more trustworthy by requesters. Assuming honest participation, Mech agents that maintain high Karma scores are considered more trustworthy by requesters.
