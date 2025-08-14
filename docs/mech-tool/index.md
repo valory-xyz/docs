@@ -265,7 +265,7 @@ The [component.yaml](https://github.com/valory-xyz/mech-tools-dev/blob/main/mtd/
     return response, prompt, None, None
     ```
 
-### 1. Publishing the tool
+### 2. Publishing the tool
 
 1. Before proceeding, make sure that you are inside the poetry environment:
     ```bash
@@ -314,11 +314,10 @@ After this, the tool can be deployed to be used by a Mech as shown in steps outl
 
 ## Deploying a Mech with custom tools
 
-In order to test a tool you developed, let's deploy a Mech locally and send a
-requests. To do so, we will use the [quickstart](https://github.com/valory-xyz/quickstart) repository
+In order to test a tool you developed, let's deploy a Mech locally and send a request.
 
 
-1. Create the `metadata.json for your mech. Still in the `mech-tools-dev` repo:
+1. Create the `metadata.json` for your mech:
     ```bash
     python utils/generate_metadata.py
     ```
@@ -329,27 +328,21 @@ requests. To do so, we will use the [quickstart](https://github.com/valory-xyz/q
     ```
     Note down the metadata hash.
 
-3. In another directory, clone the quickstart repository (check the requirements section in the README):
+3. Run the `setup.py` script that will create and deploy the mech service and contract for you:
 
     ```bash
-    git clone https://github.com/valory-xyz/quickstart.git
-    cd quickstart
+    python utils/setup.py
     ```
 
-4. Run the quickstart:
+4. Provide the requested information when prompted. You will be asked for a Gnosis RPC (you can use the same we used in the previous sections), optionally staking contract, payment type... For all those you can use the default values that are provided during the setup.
+
+
+5. Your mech is now deployed. Run it:
     ```bash
-    chmod +x run_service.sh
-    ./run_service.sh configs/config_mech.json
+
     ```
 
-5. Provide information when prompted. You will be asked for a Gnosis RPC (you can use the same we used in the previous sections), staking contract, payment type, default Mech Marketplace contract... For all those you can use the default values that are provided during the setup. Other values you will need to provide:
-
-    - Metadata hash from step 2
-    - TOOLS_TO_HASH: use the one from previous sections. You can copy it from your `.env` file.
-    - It is also recommended to provide a backup owner to recover funds if anything goes wrong. You will be prompted for it.
-
-
-5. Your mech is now running, and there should be a Docker container with a name similar to `mech_abci_0`. You can check its logs with:
+    There should be a Docker container with a name similar to `mech_abci_0`. You can check its logs with:
     ```bash
     docker logs mech_abci_0 --follow
     ```
@@ -361,139 +354,15 @@ requests. To do so, we will use the [quickstart](https://github.com/valory-xyz/q
 
 ## Sending a request to your custom Mech
 
-1. Copy your Mech's address from `quickstart/.operate/services/sc-.../deployment/agent_0.env`. There should be a variable called `MECH_TO_CONFIG`.
+1. Copy your Mech's address from `.operate/services/sc-.../deployment/agent_0.env`. There should be a variable called `MECH_TO_CONFIG`.
 
-2. Switch back to the `mech-tools-dev` repository
+2. Send the request similarly to how you did it in the first section:
+    ```bash
+    source .env
+    poetry run mechx interact --prompts "hello, mech!" --priority-mech 0xFaCaa9dD513Af6b5A79B73353dafF041925d0101 --tools echo --chain-config gnosis
+    ```
 
-
-
-
-
-
-**2.** Export `MECHX_RPC_URL` as the RPC endpoint address found in tenderly. Please note the `priority_mech_address`. This address can be found in the tab "Contracts" of the page of the Testnet created above:
-
-![alt text](image.png)
-
-The contract is the last one created in the list of contracts found in tenderly.
-
-**3.** Run the following command in terminal in the mech-client repository:
-
-```
-mechx interact --prompts <prompt> --priority-mech <priority mech address> --tools <tool-name> --chain-config <chain_config>
-```
-
-where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool.
-
-**4.** You can see the data of the request in the testnet page on tenderly, in the tab "Explorer".
-
-## 4. Deploying a Mech on the Mech Marketplace
-
-In order to register a Mech on the Mech Marketplace, including Mech service creation and Mech contract deployment, follow the instructions below.
-
-### 4. 1. Setup
-
-**Requirements**: [Python](https://www.python.org/) == 3.10; [Poetry](https://python-poetry.org/docs/) >= 1.4.0 ; [Docker Engine](https://docs.docker.com/engine/install/) ; [Docker Compose](https://docs.docker.com/compose/install/)
-
-**1.** Run the followings in the terminal:
-
-```
-docker pull valory/open-autonomy-tendermint:0.18.3
-docker pull valory/oar-mech:bafybeicg5ioivs2ryaim6uf3cws2ashc5ldxtrvxgbjbhv3y2ic63qx324
-```
-
-**2.** Create an EOA (add xDAI amounts on this account whenever requested).
-
-**3.** Create an RPC endpoint, for instance using https://www.nodies.app/. The steps are the following ones:
-
-- Create an account;
-
-- Create a project;
-
-- Add an app to this project (choose the Gnosis chain);
-
-- Copy the HTTPS link (under “Endpoint networks”) → this will be requested later;
-
-**5.** Create a Google API Key and an OpenAI API key.
-
-**6.** Clone the mech-quickstart repository:
-
-```
-git clone https://github.com/valory-xyz/mech-quickstart.git
-```
-
-**7.** Rename the file `.api_keys.json.example` into `.api_keys.json` and add OpenAI and Google API keys in the file. Also rename the file `.tools_to_packages_hash.json.example` into `.tools_to_packages_hash`. You can modify this example by adding your tool (name and hash).
-
-**8.** Change folder to mech-quickstart and create environment (in terminal):
-
-```
-cd mech-quickstart
-poetry shell
-poetry install
-```
-
-### 4. 2. Running the mech service
-
-**1.** Run the mech service (in terminal):
-
-```
-bash run_service.sh
-```
-
-**2.** Provide information when prompted (in particular for the RPC endpoint, provide the https address copied earlier).
-
-**3.** In order to send a request to it, follow the steps in the [section 2.3](#2-3-sending-a-request) above, replacing the RPC endpoint with the one created here.
-
-**4.** Logs are visible with:
-
-```
-docker logs mech_abci_0 --follow
-```
-
-**5.** You can send a request, by changing the value of `priority_mech_address` in the dictionary of the chain chosen when setting up the RPC endpoint in `.mech_client/configs/mechs.json` by the address of your Mech. This address can be found in `.mech_quickstart/local_config.json`, key `mech_address`. Then use the mechx command:
-
-```
-mechx interact <prompt> --tool <tool_name> --chain-config <chain>
-```
-
-where `<prompt>` is replaced by the chosen prompt and `<tool_name>` by the name of your tool, and `<chain>` is replaced by the
-name of the chosen chain.
-
-**6.** In order to add new tools when the mech is deployed, add its name and hash in `.tools_to_packages_hash.json`.
-
-**7.** Stop the mech service:
-
-```
-./stop_service.sh
-```
-
-## 5. Registering an agent on the Mech Marketplace
-
-In case you have already a Mech service deployed on Olas Registry and want to put it to work for other agents, you only need to register it on the Mech Marketplace.
-
-In order to do so, follow the instructions below.
-
-**1.** Find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the address of MechMarketPlaceProxy for the chosen network.
-
-**2.** Trigger the function `create` inside `Write as proxy` of this contract with the following inputs (in order):
-
-- The service id.
-- The Mech Factory address for the selected network and payment model. To find the correct address, refer to the [configuration file](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json). Search for the address that matches the chosen payment model:
-
-    - For Native, look for the MechFactoryFixedPriceNative address.
-
-    - For Token: MechFactoryFixedPriceToken
-
-    - For Nevermined, find MechFactoryNvmSubscriptionNative.
-
-- The maximum price of the Mech (also called maxDeliveryRate), converted to Wei in bytes.
-
- - To convert price to wei, go to [wei converter](https://eth-converter.com/) and input the desired price in ETH. So if you want the mech to have a price of 0.01 xDAI, the desired output is `10000000000000000` in Wei
-
- - To convert wei to bytes, go to [bytes convertor](https://abi.hashex.org/) and select `Add Argument`. From the dropdown, select `uint256` as the option and paste the wei value. You will get the `encoded data` as the output. In our example, it is `000000000000000000000000000000000000000000000000002386f26fc10000`
-
-**3.** You will find the address of the Mech contract in the logs of the create tx.
-
-## 6. How to accrue the payments
+## How to accrue the payments
 
 In order to accrue the payments of your Mech, find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models:
 
@@ -503,7 +372,8 @@ In order to accrue the payments of your Mech, find [here](https://github.com/val
 
 - Nevermined: BalanceTrackerNvmSubscriptionNative
 
-Enter its address in the scan of the chosen network. Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract.
+Enter its address in the scan of the chosen network (i.e. [GnosisScan](https://gnosisscan.io/)). Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract.
+
 
 ## Troubleshooting
 
@@ -562,19 +432,3 @@ Then check at the CLI which process is using the port:
     ```bash
     $ kill -9 process_id
     ```
-
-## Appendix: What is the Mech Marketplace?
-
-The Mech Marketplace is a collection of smart contracts designed to facilitate seamless interactions between agents or applications (referred to as requesters) and Mech agents which provide task-based services. Essentially, it acts as a relay, enabling secure, onchain payments while ensuring efficient task requests and service delivery.
-
-Specifically, the Mech Marketplace enables the following.
-
-- **Effortless Mech contract creation and delivery**: Any agent registered on the Olas Service registry can quickly deploy a Mech contract with minimal inputs. This streamlined process allows agents to rapidly offer their service and receive onchain payments.
-
-- **Seamless task execution requests**: Requesters—whether agents or applications—can opt to directly submit service requests through the Mech Marketplace. The onchain contracts manage payments, ensuring a smooth and transparent interaction between requesters and Mech agents.
-
-- **Guaranteed task completion**: A take-over mechanism is in place: if a designated Mech fails to respond within a deadline specified by the requester, any other available Mech can step in to complete the task. Therefore, there is a high likelihood that every request is fulfilled, maintaining the system’s reliability.
-Karma - A reputation score system: The Karma contract tracks each Mech’s performance by maintaining a reputation score. This reflects how often a Mech successfully completes assigned tasks versus how often it fails. Mech agents that maintain high Karma scores are considered more trustworthy by requesters. Assuming honest participation, Mech agents that maintain high Karma scores are considered more trustworthy by requesters.
-
-- **Competitive environment**: Mechs are incentivized to deliver outstanding results promptly in order to maintain high Karma scores and secure more tasks.
-
