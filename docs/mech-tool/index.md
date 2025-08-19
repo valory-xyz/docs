@@ -118,51 +118,33 @@ seeing a mech in action, reading requests and running tools. We will take care o
     autonomy packages sync --update-packages
     ```
 
-4. Generate a private key:
+4. Run the `setup.py` script:
     ```bash
-    autonomy generate-key ethereum -n 1
-    ```
-    This will create a `keys.json` file that contains the public and private key for the mech. There are two ways
-    of running the mech: as an agent or as a service (dockerized). Both approaches use slightly different private keyformats,
-    so just in case let's generate the other key format by creating an empty file called `ethereum_private_key.txt`
-    and pasting the private key inside. You can copy it from `keys.json` taking care of not adding a newline at the end.
-    Another way of doing this in one go, is you have installed the `jq` package is:
-    ```bash
-    install jq
-    jq -rj '.[0].private_key' keys.json > ethereum_private_key.txt
+    python utils/setup.py
     ```
 
-5. Now that you have an account, it's time to fund it with a few cents. This Mech runs on the Gnosis chain,
-so send a small amount like 0.05 xDAI to your account. You can find its public address in `keys.json`.
+    You will be prompted to fill in some details, including a Gnosis Chain RPC. Here, you can get one from a provider like [Quiknode](https://www.quicknode.com/) or, if you just want to test this against a virtual network, you can use [Tenderly](https://tenderly.co/).
 
-6. Get a Gnosis RPC from a provider like [Quiknode](https://www.quicknode.com/).
-
-7. Copy the `sample.env` file to a new `.env` file:
-    ```bash
-    cp sample.env .env
-    ```
-    and add your Gnosis RPC to `ETHEREUM_LEDGER_RPC_0` and `GNOSIS_RPC_0` (yes, the same for both).
-
-8. Make the `run_agent.sh` and `run_service.sh` scripts executable:
+5. Make the `run_agent.sh` and `run_service.sh` scripts executable:
     ```bash
     chmod +x run_agent.sh
     chmod +x run_service.sh
     ```
 
-9. And just run your agent:
+6. And just run your agent:
     ```bash
     ./run_agent.sh
     ```
     This option is recommended to quickly test or debug agents.
     The next time you use this command, it will ask you for your sudo password to remove the previous build.
 
-10. Alternatively, you can also run the full dockerized service with:
+7. Alternatively, you can also run the full dockerized service with:
     ```bash
     ./run_service.sh
     ```
     This option is recommended when your service is ready to be deployed.
 
-11. Once your agent is running, and from another terminal (within the same virtual environment), send a request to it:
+8. Once your agent is running, and from another terminal (within the same virtual environment), send a request to it:
     ```bash
     source .env
     poetry run mechx interact --prompts "hello, mech!" --priority-mech 0xFaCaa9dD513Af6b5A79B73353dafF041925d0101 --tools echo --chain-config gnosis
@@ -293,20 +275,10 @@ The [component.yaml](https://github.com/valory-xyz/mech-tools-dev/blob/main/mtd/
     - package hash (this can be found in `packages.json` under the `packages` folder)
     - Optionally, NFT image URL. You can push an image to IPFS and use the corresponding hash.
 
-    In order to push an image on IPFS, there are two options:
-
-    1. Use this [script](https://github.com/dvilelaf/tsunami/blob/v0.9.0/scripts/ipfs_pin.py).
-    Place the image in a folder called `mints` in `.jpg` format.
-    Then, run the script:
+    In order to push an image on IPFS, use the [mech-client](https://github.com/valory-xyz/mech-client.git) cli tool, replacing `<file_name>` with the name of your file:
 
         ```bash
-        python ipfs_pin.py
-        ```
-
-    2. Use the [mech-client](https://github.com/valory-xyz/mech-client.git) cli tool, replacing `<file_name>` with the name of your file:
-
-        ```bash
-        poetry add mech-client && mechx push-to-ipfs ./<file_name>
+        mechx push-to-ipfs ./<file_name>
         ```
 
 After this, the tool can be deployed to be used by a Mech as shown in steps outlined below.
@@ -339,7 +311,7 @@ In order to test a tool you developed, let's deploy a Mech locally and send a re
 
 5. Your mech is now deployed. Run it:
     ```bash
-
+    ./run_service.sh
     ```
 
     There should be a Docker container with a name similar to `mech_abci_0`. You can check its logs with:
@@ -354,7 +326,7 @@ In order to test a tool you developed, let's deploy a Mech locally and send a re
 
 ## Sending a request to your custom Mech
 
-1. Copy your Mech's address from `.operate/services/sc-.../deployment/agent_0.env`. There should be a variable called `MECH_TO_CONFIG`.
+1. Copy your Mech's address from the `.env` file. There should be a variable called `MECH_TO_CONFIG`.
 
 2. Send the request similarly to how you did it in the first section:
     ```bash
@@ -370,7 +342,9 @@ In order to accrue the payments of your Mech, find [here](https://github.com/val
 
 - Token: BalanceTrackerFixedPriceToken
 
-- Nevermined: BalanceTrackerNvmSubscriptionNative
+- Nevermined native: BalanceTrackerNvmSubscriptionNative
+
+- Nevermined token: BalanceTrackerNvmSubscriptionToken
 
 Enter its address in the scan of the chosen network (i.e. [GnosisScan](https://gnosisscan.io/)). Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract.
 
