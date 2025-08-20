@@ -202,6 +202,11 @@ In this example, we will locally run a Mech with a dummy "echo" tool.
     }
     ```
 
+9. Stop your agent. If you have run the `run_agent.sh` script, just hit `ctrl+c`. If you are using `run_service.sh`, run:
+    ```bash
+    ./stop_service.sh
+    ```
+
 ## Creating and publishing a tool
 
 In order to contribute to Mechs' abilities, one can create and publish a tool. In order to do so, follow the instructions below.
@@ -348,21 +353,6 @@ In order to test a tool you developed, let's update the Mech you created in the 
     ```
 
 3. Wait for some time and you will receive the response. If there's an error in the tool, you will see it in the Mech's logs.
-
-
-## How to accrue the payments
-
-In order to accrue the payments of your Mech, find [here](https://github.com/valory-xyz/ai-registry-mech/blob/v0.4.0/docs/configuration.json) the BalanceTracker contract which corresponds to the payment model of your Mech. The key is the following for each of the three payment models:
-
-- Native: BalanceTrackerFixedPriceNative
-
-- Token: BalanceTrackerFixedPriceToken
-
-- Nevermined native: BalanceTrackerNvmSubscriptionNative
-
-- Nevermined token: BalanceTrackerNvmSubscriptionToken
-
-Enter its address in the scan of the chosen network (i.e. [GnosisScan](https://gnosisscan.io/)). Click on "Contract" and then "Write Contract" and trigger the function processPaymentByMultisig. Enter the address of your Mech and click on "Write". This will transfer the funds stored in the Mech Marketplace to the address of your Mech contract.
 
 
 ## Troubleshooting
