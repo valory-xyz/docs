@@ -94,11 +94,9 @@ See some examples of requests and responses on the [Mech Hub](https://mech.olas.
 
 
 
-## Mech Hello World: running an existing Mech locally
+## Mech Hello World: running a Mech with a dummy tool
 
-In this example, we will locally run a clone of a pre-existing mech. This is a mech that has been already configured and registered to both the Olas protocol and the Mech Marketplace.
-This means we do not have the private keys for that mech, so **it won't be able to properly write the responses to the marketplace contract**. Anyway, at this stage we only care about
-seeing a mech in action, reading requests and running tools. We will take care of preparing our own mech later in this tutorial.
+In this example, we will locally run a Mech with a dummy "echo" tool.
 
 
 1. First, clone the following repository:
@@ -123,38 +121,58 @@ seeing a mech in action, reading requests and running tools. We will take care o
     python utils/setup.py
     ```
 
-    You will be prompted to fill in some details, including a Gnosis Chain RPC. Here, you can get one from a provider like [Quiknode](https://www.quicknode.com/) or, if you just want to test this against a virtual network, you can use [Tenderly](https://tenderly.co/).
+    You will be prompted to fill in some details, including a Gnosis Chain RPC. Here, you can get one from a provider like [Quiknode](https://www.quicknode.com/) but we encourage you to first test against a virtual network using [Tenderly](https://tenderly.co/). This way, you can also use the faucet to fund the required wallets.
 
-5. Make the `run_agent.sh` and `run_service.sh` scripts executable:
+5. Push the tool metadata to IPFS:
     ```bash
-    chmod +x run_agent.sh
-    chmod +x run_service.sh
+    python utils/update_metadata.py
     ```
 
 6. And just run your agent:
     ```bash
     ./run_agent.sh
     ```
-    This option is recommended to quickly test or debug agents.
+    This option is recommended to quickly test or debug agents, so it's the one we recommend the first time you run this tutorial.
     The next time you use this command, it will ask you for your sudo password to remove the previous build.
 
 7. Alternatively, you can also run the full dockerized service with:
     ```bash
     ./run_service.sh
     ```
+
+    You can check your Mech's logs with:
+    ```bash
+    docker logs -f mechw_Me_abci_0
+    ```
+
+    Replace the Mech name with the one that appears after the `run_service.sh` script has finished.
     This option is recommended when your service is ready to be deployed.
 
-8. Once your agent is running, and from another terminal (within the same virtual environment), send a request to it:
+8. Once your agent is running, and from another terminal (within the same virtual environment), send a request to it. First, let's export the required RPCs for the mechx library to read and write to the chain.
+    You can reuse the RPC you provided during the setup plus you will need a WSS RPC. If you are using Tenderly, as recommended, you can get both of them from the Explorer section.
+
     ```bash
-    source .env
-    poetry run mechx interact --prompts "hello, mech!" --priority-mech 0xFaCaa9dD513Af6b5A79B73353dafF041925d0101 --tools echo --chain-config gnosis
+    export MECHX_RPC_URL=<your_http_rpc>
+    export MECHX_LEDGER_ADDRESS=<your_http_rpc>
+    export MECHX_WSS_ENDPOINT=<your_wss_rpc>
     ```
-    This agent has one tool only, the echo tool, that responds with the same text from the request. You will see something like:
+
+    Now, get your mech address from the `.env` file. You will see the following variable containing it:
+     ```bash
+    MECH_TO_CONFIG='{"<your_mech_address>":{"use_dynamic_pricing":false,"is_marketplace_mech":true}}'
+    ```
+
+    Finally, send the request (replacing your mech address):
+
+    ```bash
+    poetry run mechx interact --prompts "hello, mech!" --priority-mech <your_mech_address> --tools echo --chain-config gnosis
+    ```
+
+    The echo tool will respond with the same text from the request. You will see something like:
     ```bash
     Fetching Mech Info...
     Sending Mech Marketplace request...
     - Prompt uploaded: https://gateway.autonolas.tech/ipfs/f01701220fe7480a472cc8dffe481d5883e235346793a20a25415160ad2feade0d809f9db
-    An error occurred while estimating gas price. Falling back.
     - Transaction sent: https://gnosisscan.io/tx/0x7bb3b734b5936e72c84749431081c8416c3f4c64a75f9f6c61291b47f141fd3d
     - Waiting for transaction receipt...
     - Created on-chain request with ID 63113231565093422774445497789782682647110838977840831205387629469951062204223
@@ -164,12 +182,25 @@ seeing a mech in action, reading requests and running tools. We will take care o
     ```bash
     [2025-07-24 16:41:58,679][INFO] [agent] Task result for request 63113231565093422774445497789782682647110838977840831205387629469951062204223: ('Echo: hello, mech!', 'hello, mech!', None, None)
     ```
-    Which means that the Mech has successfully received the request and ran the tool. Now, as we said at the beggining of this tutorial, we don't own this mech's private keys,
-     so this mech is not allowed to write a response to the marketplac contract, and you will see an error about a failed tranaction.
+    Which means that the Mech has successfully received the request and ran the tool. After some time (give it a minute or so) you will see the response in the terminal you sent the request from:
 
-> **Note:** Since we are using a common, pre-existing mech for this tutorial, other users might be running the same mech at the same time, leading to your mech to also process their requests.
-Anyway, given that we don't have the mech keys, it won't be able to write on-chain.
-
+    ```bash
+    Off chain to be implemented
+    - Data arrived: https://gateway.autonolas.tech/ipfs/f0170122068f1ed6661ac9c7f067c998d12ccf0bd29367c4373f4d91bf61ed98a068e3528
+    - Data from agent:
+    {
+    "requestId": 28039871184902372191260032967003278816287653243679554051485992027223235273470,
+    "result": "Echo: hello, mech!",
+    "prompt": "hello, mech!",
+    "cost_dict": {},
+    "metadata": {
+        "model": null,
+        "tool": "echo",
+        "params": {}
+    },
+    "is_offchain": false
+    }
+    ```
 
 ## Creating and publishing a tool
 
@@ -244,7 +275,7 @@ The [component.yaml](https://github.com/valory-xyz/mech-tools-dev/blob/main/mtd/
     Where the first return value is the tool response and the second one is the request. As reference, you could do the following at the end of the tool execution:
 
     ```python
-    return response, prompt, None, None
+    return response, prompt, None, None, None
     ```
 
 ### 2. Publishing the tool
@@ -286,7 +317,7 @@ After this, the tool can be deployed to be used by a Mech as shown in steps outl
 
 ## Deploying a Mech with custom tools
 
-In order to test a tool you developed, let's deploy a Mech locally and send a request.
+In order to test a tool you developed, let's update the Mech you created in the previous sections.
 
 
 1. Create the `metadata.json` for your mech:
@@ -298,41 +329,26 @@ In order to test a tool you developed, let's deploy a Mech locally and send a re
     ```bash
     python utils/publish_metadata.py
     ```
-    Note down the metadata hash.
 
-3. Run the `setup.py` script that will create and deploy the mech service and contract for you:
-
-    ```bash
-    python utils/setup.py
-    ```
-
-4. Provide the requested information when prompted. You will be asked for a Gnosis RPC (you can use the same we used in the previous sections), optionally staking contract, payment type... For all those you can use the default values that are provided during the setup.
+3. Copy your tool hash from `packages/packages.json` and add it to the `TOOLS_TO_PACKAGE_HASH` variable, both in your `.env` and `config/config_mech_gnosis.json`.
+   This variable is a dictionary, so you need to add a new entry with your tool name as key and the tool hash as value.
 
 
-5. Your mech is now deployed. Run it:
-    ```bash
-    ./run_service.sh
-    ```
+4. Run your mech using `run_agent.sh` or `run_service.sh` as seen in the previous sections.
 
-    There should be a Docker container with a name similar to `mech_abci_0`. You can check its logs with:
-    ```bash
-    docker logs mech_abci_0 --follow
-    ```
-
-6. If you need to stop the Mech:
-    ```bash
-    ./stop_service.sh configs/config_mech.json
-    ```
 
 ## Sending a request to your custom Mech
 
-1. Copy your Mech's address from the `.env` file. There should be a variable called `MECH_TO_CONFIG`.
+1. Copy your Mech's address from the `.env` file. There should be a variable called `MECH_TO_CONFIG` that includes it.
 
 2. Send the request similarly to how you did it in the first section:
     ```bash
     source .env
-    poetry run mechx interact --prompts "hello, mech!" --priority-mech 0xFaCaa9dD513Af6b5A79B73353dafF041925d0101 --tools echo --chain-config gnosis
+    poetry run mechx interact --prompts <your_prompt> --priority-mech <your_mech_address> --tools <your_tool_name> --chain-config gnosis
     ```
+
+3. Wait for some time and you will receive the response. If there's an error in the tool, you will see it in the Mech's logs.
+
 
 ## How to accrue the payments
 
