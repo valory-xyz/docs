@@ -123,7 +123,7 @@ In this example, we will locally run a Mech with a dummy "echo" tool.
 
     You will be prompted to fill in some details, including a Gnosis Chain RPC. Here, you can get one from a provider like [Quiknode](https://www.quicknode.com/) but we encourage you to first test against a virtual network using [Tenderly](https://tenderly.co/). This way, you can also use the faucet to fund the required wallets.
 
-5. Push the tool metadata to IPFS:
+5. Update the tool metadata hash onchain:
     ```bash
     python utils/update_metadata.py
     ```
@@ -330,16 +330,22 @@ In order to test a tool you developed, let's update the Mech you created in the 
     python utils/generate_metadata.py
     ```
 
-2. Upload the `metadata.json` to IPFS:
+2. Publish the tool metadata hash to IPFS:
     ```bash
     python utils/publish_metadata.py
     ```
 
-3. Copy your tool hash from `packages/packages.json` and add it to the `TOOLS_TO_PACKAGE_HASH` variable, both in your `.env` and `config/config_mech_gnosis.json`.
+3. Update the tool metadata hash onchain:
+    ```bash
+    python utils/update_metadata.py
+
+
+4. Copy your tool hash from `packages/packages.json` and add it to the `TOOLS_TO_PACKAGE_HASH` variable in your `.env`.
    This variable is a dictionary, so you need to add a new entry with your tool name as key and the tool hash as value.
+   Also update the `METADATA_HASH` in the `.env` file with the one you got from step 2.
 
 
-4. Run your mech using `run_agent.sh` or `run_service.sh` as seen in the previous sections.
+5. Run your mech using `run_agent.sh` or `run_service.sh` as seen in the previous sections.
 
 
 ## Sending a request to your custom Mech
