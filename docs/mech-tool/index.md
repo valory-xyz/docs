@@ -148,13 +148,9 @@ In this example, we will locally run a Mech with a dummy "echo" tool.
     Replace the Mech name with the one that appears after the `run_service.sh` script has finished.
     This option is recommended when your service is ready to be deployed.
 
-8. Once your agent is running, and from another terminal (within the same virtual environment), send a request to it. First, let's export the required RPCs for the mechx library to read and write to the chain.
-    You can reuse the RPC you provided during the setup plus you will need a WSS RPC. If you are using Tenderly, as recommended, you can get both of them from the Explorer section.
-
+8. Once your agent is running, and from another terminal (within the same virtual environment), send a request to it. First, load all the RPCs required for the mech client to work:
     ```bash
-    export MECHX_RPC_URL=<your_http_rpc>
-    export MECHX_LEDGER_ADDRESS=<your_http_rpc>
-    export MECHX_WSS_ENDPOINT=<your_wss_rpc>
+    source .env
     ```
 
     Now, get your mech address from the `.env` file. You will see the following variable containing it:
