@@ -55,18 +55,18 @@ nav:
       - Manage the life cycle of a service: 'protocol/life_cycle_of_a_service.md'
       - Tokenomics: 'protocol/tokenomics.md'
       - Technical overview: 'protocol/technical_overview.md'
-  - Toolkits:
-      - 'products/index.md'
-      - SMPKit: '!include ./autonomous-fund/mkdocs.yml'
-      - MintKit: '!include ./agent-academy-1/mkdocs.yml'
-      - CoordinationKit: '!include ./contribution-service/mkdocs.yml'
-      - MLKit: '!include ./apy-oracle/mkdocs.yml'
-      - OracleKit: '!include ./price-oracle/mkdocs.yml'
-      - IEKit: '!include ./IEKit/mkdocs.yml'
-      - GovKit: '!include ./governatooorr/mkdocs.yml'
-      - MechKit: '!include ./mech/mkdocs.yml'
-      - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
-      - MessagingKit: '!include ./open-acn/mkdocs.yml'
+  # - Toolkits:
+  #     - 'products/index.md'
+  #     - SMPKit: '!include ./autonomous-fund/mkdocs.yml'
+  #     - MintKit: '!include ./agent-academy-1/mkdocs.yml'
+  #     - CoordinationKit: '!include ./contribution-service/mkdocs.yml'
+  #     - MLKit: '!include ./apy-oracle/mkdocs.yml'
+  #     - OracleKit: '!include ./price-oracle/mkdocs.yml'
+  #     - IEKit: '!include ./IEKit/mkdocs.yml'
+  #     - GovKit: '!include ./governatooorr/mkdocs.yml'
+  #     - MechKit: '!include ./mech/mkdocs.yml'
+  #     - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
+  #     - MessagingKit: '!include ./open-acn/mkdocs.yml'
 
 plugins:
   - macros:
