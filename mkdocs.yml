@@ -36,14 +36,19 @@ extra_css:
 
 nav:
   - Home: 'index.md' 
-  - Demo autonomous services: 
+  - Monetize an Agent on Marketplace:
+    - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
+  - Hire an Agent on Marketplace:
+    - Mech Client: '!include ./mech-client/mkdocs.yml'
+  - Build with Olas Agent Frameworks:
+    - Demo autonomous services: 
       - 'demos/index.md'
       - Hello World: '!include ./hello-world/mkdocs.yml'
       - Price oracle: 'demos/price-oracle/index.md'
-  - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
-  - Olas SDK: 'olas-sdk/index.md'
-  - Mech Client: '!include ./mech-client/mkdocs.yml'
-  - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
+    - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
+    - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
+  - Build with Other Agent Frameworks:
+    - Olas SDK: 'olas-sdk/index.md'
   - Olas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
@@ -62,7 +67,6 @@ nav:
       - MechKit: '!include ./mech/mkdocs.yml'
       - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
       - MessagingKit: '!include ./open-acn/mkdocs.yml'
-  - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
 
 plugins:
   - macros:
