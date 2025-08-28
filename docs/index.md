@@ -1,4 +1,4 @@
-# Olas Developer Documentation
+# Olas Stack Developer Documentation
 
 <figure markdown>
 ![Olas logo](./images/olas-logo.svg){ align=left width="200" }

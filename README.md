@@ -1,4 +1,4 @@
-# Olas Developer Documentation
+# Olas Stack Developer Documentation
 
 This repository aggregates the documentation of all the Olas ecosystem products.
 
