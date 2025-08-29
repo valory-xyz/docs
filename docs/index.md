@@ -1,7 +1,7 @@
 # Olas Stack Developer Documentation
 
 This documentation covers the technical building blocks that make up Olas. For a higher level
-documentation on "what is Olas" visit [Olas documentation](https://docs.olas.network) instead.
+documentation on "what is Olas" visit [Olas documentation](https://docs.autonolas.network) instead.
 
 ## The Olas Stack
 
