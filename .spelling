@@ -34,7 +34,6 @@ GörliWei
 GovernorOLAS
 incentivizes
 incentivizing
-instead
 ipfs
 kwargs
 Langchain
@@ -356,3 +355,4 @@ fulfillment
 - docs/olas-sdk/index.md
 Healthcheck
 Github
+docs.olas.network
