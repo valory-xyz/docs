@@ -1,29 +1,18 @@
 # Olas Stack Developer Documentation
 
-<figure markdown>
-![Olas logo](./images/olas-logo.svg){ align=left width="200" }
-</figure>
-
-Olas' mission is to provide a foundation on which new types of autonomous services can be built, which:
-
-* Run continuously.
-* Take action on their own.
-* Interact with the world beyond blockchains.
-* Run complex logic.
-* Are composable.
-* Are crypto-native: decentralized, trust-minimized, transparent, and robust.
-
-<figure markdown>
-[:material-book-open-variant: &nbsp; Read the Olas Whitepaper](https://www.olas.network/documents/whitepaper/Whitepaper%20v1.0.pdf){ .md-button .md-button--primary}
-</figure>
+This documentation covers the technical building blocks that make up Olas. For a higher level documentation on "what is Olas" visit [docs.olas.network](https://docs.olas.network) instead.
 
 ## The Olas Stack
 
-The Olas Stack is made of three main components:
+The Olas Stack is composed of:
 
-* The [Open Autonomy](https://docs.autonolas.network/open-autonomy/)  framework.
-* The [Olas Protocol](https://docs.autonolas.network/protocol/).
-* A number of [toolkits](https://docs.autonolas.network/products/) for building a growing collection of autonomous services.
+- Marketplace: Resources to monetize or hire agents in the Mech Marketplace:
+  - [Monetize an Agent with Mech Tools](https://stack.olas.network/mech-tools-dev/)
+  - [Hire an Agent with Mech Client](https://stack.olas.network/mech-client/).
+- Agent Frameworks: Resources to build an agent on Olas:
+  - [Build with Olas' AI Agent Framework - Open Autonomy](https://stack.olas.network/open-autonomy/)
+  - [Build with third-party AI Agent Frameworks - Olas SDK](https://stack.olas.network/olas-sdk/).
+- [Olas Protocol: Resources covering the on-chain Olas protocol](https://docs.autonolas.network/protocol).
 
 ## Get involved
 

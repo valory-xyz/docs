@@ -3,21 +3,19 @@ site_url: https://stack.autonolas.network/
 site_description: Developer documentation of Olas ecosystem products.
 #repo_url: https://github.com/valory-xyz/docs
 site_author: developer@valory.xyz
-edit_uri: ""
-copyright:  Copyright &copy; 2021 - 2023 Valory AG 
-
+edit_uri: ''
+copyright: Copyright &copy; 2021 - 2023 Valory AG
 
 strict: true
-
 
 theme:
   name: 'material'
   language: en
   favicon: images/favicon.ico
-  logo: images/logo.svg  
+  logo: images/logo.svg
   icon:
     admonition:
-      abstract: material/book-open-variant  
+      abstract: material/book-open-variant
   features:
     - navigation.indexes
     - navigation.top
@@ -33,28 +31,28 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
-
 nav:
-  - Home: 'index.md' 
+  - Home: 'index.md'
   - Monetize an Agent on Marketplace:
-    - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
+      - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
   - Hire an Agent on Marketplace:
-    - Mech Client: '!include ./mech-client/mkdocs.yml'
+      - Mech Client: '!include ./mech-client/mkdocs.yml'
   - Build with Olas Agent Frameworks:
-    - Demo autonomous services: 
-      - 'demos/index.md'
-      - Hello World: '!include ./hello-world/mkdocs.yml'
-      - Price oracle: 'demos/price-oracle/index.md'
-    - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
-    - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
+      - Demo autonomous services:
+          - 'demos/index.md'
+          - Hello World: '!include ./hello-world/mkdocs.yml'
+          - Price oracle: 'demos/price-oracle/index.md'
+      - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
+      - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
   - Build with Other Agent Frameworks:
-    - Olas SDK: 'olas-sdk/index.md'
+      - Olas SDK: 'olas-sdk/index.md'
   - Olas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
       - Manage the life cycle of a service: 'protocol/life_cycle_of_a_service.md'
       - Tokenomics: 'protocol/tokenomics.md'
       - Technical overview: 'protocol/technical_overview.md'
+  # Currently disabled as does not fit in with current paths
   # - Toolkits:
   #     - 'products/index.md'
   #     - SMPKit: '!include ./autonomous-fund/mkdocs.yml'
@@ -80,8 +78,7 @@ plugins:
         'protocol/mint_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
         'open-autonomy/guides/configure_access_external_chains.md': 'open-autonomy/configure_service/configure_access_external_chains.md'
         'open-autonomy/guides/service_configuration_file.md': 'open-autonomy/configure_service/service_configuration_file.md'
-        'open-autonomy/deployment/on-chain_deployment_checklist.md': 'open-autonomy/configure_service/on-chain_deployment_checklist.md' 
-
+        'open-autonomy/deployment/on-chain_deployment_checklist.md': 'open-autonomy/configure_service/on-chain_deployment_checklist.md'
 
 markdown_extensions:
   - admonition
@@ -102,12 +99,11 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - def_list  
+  - def_list
   - md_in_html
   - toc:
       title: On this page
       toc_depth: 3
-
 
 extra:
   open_aea: '[Open AEA](https://github.com/valory-xyz/open-aea)'
@@ -136,11 +132,9 @@ extra:
       link: https://github.com/valory-xyz
       name: Olas on GitHub
 
-
 extra_javascript:
-    - https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js
-    - javascripts/mathjax.js
-    - https://polyfill.io/v3/polyfill.min.js?features=es6
-    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    - javascripts/dynamic-hash.js
-
+  - https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/dynamic-hash.js
