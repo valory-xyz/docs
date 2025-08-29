@@ -13,7 +13,7 @@ The Olas Stack is composed of:
 - Agent Frameworks: Resources to build an agent on Olas:
   - [Build with Olas' AI Agent Framework - Open Autonomy](https://stack.olas.network/open-autonomy/)
   - [Build with third-party AI Agent Frameworks - Olas SDK](https://stack.olas.network/olas-sdk/).
-- [Olas Protocol: Resources covering the on-chain Olas protocol](https://docs.autonolas.network/protocol).
+- [Olas Protocol: Resources covering the on-chain Olas protocol](https://stack.autonolas.network/protocol).
 
 ## Get involved
 
