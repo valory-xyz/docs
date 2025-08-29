@@ -2,7 +2,7 @@ This guide describes how to use the {{ autonolas_protocol_registry_dapp }} to mi
 
 ## How packages are minted
 
-To mint a package (also referred to as _unit_) in the protocol, it must have been published into a remote IPFS registry. Read [how to publish packages](https://stack.olas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
+To mint a package (also referred to as _unit_) in the protocol, it must have been published into a remote IPFS registry. Read [how to publish packages](https://docs.autonolas.network/open-autonomy/guides/publish_fetch_packages/) with the {{open_autonomy}} framework.
 
 Minting a software package involves creating a **metadata file** that contains the package data and a pointer to the IPFS where the package is published.
 The {{ autonolas_protocol_registry_dapp }} will automatically create and publish the metadata file on the IPFS registry, based on the package/unit information provided by the user in an online form. Then, it will interact with the protocol smart contracts to complete minting the package on-chain.

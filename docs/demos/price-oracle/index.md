@@ -34,10 +34,10 @@ node.
 
 ## Running the demo
 
-Before running the demo, ensure that your machine satisfies the [framework requirements](https://stack.olas.network/open-autonomy/guides/set_up/#requirements) and that
-you have followed the [setup instructions](https://stack.olas.network/open-autonomy/guides/set_up/#set-up-the-framework). As a result you should have a Pipenv workspace folder.
+Before running the demo, ensure that your machine satisfies the [framework requirements](https://docs.autonolas.network/open-autonomy/guides/set_up/#requirements) and that
+you have followed the [setup instructions](https://docs.autonolas.network/open-autonomy/guides/set_up/#set-up-the-framework). As a result you should have a Pipenv workspace folder.
 
-To run the Price Oracle service follow the instructions in the [OracleKit section](https://stack.olas.network/product/oraclekit/#demo), which contains the necessary steps to download the service from the Service Registry, build and run a deployment locally with a local [HardHat](https://hardhat.org/) node.
+To run the Price Oracle service follow the instructions in the [OracleKit section](https://docs.autonolas.network/product/oraclekit/#demo), which contains the necessary steps to download the service from the Service Registry, build and run a deployment locally with a local [HardHat](https://hardhat.org/) node.
 
 
 ## Interacting with the demo

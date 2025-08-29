@@ -29,7 +29,7 @@ Check the guide at [Olas SDK Starter](https://github.com/valory-xyz/olas-sdk-sta
 
 ## Step 3: Mint it
 
-To register the agent in the {{ autonolas_protocol_registry_dapp }}, follow the steps in this guide: [Mint an Agent](https://stack.olas.network/protocol/mint_packages_nfts/#mint-an-agent).
+To register the agent in the {{ autonolas_protocol_registry_dapp }}, follow the steps in this guide: [Mint an Agent](https://docs.autonolas.network/protocol/mint_packages_nfts/#mint-an-agent).
 
 **Note 1:** Your Olas Agent must provide at least one dependency, as default specify the value 1. 
 
