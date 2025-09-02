@@ -36,6 +36,9 @@ jobs:
       - name: Sub-modules
         run: git submodule update --init --recursive
 
+      - name: Check submodules' versions
+        run: tox -e check-submodules-versions
+
       - name: Check copyright
         run: tox -e check-copyright
         
