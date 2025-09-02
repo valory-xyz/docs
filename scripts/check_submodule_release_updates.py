@@ -47,6 +47,7 @@ def run_command(cmd, cwd=None, capture_output=True, ignore_errors=False):
 def get_submodules():
     """Get list of submodules in the repository."""
     try:
+        run_command('git submodule update --init --recursive')
         output = run_command("git submodule status")
         submodules = []
         for line in output.splitlines():
