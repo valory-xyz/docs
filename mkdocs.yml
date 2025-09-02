@@ -47,7 +47,7 @@ nav:
       - Price oracle: 'demos/price-oracle/index.md'
     - Open Autonomy Framework: '!include ./open-autonomy/mkdocs.yml'
     - Open AEA Framework: '!include ./open-aea/mkdocs.yml'
-    - Dev Academy Videos: https://www.youtube.com/playlist?list=PLXztsZv11CTfXiQK9OJhMwBkfgf4ETZkl)
+    - Dev Academy Videos: https://www.youtube.com/playlist?list=PLXztsZv11CTfXiQK9OJhMwBkfgf4ETZkl
   - Build with Other Agent Frameworks:
     - Olas SDK: 'olas-sdk/index.md'
   - Olas Protocol:
