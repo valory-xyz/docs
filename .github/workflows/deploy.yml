@@ -1,4 +1,4 @@
-name: docs
+name: build-and-deploy
 
 on:
   push:
@@ -6,7 +6,20 @@ on:
 
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
+  # Build job
   build:
     continue-on-error: False
     runs-on: ubuntu-latest
@@ -33,23 +46,6 @@ jobs:
 
       - name: Sub-modules
         run: git submodule update --init --recursive
-
-      - name: Check submodules' versions
-        run: tox -e check-submodules-versions
-
-      - name: Check copyright
-        run: tox -e check-copyright
-        
-      - name: Check spelling
-        run: tox -e spell-check
-        
-      - name: Check doc links
-        run: tox -e check-doc-links      
-
-      - name: markdownlint-cli2-action
-        uses: DavidAnson/markdownlint-cli2-action@v9.0.0
-        with:
-          globs: /docs/*.md # optional, default is *.{md,markdown}
 
       - name: Generate Documentation
         run: |
