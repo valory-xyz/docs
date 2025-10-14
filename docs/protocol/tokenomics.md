@@ -1,6 +1,6 @@
-The Olas Protocol tokenomics is the economic model designed to foster the development and composability of autonomous services. The primary goal is to create a sustainable ecosystem to incentivize developers to contribute to the network and reward them for their participation proportionally to their efforts, while the platform itself grows and becomes more valuable.
+The Olas Protocol tokenomics is the economic model designed to foster the development and composability of autonomous AI agents. The primary goal is to create a sustainable ecosystem to incentivize developers to contribute to the network and reward them for their participation proportionally to their efforts, while the platform itself grows and becomes more valuable.
 
-Olas uses a **bonding mechanism** to grow the protocol-owned liquidity, a **staking model** for code to enable developers to track their code contributions on-chain, and **a system to distribute rewards** for useful code. Additionally, Olas aims to create a flywheel to **attract donations** and provide decentralized protocol-owned services to ensure ecosystem longevity.
+Olas uses a **bonding mechanism** to grow the protocol-owned liquidity, a **staking model** for code to enable developers to track their code contributions on-chain, and **a system to distribute rewards** for useful code. Additionally, Olas aims to create a flywheel to **attract donations** and provide decentralized protocol-owned AI agents to ensure ecosystem longevity.
 
 !!! abstract "Learn more"
 
@@ -13,21 +13,20 @@ The protocol coordinates the goals described above through a tradable utility to
 token follows the ERC20 standard and is deployed on the Ethereum mainnet.
 
 * OLAS can be locked for voting-escrow OLAS ([veOLAS](https://etherscan.io/address/0x7e01A500805f8A52Fad229b3015AD130A332B7b3)) to participate in the Olas DAO governance, thus shaping the protocol and its tokenomics.
-* OLAS can be locked for veOLAS tokens for permissionless access to a service whitelist that
+* OLAS can be locked for veOLAS tokens for permissionless access to an AI agent whitelist that
 unlocks code owners’ top-ups (incentives in OLAS that boost the developers' ETH rewards). See the details [here](https://github.com/valory-xyz/autonolas-tokenomics/blob/main/docs/Autonolas_tokenomics_audit.pdf).
 * OLAS can be used to acquire (on a third-party DEX) LP-tokens that are required for
 bonding. This will enable protocol-owned liquidity and therefore support the protocol’s long-term growth.
 
 ## Incentivizing software developers
 
-Let us briefly present how the staking model for agents and component code incentivizes software developers:
+Let us briefly present how the staking model for agent blueprints and component code incentivizes software developers:
 
-1. Developers stake agents and/or components on-chain by [minting their software packages as NFTs](./mint_packages_nfts.md#mint-a-component).
-2. Service owners use staked agents and components to create autonomous
-services. Then they [mint their service](./mint_packages_nfts.md#mint-a-service) in the Olas Protocol.
-3. Services can receive ETH donations through the Olas Protocol as a sign of recognition for their effort and utility.
-4. With a share of accrued donations, the protocol will reward the staked agents and/or components that facilitated such donations. Rewards are distributed proportionally to the code contribution to the donated services. Subject to governance approval, a portion of service donations can be eventually accrued by the Protocol Treasury and used by the DAO for ecosystem growth.
-5. Moreover, when service owners or service donors meet a specific threshold of veOLAS (i.e., they have locked a certain amount of OLAS for a certain period of time), they are considered whitelisted. Under this condition, the protocol tops up the ETH rewards from donations by allocating a portion of the OLAS inflation to the staked components or agents associated with the whitelisted services.
+1. Developers stake agent blueprints and/or components on-chain by [minting their software packages as NFTs](./mint_packages_nfts.md#mint-a-component).
+2. AI agent owners use staked agent blueprints and components to create autonomous AI agents. Then they [mint their AI agents](./mint_packages_nfts.md#mint-an-ai-agent) in the Olas Protocol.
+3. AI agents can receive ETH donations through the Olas Protocol as a sign of recognition for their effort and utility.
+4. With a share of accrued donations, the protocol will reward the staked agent blueprints and/or components that facilitated such donations. Rewards are distributed proportionally to the code contribution to the donated AI agents. Subject to governance approval, a portion of AI agent donations can be eventually accrued by the Protocol Treasury and used by the DAO for ecosystem growth.
+5. Moreover, when AI agent owners or AI agent donors meet a specific threshold of veOLAS (i.e., they have locked a certain amount of OLAS for a certain period of time), they are considered whitelisted. Under this condition, the protocol tops up the ETH rewards from donations by allocating a portion of the OLAS inflation to the staked components or agent blueprints associated with the whitelisted AI agents.
 
 ## Incentivizing bonders
 
@@ -41,7 +40,7 @@ The {{ autonolas_protocol_tokenomics_dapp }} provides a front-end for **donors**
 
 ### Donate page
 
-Anyone can make a voluntary donation to a given service. Donations to the protocol are distributed to agent or component owners according to their direct contribution measure. Developers can later claim their incentive proportionally to the usefulness of their code.
+Anyone can make a voluntary donation to a given AI agent. Donations to the protocol are distributed to agent blueprints or component owners according to their direct contribution measure. Developers can later claim their incentive proportionally to the usefulness of their code.
 
 <figure markdown>
 ![Tokenomics donate](./images/tokenomics_donate.png){ align=left width=600 }
@@ -49,28 +48,28 @@ Anyone can make a voluntary donation to a given service. Donations to the protoc
 
 This page also displays the current epoch, the minimum epoch length, the estimated time for the current epoch to end and the end time of the previous one.
 
-Connect your wallet and indicate the service ID you wish to donate. Allowed actions:
+Connect your wallet and indicate the AI agent ID you wish to donate. Allowed actions:
 
-* **Donate.** Donate the specified amount of ETH to the specified service. You can specify more than one service in a single call. The connected wallet will ask you to approve the transaction.
+* **Donate.** Donate the specified amount of ETH to the specified AI agent. You can specify more than one AI agent in a single call. The connected wallet will ask you to approve the transaction.
 
     !!! warning "Important"
-        To avoid fragmented donations, the protocol currently only accepts donations of at least 0.065 ETH. (If the donation is for several services, the total sum must be at least 0.065 ETH.)
+        To avoid fragmented donations, the protocol currently only accepts donations of at least 0.065 ETH. (If the donation is for several AI agents, the total sum must be at least 0.065 ETH.)
 
 ### Developer Rewards
 
-Developers can use this screen to review and claim the incentives of the agents and components they own.
+Developers can use this screen to review and claim the incentives of the agent blueprints and components they own.
 
 <figure markdown>
 ![Tokenomics dev incentives](./images/tokenomics_dev_incentives.png){ align=left width=600 }
 </figure>
 
- Connect your wallet and indicate the ID and unit type (agent or component) that you wish to refer to. Allowed actions:
+ Connect your wallet and indicate the ID and unit type (agent blueprint or component) that you wish to refer to. Allowed actions:
 
-* **Check for available rewards.** Review the incentives that a specified address can currently claim for the specified agents or components. You can specify more than one agent or component in a single call. Note that the specified address must be the owner of that components or agents to properly use this functionality.
+* **Check for available rewards.** Review the incentives that a specified address can currently claim for the specified agent blueprints or components. You can specify more than one agent blueprint or component in a single call. Note that the specified address must be the owner of that components or agent blueprints to properly use this functionality.
 
-* **Claim rewards.** Collect available rewards for the specified components or agents. You can specify more than one agent or component in a single call. The connected wallet will ask to approve the transaction. Note that claiming rewards is currently suspended and may be reinstated subject to governance approval.
+* **Claim rewards.** Collect available rewards for the specified components or agent blueprints. You can specify more than one agent blueprint or component in a single call. The connected wallet will ask to approve the transaction. Note that claiming rewards is currently suspended and may be reinstated subject to governance approval.
 
-* **Estimate rewards for next epoch.** Estimate claimable rewards for the next epoch for the specified agent or component. Note that such rewards are estimated, as they might eventually change during the epoch due to other donations.
+* **Estimate rewards for next epoch.** Estimate claimable rewards for the next epoch for the specified agent blueprint or component. Note that such rewards are estimated, as they might eventually change during the epoch due to other donations.
 
 * **Checkpoint call.** When the time of the current epoch is passed, a checkpoint button is shown.  Anyone can call the checkpoint. The checkpoint allows a new epoch to start and projected incentives to be claimed. The connected wallet will ask to approve the transaction.
 

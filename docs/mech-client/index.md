@@ -2,17 +2,17 @@
 
 
 This guide contains practical guidelines for interacting with Mechs.
-The requester - whether it is an agent or an application - can choose between two methods for sending service requests:
+The requester - whether it is an AI agent or an application - can choose between two methods for sending AI agent requests:
 
-- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](../mech-tools-dev/index.md#appendix-what-is-the-mech-marketplace) for the Mechs which are registered there);
+- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](https://stack.olas.network/mech-tools-dev/#the-mech-marketplace) for the Mechs which are registered there);
 
-- Off-chain: the request is sent directly to the Mech service while delivery is sent by the Mech service to the Mech contract (and then relayed by Mech Marketplace contract for Mechs which are registered there);
+- Off-chain: the request is sent directly to the Mech AI agent while delivery is sent by the Mech AI agent to the Mech contract (and then relayed by Mech Marketplace contract for Mechs which are registered there);
 
 In order to send a request, the workflow is the following:
 
 **1.** Choose a Mech;
 
-**2.** Make an on-chain deposit according to the Mech’s [payment model](../mech-tools-dev/index.md#overview).
+**2.** Make an on-chain deposit according to the Mech’s [payment model](https://stack.olas.network/mech-tools-dev/#payment-models).
 
 **3.** Choose a method for sending the request;
 
@@ -75,7 +75,7 @@ where `<api_key>` is the key just created.
 
 ## 1. How to Send a request to a Mech (registered on the Mech MarketPlace)
 
-In order to send a request to a Mech which is registered on the Mech Marketplace, follow the [instructions](#1-2-sending-requests) below, after a [setup](#setup).
+In order to send a request to a Mech which is registered on the Mech Marketplace, follow the [instructions](#1-2-1-send-a-request) below, after a [setup](#setup).
 
 In order to send a request to a Mech which receives requests via the Mech Marketplace, follow the instructions below.
 First, [choose a Mech](#1-1-choosing-a-mech). Then choose among the following ways to send a request: via the [terminal](#1-2-in-terminal), using a python [script](#1-3-script-for-automatizing-request-sending), or via the [web interface](#1-4-sending-requests-through-the-web-interface) and follow the instructions within the corresponding section.
@@ -102,7 +102,7 @@ You will then see the list of available Mech Marketplace Mechs.
 
 ### 1. 2. In terminal
 
-**1.** Send a request:
+#### 1. 2. 1. Send a request:
 
 - Use the command mechx in terminal, which is structured as follows:
 
@@ -138,7 +138,7 @@ python ./scripts/deposit_payment_model.py
 
 where `payment_model` is replaced with "native" or "token" depending on the payment model of the Mech. You will be prompted to choose a network. Enter the name of the network which corresponds to the one of the Mech (without single quotes). When prompted enter the amount to deposit. This should be larger than the price of the Mech. This price corresponds to the variable MaxDeliveryRate.
 
-**2.** Receive the response:
+#### 1. 2. 2. Receive the response:
 
 - In response to the request, a json file is printed below "Data for agent", in which the key ‘result’ corresponds to the mech’s response to the request. For instance, with the command
 
@@ -226,7 +226,7 @@ Replace `<agent_id>` with the following: the number (as an integer, not string) 
 
 - The list of ids and the names of the tools that the Mech can use will appear. You will be prompted to enter the id of a tool that the Mech will use to respond to the request.
 
-- In order to select a tool, you can use the following to see which tools are used by which agents:
+- In order to select a tool, you can use the following to see which tools are used by which agent blueprints:
 
 ```
 mechx tools-for-agents

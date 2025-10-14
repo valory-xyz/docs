@@ -1,33 +1,15 @@
 [submodule "open-autonomy"]
 	path = open-autonomy
 	url = https://github.com/valory-xyz/open-autonomy
-[submodule "autonomous-fund"]
-	path = autonomous-fund
-	url = https://github.com/valory-xyz/autonomous-fund
-[submodule "apy-oracle"]
-	path = apy-oracle
-	url = https://github.com/valory-xyz/apy-oracle
 [submodule "price-oracle"]
 	path = price-oracle
 	url = https://github.com/valory-xyz/price-oracle
-[submodule "contribution-service"]
-	path = contribution-service
-	url = https://github.com/valory-xyz/contribution-service
-[submodule "agent-academy-1"]
-	path = agent-academy-1
-	url = https://github.com/valory-xyz/agent-academy-1
 [submodule "IEKit"]
 	path = IEKit
 	url = https://github.com/valory-xyz/IEKit
 [submodule "mech"]
 	path = mech
 	url = https://github.com/valory-xyz/mech
-[submodule "agent-academy-2"]
-	path = agent-academy-2
-	url = https://github.com/valory-xyz/agent-academy-2
-[submodule "governatooorr"]
-	path = governatooorr
-	url = https://github.com/valory-xyz/governatooorr
 [submodule "open-acn"]
 	path = open-acn
 	url = https://github.com/valory-xyz/open-acn
