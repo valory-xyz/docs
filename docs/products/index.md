@@ -14,8 +14,8 @@
 [![MessagingKit](../images/messagingkit.svg){ align=left width=50}](https://github.com/valory-xyz/open-acn/blob/main/docs/index.md)
 </figure>
 
-**Olas Toolkits** are code repositories that you can fork to bootstrap common autonomous services.
+**Olas Toolkits** are code repositories that you can fork to bootstrap common autonomous AI agents.
 
 !!! abstract "Learn more"
 
-    Read the section **Use Cases for Autonomous Services** in the {{ autonolas_whitepaper }}, where you can find a discussion of the kind of autonomous services that the Olas Stack enables.
+    Read the section **Use Cases for Autonomous AI agents** in the {{ autonolas_whitepaper }}, where you can find a discussion of the kind of autonomous AI agents that the Olas Stack enables.

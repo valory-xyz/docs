@@ -1,15 +1,15 @@
-# Price Oracle Agent Service Demo
+# Price Oracle AI Agent Demo
 
-The goal of this demo is to demonstrate an agent service that provides an estimation
+The goal of this demo is to demonstrate an AI Agent that provides an estimation
 of the Bitcoin price (USD) based on observations coming from different data sources,
 e.g., CoinMarketCap, CoinGecko, Binance and Coinbase.
-Each agent collects an observation from one of the data sources above and
-shares it with the rest of the agents through the consensus gadget (Tendermint).
-Once all the observations are settled, each agent
+Each agent instance collects an observation from one of the data sources above and
+shares it with the rest of the agent instances through the consensus gadget (Tendermint).
+Once all the observations are settled, each agent instance
 computes locally a deterministic function that aggregates the observations made by all the
-agents, and obtains an estimate of the Bitcoin price. In this demo, we consider the
+agent instances, and obtains an estimate of the Bitcoin price. In this demo, we consider the
 average of the observed values.
-The local estimates made by all the agents are shared, and
+The local estimates made by all the agent instances are shared, and
 a consensus is reached when one estimate
 reaches $\lceil(2n + 1) / 3\rceil$ of the total voting power committed
 on the consensus gadget.
@@ -34,24 +34,24 @@ node.
 
 ## Running the demo
 
-Before running the demo, ensure that your machine satisfies the [framework requirements](https://docs.autonolas.network/open-autonomy/guides/set_up/#requirements) and that
-you have followed the [setup instructions](https://docs.autonolas.network/open-autonomy/guides/set_up/#set-up-the-framework). As a result you should have a Pipenv workspace folder.
+Before running the demo, ensure that your machine satisfies the [framework requirements](https://stack.olas.network/open-autonomy/guides/set_up/#requirements) and that
+you have followed the [setup instructions](https://stack.olas.network/open-autonomy/guides/set_up/#set-up-the-framework). As a result you should have a Pipenv workspace folder.
 
-To run the Price Oracle service follow the instructions in the [price-oracle repo](https://github.com/valory-xyz/price-oracle/blob/main/docs/index.md#demo), which contains the necessary steps to download the service from the Service Registry, build and run a deployment locally with a local [HardHat](https://hardhat.org/) node.
+To run the Price Oracle AI agent follow the instructions in the [price-oracle repo](https://github.com/valory-xyz/price-oracle/blob/main/docs/index.md#demo), which contains the necessary steps to download the AI agent from the Service Registry, build and run a deployment locally with a local [HardHat](https://hardhat.org/) node.
 
 
 ## Interacting with the demo
 
-The logs of a single agent or [Tendermint](https://tendermint.com/) node can be inspected in another terminal with, e.g.,
+The logs of a single agent instance or [Tendermint](https://tendermint.com/) node can be inspected in another terminal with, e.g.,
 
 ```bash
 docker logs <container_id> --follow
 ```
 
-where `<container_id>` refers to the Docker container ID for either an agent
+where `<container_id>` refers to the Docker container ID for either an agent instance
 (`abci0`, `abci1`, `abci2` and `abci3`) or a [Tendermint](https://tendermint.com/) node (`node0`, `node1`, `node2` and `node3`).
 
-By examining the logs of an agent container, you will see a message similar to the one depicted below, after the framework successfully builds and starts it:
+By examining the logs of an agent instance container, you will see a message similar to the one depicted below, after the framework successfully builds and starts it:
 
 ```
    / \   | ____|   / \   
@@ -131,9 +131,9 @@ Starting AEA 'agent' in 'async' mode...
 [INFO] [agent] DRAND check successful.
 ```
 
-From the logs, you can see how the agent traverses the different states of the
+From the logs, you can see how the agent instance traverses the different states of the
 {{fsm_app}}: registration, randomness collection, keeper selection, price collection, price estimation, etc.
-For example, note how this particular agent collects the Bitcoin price from CoinGecko:
+For example, note how this particular agent instance collects the Bitcoin price from CoinGecko:
 
 ```
 [INFO] [agent] Entered in the 'collect_observation' round for period 19
@@ -146,7 +146,7 @@ For example, note how this particular agent collects the Bitcoin price from Coin
 [INFO] [agent] scheduling timeout of 7.0 seconds for event Event.ROUND_TIMEOUT with deadline 2022-08-02 22:51:23.858947
 ```
 
-Afterwards, the agent estimate the price based on all the different observations collected and forwarded by all the agents:
+Afterwards, the instance estimates the price based on all the different observations collected and forwarded by all the agent instances:
 
 ```
 [INFO] [agent] Entered in the 'estimate_consensus' round for period 19
@@ -161,4 +161,4 @@ Afterwards, the agent estimate the price based on all the different observations
 
 In order to fully understand what are the constituent states that the {{fsm_app}} is traversing,
 we refer you to the [technical details](price_oracle_technical_details.md) of the demo, and also to
-the [composition of FSMs](price_oracle_fsms.md) that make up the agents' {{fsm_app}}.
+the [composition of FSMs](price_oracle_fsms.md) that make up the agent blueprint's {{fsm_app}}.

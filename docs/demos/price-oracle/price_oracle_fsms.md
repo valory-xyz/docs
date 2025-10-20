@@ -9,7 +9,7 @@ The aim of this syntax is to be used as a starting point in the design and
 reasoning of an {{fsm_app}} without delving into the internals of the {{open_autonomy}} framework
 itself. Hence, the usage of objects is minimized, and only strings are
 used as identifiers. It can be used as a description language to translate a
-specification into code, e.g., for agent development, or for conducting some
+specification into code, e.g., for agent blueprint development, or for conducting some
 formal analysis using a model checker like SPIN.
 
 Each FSM object is defined by a collection of seven input parameters:

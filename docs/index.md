@@ -7,14 +7,14 @@ documentation on "what is Olas" visit [Olas documentation](https://docs.olas.net
 
 The Olas Stack is composed of:
 
-- Marketplace: Resources to monetize or hire agents in the Mech Marketplace:
-      - [Monetize an Agent with Mech Tools](https://docs.autonolas.network/mech-tools-dev/)
-      - [Hire an Agent with Mech Client](https://docs.autonolas.network/mech-client/).
-- Agent Frameworks: Resources to build an agent on Olas:
-      - [Build with Olas' AI Agent Framework - Open Autonomy](https://docs.autonolas.network/open-autonomy/)
-      - [Build with third-party AI Agent Frameworks - Olas SDK](https://docs.autonolas.network/olas-sdk/).
-- [Integrate an Agent into Pearl](https://drive.google.com/file/d/1YPe2RFMjf_YPsrldHuwzBHTYwCCy22C8/view) (Access temporarily limited to [Accelerator](https://olas.network/accelerator) participants).
-- [Olas Protocol: Resources covering the on-chain Olas protocol](https://docs.autonolas.network/protocol/).
+- Marketplace: Resources to monetize or hire AI agents in the Mech Marketplace:
+      - [Monetize an AI Agent with Mech Tools](https://stack.olas.network/mech-tools-dev/).
+      - [Hire an AI Agent with Mech Client](https://stack.olas.network/mech-client/).
+- Agent Frameworks: Resources to build an AI agent on Olas:
+      - [Build with Olas' AI Agent Framework - Open Autonomy](https://stack.olas.network/open-autonomy/).
+      - [Build with third-party AI Agent Frameworks - Olas SDK](./olas-sdk/index.md).
+- [Integrate an AI Agent into Pearl](https://drive.google.com/file/d/1YPe2RFMjf_YPsrldHuwzBHTYwCCy22C8/view) (Access temporarily limited to [Accelerator](https://olas.network/accelerator) participants).
+- [Olas Protocol: Resources covering the on-chain Olas protocol](./protocol/index.md).
 
 ## Get involved
 

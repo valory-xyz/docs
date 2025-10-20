@@ -1,9 +1,9 @@
 # Price Oracle - Technical Details
 
-Agents communicate directly to their local Tendermint node, whereas the `AbciApp`
+Agent instances communicate directly to their local Tendermint node, whereas the `AbciApp`
 is used to handle requests they receive (e.g., in response to their behaviour).
 
-In addition to other general-use components (e.g., signing, HTTP client), the components of the  AEAs related to the implementation of the agent service are:
+In addition to other general-use components (e.g., signing, HTTP client), the components of the AEAs related to the implementation of the agent blueprint are:
 
 - Protocol `valory/abci:0.1.0`: it allows representing
     ABCI request and response messages.
@@ -17,7 +17,7 @@ In addition to other general-use components (e.g., signing, HTTP client), the co
     replicated state machines, based on the ABCI protocol
     (e.g. `Period`, `AbstractRound`). It is an abstract skill.
 
-Moreover, it has the following specific components to implement the particular case of the price oracle agent service:
+Moreover, it has the following specific components to implement the particular case of the price oracle agent blueprint:
 
 - `valory/price_estimation_abci`: it implements the round-based
     ABCI application for price estimation of a cryptocurrency,
@@ -45,7 +45,7 @@ following parts:
 
 ### The `AgentRegistrationAbciApp`
 
-This `AbciApp` implements the registration of agents to partake in the behaviour
+This `AbciApp` implements the registration of agent instances to partake in the behaviour
 scheduled in subsequent rounds.
 
 0. `RegistrationStartupRound` <br/>
@@ -56,27 +56,27 @@ scheduled in subsequent rounds.
    once this threshold is hit ("registration threshold"), the round is finished.
 
 2. `FinishedRegistrationRound` <br/>
-   A round that signals agent registration was successful, but service contracts has not been already deployed.
+   A round that signals agent instance registration was successful, but AI agent contracts have not been already deployed.
 
 3. `FinishedRegistrationFFWRound` <br/>
-   A round that signals agent registration was successful, and the service contracts are already deployed.
+   A round that signals agent instance registration was successful, and the AI agent contracts are already deployed.
 
 
 ### The `SafeDeploymentAbciApp`
 
 This `AbciApp` implements the deployments of a Gnosis safe contract, which is
 a multisig smart contract wallet that requires a minimum number of people to
-approve a transaction before it can occur. This assures that no single agent
+approve a transaction before it can occur. This assures that no single agent instance
 can compromise the funds contained in it.
 
 0. `RandomnessSafeRound` <br/>
-   Some randomness is retrieved to be used in a keeper agent selection. In
-   particular, agents individually request the latest random number from
+   Some randomness is retrieved to be used in a keeper agent instance selection. In
+   particular, agent instances individually request the latest random number from
    [DRAND](https://drand.love), establish consensus on it and then use
    it as a seed for computations requiring randomness (e.g. keeper selection).
 
 1. `SelectKeeperSafeRound` <br/>
-   The agents agree on a new keeper that will be in charge of sending deploying
+   The agent instances agree on a new keeper that will be in charge of sending deploying
    the multisig wallet and settling transactions.
 
 2. `DeploySafeRound` <br/>
@@ -87,7 +87,7 @@ can compromise the funds contained in it.
    selected and the safe deployment will be re-run.
 
 3. `ValidateSafeRound` <br/>
-   All agents validate the previous deployment to ensure that the correct
+   All agent instances validate the previous deployment to ensure that the correct
    contract with the correct settings has been deployed. If the safe deployment
    could not be verified, the process will start again from the registration
    round.
@@ -104,10 +104,10 @@ and subsequently stripped from unnecessary data structures and behaviours.
 
 0. `RandomnessOracleRound` <br/>
    Similar as to the `RandomnessSafeRound`, randomness is retrieved here, this
-   time for the selection of an agent to become the oracle keeper.
+   time for the selection of an agent instance to become the oracle keeper.
 
 1. `SelectKeeperOracleRound` <br/>
-   The agents select a new keeper that will be in charge of sending deploying
+   The agent instances select a new keeper that will be in charge of sending deploying
    the multisig wallet and settling transactions.
 
 2. `DeployOracleRound` <br/>
@@ -116,8 +116,8 @@ and subsequently stripped from unnecessary data structures and behaviours.
    the oracle deployment will be re-run.
 
 3. `ValidateOracleRound` <br/>
-   all agents verify that the Oracle contract has been  deployed using the
-   expected settings. If that's not the case, agents will restart the period.
+   all agent instances verify that the Oracle contract has been  deployed using the
+   expected settings. If that's not the case, agent instances will restart the period.
 
 4. `FinishedOracleRound`
    A round that signals the oracle contract was deployed successfully.
@@ -125,10 +125,10 @@ and subsequently stripped from unnecessary data structures and behaviours.
 
 ### The `PriceAggregationAbciApp`
 
-This `AbciApp` implements off-chain aggregation of observations by the agents.
-Once the majority of agents has submitted their observation these are shared
-with all agents as they move to the price estimation round. In this next round
-each of the agents performs off-chain a computation on the data set, which could
+This `AbciApp` implements off-chain aggregation of observations by the agent instances.
+Once the majority of agent instances has submitted their observation these are shared
+with all agent instances as they move to the price estimation round. In this next round
+each of the agent instances performs off-chain a computation on the data set, which could
 be a simple summary statistic or an estimate derived from a complex model -
 either way this is something that cannot be done on-chain. Once consensus is
 reached on this estimate, the aggregate value is submitted and recorded
@@ -136,10 +136,10 @@ on-chain in the next block that is mined.
 
 0. `CollectObservationRound` <br/>
    Observational data is collected by the AEAs on the target quantity to
-   estimate. Once the agents reach consensus over this data, that is to say at
+   estimate. Once the agent instances reach consensus over this data, that is to say at
    least 2/3rd of them agree on the set of single observations collected by
-   agents (not on individual observations), the shared state gets updated and
-   the agents enter the next round.
+   agent instances (not on individual observations), the shared state gets updated and
+   the agent instances enter the next round.
 
 1. `EstimateConsensusRound` <br/>
    Based on the collected data the actual price of the asset is estimated, which
@@ -151,7 +151,7 @@ on-chain in the next block that is mined.
 2. `TxHashRound` <br/>
    A designated sender composes the transaction and puts it on the temporary
    Tendermint-based chain. Signing of the transaction for the multisig smart
-   contract requires consensus among the agents on the transaction hash to use.
+   contract requires consensus among the agent instances on the transaction hash to use.
 
 3. `FinishedPriceAggregationRound` <br/>
    A round that signals price aggregation was completed successfully.
@@ -163,10 +163,10 @@ on-chain in the next block that is mined.
    Randomness is retrieved for keeper selection.
 
 1. `SelectKeeperTransactionSubmissionARound` <br/>
-   The agents select a keeper that will be in charge of sending the transaction.
+   The agent instances select a keeper that will be in charge of sending the transaction.
 
 2. `CollectSignatureRound` <br/>
-   Agents sign the transaction to be submitted.
+   Agent instances sign the transaction to be submitted.
 
 3. `FinalizationRound` <br/>
    The keeper sends off the transaction to be incorporated in the next block.
@@ -175,18 +175,18 @@ on-chain in the next block that is mined.
    is also increased by 10%.
 
 4. `ValidateTransactionRound` <br/>
-   Agents validate whether the transaction has been incorporated in the
+   Agent instances validate whether the transaction has been incorporated in the
    blockchain.
 
 5. `CheckTransactionHistoryRound` <br/>
    This round is triggered if the `ValidateTransactionRound` returns with
    a `NEGATIVE` `Event`, which means that the transaction has not been validated.
-   During the round, the agents check the transaction history up to this point again
+   During the round, the agent instances check the transaction history up to this point again
    in order to specify the cause of the problem, e.g., a transaction of a keeper
    was settled before another keeper managed to do so, a payload is invalid, etc.
 
 6. `SelectKeeperTransactionSubmissionBRound` <br/>
-   The agents select a keeper that will be in charge of sending the transaction,
+   The agent instances select a keeper that will be in charge of sending the transaction,
    in case that the first keeper has failed.
 
 7. `ResetRound` <br/>
@@ -242,11 +242,11 @@ OracleAbciApp = chain(
 ```
 
 Find below a graphical representation of this composition showing how the constituent FSMs interconnect to achieve the
-functionality of the agent service in the demo.
+functionality of the agent blueprint in the demo.
 
 <figure markdown>
 ![](./images/oracle_composition.svg)
-<figcaption>Composition of the different FSMs that constitute the price oracle agent service FSM</figcaption>
+<figcaption>Composition of the different FSMs that constitute the price oracle Agent Blueprint FSM</figcaption>
 </figure>
 
 
@@ -275,7 +275,7 @@ to see what the encoded state transitions in the final composite FSM look like.
 !!! warning
 
     A sequence diagram that shows how AEAs communicate with their environment
-    throughout the execution can be found [here](https://docs.autonolas.network/open-autonomy/key_concepts/poc-diagram/). However,
+    throughout the execution can be found [here](https://stack.olas.network/open-autonomy/key_concepts/poc-diagram/). However,
     it is not fully up-to-date with the implementation discussed here.
 
 ### Known limitations
