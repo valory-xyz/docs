@@ -82,7 +82,7 @@ First, [choose a Mech](#1-1-choosing-a-mech). Then choose among the following wa
 
 ### 1. 1. Choosing a Mech
 
-One can find the list of chains on which the Mech Marketplace contracts are deployed [there](https://github.com/valory-xyz/ai-registry-mech/blob/main/docs/configuration.json) (they are the keys of this dictionary).
+One can find the list of chains on which the Mech Marketplace contracts are deployed [there](https://github.com/valory-xyz/autonolas-marketplace/blob/main/docs/configuration.json) (they are the keys of this dictionary).
 
 In order to find the deployed Mechs, choose a network and copy the corresponding MechMarketplace address, and enter it in the scan of the network ([there](https://gnosisscan.io/) for Gnosis for instance).
 
