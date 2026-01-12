@@ -90,7 +90,8 @@ plugins:
         color: "#ffffff"
       cards_dir: generated/social
       cards_include:
-        - "**/*" 
+        - "**/*"
+        - "index.md" 
 
 
 markdown_extensions:
