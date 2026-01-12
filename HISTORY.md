@@ -1,5 +1,52 @@
 # Release History - Olas Documentation
 
+## v0.21.5.1 (2026-01-12)
+
+* Adds the social cards metadata for SEO
+* Mech: https://github.com/valory-xyz/mech/ (v0.29.5)
+
+## v0.21.5 (2026-01-08)
+
+* doc: change repo naming
+* fix: remove polyfill.io security vulnerability and update dependencies
+
+## v0.21.0 (2025-10-20)
+
+* Fix: Add PR action to check submodule versions
+* github: remove release and update docs workflow with upload pages action
+* Chore (docs): New naming convention
+
+## v0.20.11 (2025-09-02)
+
+* Docs link fix: docs.autonolas.network -> docs.olas.network
+
+## v0.20.10 (2025-09-02)
+
+* Changes to home text and nav bar to link to Dev Academy Videos
+
+## v0.20.9 (2025-08-29)
+
+* Description change
+* Title change to Olas Stack Developer Doc
+* Navbar changes
+
+## v0.20.8 (2025-08-22)
+
+* fix: update submodules
+
+## v0.20.7 (2025-08-22)
+
+* Feat/extract docs
+* fix: Mech doc updates
+
+## v0.20.6 (2025-07-17)
+
+* doc: mech-tool documentation update
+
+## v0.20.5 (2025-07-16)
+
+* Docs: Update the Olas SDK for Pearl integration
+
 ## v0.20.4 (2025-07-19)
 
 * Remove Discord invite.
