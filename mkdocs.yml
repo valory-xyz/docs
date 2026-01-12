@@ -82,7 +82,15 @@ plugins:
         'protocol/mint_packages_on-chain.md': 'protocol/mint_packages_nfts.md'
         'open-autonomy/guides/configure_access_external_chains.md': 'open-autonomy/configure_service/configure_access_external_chains.md'
         'open-autonomy/guides/service_configuration_file.md': 'open-autonomy/configure_service/service_configuration_file.md'
-        'open-autonomy/deployment/on-chain_deployment_checklist.md': 'open-autonomy/configure_service/on-chain_deployment_checklist.md' 
+        'open-autonomy/deployment/on-chain_deployment_checklist.md': 'open-autonomy/configure_service/on-chain_deployment_checklist.md'
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#1a1a2e"
+        color: "#ffffff"
+      cards_dir: generated/social
+      cards_include:
+        - "**/*" 
 
 
 markdown_extensions:
