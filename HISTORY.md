@@ -1,5 +1,11 @@
 # Release History - Olas Documentation
 
+## v0.21.9 (2026-02-9)
+
+* Updated `mech-client` to `v0.18.4`
+* Updated `open-aea` to `v2.0.8`
+* Updated `open-autonomy` to `v0.21.9`
+
 ## v0.21.5.1 (2026-01-12)
 
 * Adds the social cards metadata for SEO
