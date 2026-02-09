@@ -2,7 +2,7 @@
 
 ## v0.21.9 (2026-02-9)
 
-* Updated `mech-client` to `v0.18.4`
+* Updated `mech-client` to `v0.18.6`
 * Updated `open-aea` to `v2.0.8`
 * Updated `open-autonomy` to `v0.21.9`
 
