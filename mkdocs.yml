@@ -70,6 +70,12 @@ nav:
   #     - KeeperKit: '!include ./agent-academy-2/mkdocs.yml'
   #     - MessagingKit: '!include ./open-acn/mkdocs.yml'
 
+# They are only for claude for local development
+exclude_docs: |
+  mech-client/ARCHITECTURE.md
+  mech-client/COMMANDS.md
+  mech-client/TESTING.md
+
 plugins:
   - macros:
       on_error_fail: true
