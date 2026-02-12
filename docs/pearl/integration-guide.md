@@ -29,7 +29,7 @@ When reaching out, please provide:
 
 If you're already integrated with Pearl and want to test updates to your agent locally without requesting a dev version, follow these steps:
 
-1. **Fork and setup Pearl**: Fork the Pearl repository [https://github.com/valory-xyz/olas-operate-app](https://github.com/valory-xyz/olas-operate-app), follow the _README_ guide for setup (specifically, [this section](https://github.com/valory-xyz/olas-operate-app/blob/main/README.md#for-developers)), and run it locally. You may use Tenderly RPC for the needed chain in environment variables or any public RPC.
+1. **Fork and setup Pearl**: Fork the [Pearl repository](https://github.com/valory-xyz/olas-operate-app), follow the _README_ guide for setup (specifically, [this section](https://github.com/valory-xyz/olas-operate-app/blob/main/README.md#for-developers)), and run it locally. You may use Tenderly RPC for the needed chain in environment variables or any public RPC.
 
 2. **Release your agent updates**: Implement any necessary modifications to your agent and release it in your own repository, providing the binary, release version, and hash.
 
