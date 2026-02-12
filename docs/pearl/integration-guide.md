@@ -33,7 +33,7 @@ If you're already integrated with Pearl and want to test updates to your agent l
 
 2. **Release your agent updates**: Implement any necessary modifications to your agent and release it in your own repository, providing the binary, release version, and hash.
 
-3. **Update your Pearl fork**: Update the code in your Pearl fork with the new version and hash (if required) following [this instruction](https://github.com/valory-xyz/olas-operate-app/blob/main/README.md#customizing-the-service-hash), run the agent locally, and conduct testing on your own.
+3. **Update your Pearl fork**: Update the code in your Pearl fork with the new version and hash (if required) following [this instruction](https://github.com/valory-xyz/olas-operate-app/blob/main/README.md#customizing-the-service-hash), run the agent from Pearl locally, and conduct testing on your own.
 
 4. **Submit for review**: If the outcome is satisfactory, notify the Pearl team in the relevant channel. The team will conduct an audit, create a new version in their fork of your agent, integrate it into Pearl, perform testing, and proceed with the release.
 

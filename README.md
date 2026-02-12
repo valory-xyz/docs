@@ -43,25 +43,6 @@ tox -e docs-serve
 poetry run tox -e docs
 ```
 
-### Troubleshooting
-
-**Permission errors during `poetry install`:**
-If you encounter permission errors related to PyPI cache, your Poetry cache may have files owned by root. Fix by using a temporary cache:
-```bash
-poetry config cache-dir /tmp/poetry-cache-temp
-poetry install --no-root
-```
-
-**Note:** Never run Poetry commands with `sudo` as it creates permission issues in the cache directory.
-
-**Missing Cairo library errors (macOS):**
-If you get errors about missing `libcairo` when building or serving docs, install the required system dependencies:
-```bash
-brew install cairo pango gdk-pixbuf libffi
-```
-
-Then retry the documentation build/serve command.
-
 ## Release process
 
 A check in the github actions ensures that every PR is merged with the latest version of the submodules.
