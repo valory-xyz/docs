@@ -9,17 +9,38 @@ This repository aggregates the documentation of all the Olas ecosystem products.
 
 ## Usage
 
+### Initial Setup
+
 ```bash
 git submodule update --init --recursive
-poetry shell
 poetry install --no-root
+```
+
+### Serve Documentation Locally
+
+**Option 1: Using `poetry run` (works with all Poetry versions)**
+```bash
+poetry run tox -e docs-serve
+```
+
+**Option 2: Activate virtual environment first**
+
+For Poetry 2.0+:
+```bash
+source $(poetry env info --path)/bin/activate
 tox -e docs-serve
 ```
 
-or
+For Poetry 1.x:
+```bash
+poetry shell
+tox -e docs-serve
+```
+
+### Build Documentation
 
 ```bash
-tox -e docs
+poetry run tox -e docs
 ```
 
 ## Release process

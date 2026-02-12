@@ -102,7 +102,7 @@ You may find an example of the Eliza agent's GitHub workflow [here](https://gith
 **Note** Ensure the binaries name follows the format `f"agent_runner_{os_name}_{arch}"`. For example, [here](https://github.com/valory-xyz/trader/releases/tag/v0.27.1) you can find the binaries for the Trader agent blueprint.
 
 #### 3. Contact the Pearl team
-Reach out to the Pearl team to request the addition of your agent blueprint to the {{ olas_operate_app }}.
+See the [Pearl Integration Guide](../pearl/integration-guide.md) for instructions on adding your agent blueprint to the {{ olas_operate_app }}.
 
 ## Agent blueprint examples
 Here you can see the examples of two agent blueprints built with different frameworks:

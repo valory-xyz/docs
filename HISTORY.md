@@ -1,5 +1,9 @@
 # Release History - Olas Documentation
 
+## v0.21.10 (2026-02-12)
+
+* Adds Pearl integration guide
+
 ## v0.21.9 (2026-02-9)
 
 * Updated `mech-client` to `v0.18.6`

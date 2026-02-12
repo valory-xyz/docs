@@ -50,6 +50,8 @@ nav:
     - Dev Academy Videos: https://www.youtube.com/playlist?list=PLXztsZv11CTfXiQK9OJhMwBkfgf4ETZkl
   - Build with Other Agent Frameworks:
     - Olas SDK: 'olas-sdk/index.md'
+  - Pearl:
+    - Integration Guide: 'pearl/integration-guide.md'
   - Olas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
