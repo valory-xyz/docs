@@ -614,6 +614,17 @@ agent service staking status and metrics to users.
 
 ---
 
+### `triton-bot` → `quickstart`
+triton-bot is configured to point to quickstart (trader_quickstart) folder locations on
+disk; it reads the `.operate` directory created by quickstart to retrieve service keys,
+Safe addresses, and staking state.
+
+**Declaration:** [`README.md`](https://github.com/valory-xyz/triton-bot/blob/main/README.md)
+— "Point triton to all your trader_quickstart folder locations (they have to contain
+the `.operate` folder)"; `config.yaml` paths reference quickstart deployment directories
+
+---
+
 ## 7. Frontends
 
 ### `autonolas-frontend-mono` → `olas-predict`
@@ -643,6 +654,13 @@ supply) from the autonolas-subgraph via GraphQL.
 — `NEXT_PUBLIC_SUBGRAPH_API_KEY` (L1), `NEXT_PUBLIC_REGISTRY_GRAPH_URL` (L3);
 [`package.json`](https://github.com/valory-xyz/olas-predict/blob/main/package.json)
 — `graphql-request` dependency
+
+---
+
+> **Note on `olas` (OLAS Market Statistics Server):** This repository is a standalone
+> Python statistics server (`server.py`) providing on-chain OLAS market data via the
+> Alchemy API.  It has no declared dependencies on other valory-xyz repositories and is
+> grouped with Frontends as a data-serving layer consumed by web UIs.
 
 ---
 
