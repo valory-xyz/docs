@@ -1,4 +1,4 @@
-# Valory-xyz Repository Dependency Graph
+# Valory Repository Dependency Graph
 
 ```mermaid
 flowchart LR
