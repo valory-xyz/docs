@@ -25,19 +25,19 @@ flowchart LR
 
     %% ── Subgraph: On-chain Protocol ─────────────────────────────────────────────
     subgraph ONCHAIN["⛓️ On-chain Protocol"]
-        autonolas_v1["autonolas-v1<br>(Autonolas Protocol v1)"]:::onchain
-        gov["autonolas-governance<br>(OLAS Token & Governance)"]:::onchain
-        reg["autonolas-registries<br>(Component / Agent / Service Registry)"]:::onchain
+        governance_near["governance-near<br>(Governance Contracts on Near)"]:::onchain
+        autonolas_subgraph_studio["autonolas-subgraph-studio<br>(Subgraphs Monorepo)"]:::onchain
         tok["autonolas-tokenomics<br>(Tokenomics)"]:::onchain
         stk["autonolas-staking-programmes<br>(Staking)"]:::onchain
+        gov["autonolas-governance<br>(OLAS Token & Governance)"]:::onchain
+        reg["autonolas-registries<br>(Component / Agent / Service Registry)"]:::onchain
+        autonolas_v1["autonolas-v1<br>(Autonolas Protocol v1)"]:::onchain
         mkt["autonolas-marketplace<br>(AI Agent Marketplace)"]:::onchain
         near_reg["registries-near<br>(Near Registries)"]:::onchain
-        dynamic_contribution["dynamic-contribution<br>(Dynamic Contribution Contracts)"]:::onchain
-        governance_near["governance-near<br>(Governance Contracts on Near)"]:::onchain
-        lockbox_solana["lockbox-solana<br>(Lockbox Contracts on Solana)"]:::onchain
-        registries_solana["registries-solana<br>(Registry Contracts on Solana)"]:::onchain
         autonolas_subgraph["autonolas-subgraph<br>(On-chain Data Subgraph)"]:::onchain
-        autonolas_subgraph_studio["autonolas-subgraph-studio<br>(Subgraphs Monorepo)"]:::onchain
+        dynamic_contribution["dynamic-contribution<br>(Dynamic Contribution Contracts)"]:::onchain
+        registries_solana["registries-solana<br>(Registry Contracts on Solana)"]:::onchain
+        lockbox_solana["lockbox-solana<br>(Lockbox Contracts on Solana)"]:::onchain
     end
 
     %% ── Subgraph: Core Agent Services Framework ────────────────────────────────
@@ -53,49 +53,49 @@ flowchart LR
 
     %% ── Subgraph: Mech Ecosystem ───────────────────────────────────────────────
     subgraph MECH["🔧 Mech Ecosystem"]
-        mech["mech<br>(Base Mech Agent)"]:::mecheco
+        mech_tools_dev["mech-tools-dev<br>(Mech Dev Toolkit)"]:::mecheco
+        mech_client["mech-client<br>(Mech Client SDK)"]:::mecheco
         mech_predict["mech-predict<br>(Prediction Mech)"]:::mecheco
         mech_agents_fun["mech-agents-fun<br>(Agents.fun Mech)"]:::mecheco
-        mech_client["mech-client<br>(Mech Client SDK)"]:::mecheco
-        mech_tools_dev["mech-tools-dev<br>(Mech Dev Toolkit)"]:::mecheco
         mock_mech["mock-mech<br>(Mock Mech for Testing)"]:::mecheco
         mech_marketplace_legacy["mech-marketplace-legacy<br>(v0 Mech Marketplace)"]:::mecheco
+        mech["mech<br>(Base Mech Agent)"]:::mecheco
         mech_interact["mech-interact<br>(Mech Interaction Helper)"]:::mecheco
     end
 
     %% ── Subgraph: AI Agent Services & Applications ─────────────────────────────
     subgraph AGENTS["🧠 AI Agent Services & Applications"]
-        trader["trader<br>(Prediction Market Trader)"]:::agent
+        eliza_memeooorr_sdk["eliza-memeooorr-olas-sdk<br>(Meme-ooorr via Eliza + Olas SDK)"]:::agent
         market_creator["market-creator<br>(Prediction Market Creator)"]:::agent
-        optimus["optimus<br>(BabyDegen DeFi Agent)"]:::agent
         memeooorr["meme-ooorr<br>(Meme Coin Deployer)"]:::agent
         iekit["IEKit<br>(Impact Evaluator Service)"]:::agent
-        price_oracle["price-oracle<br>(Price Oracle Service)"]:::agent
-        hello_world["hello-world<br>(Hello World Example)"]:::agent
         langchain_trader["langchain-trader<br>(LangChain Trader)"]:::agent
-        pettai["pettai-agent<br>(PettAI Agent)"]:::agent
         agents_fun_eliza["agents-fun-eliza<br>(Eliza Framework Agent)"]:::agent
-        eliza_memeooorr_sdk["eliza-memeooorr-olas-sdk<br>(Meme-ooorr via Eliza + Olas SDK)"]:::agent
         plugin_memeooorr["plugin-memeooorr<br>(Eliza Plugin for Meme-ooorr)"]:::agent
+        pettai["pettai-agent<br>(PettAI Agent)"]:::agent
+        optimus["optimus<br>(BabyDegen DeFi Agent)"]:::agent
+        hello_world["hello-world<br>(Hello World Example)"]:::agent
+        price_oracle["price-oracle<br>(Price Oracle Service)"]:::agent
+        trader["trader<br>(Prediction Market Trader)"]:::agent
     end
 
     %% ── Subgraph: End-User Applications & Quickstarts ──────────────────────────
     subgraph ENDUSER["🖥️ End-User Applications & Quickstarts"]
         pearl["olas-operate-app (Pearl)<br>(Run Agents — Stake & Earn)"]:::enduser
         quickstart["quickstart<br>(Olas Agent Quickstart)"]:::enduser
-        olas_sdk_starter["olas-sdk-starter<br>(Olas SDK Starter)"]:::enduser
-        open_autonomy_client["open-autonomy-client<br>(Autonomous Service Client SDK)"]:::enduser
         triton_bot["triton-bot<br>(Telegram Bot for Staked Olas Services)"]:::enduser
+        open_autonomy_client["open-autonomy-client<br>(Autonomous Service Client SDK)"]:::enduser
+        olas_sdk_starter["olas-sdk-starter<br>(Olas SDK Starter)"]:::enduser
     end
 
     %% ── Subgraph: Frontends ────────────────────────────────────────────────────
     subgraph FRONTEND["🌐 Frontends"]
+        olas_stats["olas<br>(OLAS Market Statistics Server)"]:::frontend
         frontend_mono["autonolas-frontend-mono<br>(Olas Network Apps Monorepo)"]:::frontend
-        olas_predict_fe["olas-predict<br>(Olas Predict UI)"]:::frontend
         agent_ui["agent-ui-monorepo<br>(Agent UI Monorepo)"]:::frontend
         olas_website["olas-website<br>(olas.network Website)"]:::frontend
         valory_website["valory-website<br>(valory.xyz Website)"]:::frontend
-        olas_stats["olas<br>(OLAS Market Statistics Server)"]:::frontend
+        olas_predict_fe["olas-predict<br>(Olas Predict UI)"]:::frontend
     end
 
     %% ── Subgraph: Documentation ────────────────────────────────────────────────
@@ -118,23 +118,23 @@ flowchart LR
 
     %% On-chain contract hierarchy
     %% autonolas-v1 is a meta-repo that aggregates all on-chain protocol repos as submodules (.gitmodules)
-    autonolas_v1 --> gov
-    autonolas_v1 --> reg
-    autonolas_v1 --> tok
-    autonolas_v1 --> mkt
-    autonolas_v1 --> stk
-    reg --> gov
-    tok --> gov
-    tok --> reg
-    stk --> reg
-    stk --> tok
-    mkt --> reg
-    dynamic_contribution --> reg
-    registries_solana --> reg
     governance_near --> gov
     autonolas_subgraph --> reg
-    autonolas_subgraph --> tok
     autonolas_subgraph_studio --> autonolas_subgraph
+    autonolas_subgraph --> tok
+    autonolas_v1 --> tok
+    tok --> gov
+    reg --> gov
+    autonolas_v1 --> stk
+    stk --> tok
+    tok --> reg
+    stk --> reg
+    autonolas_v1 --> mkt
+    mkt --> reg
+    autonolas_v1 --> reg
+    registries_solana --> reg
+    dynamic_contribution --> reg
+    autonolas_v1 --> gov
 
     %% Operations middleware builds on open-autonomy
     middleware --> open_autonomy
@@ -143,58 +143,54 @@ flowchart LR
 
     %% Mech ecosystem
     %% open-autonomy packages (via third_party in packages.json)
-    mech --> open_autonomy
-    mech_predict --> open_autonomy
-    mech_agents_fun --> open_autonomy
-    mock_mech --> open_autonomy
-    mech_marketplace_legacy --> open_autonomy
-    mech_client --> middleware
+    mech_tools_dev --> middleware
     mech_tools_dev --> open_autonomy
     mech_tools_dev --> mech_client
-    mech_tools_dev --> middleware
-    %% mech packages (via third_party in packages.json: acn_data_share, agent_mech, mech_abci, etc.)
+    mech_client --> middleware
+    mech_predict --> open_autonomy
     mech_predict --> mech
+    mech_agents_fun --> open_autonomy
     mech_agents_fun --> mech
+    mock_mech --> open_autonomy
+    mech_marketplace_legacy --> open_autonomy
     mech_tools_dev --> mech
+    mech --> open_autonomy
     %% mech-interact owns mech_interact_abci skill and depends on mech packages
     mech_interact --> open_autonomy
     mech_interact --> mech
 
-    %% AI Agent Services build on open-autonomy (via third_party in packages.json)
-    trader --> open_autonomy
-    market_creator --> open_autonomy
-    optimus --> open_autonomy
-    memeooorr --> open_autonomy
-    iekit --> open_autonomy
-    price_oracle --> open_autonomy
-    hello_world --> open_autonomy
-    langchain_trader --> open_autonomy
-    pettai --> open_autonomy
-    agents_fun_eliza --> open_autonomy
     %% eliza-memeooorr-olas-sdk is based on olas-sdk-starter (empty packages.json; README is olas-sdk-starter template)
     eliza_memeooorr_sdk --> olas_sdk_starter
-    %% plugin-memeooorr is a TypeScript/Eliza npm plugin designed for agents-fun-eliza (not a Python meme-ooorr dep)
-    agents_fun_eliza --> plugin_memeooorr
-    %% mech packages used directly (protocol/valory/acn_data_share, etc. in third_party)
-    trader --> mech
-    market_creator --> mech
-    memeooorr --> mech
-    iekit --> mech
-    %% mech-interact packages used (skill/valory/mech_interact_abci in third_party)
-    trader --> mech_interact
+
+    %% AI Agent Services build on open-autonomy (via third_party in packages.json)
     market_creator --> mech_interact
+    market_creator --> mech
+    market_creator --> open_autonomy
     memeooorr --> mech_interact
+    memeooorr --> mech
+    memeooorr --> open_autonomy
     iekit --> mech_interact
+    iekit --> mech
+    iekit --> open_autonomy
     langchain_trader --> mech_interact
+    langchain_trader --> open_autonomy
+    hello_world --> open_autonomy
+    agents_fun_eliza --> open_autonomy
+    agents_fun_eliza --> plugin_memeooorr
+    price_oracle --> open_autonomy
+    optimus --> open_autonomy
+    pettai --> open_autonomy
+    trader --> mech_interact
+    trader --> mech
+    trader --> open_autonomy
 
     %% End-user apps
     pearl --> middleware
     quickstart --> middleware
+    triton_bot --> middleware
+    triton_bot --> quickstart
     olas_sdk_starter --> open_autonomy
     open_autonomy_client --> open_autonomy
-    triton_bot --> middleware
-    %% triton-bot points to trader_quickstart folders (config.yaml: paths to .operate directories)
-    triton_bot --> quickstart
 
     %% Frontends
     frontend_mono --> olas_predict_fe
@@ -202,14 +198,13 @@ flowchart LR
     olas_predict_fe --> trader
     olas_predict_fe --> autonolas_subgraph
 
-
     %% Documentation aggregates submodules (see docs/.gitmodules)
-    docs --> open_aea
-    docs --> open_autonomy
     docs --> open_acn
-    docs --> mech
+    docs --> open_aea
     docs --> mech_tools_dev
     docs --> mech_client
+    docs --> mech
+    docs --> open_autonomy
     docs --> price_oracle
     docs --> iekit
     docs --> hello_world
@@ -217,7 +212,6 @@ flowchart LR
     %% ═══════════════════════════════════════════════════════════════════════════
     %% Repositories in the valory-xyz GitHub org NOT included in this diagram
     %% (❌ = archived; others are standalone, experimental, event-specific, or docs-only)
-    %%
     %%  academy-learning-service             — Academy learning service (no public deps)
     %%  academy-learning-service-template    — Template for the academy learning service
     %%  academy-solutions                    — Academy exercise solutions
