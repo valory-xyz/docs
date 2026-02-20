@@ -58,6 +58,7 @@ nav:
       - Manage the life cycle of a service: 'protocol/life_cycle_of_a_service.md'
       - Tokenomics: 'protocol/tokenomics.md'
       - Technical overview: 'protocol/technical_overview.md'
+  - Dependency Graph: 'dependency_graph.md'
   # Currently disabled as does not fit in with current paths
   # - Toolkits:
   #     - 'products/index.md'
