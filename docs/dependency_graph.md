@@ -108,106 +108,106 @@ flowchart LR
     %% ═══════════════════════════════════════════════════════════════════════════
 
     %% Core framework builds on open-aea
-    open_autonomy --> open_aea
+    open_autonomy -->|<a href="https://github.com/valory-xyz/open-autonomy/blob/main/pyproject.toml#L13" target="_blank">Link</a>| open_aea
 
     %% open-aea uses open-acn for agent communication
-    open_aea --> open_acn
+    open_aea -->|<a href="https://github.com/valory-xyz/open-aea/blob/main/packages/packages.json#L19-L21" target="_blank">Link</a>| open_acn
 
     %% dev-template is a project template for open-autonomy
-    dev_template --> open_autonomy
+    dev_template -->|<a href="https://github.com/valory-xyz/dev-template/blob/main/README.md#L3" target="_blank">Link</a>| open_autonomy
 
     %% On-chain contract hierarchy
     %% autonolas-v1 is a meta-repo that aggregates all on-chain protocol repos as submodules (.gitmodules)
-    governance_near --> gov
-    autonolas_subgraph --> reg
-    autonolas_subgraph_studio --> autonolas_subgraph
-    autonolas_subgraph --> tok
-    autonolas_v1 --> tok
-    tok --> gov
-    reg --> gov
-    autonolas_v1 --> stk
-    stk --> tok
-    tok --> reg
-    stk --> reg
-    autonolas_v1 --> mkt
-    mkt --> reg
-    autonolas_v1 --> reg
-    registries_solana --> reg
-    dynamic_contribution --> reg
-    autonolas_v1 --> gov
+    governance_near -->|<a href="https://github.com/valory-xyz/governance-near/blob/main/README.md#L1" target="_blank">Link</a>| gov
+    autonolas_subgraph -->|<a href="https://github.com/valory-xyz/autonolas-subgraph/blob/main/.gitmodules#L1" target="_blank">Link</a>| reg
+    autonolas_subgraph_studio -->|<a href="https://github.com/valory-xyz/autonolas-subgraph-studio/blob/main/README.md#L1" target="_blank">Link</a>| autonolas_subgraph
+    autonolas_subgraph -->|<a href="https://github.com/valory-xyz/autonolas-subgraph/blob/main/subgraphs/autonolas/subgraph.yaml#L1" target="_blank">Link</a>| tok
+    autonolas_v1 -->|<a href="https://github.com/valory-xyz/autonolas-v1/blob/main/.gitmodules#L7" target="_blank">Link</a>| tok
+    tok -->|<a href="https://github.com/valory-xyz/autonolas-tokenomics/blob/main/contracts/Tokenomics.sol#L16" target="_blank">Link</a>| gov
+    reg -->|<a href="https://github.com/valory-xyz/autonolas-registries/blob/main/contracts/GenericManager.sol#L14" target="_blank">Link</a>| gov
+    autonolas_v1 -->|<a href="https://github.com/valory-xyz/autonolas-v1/blob/main/.gitmodules#L16" target="_blank">Link</a>| stk
+    stk -->|<a href="https://github.com/valory-xyz/autonolas-staking-programmes/blob/main/contracts/contribute/Contributors.sol#L69" target="_blank">Link</a>| tok
+    tok -->|<a href="https://github.com/valory-xyz/autonolas-tokenomics/blob/main/contracts/Tokenomics.sol#L43" target="_blank">Link</a>| reg
+    stk -->|<a href="https://github.com/valory-xyz/autonolas-staking-programmes/blob/main/.gitmodules#L1" target="_blank">Link</a>| reg
+    autonolas_v1 -->|<a href="https://github.com/valory-xyz/autonolas-v1/blob/main/.gitmodules#L13" target="_blank">Link</a>| mkt
+    mkt -->|<a href="https://github.com/valory-xyz/autonolas-marketplace/blob/main/.gitmodules#L1" target="_blank">Link</a>| reg
+    autonolas_v1 -->|<a href="https://github.com/valory-xyz/autonolas-v1/blob/main/.gitmodules#L4" target="_blank">Link</a>| reg
+    registries_solana -->|<a href="https://github.com/valory-xyz/registries-solana/blob/main/README.md#L1" target="_blank">Link</a>| reg
+    dynamic_contribution -->|<a href="https://github.com/valory-xyz/dynamic-contribution/blob/main/contracts/DelegateContribute.sol#L4" target="_blank">Link</a>| reg
+    autonolas_v1 -->|<a href="https://github.com/valory-xyz/autonolas-v1/blob/main/.gitmodules#L1" target="_blank">Link</a>| gov
 
     %% Operations middleware builds on open-autonomy
-    middleware --> open_autonomy
+    middleware -->|<a href="https://github.com/valory-xyz/olas-operate-middleware/blob/main/pyproject.toml#L22" target="_blank">Link</a>| open_autonomy
     %% propel-client depends on open-autonomy directly (pyproject.toml: open-autonomy = "==v0.19.7")
-    propel_client --> open_autonomy
+    propel_client -->|<a href="https://github.com/valory-xyz/propel-client/blob/main/pyproject.toml#L14" target="_blank">Link</a>| open_autonomy
 
     %% Mech ecosystem
     %% open-autonomy packages (via third_party in packages.json)
-    mech_tools_dev --> middleware
-    mech_tools_dev --> open_autonomy
-    mech_tools_dev --> mech_client
-    mech_client --> middleware
-    mech_predict --> open_autonomy
-    mech_predict --> mech
-    mech_agents_fun --> open_autonomy
-    mech_agents_fun --> mech
-    mock_mech --> open_autonomy
-    mech_marketplace_legacy --> open_autonomy
-    mech_tools_dev --> mech
-    mech --> open_autonomy
+    mech_tools_dev -->|<a href="https://github.com/valory-xyz/mech-tools-dev/blob/main/pyproject.toml#L55" target="_blank">Link</a>| middleware
+    mech_tools_dev -->|<a href="https://github.com/valory-xyz/mech-tools-dev/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
+    mech_tools_dev -->|<a href="https://github.com/valory-xyz/mech-tools-dev/blob/main/pyproject.toml#L54" target="_blank">Link</a>| mech_client
+    mech_client -->|<a href="https://github.com/valory-xyz/mech-client/blob/main/pyproject.toml#L17" target="_blank">Link</a>| middleware
+    mech_predict -->|<a href="https://github.com/valory-xyz/mech-predict/blob/main/packages/packages.json#L55" target="_blank">Link</a>| open_autonomy
+    mech_predict -->|<a href="https://github.com/valory-xyz/mech-predict/blob/main/packages/packages.json#L34-L60" target="_blank">Link</a>| mech
+    mech_agents_fun -->|<a href="https://github.com/valory-xyz/mech-agents-fun/blob/main/packages/packages.json#L48" target="_blank">Link</a>| open_autonomy
+    mech_agents_fun -->|<a href="https://github.com/valory-xyz/mech-agents-fun/blob/main/packages/packages.json#L12-L23" target="_blank">Link</a>| mech
+    mock_mech -->|<a href="https://github.com/valory-xyz/mock-mech/blob/main/README.md#L1" target="_blank">Link</a>| open_autonomy
+    mech_marketplace_legacy -->|<a href="https://github.com/valory-xyz/mech-marketplace-legacy/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
+    mech_tools_dev -->|<a href="https://github.com/valory-xyz/mech-tools-dev/blob/main/packages/packages.json#L8-L36" target="_blank">Link</a>| mech
+    mech -->|<a href="https://github.com/valory-xyz/mech/blob/main/packages/packages.json#L42" target="_blank">Link</a>| open_autonomy
     %% mech-interact owns mech_interact_abci skill and depends on mech packages
-    mech_interact --> open_autonomy
-    mech_interact --> mech
+    mech_interact -->|<a href="https://github.com/valory-xyz/mech-interact/blob/main/packages/packages.json#L41" target="_blank">Link</a>| open_autonomy
+    mech_interact -->|<a href="https://github.com/valory-xyz/mech-interact/blob/main/packages/packages.json#L22" target="_blank">Link</a>| mech
 
     %% eliza-memeooorr-olas-sdk is based on olas-sdk-starter (empty packages.json; README is olas-sdk-starter template)
-    eliza_memeooorr_sdk --> olas_sdk_starter
+    eliza_memeooorr_sdk -->|<a href="https://github.com/valory-xyz/eliza-memeooorr-olas-sdk/blob/main/packages/packages.json" target="_blank">Link</a>| olas_sdk_starter
 
     %% AI Agent Services build on open-autonomy (via third_party in packages.json)
-    market_creator --> mech_interact
-    market_creator --> mech
-    market_creator --> open_autonomy
-    memeooorr --> mech_interact
-    memeooorr --> mech
-    memeooorr --> open_autonomy
-    iekit --> mech_interact
-    iekit --> mech
-    iekit --> open_autonomy
-    langchain_trader --> mech_interact
-    langchain_trader --> open_autonomy
-    hello_world --> open_autonomy
-    agents_fun_eliza --> open_autonomy
-    agents_fun_eliza --> plugin_memeooorr
-    price_oracle --> open_autonomy
-    optimus --> open_autonomy
-    pettai --> open_autonomy
-    trader --> mech_interact
-    trader --> mech
-    trader --> open_autonomy
+    market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L57" target="_blank">Link</a>| mech_interact
+    market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L20" target="_blank">Link</a>| mech
+    market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L52" target="_blank">Link</a>| open_autonomy
+    memeooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/packages/packages.json#L65" target="_blank">Link</a>| mech_interact
+    memeooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/packages/packages.json#L24" target="_blank">Link</a>| mech
+    memeooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/packages/packages.json#L62" target="_blank">Link</a>| open_autonomy
+    iekit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/packages/packages.json#L75" target="_blank">Link</a>| mech_interact
+    iekit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/packages/packages.json#L42" target="_blank">Link</a>| mech
+    iekit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/packages/packages.json#L72" target="_blank">Link</a>| open_autonomy
+    langchain_trader -->|<a href="https://github.com/valory-xyz/langchain-trader/blob/master/packages/packages.json#L35" target="_blank">Link</a>| mech_interact
+    langchain_trader -->|<a href="https://github.com/valory-xyz/langchain-trader/blob/master/packages/packages.json#L32" target="_blank">Link</a>| open_autonomy
+    hello_world -->|<a href="https://github.com/valory-xyz/hello-world/blob/main/packages/packages.json#L23" target="_blank">Link</a>| open_autonomy
+    agents_fun_eliza -->|<a href="https://github.com/valory-xyz/agents-fun-eliza/blob/main/packages/packages.json#L3" target="_blank">Link</a>| open_autonomy
+    agents_fun_eliza -->|<a href="https://github.com/valory-xyz/plugin-memeooorr/blob/main/README.md#L1" target="_blank">Link</a>| plugin_memeooorr
+    price_oracle -->|<a href="https://github.com/valory-xyz/price-oracle/blob/main/packages/packages.json#L30" target="_blank">Link</a>| open_autonomy
+    optimus -->|<a href="https://github.com/valory-xyz/optimus/blob/main/packages/packages.json#L62" target="_blank">Link</a>| open_autonomy
+    pettai -->|<a href="https://github.com/valory-xyz/pettai-agent/blob/main/olas-sdk-starter/packages/packages.json#L3" target="_blank">Link</a>| open_autonomy
+    trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L76" target="_blank">Link</a>| mech_interact
+    trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L31" target="_blank">Link</a>| mech
+    trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L71" target="_blank">Link</a>| open_autonomy
 
     %% End-user apps
-    pearl --> middleware
-    quickstart --> middleware
-    triton_bot --> middleware
-    triton_bot --> quickstart
-    olas_sdk_starter --> open_autonomy
-    open_autonomy_client --> open_autonomy
+    pearl -->|<a href="https://github.com/valory-xyz/olas-operate-app/blob/main/pyproject.toml#L13" target="_blank">Link</a>| middleware
+    quickstart -->|<a href="https://github.com/valory-xyz/quickstart/blob/main/pyproject.toml#L13" target="_blank">Link</a>| middleware
+    triton_bot -->|<a href="https://github.com/valory-xyz/triton-bot/blob/main/pyproject.toml#L12" target="_blank">Link</a>| middleware
+    triton_bot -->|<a href="https://github.com/valory-xyz/triton-bot/blob/main/README.md" target="_blank">Link</a>| quickstart
+    olas_sdk_starter -->|<a href="https://github.com/valory-xyz/olas-sdk-starter/blob/main/README.md#L3" target="_blank">Link</a>| open_autonomy
+    open_autonomy_client -->|<a href="https://github.com/valory-xyz/open-autonomy-client/blob/main/README.md#L1" target="_blank">Link</a>| open_autonomy
 
     %% Frontends
-    frontend_mono --> olas_predict_fe
+    frontend_mono -->|<a href="https://github.com/valory-xyz/autonolas-frontend-mono" target="_blank">Link</a>| olas_predict_fe
     %% olas-predict is the UI for the trader service and queries autonolas-subgraph via GraphQL
-    olas_predict_fe --> trader
-    olas_predict_fe --> autonolas_subgraph
+    olas_predict_fe -->|<a href="https://github.com/valory-xyz/olas-predict/tree/main/pages" target="_blank">Link</a>| trader
+    olas_predict_fe -->|<a href="https://github.com/valory-xyz/olas-predict/blob/main/.env.example#L1-L3" target="_blank">Link</a>| autonolas_subgraph
 
     %% Documentation aggregates submodules (see docs/.gitmodules)
-    docs --> open_acn
-    docs --> open_aea
-    docs --> mech_tools_dev
-    docs --> mech_client
-    docs --> mech
-    docs --> open_autonomy
-    docs --> price_oracle
-    docs --> iekit
-    docs --> hello_world
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L7" target="_blank">Link</a>| open_acn
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L1" target="_blank">Link</a>| open_aea
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L13" target="_blank">Link</a>| mech_tools_dev
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L16" target="_blank">Link</a>| mech_client
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L10" target="_blank">Link</a>| mech
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L4" target="_blank">Link</a>| open_autonomy
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L19" target="_blank">Link</a>| price_oracle
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L22" target="_blank">Link</a>| iekit
+    docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L25" target="_blank">Link</a>| hello_world
 
     %% ═══════════════════════════════════════════════════════════════════════════
     %% Repositories in the valory-xyz GitHub org NOT included in this diagram
