@@ -48,7 +48,6 @@ flowchart LR
     %% ── Subgraph: Operations & Middleware ──────────────────────────────────────
     subgraph OPS["⚙️ Operations & Middleware"]
         middleware["olas-operate-middleware<br>(Operate Middleware — Run / Stake / Earn)"]:::operations
-        olas_stats["olas<br>(OLAS Market Statistics Server)"]:::operations
         propel_client["propel-client<br>(Valory PaaS Propel Client)"]:::operations
     end
 
@@ -96,6 +95,7 @@ flowchart LR
         agent_ui["agent-ui-monorepo<br>(Agent UI Monorepo)"]:::frontend
         olas_website["olas-website<br>(olas.network Website)"]:::frontend
         valory_website["valory-website<br>(valory.xyz Website)"]:::frontend
+        olas_stats["olas<br>(OLAS Market Statistics Server)"]:::frontend
     end
 
     %% ── Subgraph: Documentation ────────────────────────────────────────────────
@@ -193,6 +193,8 @@ flowchart LR
     olas_sdk_starter --> open_autonomy
     open_autonomy_client --> open_autonomy
     triton_bot --> middleware
+    %% triton-bot points to trader_quickstart folders (config.yaml: paths to .operate directories)
+    triton_bot --> quickstart
 
     %% Frontends
     frontend_mono --> olas_predict_fe
