@@ -90,9 +90,13 @@ def get_latest_release_tag(submodule_path):
         # Get the latest tag that looks like a version
         tags = run_command("git tag -l --sort=-version:refname", cwd=submodule_path)
         
+        pre_release_markers = ("rc", "alpha", "beta", "dev")
         for tag in tags.splitlines():
             tag = tag.strip()
             if tag and (tag.startswith('v') or tag[0].isdigit()):
+                tag_lower = tag.lower()
+                if any(marker in tag_lower for marker in pre_release_markers):
+                    continue
                 return tag
         else:
             return None
