@@ -37,7 +37,7 @@ extra_css:
 nav:
   - Home: 'index.md' 
   - Monetize an Agent on Marketplace:
-    - Mech Tools: '!include ./mech-tools-dev/mkdocs.yml'
+    - Mech Server: '!include ./mech-server/mkdocs.yml'
   - Hire an Agent on Marketplace:
     - Mech Client: '!include ./mech-client/mkdocs.yml'
   - Build with Olas Agent Frameworks:
@@ -91,6 +91,7 @@ plugins:
         'open-autonomy/guides/configure_access_external_chains.md': 'open-autonomy/configure_service/configure_access_external_chains.md'
         'open-autonomy/guides/service_configuration_file.md': 'open-autonomy/configure_service/service_configuration_file.md'
         'open-autonomy/deployment/on-chain_deployment_checklist.md': 'open-autonomy/configure_service/on-chain_deployment_checklist.md'
+        'mech-tools-dev/index.md': 'mech-server/index.md'
   - social:
       cards: true
       cards_layout_options:
