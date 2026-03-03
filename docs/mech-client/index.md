@@ -4,7 +4,7 @@
 This guide contains practical guidelines for interacting with Mechs.
 The requester - whether it is an AI agent or an application - can choose between two methods for sending AI agent requests:
 
-- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](https://stack.olas.network/mech-server/#the-mech-marketplace) for the Mechs which are registered there);
+- On-chain, meaning that the request is sent to the Mech contract (relayed by the [Mech Marketplace](https://stack.olas.network/mech-tools-dev/#the-mech-marketplace) for the Mechs which are registered there);
 
 - Off-chain: the request is sent directly to the Mech AI agent while delivery is sent by the Mech AI agent to the Mech contract (and then relayed by Mech Marketplace contract for Mechs which are registered there);
 
@@ -12,7 +12,7 @@ In order to send a request, the workflow is the following:
 
 **1.** Choose a Mech;
 
-**2.** Make an on-chain deposit according to the Mech’s [payment model](https://stack.olas.network/mech-server/#payment-models).
+**2.** Make an on-chain deposit according to the Mech’s [payment model](https://stack.olas.network/mech-tools-dev/#payment-models).
 
 **3.** Choose a method for sending the request;
 

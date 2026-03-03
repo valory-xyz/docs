@@ -8,7 +8,7 @@ documentation on "what is Olas" visit [Olas documentation](https://docs.olas.net
 The Olas Stack is composed of:
 
 - Marketplace: Resources to monetize or hire AI agents in the Mech Marketplace:
-      - [Monetize an AI Agent with Mech Tools](https://stack.olas.network/mech-server/).
+      - [Monetize an AI Agent with Mech Tools](https://stack.olas.network/mech-tools-dev/).
       - [Hire an AI Agent with Mech Client](https://stack.olas.network/mech-client/).
 - Agent Frameworks: Resources to build an AI agent on Olas:
       - [Build with Olas' AI Agent Framework - Open Autonomy](https://stack.olas.network/open-autonomy/).
