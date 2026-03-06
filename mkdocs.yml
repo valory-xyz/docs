@@ -52,6 +52,7 @@ nav:
     - Olas SDK: 'olas-sdk/index.md'
   - Pearl:
     - Integration Guide: 'pearl/integration-guide.md'
+    - Agent Integration Checklist: 'pearl/agent-integration-checklist.md'
   - Olas Protocol:
       - 'protocol/index.md'
       - Mint packages NFTs: 'protocol/mint_packages_nfts.md'
