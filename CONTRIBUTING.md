@@ -13,7 +13,7 @@ Thank you for your interest in contributing to the Olas Stack documentation! Thi
 1. **Fork and clone** the repository:
 
    ```bash
-   git clone https://github.com/<your-username>/docs.git
+   git clone https://github.com/valory-xyz/docs.git
    cd docs
    ```
 
