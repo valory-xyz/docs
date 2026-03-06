@@ -37,6 +37,10 @@ If you're already integrated with Pearl and want to test updates to your agent l
 
 4. **Submit for review**: If the outcome is satisfactory, notify the Pearl team in the relevant channel. The team will conduct an audit, create a new version in their fork of your agent, integrate it into Pearl, perform testing, and proceed with the release.
 
+## Integration Checklist
+
+Ready to integrate? Follow the step-by-step [Agent Integration Checklist](agent-integration-checklist.md) — a complete, phase-by-phase guide covering everything from building and packaging your agent to on-chain setup, middleware configuration, Pearl frontend integration, and self-serve testing.
+
 ## Support
 
 For questions or issues regarding Pearl integration, reach out on [Discord](https://discord.com/invite/z2PT65jKqQ).
