@@ -56,13 +56,14 @@ The agent must implement a set of standard interfaces so Pearl can manage, monit
 
 ### 1.1 Persistent Storage
 
-- [ ] Agent uses the directory set by the `STORE_PATH` env var for all persistent data it manages
-- [ ] Agent saves state periodically and recovers cleanly after receiving a `SIGKILL` signal
+- [ ] Agent uses the directory set by the `CONNECTION_CONFIGS_CONFIG_STORE_PATH` env var for all persistent data it manages
+- [ ] Agent saves state periodically and recovers cleanly after receiving a `SIGTERM` or `SIGKILL` signal
 
 ### 1.2 Keys & Safe Address
 
-- [ ] Agent reads `ethereum_private_key.txt` from its working directory (contains the Agent EOA private key)
-- [ ] Agent reads the `SAFE_CONTRACT_ADDRESSES` env var (comma-separated safe addresses on relevant chains)
+- [ ] Agent reads the argument `--password` on startup for decrypting the Agent EOA private key
+- [ ] Agent reads `ethereum_private_key.txt` from its working directory (contains the Agent EOA private key in V3 Keystore format) and decrypts it using the password
+- [ ] Agent reads the `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` env var (comma-separated safe addresses on relevant chains)
 
 ### 1.3 Logging
 
@@ -85,6 +86,52 @@ The agent must implement a set of standard interfaces so Pearl can manage, monit
 ### 1.6 Funding Status Interface
 
 Pearl polls this endpoint when the service is in `DEPLOYED` state. If the agent reports a non-zero deficit, Pearl prompts the user to approve a top-up transfer. A 5-minute cooldown applies after each successful transfer.
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant Frontend
+  participant Middleware
+  participant Agent
+
+  loop Every few minutes
+    Frontend->>Middleware: More funds needed?
+    Middleware->>Agent: More funds needed?
+    Agent-->>Middleware: Nope
+    Middleware-->>Frontend: Nope
+  end
+
+  Frontend->>Middleware: More funds needed?
+  Middleware->>Agent: More funds needed?
+  Note over Middleware,Agent: Agent asks for funds this time
+  Agent-->>Middleware: Yes XYZ funds needed
+  Middleware-->>Frontend: Agent needs XYZ funds
+
+  Frontend-->>User: Ask for approval to transfer XYZ funds to Agent
+
+  opt User takes too long
+    Frontend->>Middleware: More funds needed?
+    Middleware->>Agent: More funds needed?
+    Agent-->>Middleware: Yes XYZ funds needed
+    Middleware-->>Frontend: Agent needs XYZ funds
+    Frontend-->>User: Updates the approval request
+  end
+
+  User->>Frontend: User approves to send XYZ funds (Master Safe -> Agent)
+  Frontend->>Middleware: Hits the agent funding endpoint
+
+  rect rgba(255, 245, 180, 0.45)
+    Middleware->>Middleware: Transfer transactions<br>Master Safe -> Agent EOA/Safe
+  end
+
+  alt Funding in progress
+    Frontend->>Middleware: More funds needed?
+    Middleware-->>Frontend: 400: Funding already in progress
+  else Funded successfully
+    Middleware-->>Frontend: Funded from master safe successfully
+    Frontend-->>User: Notify that the agent is funded
+  end
+```
 
 - [ ] Agent exposes `GET http://127.0.0.1:8716/funds-status`
 - [ ] Returns HTTP 200 on success; any other status code is treated as a failure
@@ -118,9 +165,9 @@ Response is keyed by chain (lowercase) → checksummed address (EOA or Safe) →
 
 ### 1.7 Environment Variables
 
-- [ ] Agent uses the standard RPC env vars provided by Pearl where needed: `ETHEREUM_LEDGER_RPC`, `GNOSIS_LEDGER_RPC`, `BASE_LEDGER_RPC`, `MODE_LEDGER_RPC`, `OPTIMISM_LEDGER_RPC`, `POLYGON_LEDGER_RPC`
+- [ ] Agent uses the standard RPC env vars provided by Pearl where needed: `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_ETHEREUM_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_GNOSIS_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_BASE_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_MODE_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_OPTIMISM_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_POLYGON_ADDRESS`
 - [ ] Every env var the agent uses is declared in the service template JSON with a provision type (`USER` / `COMPUTED` / `FIXED`)
-- [ ] The same env vars are listed in `service.yaml` and accessed by the agent using the prefix `CONNECTION_CONFIGS_CONFIG_<variable_name>`
+- [ ] The same env vars are listed in `service.yaml` and accessed by the agent using its path prefix, for example `CONNECTION_CONFIGS_CONFIG_<variable_name>`
 
 ### 1.8 Security
 
@@ -130,7 +177,7 @@ Response is keyed by chain (lowercase) → checksummed address (EOA or Safe) →
 
 If the agent holds funds in external protocols (e.g. DeFi positions), the user must be able to retrieve those funds before doing a Pearl-level wallet withdrawal. The expected flow is:
 
-1. User triggers withdrawal from the agent's own UI (exposed at `http://127.0.0.1:8716/`) — enters the destination address and the agent unwinds its positions back to the Agent Safe
+1. User triggers withdrawal from the agent's own UI (exposed at `http://127.0.0.1:8716/`) using a POST request — enters the destination address and the agent unwinds its positions back to the Agent Safe
 2. Once the agent's external funds are settled, the user returns to Pearl and completes the Pearl-level withdrawal
 
 - [ ] Agent exposes a withdrawal action in its embedded UI that allows the user to unwind external positions and return funds to the Agent Safe
@@ -201,26 +248,26 @@ Additional top-level keys (`agent_details`, `prediction_history`, `profit_over_t
 
 ## Phase 2 — Package the Agent
 
-- [ ] Agent repository contains `packages/packages.json` with the service IPFS hash — see [example](https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L26)
-- [ ] Repository has a GitHub Actions workflow that builds binaries on each release — see [example](https://github.com/valory-xyz/trader/blob/main/.github/workflows/release.yaml#L149-L284)
+- [ ] Agent repository contains `packages/packages.json` with the service IPFS hash — see [example](https://github.com/valory-xyz/trader/blob/v0.31.7/packages/packages.json#L26)
+- [ ] Repository has a GitHub Actions workflow that builds binaries on each release — see [example](https://github.com/valory-xyz/trader/blob/v0.31.7/.github/workflows/release.yaml#L149-L284)
 - [ ] Binaries built for all supported platforms using the naming convention `agent_runner_{os}_{arch}` (add `.exe` for Windows):
   - `agent_runner_linux_x64`
   - `agent_runner_macos_x64`
   - `agent_runner_macos_arm64`
   - `agent_runner_windows_x64.exe`
   - `agent_runner_windows_arm64.exe`
-- [ ] Binaries are uploaded to GitHub release artifacts and downloadable from the release page
+- [ ] Binaries are uploaded to GitHub release artifacts and downloadable from the release page. For example in the [trader repository](https://github.com/valory-xyz/trader/releases/tag/v0.31.7)
 - [ ] Repository is public or access granted to Valory so it can be forked
 
 ---
 
 ## Phase 3 — On-chain Setup
 
-- [ ] All agent components (excluding the service itself) minted on the [Olas Registry](https://marketplace.olas.network/ethereum/ai-agents) — note the **agent ID(s)**
-- [ ] Service package published to IPFS — note the **service hash**
+- [ ] All agent components (excluding the service itself) are minted on the [Olas Registry](https://marketplace.olas.network/ethereum/ai-agents) — note the **component ID(s)**
+- [ ] All the package published to IPFS — note the **service hash**
 - [ ] Staking contract(s) deployed on-chain — note the **chain**, **contract address(es)**, and **OLAS staking requirement per tier** (e.g. 100 OLAS for tier 1, 1000 OLAS for tier 2)
 - [ ] Activity checker contract deployed — note the **contract address** and the **ABI type** it uses (Mech / Requester / Staking / Meme / Pet)
-- [ ] NFT IPFS hash available — this is the IPFS hash of the on-chain NFT that represents the agent service registration; it goes into the `configurations.nft` field of the service template
+- [ ] NFT IPFS hash available — this is the IPFS hash of the on-chain NFT image that represents the agent service registration; it goes into the `configurations.nft` field of the service template
 
 ---
 
@@ -228,10 +275,10 @@ Additional top-level keys (`agent_details`, `prediction_history`, `profit_over_t
 
 Open a PR on [olas-operate-middleware](https://github.com/valory-xyz/olas-operate-middleware) from the `main` branch:
 
-- [ ] Add the staking contract to [`operate/ledger/profiles.py`](https://github.com/valory-xyz/olas-operate-middleware/blob/df4e440fccff4364321ffec6b97f6939792c14f6/operate/ledger/profiles.py#L62) — use the same name that will be used in the Pearl frontend
-- [ ] (Optional) Add to [`operate/quickstart/run_service.py`](https://github.com/valory-xyz/olas-operate-middleware/blob/df4e440fccff4364321ffec6b97f6939792c14f6/operate/quickstart/run_service.py#L74) if the agent should be available via quickstart
+- [ ] Add the staking contract to [`operate/ledger/profiles.py`](https://github.com/valory-xyz/olas-operate-middleware/blob/v0.15.3/operate/ledger/profiles.py#L73-L161) — use the same name that will be used in the Pearl frontend
+- [ ] (Optional) Add to [`operate/quickstart/run_service.py`](https://github.com/valory-xyz/olas-operate-middleware/blob/v0.15.3/operate/quickstart/run_service.py#L81-L134) if the agent should be available via quickstart
 
-Once the PR is merged, **note the commit hash** — it is required for Phase 5, step 11.
+After pushing the commit, **note the commit hash** — it is required for Phase 5, step 11.
 
 ---
 
@@ -349,7 +396,7 @@ Before notifying Valory that the integration is ready, you must test your agent 
 
 ### 6.1 CI/CD Readiness
 
-- [ ] Release binaries built for all supported target platforms and available as release artifacts
+- [ ] Release agent binaries built for all supported target platforms and available as release artifacts
 - [ ] Linting, type checking, and security checks passing in CI
 - [ ] Unit and integration tests passing in CI
 
@@ -360,7 +407,7 @@ Once Phase 5 PR is submitted, notify Valory (support@valory.zendesk.com) so they
 - [ ] Wait for Valory to notify you that your Pearl test branch is ready
 - [ ] Fork that branch into your own repository
 - [ ] Build and run Pearl locally from your fork
-- [ ] Confirm your agent appears in the agent selection list
+- [ ] Confirm your agent appears in the agent selection list and runs
 
 The scenarios below (6.3–6.6) are the **minimum required test cases**. All of them must pass before handing off to Valory. Your agent may have additional flows that require testing beyond what is listed — document any extra scenarios and their results in the handoff summary.
 
