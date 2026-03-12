@@ -4,13 +4,14 @@ version = "0.1.0"
 description = "Olas ecosystem developer documentation"
 authors = ["developer-valory <develope@valory.xyz>"]
 license = "Apache-2.0 license"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
 tomte = {extras = ["tox","docs"], version = "==0.2.15"}
 mkdocs-monorepo-plugin = "^1.0.5"
 
-[tool.poetry.dev-dependencies]
+[poetry.group.dev.dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
