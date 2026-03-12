@@ -49,6 +49,9 @@ DEFAULT_REQUEST_TIMEOUT = 5  # seconds
 HTTP_SKIPS = [
     "http://www.fipa.org/repository/ips.php3",
     "http://host.docker.internal:8545",
+    "http://127.0.0.1:8716/",
+    "http://127.0.0.1:8716/healthcheck",
+    "http://127.0.0.1:8716/funds-status"
 ]
 
 # Special links that are allowed to respond with an error status
@@ -62,7 +65,10 @@ URL_SKIPS = [
     "wss://gnosis-chiado-rpc.publicnode.com",
     "https://gnosis.blockscout.com/api/v2/smart-contracts/{contract_address}",
     "https:/gnosisscan.iotx/{transaction_digest}",
-    "https://rpc.gnosischain.com/"
+    "https://rpc.gnosischain.com/",
+    "http://127.0.0.1:8716/",
+    "http://127.0.0.1:8716/healthcheck",
+    "http://127.0.0.1:8716/funds-status"
 ]
 
 # Define here custom timeouts for some edge cases
