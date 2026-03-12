@@ -56,14 +56,14 @@ The agent must implement a set of standard interfaces so Pearl can manage, monit
 
 ### 1.1 Persistent Storage
 
-- [ ] Agent uses the directory set by the `CONNECTION_CONFIGS_CONFIG_STORE_PATH` env var for all persistent data it manages
+- [ ] Agent uses the directory set by the `CONNECTION_CONFIGS_CONFIG_STORE_PATH` env-var for all persistent data it manages
 - [ ] Agent saves state periodically and recovers cleanly after receiving a `SIGTERM` or `SIGKILL` signal
 
 ### 1.2 Keys & Safe Address
 
 - [ ] Agent reads the argument `--password` on startup for decrypting the Agent EOA private key
 - [ ] Agent reads `ethereum_private_key.txt` from its working directory (contains the Agent EOA private key in V3 Keystore format) and decrypts it using the password
-- [ ] Agent reads the `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` env var (comma-separated safe addresses on relevant chains)
+- [ ] Agent reads the `CONNECTION_CONFIGS_CONFIG_SAFE_CONTRACT_ADDRESSES` env-var (comma-separated safe addresses on relevant chains)
 
 ### 1.3 Logging
 
@@ -165,9 +165,9 @@ Response is keyed by chain (lowercase) → checksummed address (EOA or Safe) →
 
 ### 1.7 Environment Variables
 
-- [ ] Agent uses the standard RPC env vars provided by Pearl where needed: `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_ETHEREUM_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_GNOSIS_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_BASE_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_MODE_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_OPTIMISM_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_POLYGON_ADDRESS`
-- [ ] Every env var the agent uses is declared in the service template JSON with a provision type (`USER` / `COMPUTED` / `FIXED`)
-- [ ] The same env vars are listed in `service.yaml` and accessed by the agent using its path prefix, for example `CONNECTION_CONFIGS_CONFIG_<variable_name>`
+- [ ] Agent uses the standard RPC env-vars provided by Pearl where needed: `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_ETHEREUM_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_GNOSIS_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_BASE_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_MODE_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_OPTIMISM_ADDRESS`, `CONNECTION_LEDGER_CONFIG_LEDGER_APIS_POLYGON_ADDRESS`
+- [ ] Every env-var the agent uses is declared in the service template JSON with a provision type (`USER` / `COMPUTED` / `FIXED`)
+- [ ] The same env-vars are listed in `service.yaml` and accessed by the agent using its path prefix, for example `CONNECTION_CONFIGS_CONFIG_<variable_name>`
 
 ### 1.8 Security
 
@@ -191,7 +191,7 @@ If the agent holds funds in external protocols (e.g. DeFi positions), the user m
 
 ### 1.11 Performance Reporting
 
-Pearl displays agent metrics in the Performance tab. Agents must write an `agent_performance.json` file at the path defined by the `CONNECTION_CONFIGS_CONFIG_STORE_PATH` env var.
+Pearl displays agent metrics in the Performance tab. Agents must write an `agent_performance.json` file at the path defined by the `CONNECTION_CONFIGS_CONFIG_STORE_PATH` env-var.
 
 **Required fields:**
 
@@ -293,7 +293,7 @@ Open a PR on [olas-operate-app](https://github.com/valory-xyz/olas-operate-app) 
 If the agent's chain is not yet in Pearl, contact the Pearl team first (support@valory.zendesk.com) — chain infrastructure also requires changes outside the repository such as RPC endpoints and build scripts. Complete this before gathering information or making any agent-specific code changes.
 
 - [ ] Add chain to `EvmChainIdMap` and `MiddlewareChainMap` in [`frontend/constants/chains.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/constants/chains.ts) and add the chain image to `frontend/public/chains/`
-- [ ] Add RPC env var and safe creation threshold in [`frontend/config/chains.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/config/chains.ts)
+- [ ] Add RPC env-var and safe creation threshold in [`frontend/config/chains.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/config/chains.ts)
 - [ ] Add token config (symbol, address, decimals) to [`frontend/config/tokens.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/config/tokens.ts)
 - [ ] Add `ServiceRegistryL2` and `ServiceRegistryTokenUtility` addresses to [`frontend/config/olasContracts.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/config/olasContracts.ts)
 - [ ] Create `frontend/config/stakingPrograms/{chain}.ts` following the pattern in [`polygon.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/config/stakingPrograms/polygon.ts) and register it in [`index.ts`](https://github.com/valory-xyz/olas-operate-app/blob/main/frontend/config/stakingPrograms/index.ts)
@@ -317,7 +317,7 @@ Collect all of this before touching any code. If raising the PR yourself, you wi
 - [ ] Service IPFS hash (from Phase 3)
 - [ ] Service version string (e.g. `v0.31.7`) — provide your current version as a reference; the final version will be assigned by Valory when they fork your repository and create a release
 - [ ] Agent release GitHub repository and version tag
-- [ ] Full list of environment variables — for each: name, description, provision type (`USER` / `COMPUTED` / `FIXED`), and default value for `FIXED` vars
+- [ ] Full list of environment variables — for each: name, description, provision type (`USER` / `COMPUTED` / `FIXED`), and default value for `FIXED` variables
 - [ ] Fund requirements per chain — native token amounts for agent wallet and safe wallet, plus any ERC20 token and amount
 - [ ] NFT IPFS hash (from Phase 3)
 
