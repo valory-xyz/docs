@@ -23,6 +23,7 @@
 
 import re
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 from itertools import chain
 from pathlib import Path
@@ -40,9 +41,12 @@ from requests.packages.urllib3.util.retry import (  # type: ignore # pylint: dis
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-MAX_WORKERS = 10
+MAX_WORKERS = 4
 URL_REGEX = r'(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s)"]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s)"]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s)"]{2,}|www\.[a-zA-Z0-9]+\.[^\s)"]{2,})'
 DEFAULT_REQUEST_TIMEOUT = 5  # seconds
+MAX_429_RETRIES = 5
+DEFAULT_429_BACKOFF = 2  # seconds
+MAX_429_BACKOFF = 60  # seconds
 
 # Allow some links to be HTTP because there is no HTTPS alternative
 # Remove non-url-allowed characters like ` before adding them here
@@ -84,6 +88,37 @@ def read_file(filepath: str) -> str:
     return file_str
 
 
+def get_retry_delay(response: requests.Response, attempt: int) -> int:
+    """Get the retry delay for rate-limited requests."""
+    retry_after = response.headers.get("Retry-After")
+    if retry_after is not None:
+        try:
+            return min(int(retry_after), MAX_429_BACKOFF)
+        except ValueError:
+            pass
+
+    return min(DEFAULT_429_BACKOFF**attempt, MAX_429_BACKOFF)
+
+
+def get_url_status(session: Any, url: str) -> Any:
+    """Get the status code for a URL with explicit handling for 429 responses."""
+    for attempt in range(MAX_429_RETRIES + 1):
+        response = session.get(
+            url,
+            timeout=CUSTOM_TIMEOUTS.get(url, DEFAULT_REQUEST_TIMEOUT),
+            verify=False,
+        )
+        if response.status_code != 429:
+            return response.status_code
+
+        if attempt == MAX_429_RETRIES:
+            return response.status_code
+
+        time.sleep(get_retry_delay(response, attempt + 1))
+
+    return 429
+
+
 def check_file(
     session: Any,
     md_file: str,
@@ -96,7 +131,7 @@ def check_file(
     url_skips = url_skips or URL_SKIPS
 
     text = read_file(md_file)
-    m = re.findall(URL_REGEX, text)
+    m = set(re.findall(URL_REGEX, text))
     http_links = []
     broken_links = []
 
@@ -119,11 +154,7 @@ def check_file(
         # Check for broken links: 200 and 403 codes are admitted
         try:
             # Do not verify requests. Expired SSL certificates would make those links fail
-            status_code = session.get(
-                url,
-                timeout=CUSTOM_TIMEOUTS.get(url, DEFAULT_REQUEST_TIMEOUT),
-                verify=False,
-            ).status_code
+            status_code = get_url_status(session, url)
             if status_code not in [200, 403]:
                 broken_links.append({"url": url, "status_code": status_code})
         except (
@@ -155,8 +186,10 @@ def main() -> None:  # pylint: disable=too-many-locals
 
     # Configure request retries
     retry_strategy = Retry(
-        total=3,  # number of retries
-        status_forcelist=[404, 429, 500, 502, 503, 504],  # codes to retry on
+        total=5,  # number of retries
+        backoff_factor=1,
+        status_forcelist=[404, 500, 502, 503, 504],  # codes to retry on
+        respect_retry_after_header=True,
     )
     # https://stackoverflow.com/questions/18466079/change-the-connection-pool-size-for-pythons-requests-module-when-in-threading
     adapter = HTTPAdapter(
