@@ -1,5 +1,16 @@
 # Release History - Olas Documentation
 
+## v0.21.13 (2026-03-13)
+
+* Updated `hello-world` to `v0.3.0`
+* Updated `IEKit` to `v0.21.1`
+* Updated `mech` to `v0.30.8`
+* Updated `mech-client` to `v0.20.0`
+* Updated `mech-server` to `v0.8.0`
+* Updated `open-aea` to `v2.1.0`
+* Updated `open-autonomy` to `v0.21.13`
+* Updated the agents integration checklist
+
 ## v0.21.11 (2026-02-12)
 
 * Updated `mech` to `v0.29.6`
