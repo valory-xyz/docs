@@ -198,12 +198,27 @@ Pearl displays agent metrics in the Performance tab. Agents must write an `agent
 | Field | Type | Description |
 |-------|------|-------------|
 | `timestamp` | integer or null | UNIX timestamp (UTC) of last update. `null` if agent has not run yet. |
-| `metrics` | array | KPI metrics. Recommended: 0–2 items (1 primary, 1 secondary). Each item requires: `name` (string), `is_primary` (boolean), `description` (string or null — HTML allowed, shown as tooltip), `value` (string). |
-| `agent_behavior` | string or null | Free-text description of the agent's current strategy or behavior. |
+| `metrics` | array | KPI metrics. Recommended: 0–2 items (1 primary, 1 secondary). See metric fields below. |
+| `agent_behavior` | string or null | Free-text description of the agent's current strategy or behavior. See display notes below. |
 | `last_activity` | string or null | Include as `null` if unused. |
 | `last_chat_message` | string or null | Include as `null` if unused. |
 
 Additional top-level keys (`agent_details`, `prediction_history`, `profit_over_time`, etc.) are allowed and encouraged for a richer UI experience.
+
+**Metric item fields:**
+
+Each object in the `metrics` array has the following fields:
+
+| Field | Type | Description | Display behavior |
+|-------|------|-------------|-------------------|
+| `name` | string | Short label shown above the value (e.g. `"Total ROI"`, `"Prediction accuracy"`). | No truncation — long names wrap to the next line. **Recommended: ≤ 35 characters** to stay on one line. |
+| `value` | string | The metric value displayed prominently (e.g. `"12%"`, `"$1,234.56"`, `"55.9%"`). | No truncation — long strings wrap across multiple lines. **Recommended: ≤ 20 characters.** Keep values short: numbers, percentages, or compact currency strings. |
+| `is_primary` | boolean | Marks the most important metric(s). | Controls sort order only — items with `is_primary: true` sort to the front. Recommended: mark exactly one item as primary. |
+| `description` | string or null | Optional explanation shown as an info tooltip (ⓘ icon next to the name). HTML is allowed (e.g. `<br>`, `<b>`) and is sanitized before rendering. | No practical length limit since it is a tooltip, but 1–2 sentences keeps it readable. Use `null` to omit the icon. |
+
+**Layout:** metrics are displayed in a two-column grid (each metric occupies 50% of the card width). With two metrics the layout is balanced; with more than two the grid continues to wrap. There is no strict upper limit on the number of metrics, but more than four will feel crowded.
+
+**`agent_behavior` display notes:** rendered as a single-line text block — truncated with `…` if it exceeds the available width. The full text is always accessible as a hover tooltip. Recommended length: 1–2 sentences (roughly 60 characters) so the most important part remains visible without opening the tooltip.
 
 **Example — no activity yet (initial state):**
 ```json
