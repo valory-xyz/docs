@@ -1,6 +1,12 @@
 # Release History - Olas Documentation
 
-## v0.21.13 (2026-03-13)
+## v0.21.13.2 (2026-03-14)
+
+* Add `llms.txt` for AI agent discoverability
+* Updated `mech` to `v0.30.9`
+* Updated `mech-server` to `v0.8.1`
+
+## v0.21.13.1 (2026-03-13)
 
 * Updated `hello-world` to `v0.3.0`
 * Updated `IEKit` to `v0.21.1`
@@ -10,6 +16,11 @@
 * Updated `open-aea` to `v2.1.0`
 * Updated `open-autonomy` to `v0.21.13`
 * Updated the agents integration checklist
+
+## v0.21.13 (2026-03-06)
+
+* Add `CONTRIBUTING.md` file to the repo
+* Add the agents integration checklist
 
 ## v0.21.11 (2026-02-12)
 
