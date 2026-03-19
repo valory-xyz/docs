@@ -92,21 +92,19 @@ To run the AI agent using {{ olas_operate_app }}, follow these steps:
 
 You can build a standalone executable binary of your agent blueprint and use it in place of Docker containers. While the process of creating the binary is at the discretion of the agent blueprint developers, it is essential to adhere to the same specifications outlined in the [requirements](#step-1-build-the-agent-blueprint-supporting-the-following-requirements).
 
-[Here's an example](https://github.com/valory-xyz/agents-fun-eliza/blob/main/docs/binary_building.md) of how to build a binary of an Eliza agent. Note that the process can be different depending on the agent framework used.
+[Here's an example](https://github.com/valory-xyz/langchain_hello_world/blob/v0.1.0/docs/binary_building.md) of how to build a binary of a Langchain agent. Note that the process can be different depending on the agent framework used.
 
 #### 2. Prepare the Github workflow file
 
 Prepare a Github workflow file to build the standalone binary executables of your agent blueprint.
-You may find an example of the Eliza agent's GitHub workflow [here](https://github.com/valory-xyz/agents-fun-eliza/blob/main/.github/workflows/binary_builder.yaml).
+You may find an example of the Langchain agent's GitHub workflow [here](https://github.com/valory-xyz/langchain_hello_world/blob/v0.1.0/.github/workflows/release.yaml).
 
 **Note** Ensure the binaries name follows the format `f"agent_runner_{os_name}_{arch}"`. For example, [here](https://github.com/valory-xyz/trader/releases/tag/v0.27.1) you can find the binaries for the Trader agent blueprint.
 
 #### 3. Contact the Pearl team
 See the [Pearl Integration Guide](../pearl/integration-guide.md) for instructions on adding your agent blueprint to the {{ olas_operate_app }}.
 
-## Agent blueprint examples
-Here you can see the examples of two agent blueprints built with different frameworks:
+## Agent blueprint example
+Here you can see the example of an agent blueprint built with a non open-autonomy framework:
 
 - [Langchain Hello World AI Agent](https://github.com/valory-xyz/langchain_hello_world)
-
-- [Eliza Memeooorr AI Agent](https://github.com/valory-xyz/agents-fun-eliza)

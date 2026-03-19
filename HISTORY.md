@@ -1,5 +1,9 @@
 # Release History - Olas Documentation
 
+## v0.21.13.3 (2026-03-19)
+
+* Updated references from Eliza example agent to Langchain example agent
+
 ## v0.21.13.2 (2026-03-14)
 
 * Add `llms.txt` for AI agent discoverability
