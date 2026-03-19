@@ -90,6 +90,7 @@ class Repo:
 
     name: str
     default_branch: str
+    description: str
 
 
 @dataclass(frozen=True)
@@ -240,6 +241,13 @@ def node_id(repo_name: str) -> str:
     return cleaned
 
 
+def escape_mermaid_text(value: str) -> str:
+    """Escape text for Mermaid quoted strings."""
+
+    # Keep deterministic and ASCII-safe escaping for Mermaid labels/tooltips.
+    return value.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ").strip()
+
+
 def branch_for_repo(client: GitHubClient, org: str, repo: str, verbose: bool = False) -> Optional[str]:
     """Return `main`, else `master`, else None."""
 
@@ -289,9 +297,10 @@ def list_non_archived_repos(client: GitHubClient, org: str, verbose: bool = Fals
                     print(f"[skip] {name}: excluded", file=sys.stderr)
                 continue
             default_branch = item.get("default_branch") or "main"
+            description = item.get("description") or ""
             if not name:
                 continue
-            repos.append(Repo(name=name, default_branch=default_branch))
+            repos.append(Repo(name=name, default_branch=default_branch, description=description))
         page += 1
     repos.sort(key=lambda r: r.name.lower())
     if verbose:
@@ -842,7 +851,7 @@ def render_graph(org: str, contexts: Iterable[RepoContext], edges: Dict[Tuple[st
 
     for ctx in contexts_list:
         nid = name_to_id[ctx.repo.name]
-        label = ctx.repo.name.replace('"', '\\"')
+        label = escape_mermaid_text(ctx.repo.name)
         lines.append(f'    {nid}["{label}"]')
 
     lines.extend(["", "    %% Click events"])
@@ -850,7 +859,9 @@ def render_graph(org: str, contexts: Iterable[RepoContext], edges: Dict[Tuple[st
     for ctx in contexts_list:
         nid = name_to_id[ctx.repo.name]
         repo_url = f"https://github.com/{org}/{ctx.repo.name}"
-        lines.append(f'    click {nid} "{repo_url}" _blank')
+        description = ctx.repo.description.strip() or f"{ctx.repo.name} repository"
+        tooltip = escape_mermaid_text(description)
+        lines.append(f'    click {nid} "{repo_url}" "{tooltip}" _blank')
 
     lines.extend(["", "    %% Dependencies"])
 
