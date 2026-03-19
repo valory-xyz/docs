@@ -5,7 +5,7 @@ This repository aggregates the documentation of all the Olas ecosystem products.
 ## Requirements
 
 * Python >= 3.10
-* [Poetry](https://python-poetry.org/) >= 1.1.12
+* [Poetry](https://python-poetry.org/) >= 2.0.0
 
 ## Usage
 
@@ -25,15 +25,8 @@ poetry run tox -e docs-serve
 
 **Option 2: Activate virtual environment first**
 
-For Poetry 2.0+:
 ```bash
 source $(poetry env info --path)/bin/activate
-tox -e docs-serve
-```
-
-For Poetry 1.x:
-```bash
-poetry shell
 tox -e docs-serve
 ```
 
