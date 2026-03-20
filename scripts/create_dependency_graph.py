@@ -69,6 +69,8 @@ DEPENDENCY_FILE_RE = re.compile(
 )
 REQUIREMENTS_FILE_RE = re.compile(r"(^|/)requirements[^/]*$")
 PACKAGES_FILE_PATH = "packages/packages.json"
+PLUGINS_DIR = "plugins"
+PLUGIN_PATH_RE = re.compile(r"^plugins/[^/]+/")
 
 # Repositories to exclude from the dependency graph
 EXCLUDED_REPOS = {
@@ -101,6 +103,18 @@ class RepoContext:
     branch: str
     aliases: Tuple[str, ...]
     dev_keys: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class Plugin:
+    """A plugin package published separately from within a repository."""
+
+    dir_name: str        # directory name under plugins/
+    package_name: str    # published PyPI name
+    parent_repo: str     # repo that hosts this plugin
+    branch: str
+    aliases: Tuple[str, ...]
+    url: str             # link to plugin directory on GitHub
 
 
 @dataclass(frozen=True)
@@ -308,8 +322,8 @@ def list_non_archived_repos(client: GitHubClient, org: str, verbose: bool = Fals
     return repos
 
 
-def list_dependency_files(client: GitHubClient, org: str, repo: str, branch: str, verbose: bool = False) -> List[str]:
-    """List dependency-oriented files to scan from a repository tree."""
+def get_repo_tree_paths(client: GitHubClient, org: str, repo: str, branch: str, verbose: bool = False) -> List[str]:
+    """Fetch all blob paths from the repo's full recursive tree."""
 
     tree_url = f"{API_BASE}/repos/{org}/{repo}/git/trees/{quote(branch)}?recursive=1"
     try:
@@ -319,11 +333,15 @@ def list_dependency_files(client: GitHubClient, org: str, repo: str, branch: str
             print(f"[skip-tree] {repo}: failed to list tree ({exc.code})", file=sys.stderr)
         return []
     tree = payload.get("tree", []) if isinstance(payload, dict) else []
+    return [entry.get("path", "") for entry in tree if entry.get("type") == "blob"]
+
+
+def list_dependency_files(client: GitHubClient, org: str, repo: str, branch: str, verbose: bool = False) -> List[str]:
+    """List dependency-oriented files to scan from a repository tree."""
+
+    all_paths = get_repo_tree_paths(client, org, repo, branch, verbose=verbose)
     paths: Set[str] = set()
-    for entry in tree:
-        if entry.get("type") != "blob":
-            continue
-        path = entry.get("path", "")
+    for path in all_paths:
         if path == PACKAGES_FILE_PATH:
             paths.add(path)
             continue
@@ -334,6 +352,85 @@ def list_dependency_files(client: GitHubClient, org: str, repo: str, branch: str
         files_str = ", ".join(result)
         print(f"[files] {repo}: found {len(result)} dependency files: {files_str}", file=sys.stderr)
     return result
+
+
+def discover_plugins(
+    client: GitHubClient,
+    org: str,
+    repo_name: str,
+    branch: str,
+    verbose: bool = False,
+) -> List[Plugin]:
+    """Discover plugin packages within a repo's plugins/ directory."""
+
+    all_paths = get_repo_tree_paths(client, org, repo_name, branch, verbose=verbose)
+
+    # Collect setup files per plugin directory: plugins/<dir>/{setup.py,pyproject.toml}
+    plugin_setup_files: Dict[str, List[str]] = {}
+    for path in all_paths:
+        parts = path.split("/")
+        if len(parts) == 3 and parts[0] == PLUGINS_DIR and parts[2] in ("setup.py", "pyproject.toml"):
+            plugin_setup_files.setdefault(parts[1], []).append(path)
+
+    if verbose and plugin_setup_files:
+        print(f"[plugins] {repo_name}: found {len(plugin_setup_files)} plugin directories", file=sys.stderr)
+
+    plugins: List[Plugin] = []
+    for dir_name in sorted(plugin_setup_files):
+        # Prefer setup.py for name extraction (most common pattern in this codebase)
+        ordered = sorted(plugin_setup_files[dir_name], key=lambda p: (0 if p.endswith("setup.py") else 1))
+        package_name: Optional[str] = None
+        for path in ordered:
+            text = get_file_text(client, org, repo_name, branch, path)
+            if text is None:
+                continue
+            if path.endswith("setup.py"):
+                package_name = extract_package_name_from_setup_py(text)
+            elif path.endswith("pyproject.toml"):
+                package_name = extract_package_name_from_pyproject(text)
+            if package_name:
+                break
+
+        if not package_name:
+            package_name = dir_name  # fallback to directory name
+
+        aliases_set = {
+            normalize_alias(dir_name),
+            normalize_alias(package_name),
+            normalize_alias(package_name.replace("-", "_")),
+            normalize_alias(package_name.replace("_", "-")),
+        }
+        plugin_url = f"https://github.com/{org}/{repo_name}/tree/{branch}/{PLUGINS_DIR}/{dir_name}"
+        plugins.append(
+            Plugin(
+                dir_name=dir_name,
+                package_name=package_name,
+                parent_repo=repo_name,
+                branch=branch,
+                aliases=tuple(sorted(aliases_set)),
+                url=plugin_url,
+            )
+        )
+        if verbose:
+            print(f"[plugin] {repo_name}/{PLUGINS_DIR}/{dir_name} -> {package_name}", file=sys.stderr)
+
+    return plugins
+
+
+def discover_all_plugins(
+    client: GitHubClient,
+    org: str,
+    contexts: List[RepoContext],
+    verbose: bool = False,
+) -> List[Plugin]:
+    """Discover all plugin packages across all repository contexts."""
+
+    all_plugins: List[Plugin] = []
+    for ctx in contexts:
+        all_plugins.extend(discover_plugins(client, org, ctx.repo.name, ctx.branch, verbose=verbose))
+    if verbose:
+        print(f"[plugins] discovered {len(all_plugins)} plugins total", file=sys.stderr)
+    return all_plugins
 
 
 def get_file_text(client: GitHubClient, org: str, repo: str, branch: str, path: str) -> Optional[str]:
@@ -647,6 +744,35 @@ def extract_dependencies_from_gitmodules(text: str) -> List[str]:
     return sorted(deps)
 
 
+def extract_package_name_from_setup_py(text: str) -> Optional[str]:
+    """Extract the package's own published name (name= arg to setup()) from setup.py."""
+    match = re.search(r'setup\s*\([^)]*?name\s*=\s*["\']([^"\']+)["\']', text, re.DOTALL)
+    return match.group(1).strip() if match else None
+
+
+def extract_package_name_from_pyproject(text: str) -> Optional[str]:
+    """Extract the package's own published name from pyproject.toml."""
+    if tomllib is None:
+        return None
+    try:
+        data = tomllib.loads(text)
+    except Exception:
+        return None
+    # Poetry format
+    tool = data.get("tool", {}) if isinstance(data, dict) else {}
+    if isinstance(tool, dict) and "poetry" in tool:
+        name = tool["poetry"].get("name") if isinstance(tool["poetry"], dict) else None
+        if name:
+            return str(name)
+    # PEP 621 format
+    project = data.get("project", {}) if isinstance(data, dict) else {}
+    if isinstance(project, dict):
+        name = project.get("name")
+        if name:
+            return str(name)
+    return None
+
+
 def find_alias_mentions(text: str, aliases: Iterable[str]) -> bool:
     """Return True if any alias is found using strict token boundaries."""
 
@@ -662,16 +788,31 @@ def infer_edges_from_mentions(
     client: GitHubClient,
     org: str,
     contexts: Iterable[RepoContext],
+    plugins: Iterable[Plugin],
     verbose: bool,
 ) -> Dict[Tuple[str, str], Evidence]:
     """Infer dependencies by extracting actual dependencies from dependency files."""
 
     contexts_list = list(contexts)
-    alias_map = {ctx.repo.name: set(ctx.aliases) for ctx in contexts_list}
+    plugins_list = list(plugins)
+    # Map each target repo to aliases that can imply dependency on it.
+    # This includes the repo's own aliases and aliases from separately-published plugins
+    # hosted in that repo (e.g. open-aea plugins).
+    target_alias_map: Dict[str, Set[str]] = {
+        ctx.repo.name: set(ctx.aliases) for ctx in contexts_list
+    }
+    for plugin in plugins_list:
+        if plugin.parent_repo in target_alias_map:
+            target_alias_map[plugin.parent_repo].update(plugin.aliases)
+
     edges: Dict[Tuple[str, str], Evidence] = {}
 
     if verbose:
-        print(f"[infer-mentions] scanning {len(contexts_list)} repos for dependencies...", file=sys.stderr)
+        print(
+            f"[infer-mentions] scanning {len(contexts_list)} repos for dependencies "
+            f"({len(plugins_list)} plugin aliases mapped to parent repos)...",
+            file=sys.stderr,
+        )
 
     for idx, source_ctx in enumerate(contexts_list, start=1):
         files = list_dependency_files(client, org, source_ctx.repo.name, source_ctx.branch, verbose=verbose)
@@ -715,22 +856,17 @@ def infer_edges_from_mentions(
             # Normalize dependencies for matching
             file_deps_normalized = {normalize_alias(dep) for dep in file_deps}
             
-            # Check if any target repo's aliases match extracted dependencies
+            # Check against repo targets
             for target_ctx in contexts_list:
                 if target_ctx.repo.name == source_ctx.repo.name:
                     continue
-                target_aliases = alias_map[target_ctx.repo.name]
-                target_aliases_normalized = {normalize_alias(alias) for alias in target_aliases}
-                
-                # Check if there's any intersection
+                target_aliases = target_alias_map[target_ctx.repo.name]
+                target_aliases_normalized = {normalize_alias(a) for a in target_aliases}
                 if not file_deps_normalized.intersection(target_aliases_normalized):
                     continue
-                
-                # Find line number for evidence URL
                 line = first_line_for_alias(text, target_aliases)
                 if line is None:
                     continue
-                
                 url = (
                     f"https://github.com/{org}/{source_ctx.repo.name}/blob/"
                     f"{source_ctx.branch}/{path}#L{line}"
@@ -834,11 +970,15 @@ def merge_edges(*edge_maps: Dict[Tuple[str, str], Evidence]) -> Dict[Tuple[str, 
     return merged
 
 
-def render_graph(org: str, contexts: Iterable[RepoContext], edges: Dict[Tuple[str, str], Evidence]) -> str:
+def render_graph(
+    org: str,
+    contexts: Iterable[RepoContext],
+    edges: Dict[Tuple[str, str], Evidence],
+) -> str:
     """Render deterministic Markdown with Mermaid graph."""
 
     contexts_list = sorted(contexts, key=lambda c: c.repo.name.lower())
-    name_to_id = {ctx.repo.name: node_id(ctx.repo.name) for ctx in contexts_list}
+    name_to_id: Dict[str, str] = {ctx.repo.name: node_id(ctx.repo.name) for ctx in contexts_list}
 
     lines: List[str] = [
         "# Valory-xyz Repository Dependency Graph",
@@ -855,7 +995,7 @@ def render_graph(org: str, contexts: Iterable[RepoContext], edges: Dict[Tuple[st
         lines.append(f'    {nid}["{label}"]')
 
     lines.extend(["", "    %% Click events"])
-    
+
     for ctx in contexts_list:
         nid = name_to_id[ctx.repo.name]
         repo_url = f"https://github.com/{org}/{ctx.repo.name}"
@@ -866,8 +1006,10 @@ def render_graph(org: str, contexts: Iterable[RepoContext], edges: Dict[Tuple[st
     lines.extend(["", "    %% Dependencies"])
 
     for source, target in sorted(edges.keys(), key=lambda item: (item[0].lower(), item[1].lower())):
-        source_id = name_to_id[source]
-        target_id = name_to_id[target]
+        source_id = name_to_id.get(source)
+        target_id = name_to_id.get(target)
+        if source_id is None or target_id is None:
+            continue
         url = edges[(source, target)].url.replace('"', "%22")
         lines.append(
             f'    {source_id} -->|<a href="{url}" target="_blank">Link</a>| {target_id}'
@@ -928,6 +1070,13 @@ def main() -> int:
     if args.verbose:
         print(f"[infer] starting dependency inference...", file=sys.stderr)
 
+    plugins = discover_all_plugins(
+        client=client,
+        org=args.org,
+        contexts=contexts,
+        verbose=args.verbose,
+    )
+
     package_edges = infer_edges_from_packages(
         client=client,
         org=args.org,
@@ -940,6 +1089,7 @@ def main() -> int:
         client=client,
         org=args.org,
         contexts=contexts,
+        plugins=plugins,
         verbose=args.verbose,
     )
     edges = merge_edges(package_edges, mention_edges)

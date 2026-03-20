@@ -139,45 +139,47 @@ flowchart LR
     docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L19" target="_blank">Link</a>| open_aea
     docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/.gitmodules#L1" target="_blank">Link</a>| open_autonomy
     docs -->|<a href="https://github.com/valory-xyz/docs/blob/main/pyproject.toml#L11" target="_blank">Link</a>| tomte
-    funds_manager -->|<a href="https://github.com/valory-xyz/funds-manager/blob/main/packages/packages.json#L7" target="_blank">Link</a>| open_aea
+    funds_manager -->|<a href="https://github.com/valory-xyz/funds-manager/blob/main/pyproject.toml#L56" target="_blank">Link</a>| open_aea
     funds_manager -->|<a href="https://github.com/valory-xyz/funds-manager/blob/main/pyproject.toml#L49" target="_blank">Link</a>| open_autonomy
     funds_manager -->|<a href="https://github.com/valory-xyz/funds-manager/blob/main/pyproject.toml#L88" target="_blank">Link</a>| tomte
+    genai -->|<a href="https://github.com/valory-xyz/genai/blob/main/pyproject.toml#L59" target="_blank">Link</a>| open_aea
     genai -->|<a href="https://github.com/valory-xyz/genai/blob/main/pyproject.toml#L52" target="_blank">Link</a>| open_autonomy
     genai -->|<a href="https://github.com/valory-xyz/genai/blob/main/pyproject.toml#L97" target="_blank">Link</a>| tomte
     hello_world -->|<a href="https://github.com/valory-xyz/hello-world/blob/main/Pipfile#L7" target="_blank">Link</a>| open_aea
-    hello_world -->|<a href="https://github.com/valory-xyz/hello-world/blob/main/Pipfile#L14" target="_blank">Link</a>| open_autonomy
+    hello_world -->|<a href="https://github.com/valory-xyz/hello-world/blob/main/Pipfile#L12" target="_blank">Link</a>| open_autonomy
     hello_world -->|<a href="https://github.com/valory-xyz/hello-world/blob/main/Pipfile#L46" target="_blank">Link</a>| tomte
     IEKit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/packages/packages.json#L39" target="_blank">Link</a>| genai
     IEKit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/packages/packages.json#L49" target="_blank">Link</a>| mech_interact
-    IEKit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/packages/packages.json#L31" target="_blank">Link</a>| open_aea
+    IEKit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/pyproject.toml#L42" target="_blank">Link</a>| open_aea
     IEKit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/pyproject.toml#L35" target="_blank">Link</a>| open_autonomy
     IEKit -->|<a href="https://github.com/valory-xyz/IEKit/blob/main/pyproject.toml#L90" target="_blank">Link</a>| tomte
+    kv_store -->|<a href="https://github.com/valory-xyz/kv-store/blob/main/pyproject.toml#L26" target="_blank">Link</a>| open_aea
     kv_store -->|<a href="https://github.com/valory-xyz/kv-store/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
     kv_store -->|<a href="https://github.com/valory-xyz/kv-store/blob/main/pyproject.toml#L52" target="_blank">Link</a>| tomte
     market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L20" target="_blank">Link</a>| genai
     market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L25" target="_blank">Link</a>| mech_interact
-    market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L11" target="_blank">Link</a>| open_aea
+    market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/pyproject.toml#L25" target="_blank">Link</a>| open_aea
     market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
     market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/pyproject.toml#L54" target="_blank">Link</a>| tomte
     market_creator -->|<a href="https://github.com/valory-xyz/market-creator/blob/main/packages/packages.json#L38" target="_blank">Link</a>| trader
-    mech -->|<a href="https://github.com/valory-xyz/mech/blob/main/packages/packages.json#L19" target="_blank">Link</a>| open_aea
+    mech -->|<a href="https://github.com/valory-xyz/mech/blob/main/pyproject.toml#L26" target="_blank">Link</a>| open_aea
     mech -->|<a href="https://github.com/valory-xyz/mech/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
     mech_agents_fun -->|<a href="https://github.com/valory-xyz/mech-agents-fun/blob/main/packages/packages.json#L21" target="_blank">Link</a>| mech
-    mech_agents_fun -->|<a href="https://github.com/valory-xyz/mech-agents-fun/blob/main/packages/packages.json#L12" target="_blank">Link</a>| open_aea
+    mech_agents_fun -->|<a href="https://github.com/valory-xyz/mech-agents-fun/blob/main/pyproject.toml#L26" target="_blank">Link</a>| open_aea
     mech_agents_fun -->|<a href="https://github.com/valory-xyz/mech-agents-fun/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
     mech_client -->|<a href="https://github.com/valory-xyz/mech-client/blob/main/pyproject.toml#L25" target="_blank">Link</a>| olas_operate_middleware
     mech_client -->|<a href="https://github.com/valory-xyz/mech-client/blob/main/packages/packages.json#L8" target="_blank">Link</a>| open_aea
     mech_client -->|<a href="https://github.com/valory-xyz/mech-client/blob/main/packages/packages.json#L7" target="_blank">Link</a>| open_autonomy
     mech_interact -->|<a href="https://github.com/valory-xyz/mech-interact/blob/main/Pipfile#L25" target="_blank">Link</a>| open_aea
-    mech_interact -->|<a href="https://github.com/valory-xyz/mech-interact/blob/main/Pipfile#L30" target="_blank">Link</a>| open_autonomy
+    mech_interact -->|<a href="https://github.com/valory-xyz/mech-interact/blob/main/Pipfile#L29" target="_blank">Link</a>| open_autonomy
     mech_interact -->|<a href="https://github.com/valory-xyz/mech-interact/blob/main/Pipfile#L31" target="_blank">Link</a>| tomte
     mech_predict -->|<a href="https://github.com/valory-xyz/mech-predict/blob/main/packages/packages.json#L30" target="_blank">Link</a>| mech
-    mech_predict -->|<a href="https://github.com/valory-xyz/mech-predict/blob/main/packages/packages.json#L21" target="_blank">Link</a>| open_aea
+    mech_predict -->|<a href="https://github.com/valory-xyz/mech-predict/blob/main/pyproject.toml#L26" target="_blank">Link</a>| open_aea
     mech_predict -->|<a href="https://github.com/valory-xyz/mech-predict/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
     mech_server -->|<a href="https://github.com/valory-xyz/mech-server/blob/main/packages/packages.json#L8" target="_blank">Link</a>| mech
     mech_server -->|<a href="https://github.com/valory-xyz/mech-server/blob/main/pyproject.toml#L74" target="_blank">Link</a>| mech_client
     mech_server -->|<a href="https://github.com/valory-xyz/mech-server/blob/main/pyproject.toml#L75" target="_blank">Link</a>| olas_operate_middleware
-    mech_server -->|<a href="https://github.com/valory-xyz/mech-server/blob/main/packages/packages.json#L9" target="_blank">Link</a>| open_aea
+    mech_server -->|<a href="https://github.com/valory-xyz/mech-server/blob/main/pyproject.toml#L45" target="_blank">Link</a>| open_aea
     mech_server -->|<a href="https://github.com/valory-xyz/mech-server/blob/main/pyproject.toml#L38" target="_blank">Link</a>| open_autonomy
     meme_ooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/packages/packages.json#L64" target="_blank">Link</a>| funds_manager
     meme_ooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/packages/packages.json#L25" target="_blank">Link</a>| genai
@@ -187,6 +189,7 @@ flowchart LR
     meme_ooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/pyproject.toml#L19" target="_blank">Link</a>| open_autonomy
     meme_ooorr -->|<a href="https://github.com/valory-xyz/meme-ooorr/blob/main/pyproject.toml#L25" target="_blank">Link</a>| tomte
     olas_operate_app -->|<a href="https://github.com/valory-xyz/olas-operate-app/blob/main/pyproject.toml#L13" target="_blank">Link</a>| olas_operate_middleware
+    olas_operate_middleware -->|<a href="https://github.com/valory-xyz/olas-operate-middleware/blob/main/pyproject.toml#L23" target="_blank">Link</a>| open_aea
     olas_operate_middleware -->|<a href="https://github.com/valory-xyz/olas-operate-middleware/blob/main/pyproject.toml#L22" target="_blank">Link</a>| open_autonomy
     olas_sdk_starter -->|<a href="https://github.com/valory-xyz/olas-sdk-starter/blob/main/packages/packages.json#L8" target="_blank">Link</a>| open_aea
     olas_sdk_starter -->|<a href="https://github.com/valory-xyz/olas-sdk-starter/blob/main/Pipfile#L7" target="_blank">Link</a>| open_autonomy
@@ -203,13 +206,14 @@ flowchart LR
     optimus -->|<a href="https://github.com/valory-xyz/optimus/blob/main/pyproject.toml#L27" target="_blank">Link</a>| tomte
     pettai_agent -->|<a href="https://github.com/valory-xyz/pettai-agent/blob/main/olas-sdk-starter/Pipfile#L7" target="_blank">Link</a>| open_aea
     pettai_agent -->|<a href="https://github.com/valory-xyz/pettai-agent/blob/main/olas-sdk-starter/Pipfile#L9" target="_blank">Link</a>| open_aea_cosmpy
+    pettai_agent -->|<a href="https://github.com/valory-xyz/pettai-agent/blob/main/olas-sdk-starter/Pipfile#L13" target="_blank">Link</a>| open_autonomy
     pettai_agent -->|<a href="https://github.com/valory-xyz/pettai-agent/blob/main/olas-sdk-starter/Pipfile#L48" target="_blank">Link</a>| tomte
     propel_client -->|<a href="https://github.com/valory-xyz/propel-client/blob/main/pyproject.toml#L14" target="_blank">Link</a>| open_autonomy
     quickstart -->|<a href="https://github.com/valory-xyz/quickstart/blob/main/pyproject.toml#L13" target="_blank">Link</a>| olas_operate_middleware
     trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L76" target="_blank">Link</a>| funds_manager
     trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L39" target="_blank">Link</a>| genai
     trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L42" target="_blank">Link</a>| mech_interact
-    trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/packages/packages.json#L31" target="_blank">Link</a>| open_aea
+    trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/pyproject.toml#L58" target="_blank">Link</a>| open_aea
     trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/pyproject.toml#L51" target="_blank">Link</a>| open_autonomy
     trader -->|<a href="https://github.com/valory-xyz/trader/blob/main/pyproject.toml#L97" target="_blank">Link</a>| tomte
     triton_bot -->|<a href="https://github.com/valory-xyz/triton-bot/blob/main/pyproject.toml#L12" target="_blank">Link</a>| olas_operate_middleware
