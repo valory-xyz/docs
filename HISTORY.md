@@ -1,5 +1,13 @@
 # Release History - Olas Documentation
 
+## v0.21.19 (2026-04-23)
+
+* Updated `hello-world` to `v0.4.0`
+* Updated `mech` to `v0.31.1`
+* Updated `mech-client` to `v0.20.1`
+* Updated `open-aea` to `v2.2.1`
+* Updated `open-autonomy` to `v0.21.19`
+
 ## v0.21.13.3 (2026-03-19)
 
 * Updated references from Eliza example agent to Langchain example agent
