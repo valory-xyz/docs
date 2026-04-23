@@ -5,9 +5,7 @@
 [![MintKit](../images/mintkit.svg){ align=left width=50}](https://github.com/valory-xyz/agent-academy-1/blob/main/docs/index.md)
 [![CoordinationKit](../images/coordinationkit.svg){ align=left width=50}](https://github.com/valory-xyz/contribution-service/blob/main/docs/index.md)
 [![MLKit](../images/mlkit.svg){ align=left width=50}](https://github.com/valory-xyz/apy-oracle/blob/main/docs/index.md)
-[![OracleKit](../images/oraclekit.svg){ align=left width=50}](https://github.com/valory-xyz/price-oracle/blob/main/docs/index.md)
 <br />
-[![IEKit](../images/iekit.svg){ align=left width=50}](https://github.com/valory-xyz/IEKit/blob/main/docs/index.md)
 [![GovKit](../images/govkit.svg){ align=left width=50}](https://github.com/valory-xyz/governatooorr/blob/main/docs/index.md)
 [![MechKit](../images/mechkit.svg){ align=left width=50}](https://github.com/valory-xyz/mech/blob/main/docs/index.md)
 [![KeeperKit](../images/keeperkit.svg){ align=left width=50}](https://github.com/valory-xyz/agent-academy-2/blob/main/docs/index.md)

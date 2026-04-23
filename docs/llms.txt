@@ -13,7 +13,7 @@ This site documents the technical building blocks of Olas. For higher-level docu
 
 ### Agent Frameworks
 
-- [Demo Autonomous Services](https://stack.olas.network/demos/): Example autonomous services including Hello World and Price Oracle demos.
+- [Demo Autonomous Services](https://stack.olas.network/demos/): Example autonomous services including the Hello World demo.
 - [Open Autonomy Framework](https://stack.olas.network/open-autonomy/): The framework for building autonomous services - multi-agent systems that run off-chain and interact with blockchains.
 - [Open AEA Framework](https://stack.olas.network/open-aea/): The framework for building Autonomous Economic Agents (AEAs) - the building blocks of autonomous services.
 
