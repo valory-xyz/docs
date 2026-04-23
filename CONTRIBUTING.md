@@ -100,8 +100,6 @@ docs/
     ├── mech/
     ├── mech-client/
     ├── mech-server/
-    ├── IEKit/
-    ├── price-oracle/
     └── hello-world/
 ```
 
