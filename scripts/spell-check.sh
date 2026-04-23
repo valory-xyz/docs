@@ -14,5 +14,5 @@ if [ -z "${MDSPELL_PATH}" ]; then
   exit 127
 else
   echo "Found 'mdspell' executable at ${MDSPELL_PATH}"
-  mdspell -r -n -a --en-gb 'docs/**/*.md' '!agent-academy-1/**/*.md' '!apy-oracle/**/*.md' '!autonomous-fund/**/*.md' '!contribution-service/**/*.md' '!open-autonomy/**/*.md' '!price-oracle/**/*.md'
+  mdspell -r -n -a --en-gb 'docs/**/*.md' '!agent-academy-1/**/*.md' '!apy-oracle/**/*.md' '!autonomous-fund/**/*.md' '!contribution-service/**/*.md' '!open-autonomy/**/*.md'
 fi
