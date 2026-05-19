@@ -31,9 +31,6 @@ jobs:
           uv sync --frozen
           sudo npm install -g markdown-spellcheck
 
-      - name: Check submodules' versions
-        run: uv run tox -e check-submodules-versions
-
       - name: Check copyright
         run: uv run tox -e check-copyright
 
@@ -47,3 +44,9 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v9.0.0
         with:
           globs: /docs/*.md # optional, default is *.{md,markdown}
+
+      # Run the submodule version check last so the rest of the suite
+      # still reports on every PR even when a downstream submodule
+      # cuts a new release between bumps.
+      - name: Check submodules' versions
+        run: uv run tox -e check-submodules-versions
