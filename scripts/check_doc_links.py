@@ -72,10 +72,7 @@ URL_SKIPS = [
     "https://rpc.gnosischain.com/",
     "http://127.0.0.1:8716/",
     "http://127.0.0.1:8716/healthcheck",
-    "http://127.0.0.1:8716/funds-status",
-    # Auth-gated Google Drive doc (Accelerator participants only); the
-    # unauthenticated link checker always sees 401 by design.
-    "https://drive.google.com/file/d/1YPe2RFMjf_YPsrldHuwzBHTYwCCy22C8/view",
+    "http://127.0.0.1:8716/funds-status"
 ]
 
 # Define here custom timeouts for some edge cases
