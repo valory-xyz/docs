@@ -168,6 +168,7 @@ ROUND_TIMEOUT
 AbstractRoundBehaviour
 tx
 valory
+Valory-xyz
 tendermint
 xDAI
 service
@@ -390,3 +391,4 @@ unstake
 dialog
 env-var
 env-vars
+
