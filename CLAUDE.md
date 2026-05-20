@@ -13,7 +13,7 @@ This repository aggregates documentation for the Olas Stack site (primary docume
 The documentation is composed of multiple git submodules, each representing a different Olas product:
 
 - **Core Frameworks**: `open-autonomy`, `open-aea`, `open-acn`
-- **Toolkits/Products**: `mech`, `mech-client`, `mech-server`, `IEKit`, `price-oracle`
+- **Toolkits/Products**: `mech`, `mech-client`, `mech-server`
 - **Demos**: `hello-world`
 
 Each submodule contains its own `mkdocs.yml` file that is included in the main `mkdocs.yml` via the `!include` directive from the monorepo plugin.

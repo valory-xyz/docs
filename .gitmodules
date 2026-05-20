@@ -1,12 +1,6 @@
 [submodule "open-autonomy"]
 	path = open-autonomy
 	url = https://github.com/valory-xyz/open-autonomy
-[submodule "price-oracle"]
-	path = price-oracle
-	url = https://github.com/valory-xyz/price-oracle
-[submodule "IEKit"]
-	path = IEKit
-	url = https://github.com/valory-xyz/IEKit
 [submodule "mech"]
 	path = mech
 	url = https://github.com/valory-xyz/mech
