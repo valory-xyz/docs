@@ -550,13 +550,20 @@ def build_repo_contexts(client: GitHubClient, org: str, repos: Iterable[Repo], v
 
 
 def first_line_for_alias(text: str, aliases: Iterable[str]) -> Optional[int]:
-    """Find first line containing any alias using token boundaries."""
+    """Find first non-comment line containing any alias using token boundaries.
+
+    Comment lines (`#`-prefixed, the comment syntax of every dependency-file
+    format scanned here) are skipped so evidence URLs anchor to the actual
+    declaration rather than a comment that merely names the dependency.
+    """
 
     patterns = [
         re.compile(rf"(?<![a-z0-9]){re.escape(alias)}(?![a-z0-9])")
         for alias in aliases
     ]
     for index, line in enumerate(text.splitlines(), start=1):
+        if line.lstrip().startswith("#"):
+            continue
         lowered = line.lower()
         for pattern in patterns:
             if pattern.search(lowered):
@@ -564,16 +571,25 @@ def first_line_for_alias(text: str, aliases: Iterable[str]) -> Optional[int]:
     return None
 
 
-def extract_dependencies_from_toml(text: str) -> List[str]:
-    """Extract dependency package names from pyproject.toml."""
+def extract_dependencies_from_toml(text: str, source: str = "") -> List[str]:
+    """Extract dependency names from pyproject.toml.
+
+    Covers Poetry, PEP 621, PEP 735 dependency groups, and the repository
+    names referenced by `[tool.tomte].upstream_pins`. `source` (e.g.
+    `repo/path`) is used only to label TOML parse errors on stderr.
+    """
     if tomllib is None:
         return []
-    
+
     try:
         data = tomllib.loads(text)
-    except Exception:
+    except Exception as exc:
+        print(
+            f"[parse-fail] {source or 'pyproject.toml'}: invalid TOML ({exc})",
+            file=sys.stderr,
+        )
         return []
-    
+
     deps = set()
     
     # Poetry format
@@ -632,38 +648,19 @@ def extract_dependencies_from_toml(text: str) -> List[str]:
                     if name and name != "python":
                         deps.add(name)
 
-    return sorted(deps)
-
-
-def extract_upstream_pins_from_toml(text: str) -> List[str]:
-    """Extract upstream repository names from `[tool.tomte].upstream_pins`.
-
-    Entries look like `valory-xyz/mech-interact@v0.32.0`; only the repository
-    name is returned. These are explicit cross-repo version pins introduced
-    by uv-era tomte configuration.
-    """
-    if tomllib is None:
-        return []
-    try:
-        data = tomllib.loads(text)
-    except Exception:
-        return []
-
+    # [tool.tomte].upstream_pins: explicit cross-repo version pins. Entries
+    # look like `valory-xyz/mech-interact@v0.32.0`; keep only the repo name.
     tool = data.get("tool", {}) if isinstance(data, dict) else {}
     tomte = tool.get("tomte", {}) if isinstance(tool, dict) else {}
     pins = tomte.get("upstream_pins", []) if isinstance(tomte, dict) else []
-    if not isinstance(pins, list):
-        return []
+    if isinstance(pins, list):
+        for pin in pins:
+            if isinstance(pin, str):
+                repo = pin.split("@")[0].strip().split("/")[-1].strip()
+                if repo:
+                    deps.add(repo)
 
-    repos: Set[str] = set()
-    for pin in pins:
-        if not isinstance(pin, str):
-            continue
-        # Format: [<org>/]<repo>[@<ref>]
-        repo = pin.split("@")[0].strip().split("/")[-1].strip()
-        if repo:
-            repos.add(repo)
-    return sorted(repos)
+    return sorted(deps)
 
 
 def extract_dependencies_from_pipfile(text: str) -> List[str]:
@@ -918,9 +915,9 @@ def infer_edges_from_mentions(
             # Extract dependencies based on file type
             file_deps: List[str] = []
             if path.endswith("pyproject.toml"):
-                file_deps = extract_dependencies_from_toml(text)
-                # [tool.tomte].upstream_pins names valory repos directly.
-                file_deps += extract_upstream_pins_from_toml(text)
+                file_deps = extract_dependencies_from_toml(
+                    text, source=f"{source_ctx.repo.name}/{path}"
+                )
             elif path.endswith("setup.py"):
                 file_deps = extract_dependencies_from_setup_py(text)
             elif path.endswith("package.json"):
