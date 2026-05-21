@@ -22,7 +22,8 @@
 Rules implemented:
 1) List all non-archived repos from the target org.
 2) Infer dependencies from dependency-oriented files when a repo name or package alias
-   (derived from `packages/packages.json` -> `dev` keys) is mentioned.
+   (derived from `packages/packages.json` -> `dev` keys) is mentioned. This includes
+   explicit cross-repo pins under `[tool.tomte].upstream_pins` in `pyproject.toml`.
 3) Infer dependencies from `packages/packages.json` where repo B `third_party` keys
    reference repo A `dev` keys.
 
@@ -244,6 +245,19 @@ def normalize_alias(value: str) -> str:
     """Normalize an alias token for deterministic matching."""
 
     return value.strip().lower().replace("_", "-")
+
+
+def requirement_name(spec: str) -> str:
+    """Extract the bare package name from a PEP 508 requirement string.
+
+    Handles version specifiers, extras (`pkg[extra]`), environment markers
+    (`pkg; python_version < '3.11'`), and PEP 508 direct references
+    (`pkg @ git+https://...`). Returns an empty string if no name is found.
+    """
+
+    head = spec.split(";")[0].split("@")[0]
+    match = re.match(r"\s*([A-Za-z0-9][A-Za-z0-9._-]*)", head)
+    return match.group(1) if match else ""
 
 
 def node_id(repo_name: str) -> str:
@@ -536,13 +550,20 @@ def build_repo_contexts(client: GitHubClient, org: str, repos: Iterable[Repo], v
 
 
 def first_line_for_alias(text: str, aliases: Iterable[str]) -> Optional[int]:
-    """Find first line containing any alias using token boundaries."""
+    """Find first non-comment line containing any alias using token boundaries.
+
+    Comment lines (`#`-prefixed, the comment syntax of every dependency-file
+    format scanned here) are skipped so evidence URLs anchor to the actual
+    declaration rather than a comment that merely names the dependency.
+    """
 
     patterns = [
         re.compile(rf"(?<![a-z0-9]){re.escape(alias)}(?![a-z0-9])")
         for alias in aliases
     ]
     for index, line in enumerate(text.splitlines(), start=1):
+        if line.lstrip().startswith("#"):
+            continue
         lowered = line.lower()
         for pattern in patterns:
             if pattern.search(lowered):
@@ -550,16 +571,25 @@ def first_line_for_alias(text: str, aliases: Iterable[str]) -> Optional[int]:
     return None
 
 
-def extract_dependencies_from_toml(text: str) -> List[str]:
-    """Extract dependency package names from pyproject.toml."""
+def extract_dependencies_from_toml(text: str, source: str = "") -> List[str]:
+    """Extract dependency names from pyproject.toml.
+
+    Covers Poetry, PEP 621, PEP 735 dependency groups, and the repository
+    names referenced by `[tool.tomte].upstream_pins`. `source` (e.g.
+    `repo/path`) is used only to label TOML parse errors on stderr.
+    """
     if tomllib is None:
         return []
-    
+
     try:
         data = tomllib.loads(text)
-    except Exception:
+    except Exception as exc:
+        print(
+            f"[parse-fail] {source or 'pyproject.toml'}: invalid TOML ({exc})",
+            file=sys.stderr,
+        )
         return []
-    
+
     deps = set()
     
     # Poetry format
@@ -572,15 +602,64 @@ def extract_dependencies_from_toml(text: str) -> List[str]:
         if "dev-dependencies" in poetry and isinstance(poetry["dev-dependencies"], dict):
             for key in poetry["dev-dependencies"].keys():
                 deps.add(key)
-    
-    # PEP 621 format
-    if "project" in data and "dependencies" in data["project"]:
-        if isinstance(data["project"]["dependencies"], list):
-            for dep in data["project"]["dependencies"]:
-                pkg_name = dep.split(";")[0].split("[")[0].split("=")[0].split("<")[0].split(">")[0].split("!")[0].split("~")[0].strip()
-                if pkg_name:
-                    deps.add(pkg_name)
-    
+        # Poetry 1.2+ dependency groups: [tool.poetry.group.<name>.dependencies]
+        groups = poetry.get("group")
+        if isinstance(groups, dict):
+            for group in groups.values():
+                if not isinstance(group, dict):
+                    continue
+                group_deps = group.get("dependencies")
+                if isinstance(group_deps, dict):
+                    for key in group_deps.keys():
+                        if key != "python":
+                            deps.add(key)
+
+    # PEP 621 format: [project.dependencies] and [project.optional-dependencies]
+    project = data.get("project")
+    if isinstance(project, dict):
+        project_deps = project.get("dependencies")
+        if isinstance(project_deps, list):
+            for dep in project_deps:
+                if isinstance(dep, str):
+                    name = requirement_name(dep)
+                    if name and name != "python":
+                        deps.add(name)
+        optional = project.get("optional-dependencies")
+        if isinstance(optional, dict):
+            for extra in optional.values():
+                if not isinstance(extra, list):
+                    continue
+                for dep in extra:
+                    if isinstance(dep, str):
+                        name = requirement_name(dep)
+                        if name and name != "python":
+                            deps.add(name)
+
+    # PEP 735 dependency groups: top-level [dependency-groups] (used by uv)
+    dependency_groups = data.get("dependency-groups")
+    if isinstance(dependency_groups, dict):
+        for group in dependency_groups.values():
+            if not isinstance(group, list):
+                continue
+            for item in group:
+                # String entries are requirements; dicts are {include-group: ...}.
+                if isinstance(item, str):
+                    name = requirement_name(item)
+                    if name and name != "python":
+                        deps.add(name)
+
+    # [tool.tomte].upstream_pins: explicit cross-repo version pins. Entries
+    # look like `valory-xyz/mech-interact@v0.32.0`; keep only the repo name.
+    tool = data.get("tool", {}) if isinstance(data, dict) else {}
+    tomte = tool.get("tomte", {}) if isinstance(tool, dict) else {}
+    pins = tomte.get("upstream_pins", []) if isinstance(tomte, dict) else []
+    if isinstance(pins, list):
+        for pin in pins:
+            if isinstance(pin, str):
+                repo = pin.split("@")[0].strip().split("/")[-1].strip()
+                if repo:
+                    deps.add(repo)
+
     return sorted(deps)
 
 
@@ -836,7 +915,9 @@ def infer_edges_from_mentions(
             # Extract dependencies based on file type
             file_deps: List[str] = []
             if path.endswith("pyproject.toml"):
-                file_deps = extract_dependencies_from_toml(text)
+                file_deps = extract_dependencies_from_toml(
+                    text, source=f"{source_ctx.repo.name}/{path}"
+                )
             elif path.endswith("setup.py"):
                 file_deps = extract_dependencies_from_setup_py(text)
             elif path.endswith("package.json"):
