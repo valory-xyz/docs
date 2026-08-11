@@ -1,0 +1,8 @@
+# Served at https://stack.olas.network/robots.txt
+# Without this file the request falls through to the 404 page, which returns a
+# ~267 KB HTML document where crawlers expect a small text file.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://stack.olas.network/sitemap.xml
