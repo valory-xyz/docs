@@ -1,5 +1,20 @@
 # Release History - Olas Documentation
 
+## v0.21.26 (2026-08-11)
+
+* Added a repository dependency graph page
+* Added `robots.txt` so crawlers do not hit the 404 page
+* Migrated the build tooling from Poetry to uv
+* Updated `mech` to `v0.34.4`
+* Updated `mech-client` to `v0.21.3`
+* Updated `mech-server` to `v0.8.5`
+* Updated `open-aea` to `v2.2.9`
+* Updated `open-autonomy` to `v0.21.26`
+
+## v0.21.19.1 (2026-04-23)
+
+* Removed the `IEKit` and `price-oracle` submodules
+
 ## v0.21.19 (2026-04-23)
 
 * Updated `hello-world` to `v0.4.0`
