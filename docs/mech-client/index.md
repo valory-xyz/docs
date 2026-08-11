@@ -65,7 +65,7 @@ pip install mech-client
 
     **b.** Copy this key in the file `ethereum_private_key.txt`.
 
-**3.** Create an API key for the network you want to use. For instance, follow the steps described [here](https://docs.gnosisscan.io/getting-started/viewing-api-usage-statistics#creating-an-api-key) for Gnosis. Then use the following:
+**3.** Create an API key for the network you want to use. For instance, follow the steps described [here](https://docs.etherscan.io/getting-started) for Gnosis. Then use the following:
 
 ```
 export MECHX_API_KEY=<api_key>
