@@ -1,5 +1,13 @@
 # Release History - Olas Documentation
 
+## v0.21.29 (2026-10-16)
+
+* Documented Know Your Agent (KYA): how a Mech operator publishes who runs it and proves the domain (`mech-server`), and how a user reads a Mech's report before paying (`mech-client`)
+* Updated `mech` to `v0.35.9`
+* Updated `mech-client` to `v0.24.0` plus the KYA report docs
+* Updated `mech-server` to `v0.8.6`
+* Updated `open-autonomy` to `v0.21.29`
+
 ## v0.21.26 (2026-08-11)
 
 * Added a repository dependency graph page
