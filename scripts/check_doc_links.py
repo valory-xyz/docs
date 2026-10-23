@@ -72,7 +72,8 @@ URL_SKIPS = [
     "https://rpc.gnosischain.com/",
     "http://127.0.0.1:8716/",
     "http://127.0.0.1:8716/healthcheck",
-    "http://127.0.0.1:8716/funds-status"
+    "http://127.0.0.1:8716/funds-status",
+    "https://cwe.mitre.org/top25/",  # connect timeouts from CI runners
 ]
 
 # Define here custom timeouts for some edge cases

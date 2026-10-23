@@ -1,5 +1,10 @@
 # Release History - Olas Documentation
 
+## v0.21.29.1 (2026-10-23)
+
+* Bumped `uv` to `0.13.4` and relocked `certifi` to `2026.10.23`, dropping the compromised eMudhra intermediates from the build's trust stores
+* Skipped `cwe.mitre.org/top25` in the doc link check, as it times out from CI runners
+
 ## v0.21.29 (2026-10-16)
 
 * Documented Know Your Agent (KYA): how a Mech operator publishes who runs it and proves the domain (`mech-server`), and how a user reads a Mech's report before paying (`mech-client`)

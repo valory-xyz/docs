@@ -29,7 +29,7 @@ jobs:
           python-version: '3.10'
       - uses: astral-sh/setup-uv@v6
         with:
-          version: "0.11.15"
+          version: "0.13.4"
 
       - name: Sub-modules
         run: git submodule update --init --recursive
