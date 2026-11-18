@@ -1,5 +1,13 @@
 # Release History - Olas Documentation
 
+## v0.21.31 (2026-11-18)
+
+* Documented that `mech-client` on Base and Polygon now needs `MECHX_MARKETPLACE_BASE_SQUID_URL` / `MECHX_MARKETPLACE_POLYGON_SQUID_URL`, as only Gnosis, Optimism and Robinhood have default indexer URLs
+* Updated `mech` to `v0.36.2`
+* Updated `mech-client` to `v0.26.0`
+* Updated `open-aea` to `v2.2.10`
+* Updated `open-autonomy` to `v0.21.31`
+
 ## v0.21.29.1 (2026-10-23)
 
 * Bumped `uv` to `0.13.4` and relocked `certifi` to `2026.10.23`, dropping the compromised eMudhra intermediates from the build's trust stores
