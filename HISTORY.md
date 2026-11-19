@@ -3,7 +3,7 @@
 ## v0.21.31 (2026-11-18)
 
 * Documented that `mech-client` on Base and Polygon now needs `MECHX_MARKETPLACE_BASE_SQUID_URL` / `MECHX_MARKETPLACE_POLYGON_SQUID_URL`, as only Gnosis, Optimism and Robinhood have default indexer URLs
-* Updated `mech` to `v0.36.2`
+* Updated `mech` to `v0.36.4`
 * Updated `mech-client` to `v0.26.0`
 * Updated `open-aea` to `v2.2.10`
 * Updated `open-autonomy` to `v0.21.31`
